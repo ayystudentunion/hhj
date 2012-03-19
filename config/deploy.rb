@@ -5,6 +5,7 @@ set :repository,  "git@github.com:leonidas/halloped.git"
 set :user, "leonidas"
 
 set :deploy_to, "/home/#{user}/#{application}"
+set :use_sudo, false
 
 ssh_options[:forward_agent] = true
 
