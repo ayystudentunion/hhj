@@ -1,17 +1,10 @@
-loadGreetings = () ->
-  $.get("/api/greetings", (data) ->
-    greetings = _(data).map(
-      (g) -> "<li>#{g.text}</li>"
-    ).join("")
-    $("#greetings").html(greetings)
-  )
+$(document).ready ->
+  $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit").uniform()
 
-jQuery ->
-  $("#create_greeting").submit (event) ->
-    $.post(
-      "/api/greetings",
-      $(this).serialize(),
-      (data) -> loadGreetings()
-    )
-    false
-  loadGreetings()
+  $("#sidebar a.create-new-organ").click () ->
+    $("#create-new-organ").fadeIn('fast')
+    return false
+
+  $("#create-new-organ a.close-modal").click () ->
+    $("#create-new-organ").fadeOut('fast')
+    return false

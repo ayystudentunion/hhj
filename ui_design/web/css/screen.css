@@ -1,22 +1,16 @@
 /* FONT FAMILIES */
 /* COLORS */
 /* FUNCTIONS */
-/* FORM ELEMENT STYLES */
-input.field {
-  width: 148px;
-  height: 24px;
-  border: 1px solid #cacaca;
-  -moz-box-shadow: inset 0 3px 5px #f3f3f3;
-  -webkit-box-shadow: inset 0 3px 5px #f3f3f3;
-  -o-box-shadow: inset 0 3px 5px #f3f3f3;
-  -ms-box-shadow: inset 0 3px 5px #f3f3f3;
-  box-shadow: inset 0 3px 5px #f3f3f3;
-  padding: 0 6px;
-  margin-right: 8px;
+/* TEXT STYLES */
+h2 {
+  font-size: 16px;
+  line-height: 19px;
+  margin: 6px 0 4px 0;
 }
-label.field-label {
+p {
   font-size: 13px;
-  text-shadow: 0 1px 0 #fff;
+  line-height: 17px;
+  margin: 2px 0 4px 0;
 }
 /* LAYOUT COMPONENT STYLES */
 #content-wrap {
@@ -29,7 +23,7 @@ label.field-label {
 #content,
 #footer,
 #sidebar {
-  font-family: Helvetica, Arial, Sans-Serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #333;
   font-size: 13px;
 }
@@ -61,18 +55,29 @@ label.field-label {
   font-size: 36px;
   text-shadow: 0 1px 0 #fff;
 }
-#header #header-content .login-form {
+#header #header-content .login-info {
+  width: 240px;
+  height: 90px;
   position: absolute;
-  top: 32px;
+  top: 14px;
   right: 0;
-  margin: auto 0;
 }
-#header #header-content .login-form label {
-  display: block;
-  margin: 0 0 4px 1px;
+#header #header-content .login-info .login-name {
+  width: 210px;
+  display: inline-block;
+  text-shadow: 0 1px 0 #fff;
+  line-height: 17px;
+  margin-top: 28px;
 }
-#header #header-content .login-form input.submit-btn {
-  margin-left: -2px;
+#header #header-content .login-info a.login-btn {
+  display: inline-block;
+  width: 30px;
+  height: 31px;
+  margin-bottom: -3px;
+  background: url("../img/login-btn.png") no-repeat left top;
+}
+#header #header-content .login-info a.login-btn:hover {
+  background: url("../img/login-btn.png") no-repeat left bottom;
 }
 #navi {
   width: 100%;
@@ -122,7 +127,7 @@ label.field-label {
 }
 #navi #navi-content form.search .search-field {
   width: 100%;
-  margin-top: 7px;
+  margin-top: 5px;
 }
 #page-content {
   width: 960px;
@@ -226,16 +231,12 @@ label.field-label {
   background-image: -ms-linear-gradient(bottom, #f0f0f0 0%, #fff 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f0f0f0), color-stop(1, #fff));
 }
-#page-content .tabs-container .tab-content p {
-  line-height: 17px;
-  margin: 2px 0 4px 0;
-}
 #page-content .tabs-container .tab-content .article {
   margin-bottom: 30px;
 }
 #page-content .tabs-container .tab-content .article h2 {
-  font-size: 18px;
-  margin: 8px 0 6px 0;
+  font-size: 16px;
+  margin: 6px 0 4px 0;
 }
 #page-content .tabs-container .tab-content .article h2 a {
   color: #333;
@@ -399,4 +400,125 @@ label.field-label {
 }
 #page-content .sidebar-content .profile-info .info-content a.edit-btn:hover {
   background: url("../img/edit-btn.png") no-repeat left bottom;
+}
+/* MODAL STYLES */
+.modal {
+  position: fixed;
+  top: 192px;
+  margin-left: 131px;
+  width: 558px;
+  background: rgba(46,46,46,0.30);
+  padding: 10px;
+  border-radius: 10px;
+}
+.modal .content {
+  padding: 14px;
+  background-color: #fff;
+  background-image: linear-gradient(bottom, #f0f0f0 0%, #fff 100%);
+  background-image: -o-linear-gradient(bottom, #f0f0f0 0%, #fff 100%);
+  background-image: -moz-linear-gradient(bottom, #f0f0f0 0%, #fff 100%);
+  background-image: -webkit-linear-gradient(bottom, #f0f0f0 0%, #fff 100%);
+  background-image: -ms-linear-gradient(bottom, #f0f0f0 0%, #fff 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f0f0f0), color-stop(1, #fff));
+}
+.modal .content h2 a.close-modal {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: url("../img/remove-icon.png") no-repeat left top;
+  float: right;
+  margin-top: 1px;
+}
+.modal .content h2 a.close-modal:hover {
+  background: url("../img/remove-icon.png") no-repeat left bottom;
+}
+#create-new-organ {
+  display: none;
+}
+/* FORM ELEMENT STYLES */
+input.field {
+  height: 28px;
+}
+label.field-label {
+  display: block;
+  font-size: 13px;
+  text-shadow: 0 1px 0 #fff;
+  margin-bottom: 6px;
+}
+input.wide,
+textarea.wide {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+textarea.wide {
+  margin-top: 0;
+  height: 120px;
+  resize: none;
+}
+input.half {
+  width: 260px;
+  margin-bottom: 14px;
+}
+.inline-block {
+  display: inline-block;
+  width: 260px;
+  margin: 0 10px 14px 0;
+}
+.inline-block input {
+  width: 100%;
+}
+.no-margin {
+  margin-right: 0;
+}
+.button-row {
+  width: 100%;
+  clear: both;
+  text-align: right;
+}
+.button-row a.submit-btn,
+.button-row a.cancel-btn {
+  height: 28px;
+  line-height: 27px;
+  border: 1px solid #cacaca;
+  display: inline-block;
+  background-color: #fff;
+  background-image: linear-gradient(bottom, #f0f0f0 0%, #fff 100%);
+  background-image: -o-linear-gradient(bottom, #f0f0f0 0%, #fff 100%);
+  background-image: -moz-linear-gradient(bottom, #f0f0f0 0%, #fff 100%);
+  background-image: -webkit-linear-gradient(bottom, #f0f0f0 0%, #fff 100%);
+  background-image: -ms-linear-gradient(bottom, #f0f0f0 0%, #fff 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f0f0f0), color-stop(1, #fff));
+  padding: 0 13px;
+  color: #505050;
+  margin-left: 3px;
+}
+.button-row a.submit-btn:hover {
+  background-color: #f0f0f0;
+  background-image: linear-gradient(bottom, #fff 0%, #f0f0f0 100%);
+  background-image: -o-linear-gradient(bottom, #fff 0%, #f0f0f0 100%);
+  background-image: -moz-linear-gradient(bottom, #fff 0%, #f0f0f0 100%);
+  background-image: -webkit-linear-gradient(bottom, #fff 0%, #f0f0f0 100%);
+  background-image: -ms-linear-gradient(bottom, #fff 0%, #f0f0f0 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fff), color-stop(1, #f0f0f0));
+  color: #333;
+}
+.button-row a.cancel-btn {
+  background-color: #f0f0f0;
+  background-image: linear-gradient(bottom, #dcdcdc 0%, #f0f0f0 100%);
+  background-image: -o-linear-gradient(bottom, #dcdcdc 0%, #f0f0f0 100%);
+  background-image: -moz-linear-gradient(bottom, #dcdcdc 0%, #f0f0f0 100%);
+  background-image: -webkit-linear-gradient(bottom, #dcdcdc 0%, #f0f0f0 100%);
+  background-image: -ms-linear-gradient(bottom, #dcdcdc 0%, #f0f0f0 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dcdcdc), color-stop(1, #f0f0f0));
+}
+.button-row a.cancel-btn:hover {
+  background-color: #dcdcdc;
+  background-image: linear-gradient(bottom, #f0f0f0 0%, #dcdcdc 100%);
+  background-image: -o-linear-gradient(bottom, #f0f0f0 0%, #dcdcdc 100%);
+  background-image: -moz-linear-gradient(bottom, #f0f0f0 0%, #dcdcdc 100%);
+  background-image: -webkit-linear-gradient(bottom, #f0f0f0 0%, #dcdcdc 100%);
+  background-image: -ms-linear-gradient(bottom, #f0f0f0 0%, #dcdcdc 100%);
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f0f0f0), color-stop(1, #dcdcdc));
+  color: #333;
 }

@@ -1,24 +1,12 @@
-(function() {
-  var loadGreetings;
 
-  loadGreetings = function() {
-    return $.get("/api/greetings", function(data) {
-      var greetings;
-      greetings = _(data).map(function(g) {
-        return "<li>" + g.text + "</li>";
-      }).join("");
-      return $("#greetings").html(greetings);
-    });
-  };
-
-  jQuery(function() {
-    $("#create_greeting").submit(function(event) {
-      $.post("/api/greetings", $(this).serialize(), function(data) {
-        return loadGreetings();
-      });
+  $(document).ready(function() {
+    $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit").uniform();
+    $("#sidebar a.create-new-organ").click(function() {
+      $("#create-new-organ").fadeIn('fast');
       return false;
     });
-    return loadGreetings();
+    return $("#create-new-organ a.close-modal").click(function() {
+      $("#create-new-organ").fadeOut('fast');
+      return false;
+    });
   });
-
-}).call(this);
