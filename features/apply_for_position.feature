@@ -1,3 +1,4 @@
+@ignore
 Feature: Applying for a position
 
   Background:

@@ -1,3 +1,4 @@
+@ignore
 Feature: Creating new call for applications for organ
 
   Background:
