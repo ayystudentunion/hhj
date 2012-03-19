@@ -7,4 +7,4 @@ Feature: Creating new call for applications for organ
 
   Scenario:
     When I press 'Avaa uusi paikkahaku'
-    And
+
