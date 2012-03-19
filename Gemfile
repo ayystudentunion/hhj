@@ -5,7 +5,8 @@ gem 'rails', '3.2.2'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem "mongoid", "~> 2.4"
+gem "bson_ext", "~> 1.5"
 
 
 # Gems used only for assets and not required
