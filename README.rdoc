@@ -17,5 +17,6 @@ Clone the Halloped Project Repository
 Install Gem Dependencies
 
   cd halloped
+  gem install bundler
   bundle install
 
