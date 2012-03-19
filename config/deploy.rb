@@ -1,6 +1,10 @@
+require "bundler/capistrano"
+
 set :application, "halloped"
 set :repository,  "git@github.com:leonidas/halloped.git"
 set :user, "leonidas"
+
+set :deploy_to, "/home/#{user}/#{application}"
 
 ssh_options[:forward_agent] = true
 
