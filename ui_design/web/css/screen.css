@@ -129,30 +129,33 @@ p {
   width: 100%;
   margin-top: 5px;
 }
-#page-content {
-  width: 960px;
-  margin: 0 auto;
-}
 #sidebar {
   width: 240px;
   height: 100px;
   position: absolute;
   right: 0;
-  top: 20px;
+  top: 14px;
 }
 #footer {
   width: 100%;
   height: 40px;
   background: #dadada;
-  line-height: 38px;
   text-align: center;
   text-shadow: 0 1px 0 #fff;
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
+}
+#footer p {
+  line-height: 38px;
+}
+.clear {
+  clear: both;
 }
 /* CONTENT STYLES */
 #page-content {
-  padding: 0 0 30px 0;
+  width: 960px;
+  margin: 0 auto;
+  padding-bottom: 70px;
   position: relative;
 }
 #page-content .breadcrumb ul.breadcrumb-list {
@@ -175,10 +178,13 @@ p {
 #page-content .tabs-container {
   width: 700px;
   margin-bottom: 40px;
+  position: relative;
 }
 #page-content .tabs-container .tabs {
   width: 140px;
-  display: inline-block;
+  vertical-align: top;
+  clear: left;
+  float: left;
 }
 #page-content .tabs-container .tabs ul.tabs-list li {
   width: 139px;
@@ -220,8 +226,8 @@ p {
   width: 530px;
   padding: 12px 14px 0 14px;
   border: 1px solid #cacaca;
-  display: inline-block;
   vertical-align: top;
+  float: right;
   text-shadow: 0 1px 0 #fff;
   background-color: #fff;
   background-image: linear-gradient(bottom, #f0f0f0 0%, #fff 100%);
@@ -375,8 +381,8 @@ p {
 }
 #page-content .sidebar-content .profile-info .info-content .avatar {
   display: inline-block;
-  width: 80px;
-  height: 80px;
+  width: 50px;
+  height: 50px;
   background: #ccc;
   margin-right: 8px;
 }
@@ -385,6 +391,7 @@ p {
   display: inline-block;
   vertical-align: top;
   line-height: 17px;
+  margin-top: 0;
 }
 #page-content .sidebar-content .profile-info .info-content a.edit-btn {
   display: inline-block;
@@ -396,7 +403,6 @@ p {
   text-align: center;
   color: #fff;
   float: right;
-  margin-top: -24px;
 }
 #page-content .sidebar-content .profile-info .info-content a.edit-btn:hover {
   background: url("../img/edit-btn.png") no-repeat left bottom;
