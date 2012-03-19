@@ -1,0 +1,145 @@
+/* FONT FAMILIES */
+/* COLORS */
+/* FUNCTIONS */
+/* FORM ELEMENT STYLES */
+input.field {
+  width: 148px;
+  height: 24px;
+  border: 1px solid #cacaca;
+  -moz-box-shadow: inset 0 3px 5px #f3f3f3;
+  -webkit-box-shadow: inset 0 3px 5px #f3f3f3;
+  -o-box-shadow: inset 0 3px 5px #f3f3f3;
+  -ms-box-shadow: inset 0 3px 5px #f3f3f3;
+  box-shadow: inset 0 3px 5px #f3f3f3;
+  padding: 0 6px;
+  margin-right: 8px;
+}
+label.field-label {
+  font-size: 13px;
+  text-shadow: 0 1px 0 #fff;
+}
+/* LAYOUT COMPONENT STYLES */
+#content-wrap {
+  width: 100%;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -40px;
+}
+#header,
+#navi,
+#content,
+#footer {
+  font-family: Helvetica, Arial, Sans-Serif;
+  color: #333;
+}
+#header {
+  width: 100%;
+  height: 120px;
+  background: #dadada;
+}
+#header #header-content {
+  width: 960px;
+  height: 120px;
+  margin: 0 auto;
+  position: relative;
+}
+#header #header-content .logo {
+  width: 140px;
+  height: 90px;
+  background: #bababa;
+  position: absolute;
+  top: 14px;
+  left: 0;
+}
+#header #header-content .headline {
+  height: 36px;
+  display: inline-block;
+  position: absolute;
+  top: 40px;
+  left: 164px;
+  font-size: 36px;
+  text-shadow: 0 1px 0 #fff;
+}
+#header #header-content .login-form {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  margin: auto 0;
+}
+#header #header-content .login-form label {
+  display: block;
+  margin: 0 0 4px 1px;
+}
+#header #header-content .login-form input.submit-btn {
+  margin-left: -2px;
+}
+#navi {
+  width: 100%;
+  height: 40px;
+  background: #eaeaea;
+  margin-top: 1px;
+}
+#navi #navi-content {
+  width: 960px;
+  height: 40px;
+  margin: 0 auto;
+  position: relative;
+}
+#navi #navi-content ul.navi-links {
+  position: absolute;
+  left: 0;
+}
+#navi #navi-content ul.navi-links li {
+  float: left;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 0;
+  margin: 0 0 0 -1px;
+}
+#navi #navi-content ul.navi-links li a {
+  font-size: 16px;
+  padding: 10px 20px;
+  line-height: 40px;
+  text-decoration: none;
+  color: #333;
+}
+#navi #navi-content ul.navi-links li a.home {
+  display: block;
+  padding: 0;
+  margin: 9px 20px;
+  width: 24px;
+  height: 22px;
+  background: url("../img/navi-home.png") no-repeat;
+}
+#navi #navi-content ul.navi-links li:hover {
+  background: #ccc;
+}
+#navi #navi-content form.search {
+  width: 240px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+}
+#navi #navi-content form.search .search-field {
+  width: 100%;
+  margin-top: 7px;
+}
+#page-content {
+  width: 960px;
+  margin: 0 auto;
+}
+#footer {
+  width: 100%;
+  height: 40px;
+  background: #dadada;
+  font-size: 13px;
+  line-height: 38px;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+}
+#footer,
+#push {
+  height: 40px;
+}
+/* DOCUMENT STYLES */
