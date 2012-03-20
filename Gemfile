@@ -8,6 +8,7 @@ gem 'rails', '3.2.2'
 gem 'mongoid', '>= 2.4'
 gem 'bson_ext', '>= 1.5'
 gem 'mongoid_rails_migrations', '>= 0.0.13'
+gem 'therubyracer'
 
 
 # Gems used only for assets and not required
@@ -19,7 +20,6 @@ group :assets do
   gem 'slim'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
 end
