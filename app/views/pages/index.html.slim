@@ -3,11 +3,11 @@ html
   head
     title Halloped
     = stylesheet_link_tag "reset"
-    = stylesheet_link_tag "uniform.default"
     = stylesheet_link_tag "screen"
-    = javascript_include_tag "pages"
+    = stylesheet_link_tag "uniform.default"
     = javascript_include_tag "jquery-1.6.4.min"
     = javascript_include_tag "jquery.uniform.min"
+    = javascript_include_tag "pages"
     = csrf_meta_tags
     meta(http-equiv='Content-Type'
       content='text/html; charset=UTF-8')
@@ -38,12 +38,15 @@ html
             input.field.search-field(type='text' placeholder='Hae ...')
       div#content
         div#page-content
-          = render "organs"
+          = render "single-organ"
           = render "sidebar"
           div.clear
 
           .modal#create-new-organ
             = render "create-new-organ"
+
+          .modal#call-for-application
+            = render "call-for-application"
 
       div#footer
         p Copyright 2012 Halloped.fi

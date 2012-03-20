@@ -1,5 +1,6 @@
 .content
-  h2 Avaa uusi paikkahaku toimielimelle
+  h2
+    | Avaa uusi paikkahaku toimielimelle
     a.close-modal(href='#')
   form.application-workflow
     select
@@ -14,24 +15,25 @@
     label.inline-label Varsinaista jäsentä
     input.field.small(type='text')
     label.inline-label Varajäsentä
-    a.add-members.btn(href='#') Lisää kiintiöjäseniä
+    a.add-members.btn(href='#')
+      | Lisää kiintiöjäseniä
       span.plus-icon
     label.field-label Haun avaamispäivämäärä:
-    input.field.half.datepicker(type='text', placeholder='Aseta aika')
+    input.field.half.datepicker(type='text' placeholder='Aseta aika')
     .inline-block
       label.field-label Haun alkamispäivämäärä:
-      input.field.datepicker(type='text', placeholder='Aseta aika')
+      input.field.datepicker(type='text' placeholder='Aseta aika')
     .inline-block.no-margin
       label.field-label Haun päättymispäivämäärä:
-      input.field.datepicker(type='text', placeholder='Aseta aika')
+      input.field.datepicker(type='text' placeholder='Aseta aika')
     .inline-block
       label.field-label Toimikauden alkamisaika:
-      input.field.datepicker(type='text', placeholder='Aseta aika')
+      input.field.datepicker(type='text' placeholder='Aseta aika')
     .inline-block.no-margin
       label.field-label Toimikauden päättymisaika:
-      input.field.datepicker(type='text', placeholder='Aseta aika')
-    input.field.wide(type='text', placeholder='Päätöksenteon paikka ja ajankohta')
-    textarea.wide(type='textarea', placeholder='Kuvaus hallopedin työnkuvasta')
+      input.field.datepicker(type='text' placeholder='Aseta aika')
+    input.field.wide(type='text' placeholder='Päätöksenteon paikka ja ajankohta')
+    textarea.wide(type='textarea' placeholder='Kuvaus hallopedin työnkuvasta')
     select
       option(value='') Valitse lomakepohja
       option(value='lomake') Joku lomake

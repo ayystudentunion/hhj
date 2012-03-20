@@ -12,3 +12,11 @@ $(document).ready ->
   $("#create-new-organ a.close-modal").click () ->
     $("#create-new-organ").fadeOut('fast')
     return false
+
+  $("#single-organ a.application-call").click () ->
+    $("#call-for-application").fadeIn('fast')
+    return false
+
+  $("#call-for-application a.close-modal").click () ->
+    $("#call-for-application").fadeOut('fast')
+    return false
