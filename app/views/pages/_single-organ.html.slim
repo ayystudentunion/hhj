@@ -25,10 +25,17 @@ div#single-organ
             a(href='#') Toimielimen nimi
             span.date muokattu 23.4.2012
             a.edit-icon(href='#')
-          p
+          p.organisation-unit
+            span.label Organisaatioyksikkö:
+            | Aalto Yliopisto - Kauppakorkeakoulu
+          p.term
+            span.label Toimikausi:
+            | 12.4.2012 - 12.10.2012
+          p.person-in-charge
+            span.label Vastuuhenkilö:
+            span.name Tuula Hellaakoski
+          p.description
             | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus. Donec ultricies nisl ut felis, suspendisse potenti.
-          p
-            | Lorem ipsum ligula ut hendrerit mollis, ipsum erat vehicula risus, eu suscipit sem libero nec erat. Aliquam erat volutpat. Sed congue augue vitae neque. Nulla consectetuer porttitor pede. Fusce purus morbi tortor magna condimentum vel, placerat id blandit sit amet tortor.
         em
           | Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
         a.application-call.btn(href='#') Avaa uusi paikkahaku
@@ -100,20 +107,24 @@ div#single-organ
             div.avatar
             a.remove-member(href='#')
             p
-              span.name Eija Zitting
+              a.name(href='#') Eija Zitting
               br
               span.email eija.zitting@ayy.fi
-              br
-              span.position Jäsenen toimenkuva
+            .status-buttons
+              a.status.btn.active(href='#') Jäsen
+              a.status.btn(href='#') Varajäsen
+              a.status.btn(href='#') Kiintiö
           .member-card.no-margin
             div.avatar
             a.remove-member(href='#')
             p
-              span.name Eija Zitting
+              a.name(href='#') Eija Zitting
               br
               span.email eija.zitting@ayy.fi
-              br
-              span.position Jäsenen toimenkuva
+            .status-buttons
+              a.status.btn.active(href='#') Jäsen
+              a.status.btn(href='#') Varajäsen
+              a.status.btn(href='#') Kiintiö
 
           .hr
 
@@ -126,20 +137,24 @@ div#single-organ
             div.avatar
             a.remove-member(href='#')
             p
-              span.name Eija Zitting
+              a.name(href='#') Eija Zitting
               br
               span.email eija.zitting@ayy.fi
-              br
-              span.position Jäsenen toimenkuva
+            .status-buttons
+              a.status.btn.active(href='#') Jäsen
+              a.status.btn(href='#') Varajäsen
+              a.status.btn(href='#') Kiintiö
           .member-card.no-margin
             div.avatar
             a.remove-member(href='#')
             p
-              span.name Eija Zitting
+              a.name(href='#') Eija Zitting
               br
               span.email eija.zitting@ayy.fi
-              br
-              span.position Jäsenen toimenkuva
+            .status-buttons
+              a.status.btn.active(href='#') Jäsen
+              a.status.btn(href='#') Varajäsen
+              a.status.btn(href='#') Kiintiö
         form.add-members
           input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia')
         .button-row
