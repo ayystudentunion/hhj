@@ -174,6 +174,13 @@ a:hover
 .clear
   clear both
 
+.hr
+  width 558px
+  height 0px
+  border-bottom 1px solid #FFF
+  border-top 1px solid #cacaca
+  margin 20px 0 14px -14px
+
 
 /* GENERAL BUTTON STYLES */
 a.btn
@@ -327,13 +334,20 @@ a.btn:hover
           a.remove-member
             width 8px
             height 8px
-            background url('../img/remove-icon-small.png') no-repeat left top
+            background url('../img/remove-icon-small.png') no-repeat 0 0
             display inline-block
             position absolute
             top 13px
             right 13px
           a.remove-member:hover
-            background url('../img/remove-icon-small.png') no-repeat left bottom
+            padding 1px
+            border-radius 2px
+            -moz-border-radius 2px
+            -webkit-border-radius 2px
+            -khtml-border-radius 2px
+            border 1px solid #cacaca
+            background url('../img/remove-icon-small.png') no-repeat center -9px
+            margin -2px -2px 0 0
           p
             display inline-block
             margin 0
@@ -403,13 +417,6 @@ a.btn:hover
       a.show-more
         display inline-block
         margin 0 0 -1px 216px
-
-  .hr
-    width 558px
-    height 0px
-    border-bottom 1px solid #FFF
-    border-top 1px solid #cacaca
-    margin 20px 0 14px -14px
 
   .content-comments
     width 546px
@@ -512,33 +519,69 @@ a.btn:hover
           background url('../img/edit-btn.png') no-repeat left bottom
 
 /* MODAL STYLES */
+#modal-wrap
+  width 100%
+  min-height 100%
+  height auto !important
+  height 100%
+  position absolute
+  top 0
+  left 0
+  background transparent
+  display none
+  font-family basic-fonts
+  color #333
+  font-size 13px
 
-.modal
-  position fixed
-  top 94px
-  margin-left 131px
-  width 558px
-  background rgba(46,46,46,0.3)
-  padding 10px
-  border-radius 10px
-  -moz-border-radius 10px
-  -webkit-border-radius 10px
-  -khtml-border-radius 10px
-  .content
-    padding 14px 14px 2px 14px
-    gradient(color-2-light, color-2-dark)
-    h2
-      a.close-modal
-        display inline-block
-        width 14px
-        height 14px
-        background url('../img/remove-icon.png') no-repeat left top
-        float right
-        margin-top 1px
-      a.close-modal:hover
-        background url('../img/remove-icon.png') no-repeat left bottom
+  .modal
+    position relative
+    top 94px
+    right 60px
+    margin 0 auto
+    width 558px
+    background rgba(46,46,46,0.3)
+    padding 10px
+    border-radius 10px
+    -moz-border-radius 10px
+    -webkit-border-radius 10px
+    -khtml-border-radius 10px
+    .content
+      padding 14px 14px 2px 14px
+      gradient(color-2-light, color-2-dark)
+      h2
+        a.close-modal
+          display inline-block
+          width 14px
+          height 14px
+          background url('../img/remove-icon.png') no-repeat left top
+          float right
+          margin-top 1px
+        a.close-modal:hover
+          background url('../img/remove-icon.png') no-repeat left bottom
+          padding 2px
+          border-radius 2px
+          -moz-border-radius 2px
+          -webkit-border-radius 2px
+          -khtml-border-radius 2px
+          border 1px solid #cacaca
+          background url('../img/remove-icon.png') no-repeat center -14px
+          margin -2px -3px 0 0
+      .item-block
+        margin 14px 0
+        .applicant-details
+          padding-left 10px
+          p
+            font-weight bold
+        .label
+          display inline-block
+          width 160px
+          font-weight bold
+          vertical-align top
+        .text
+          display inline-block
+          width 370px
 
-#create-new-organ, #call-for-application
+#create-new-organ, #call-for-application, #received-application
   display none
 
 /* FORM ELEMENT STYLES */

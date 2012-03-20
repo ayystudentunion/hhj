@@ -38,11 +38,15 @@ html
           = render "sidebar"
           div.clear
 
-          .modal#create-new-organ
-            = render "create-new-organ"
-
-          .modal#call-for-application
-            = render "call-for-application"
-
       div#footer
         p Copyright 2012 Halloped.fi
+
+    div#modal-wrap
+      .modal#create-new-organ
+        = render "create-new-organ"
+
+      .modal#call-for-application
+        = render "call-for-application"
+
+      .modal#received-application
+        = render "received-application"

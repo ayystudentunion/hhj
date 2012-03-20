@@ -17,19 +17,33 @@ $(document).ready ->
   $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit").uniform()
 
   $("#sidebar a.create-new-organ").click () ->
+    $("#modal-wrap").show()
     router.setRoute '/organ/new'
     return false
 
   $("#create-new-organ a.close-modal").click () ->
+     $("#modal-wrap").hide()
     router.setRoute '/'
     return false
 
   $("#single-organ a.application-call").click () ->
+    $("#modal-wrap").show()
     $("#call-for-application").fadeIn('fast')
     return false
 
   $("#call-for-application a.close-modal").click () ->
+    $("#modal-wrap").hide()
     $("#call-for-application").fadeOut('fast')
+    return false
+
+  $("#single-organ .member-card").click () ->
+    $("#modal-wrap").show()
+    $("#received-application").fadeIn('fast')
+    return false
+
+  $("#received-application a.close-modal").click () ->
+    $("#modal-wrap").hide()
+    $("#received-application").fadeOut('fast')
     return false
 
   $('.tab-content').each ->
