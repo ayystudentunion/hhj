@@ -20,3 +20,14 @@ $(document).ready ->
   $("#call-for-application a.close-modal").click () ->
     $("#call-for-application").fadeOut('fast')
     return false
+
+  $('.tab-content').each ->
+    $(this).children(':gt(0)').hide()
+
+  $('.tabs-list li a').click ->
+    tab = $(this).parents('.tabs').siblings('.tab-content').children('.tab').eq($(this).parent().index())
+    if tab.length > 0
+      tab.show().siblings().hide()
+      $(this).parent().addClass('active').siblings().removeClass 'active'
+      tab.trigger('tabActivated')
+    false

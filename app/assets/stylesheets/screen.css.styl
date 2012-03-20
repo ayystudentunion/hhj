@@ -258,7 +258,7 @@ a.btn:hover
       float right
       text-shadow 0 1px 0 #FFF
       gradient(color-2-light, color-2-dark)
-      .article, .organ-details
+      .article, .organ-details, .organ-members
         margin-bottom 30px
         h2
           font-size 16px
@@ -300,6 +300,46 @@ a.btn:hover
               vertical-align top
         .inline-comment:hover
           background #e5e5e5
+      .organ-members
+        .member-card
+          gradient(color-1-light, color-1-dark)
+          border-radius 2px
+          -moz-border-radius 2px
+          -webkit-border-radius 2px
+          -khtml-border-radius 2px
+          border 1px solid #cacaca
+          width 231px
+          padding 13px
+          display inline-block
+          position relative
+          margin 11px 11px 0 0
+          .avatar
+            display inline-block
+            width 50px
+            height 50px
+            background #CCC
+            margin-right 8px
+          a.remove-member
+            width 8px
+            height 8px
+            background url('../img/remove-icon-small.png') no-repeat left top
+            display inline-block
+            position absolute
+            top 13px
+            right 13px
+          a.remove-member:hover
+            background url('../img/remove-icon-small.png') no-repeat left bottom
+          p
+            display inline-block
+            margin 0
+            vertical-align top
+        .member-card:hover
+          background color-1-light
+        .no-margin
+          margin-right 0
+        p.definition
+          margin-top 10px
+
       .sort-links
         width 100%
         height 13px
@@ -345,14 +385,14 @@ a.btn:hover
         margin 0 0 -1px 216px
 
   .hr
-    width 100%
-    height 1px
-    border-bottom 2px groove #FFF
-    margin 20px 0 14px 0
+    width 558px
+    height 0px
+    border-bottom 1px solid #FFF
+    border-top 1px solid #cacaca
+    margin 20px 0 14px -14px
 
   .content-comments
     width 546px
-    margin 0 0 20px 154px
     line-height 17px
     .comment
       margin 20px 0
@@ -461,6 +501,9 @@ a.btn:hover
   background rgba(46,46,46,0.3)
   padding 10px
   border-radius 10px
+  -moz-border-radius 10px
+  -webkit-border-radius 10px
+  -khtml-border-radius 10px
   .content
     padding 14px 14px 2px 14px
     gradient(color-2-light, color-2-dark)
