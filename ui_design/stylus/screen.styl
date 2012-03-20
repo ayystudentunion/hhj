@@ -41,12 +41,12 @@ box-shadows-inset(x,y,w,c)
 h2
   font-size 16px
   line-height 19px
-  margin 6px 0 4px 0
+  margin 6px 0
 
 p
   font-size 13px
   line-height 17px
-  margin 2px 0 4px 0
+  margin 4px 0 8px 0
 
 
 /* LAYOUT COMPONENT STYLES */
@@ -165,10 +165,25 @@ p
   bottom -4px
   p
     line-height 38px
+    margin 0
 
 .clear
   clear both
 
+
+/* GENERAL BUTTON STYLES */
+a.btn
+  display inline-block
+  gradient(color-2-light, color-2-dark)
+  padding 0 16px
+  height 23px
+  border 1px solid #cacaca
+  text-align center
+  line-height 23px
+  color #505050
+a.btn:hover
+  gradient(color-2-dark, color-2-light)
+  color #333
 
 /* CONTENT STYLES */
 
@@ -237,7 +252,7 @@ p
       float right
       text-shadow 0 1px 0 #FFF
       gradient(color-2-light, color-2-dark)
-      .article
+      .article, .organ-details
         margin-bottom 30px
         h2
           font-size 16px
@@ -259,7 +274,7 @@ p
             background url('../img/edit-icon.png') no-repeat left top
           .edit-icon:hover
             background url('../img/edit-icon.png') no-repeat left bottom
-        .comment
+        .inline-comment
           background #dcdcdc
           padding 4px
           line-height 17px
@@ -273,7 +288,7 @@ p
             width 465px
             display inline-block
             vertical-align top
-            margin -2px 0 0 0
+            margin -3px 0 0 0
             span.user-name
               font-weight bold
               margin-right 6px
@@ -281,6 +296,8 @@ p
               color #505050
             span.content
               vertical-align top
+        .inline-comment:hover
+          background #e5e5e5
       .sort-links
         width 100%
         height 13px
@@ -324,31 +341,55 @@ p
             background url('../img/edit-icon.png') no-repeat left bottom
         p.description
           width 420px
-      a.show-more-btn
-        display block
-        gradient(color-2-light, color-2-dark)
-        width 126px
-        height 23px
-        border 1px solid #cacaca
-        text-align center
-        margin 0 auto -1px auto
-        line-height 23px
-        color #505050
-      a.show-more-btn:hover
-        color #333
+      .hr
+        width 100%
+        height 1px
+        border-bottom 2px groove #FFF
+        margin 20px 0 14px 0
+      a.application-call
+        margin-top 14px
+      a.show-more
+        display inline-block
+        margin 0 0 -1px 216px
+
+  .content-comments
+    width 546px
+    margin 20px 0 40px 154px
+    line-height 17px
+    .comment
+      margin-bottom 20px
+      span.user-avatar
+        width 50px
+        height 50px
+        display inline-block
+        margin-right 6px
+      p
+        width 465px
+        display inline-block
+        vertical-align top
+        margin -3px 0 0 0
+        span.user-name
+          font-weight bold
+          margin-right 6px
+        span.content
+          vertical-align top
+        span.date, a.edit, a.remove
+          color #999
+          font-size 12px
+          margin-right 4px
+        a.edit:hover, a.remove:hover
+          color #505050
 
   .sidebar-content
-    a.sidebar-btn
+    a.sidebar-button
       display block
-      gradient(color-2-light, color-2-dark)
       width 210px
       height 28px
       line-height 27px
-      color #505050
-      border 1px solid #cacaca
       position relative
-      padding-left 30px
+      padding 0 0 0 30px
       margin-bottom 3px
+      text-align left
       span.plus-icon
         display inline-block
         width 10px
@@ -357,8 +398,6 @@ p
         position absolute
         top 9px
         left 10px
-    a.sidebar-btn:hover
-      color #000
 
     .profile-info
       width 240px
@@ -425,7 +464,7 @@ p
   padding 10px
   border-radius 10px
   .content
-    padding 14px
+    padding 14px 14px 2px 14px
     gradient(color-2-light, color-2-dark)
     h2
       a.close-modal
@@ -479,20 +518,11 @@ input.half
   width 100%
   clear both
   text-align right
-  a.submit-btn, a.cancel-btn
-    height 28px
-    line-height 27px
-    border 1px solid #cacaca
-    display inline-block
-    gradient(color-2-light, color-2-dark)
-    padding 0 13px
-    color #505050
+  margin-bottom 14px
+  a.submit, a.cancel
     margin-left 3px
-  a.submit-btn:hover
-    gradient(color-2-dark, color-2-light)
-    color #333
-  a.cancel-btn
+  a.cancel
     gradient(color-1-light, color-1-dark)
-  a.cancel-btn:hover
+  a.cancel:hover
     gradient(color-1-dark, color-1-light)
     color #333
