@@ -1,0 +1,49 @@
+doctype html
+html
+  head
+    title Halloped
+    = stylesheet_link_tag "reset"
+    = stylesheet_link_tag "uniform.default"
+    = stylesheet_link_tag "screen"
+    = javascript_include_tag "pages"
+    = javascript_include_tag "jquery-1.6.4.min"
+    = javascript_include_tag "jquery.uniform.min"
+    = csrf_meta_tags
+    meta(http-equiv='Content-Type'
+      content='text/html; charset=UTF-8')
+
+  body
+    div#content-wrap
+      div#header
+        #header-content
+          .logo
+          .headline
+            | Halloped.fi
+          .login-info
+            .login-name
+              span.label Olet kirjautuneena nimellä:
+              br
+              span.name Eija Zitting
+            a.login-btn(href='#')
+      div#navi
+        #navi-content
+          ul.navi-links
+            li: a.home(href='#')
+            li: a(href='#') Toimielimet
+            li: a(href='#') Haut
+            li: a(href='#') Hallopedit
+            li: a(href='#') Asiakirjat
+            li: a(href='#') Lomakkeet
+          form.search
+            input.field.search-field(type='text' placeholder='Hae ...')
+      div#content
+        div#page-content
+          = render "organs"
+          = render "sidebar"
+          div.clear
+
+          .modal#create-new-organ
+            = render "create-new-organ"
+
+      div#footer
+        p Copyright 2012 Halloped.fi

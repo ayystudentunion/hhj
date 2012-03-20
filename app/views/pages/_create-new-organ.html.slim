@@ -1,0 +1,33 @@
+.content
+  h2
+    | Luo uusi toimielin
+    a.close-modal(href='#')
+  form.new-organ
+    input.field.wide(type='text' placeholder='Toimielimen nimi')
+    .inline-block
+      label.field-label Toimikauden alkamisaika:
+      input.field.datepicker(type='text' placeholder='Aseta aika')
+    .inline-block.no-margin
+      label.field-label Toimikauden päättymisaika:
+      input.field.datepicker(type='text' placeholder='Aseta aika')
+    .inline-block
+      input.field(type='text' placeholder='Vastuuhenkilön nimi')
+    .inline-block.no-margin
+      input.field(type='text' placeholder='Vastuuhenkilön sähköpostiosoite')
+    input.field.half(type='text' placeholder='Nimityksen tekevä henkilö')
+    select
+      option(value='Kaikki') Valitse organisaatioyksikkö
+      option(value='Yliopisto') Yliopisto
+      option(value='Opintolinja') Opintolinja
+      option(value='Laitos') Laitos
+    .inline-block.no-margin
+      label
+        input(name='type-of-organ' type='radio' value='Lakisääteinen')
+        | Lakisääteinen
+      label
+        input(type='radio' name='type-of-organ' value='Epävirallinen')
+        | Epävirallinen
+    textarea.wide(type='textarea' placeholder='Kuvaus toimieliminen toiminnasta')
+    .button-row
+      a.cancel-btn(href='#') Peruuta
+      a.submit-btn(href='#') Tallenna
