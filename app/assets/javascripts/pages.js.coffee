@@ -2,6 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+index = ->
+
+newOrgan = ->
+   alert "new event"
+
 $(document).ready ->
   $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit").uniform()
 
@@ -31,3 +36,11 @@ $(document).ready ->
       $(this).parent().addClass('active').siblings().removeClass 'active'
       tab.trigger('tabActivated')
     false
+
+
+  router = Router(
+    "" : index
+    "/organ/new" : newOrgan
+  )
+
+  router.init()
