@@ -1,10 +1,10 @@
-@ignore
 Feature: Creating a new organ
 
   Background:
     Given I am logged in as a student union employee
     And I am viewing the front page
 
+  @ignore
   Scenario: Student union employee creates new organ
     When I press "Lisää uusi toimielin"
     And fill in the typical values
@@ -20,5 +20,6 @@ Feature: Creating a new organ
     And organ's description is "Työryhmä varmistaa tasa-arvon toteutumisen"
     And organ's term is 2012-01-01 to 2012-07-01
 
+  @ignore
   Scenario: Studen union employee cancels creation of organ
 
