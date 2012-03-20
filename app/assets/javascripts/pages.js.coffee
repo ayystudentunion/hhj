@@ -2,20 +2,26 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+openNewOrganDialog = ->
+  $("#create-new-organ").fadeIn('fast')
+
+closeNewOrganDialog = ->
+  $("#create-new-organ").fadeOut('fast')
+
 index = ->
 
 newOrgan = ->
-   alert "new event"
+  openNewOrganDialog()
 
 $(document).ready ->
   $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit").uniform()
 
   $("#sidebar a.create-new-organ").click () ->
-    $("#create-new-organ").fadeIn('fast')
+    router.setRoute '/organ/new'
     return false
 
   $("#create-new-organ a.close-modal").click () ->
-    $("#create-new-organ").fadeOut('fast')
+    router.setRoute '/'
     return false
 
   $("#single-organ a.application-call").click () ->
@@ -40,7 +46,9 @@ $(document).ready ->
 
   router = Router(
     "" : index
-    "/organ/new" : newOrgan
+    "/organ/new" :
+      on:    newOrgan
+      after: closeNewOrganDialog
   )
 
   router.init()
