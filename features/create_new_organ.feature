@@ -4,10 +4,10 @@ Feature: Creating a new organ
     Given I am logged in as a student union employee
     And I am viewing the front page
 
-  @ignore
+  @wip
   Scenario: Student union employee creates new organ
-    When I press "Lisää uusi toimielin"
-    And fill in the typical values
+    When I press "Luo uusi toimielin"
+    Then I should see form "Luo uusi toimielin"
 
     And fill in name as "Tasa-arvotyöryhmä"
     And fill in description as "Työryhmä varmistaa tasa-arvon toteutumisen"
