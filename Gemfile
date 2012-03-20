@@ -28,7 +28,8 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'factory_girl_rails'
-  gem "rspec-rails", ">= 2.6"
+  gem 'rspec-rails', '>= 2.6'
+  gem 'rspec_multi_matchers'
 end
 
 group :test do

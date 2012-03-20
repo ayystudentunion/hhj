@@ -151,6 +151,7 @@ GEM
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.9.0)
+    rspec_multi_matchers (1.2.1)
     rubyzip (0.9.6.1)
     sass (3.1.15)
     sass-rails (3.2.5)
@@ -204,6 +205,7 @@ DEPENDENCIES
   mongoid_rails_migrations (>= 0.0.13)
   rails (= 3.2.2)
   rspec-rails (>= 2.6)
+  rspec_multi_matchers
   sass-rails (>= 3.2.3)
   slim
   stylus
