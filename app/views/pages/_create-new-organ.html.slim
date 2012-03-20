@@ -2,6 +2,10 @@
   h2
     | Luo uusi toimielin
     a.close-modal(href='#')
+    .language-buttons
+      a.lang.btn.active(href='#') FI
+      a.lang.btn(href='#') EN
+      a.lang.btn(href='#') SE
   form.new-organ
     input.field.wide(type='text' placeholder='Toimielimen nimi')
     .inline-block
@@ -29,5 +33,5 @@
         | Epävirallinen
     textarea.wide(type='textarea' placeholder='Kuvaus toimieliminen toiminnasta')
     .button-row
-      a.cancel.btn(href='#') Peruuta
+      a.cancel.close-modal.btn(href='#') Peruuta
       a.submit.btn(href='#') Tallenna

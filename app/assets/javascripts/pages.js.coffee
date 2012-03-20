@@ -3,10 +3,12 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 openNewOrganDialog = ->
+  $("#modal-wrap").show()
   $("#create-new-organ").fadeIn('fast')
 
 closeNewOrganDialog = ->
   $("#create-new-organ").fadeOut('fast')
+  $("#modal-wrap").hide()
 
 index = ->
 
@@ -17,12 +19,10 @@ $(document).ready ->
   $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit").uniform()
 
   $("#sidebar a.create-new-organ").click () ->
-    $("#modal-wrap").show()
     router.setRoute '/organ/new'
     return false
 
   $("#create-new-organ a.close-modal").click () ->
-     $("#modal-wrap").hide()
     router.setRoute '/'
     return false
 
@@ -32,8 +32,8 @@ $(document).ready ->
     return false
 
   $("#call-for-application a.close-modal").click () ->
-    $("#modal-wrap").hide()
     $("#call-for-application").fadeOut('fast')
+    $("#modal-wrap").hide()
     return false
 
   $("#single-organ .member-card").click () ->
@@ -42,8 +42,8 @@ $(document).ready ->
     return false
 
   $("#received-application a.close-modal").click () ->
-    $("#modal-wrap").hide()
     $("#received-application").fadeOut('fast')
+    $("#modal-wrap").hide()
     return false
 
   $('.tab-content').each ->

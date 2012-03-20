@@ -2,6 +2,10 @@
   h2
     | Avaa uusi paikkahaku toimielimelle
     a.close-modal(href='#')
+    .language-buttons
+      a.lang.btn.active(href='#') FI
+      a.lang.btn(href='#') EN
+      a.lang.btn(href='#') SE
   form.application-workflow
     select
       option(value='Kaikki') Valitse työnkulku
@@ -39,5 +43,5 @@
       option(value='lomake') Joku lomake
     .button-row
       a.print(href='#') Tulosta hakukuulutus
-      a.cancel.btn(href='#') Peruuta
+      a.cancel.close-modal.btn(href='#') Peruuta
       a.submit.btn(href='#') Tallenna
