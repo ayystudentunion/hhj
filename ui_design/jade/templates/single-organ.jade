@@ -1,0 +1,54 @@
+div#single-organ
+  .breadcrumb
+    ul.breadcrumb-list
+      li: a(href='#') Etusivu
+        span.arrow ›
+      li: a(href='#') Toimielimet
+        span.arrow ›
+      li: a(href='#') Toimielimen nimi
+        span.arrow ›
+  .tabs-container
+    .tabs
+      ul.tabs-list
+        li.active: a(href='#') Esittely
+        li: a(href='#') Jäsenet
+    .tab-content
+      .organ-details
+        h2
+          a(href='#') Toimielimen nimi
+          span.date muokattu 23.4.2012
+          a.edit-icon(href='#')
+        p Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus. Donec ultricies nisl ut felis, suspendisse potenti.
+        p Lorem ipsum ligula ut hendrerit mollis, ipsum erat vehicula risus, eu suscipit sem libero nec erat. Aliquam erat volutpat. Sed congue augue vitae neque. Nulla consectetuer porttitor pede. Fusce purus morbi tortor magna condimentum vel, placerat id blandit sit amet tortor.
+      em Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
+      a.application-call.btn(href='#') Avaa uusi paikkahaku
+      .hr
+      form.message-for-organ
+        textarea.wide(type='textarea', placeholder='Kirjoita viesti toimielimelle')
+      .button-row
+        a.submit.btn(href='#') Lähetä
+  div.clear
+
+  .content-comments
+    .comment
+      span.user-avatar
+        img(src='img/comment-avatar.png')
+      p
+        span.user-name Santeri Kainulainen
+        br
+        span.content Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus.
+        br
+        span.date 13.5.2012 •
+        a.edit(href='#') muokkaa •
+        a.remove(href='#') poista asiaton viesti
+    .comment
+      span.user-avatar
+        img(src='img/comment-avatar.png')
+      p
+        span.user-name Saara Suttura
+        br
+        span.content Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis.
+        br
+        span.date 13.5.2012 •
+        a.edit(href='#') muokkaa •
+        a.remove(href='#') poista asiaton viesti
