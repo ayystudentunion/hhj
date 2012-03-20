@@ -5,8 +5,16 @@
       $("#create-new-organ").fadeIn('fast');
       return false;
     });
-    return $("#create-new-organ a.close-modal").click(function() {
+    $("#create-new-organ a.close-modal").click(function() {
       $("#create-new-organ").fadeOut('fast');
+      return false;
+    });
+    $("#single-organ a.application-call").click(function() {
+      $("#call-for-application").fadeIn('fast');
+      return false;
+    });
+    return $("#call-for-application a.close-modal").click(function() {
+      $("#call-for-application").fadeOut('fast');
       return false;
     });
   });

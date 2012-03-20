@@ -12,6 +12,12 @@ p {
   line-height: 17px;
   margin: 4px 0 8px 0;
 }
+a {
+  color: #333;
+}
+a:hover {
+  color: #000;
+}
 /* LAYOUT COMPONENT STYLES */
 #content-wrap {
   width: 100%;
@@ -106,7 +112,6 @@ p {
   font-size: 16px;
   padding: 10px 20px;
   line-height: 40px;
-  color: #333;
 }
 #navi #navi-content ul.navi-links li a.home {
   display: block;
@@ -277,14 +282,6 @@ a.btn:hover {
   font-size: 16px;
   margin: 6px 0 4px 0;
 }
-#page-content .tabs-container .tab-content .article h2 a,
-#page-content .tabs-container .tab-content .organ-details h2 a {
-  color: #333;
-}
-#page-content .tabs-container .tab-content .article h2 a:hover,
-#page-content .tabs-container .tab-content .organ-details h2 a:hover {
-  color: #000;
-}
 #page-content .tabs-container .tab-content .article h2 .date,
 #page-content .tabs-container .tab-content .organ-details h2 .date {
   font-size: 12px;
@@ -376,15 +373,8 @@ a.btn:hover {
   font-size: 16px;
   margin: 6px 0 4px 0;
 }
-#page-content .tabs-container .tab-content .organ h2 a {
-  color: #333;
-}
-#page-content .tabs-container .tab-content .organ h2 a:hover {
-  color: #000;
-}
 #page-content .tabs-container .tab-content .organ h2 .date {
   font-size: 14px;
-  color: #333;
   float: right;
   margin-right: 8px;
 }
@@ -401,12 +391,6 @@ a.btn:hover {
 #page-content .tabs-container .tab-content .organ p.description {
   width: 420px;
 }
-#page-content .tabs-container .tab-content .hr {
-  width: 100%;
-  height: 1px;
-  border-bottom: 2px groove #fff;
-  margin: 20px 0 14px 0;
-}
 #page-content .tabs-container .tab-content a.application-call {
   margin-top: 14px;
 }
@@ -414,13 +398,19 @@ a.btn:hover {
   display: inline-block;
   margin: 0 0 -1px 216px;
 }
+#page-content .hr {
+  width: 100%;
+  height: 1px;
+  border-bottom: 2px groove #fff;
+  margin: 20px 0 14px 0;
+}
 #page-content .content-comments {
   width: 546px;
-  margin: 20px 0 40px 154px;
+  margin: 0 0 20px 154px;
   line-height: 17px;
 }
 #page-content .content-comments .comment {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 #page-content .content-comments .comment span.user-avatar {
   width: 50px;
@@ -565,7 +555,8 @@ a.btn:hover {
 .modal .content h2 a.close-modal:hover {
   background: url("../img/remove-icon.png") no-repeat left bottom;
 }
-#create-new-organ {
+#create-new-organ,
+#call-for-application {
   display: none;
 }
 /* FORM ELEMENT STYLES */
@@ -577,6 +568,9 @@ label.field-label {
   font-size: 13px;
   text-shadow: 0 1px 0 #fff;
   margin-bottom: 6px;
+}
+label.inline-label {
+  margin-right: 20px;
 }
 input.wide,
 textarea.wide {
@@ -592,6 +586,43 @@ textarea.wide {
 input.half {
   width: 260px;
   margin-bottom: 14px;
+  display: block;
+}
+input.small {
+  width: 40px;
+  margin: 0 8px 14px 0;
+}
+form.application-workflow {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 26px;
+}
+form.application-workflow .selector {
+  position: absolute;
+  top: 8px;
+  left: -2px;
+}
+.selector select {
+  margin: -2px 0 0 6px;
+}
+.selector select option {
+  color: #333;
+}
+a.add-members {
+  padding: 0 13px 0 30px;
+  margin-bottom: 3px;
+  text-align: left;
+  position: relative;
+}
+a.add-members span.plus-icon {
+  display: inline-block;
+  width: 10px;
+  height: 11px;
+  background: url("../img/plus-icon.png") no-repeat;
+  position: absolute;
+  top: 6px;
+  left: 10px;
 }
 .inline-block {
   display: inline-block;
@@ -631,5 +662,12 @@ input.half {
   background-image: -webkit-linear-gradient(bottom, #f0f0f0 0%, #dcdcdc 100%);
   background-image: -ms-linear-gradient(bottom, #f0f0f0 0%, #dcdcdc 100%);
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f0f0f0), color-stop(1, #dcdcdc));
-  color: #333;
+}
+.button-row a.print {
+  margin-top: 6px;
+  float: left;
+  display: inline-block;
+  height: 15px;
+  padding-left: 24px;
+  background: url("../img/print-icon.png") no-repeat center left;
 }
