@@ -222,6 +222,9 @@ p {
   top: 0;
   right: -1px;
 }
+#page-content .tabs-container .tabs ul.tabs-list li.margin {
+  margin-top: 27px;
+}
 #page-content .tabs-container .tab-content {
   width: 530px;
   padding: 12px 14px 0 14px;
@@ -293,6 +296,65 @@ p {
 }
 #page-content .tabs-container .tab-content .article .comment p span.content {
   vertical-align: top;
+}
+#page-content .tabs-container .tab-content .sort-links {
+  width: 100%;
+  height: 13px;
+  margin-bottom: 6px;
+}
+#page-content .tabs-container .tab-content .sort-links a.sort-name,
+#page-content .tabs-container .tab-content .sort-links a.sort-date {
+  color: #999;
+  font-size: 12px;
+}
+#page-content .tabs-container .tab-content .sort-links a.sort-name span.arrow-down,
+#page-content .tabs-container .tab-content .sort-links a.sort-date span.arrow-down {
+  display: inline-block;
+  margin: 0 0 1px 4px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #999;
+}
+#page-content .tabs-container .tab-content .sort-links a.sort-name:hover,
+#page-content .tabs-container .tab-content .sort-links a.sort-date:hover {
+  color: #505050;
+}
+#page-content .tabs-container .tab-content .sort-links a.sort-date {
+  float: right;
+}
+#page-content .tabs-container .tab-content .organ {
+  margin-bottom: 30px;
+}
+#page-content .tabs-container .tab-content .organ h2 {
+  font-size: 16px;
+  margin: 6px 0 4px 0;
+}
+#page-content .tabs-container .tab-content .organ h2 a {
+  color: #333;
+}
+#page-content .tabs-container .tab-content .organ h2 a:hover {
+  color: #000;
+}
+#page-content .tabs-container .tab-content .organ h2 .date {
+  font-size: 14px;
+  color: #333;
+  float: right;
+  margin-right: 8px;
+}
+#page-content .tabs-container .tab-content .organ h2 .edit-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  float: right;
+  background: url("../img/edit-icon.png") no-repeat left top;
+}
+#page-content .tabs-container .tab-content .organ h2 .edit-icon:hover {
+  background: url("../img/edit-icon.png") no-repeat left bottom;
+}
+#page-content .tabs-container .tab-content .organ p.description {
+  width: 420px;
 }
 #page-content .tabs-container .tab-content a.show-more-btn {
   display: block;
