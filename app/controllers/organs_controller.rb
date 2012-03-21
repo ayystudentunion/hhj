@@ -5,8 +5,8 @@ class OrgansController < ApplicationController
 
       @organs = Organ.all
 
+      format.html
       format.fragment { render :partial => "organs", :locals => { :organs => @organs } }
-      format.html { render "pages/index" }
       format.json { render :json => @organs }
     end
   end

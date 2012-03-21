@@ -1,3 +1,14 @@
 
 fi:
-  hello: "Hello world"
+  logged_in_as: Olet kirjautuneena nimellä
+  login_with_haka: Kirjaudu HAKA-tunnuksilla
+
+  navi:
+    organs: Toimielimet
+    open_calls: Avoimet haut
+    hallopeds: Hallopedit
+    documents: Asiakirjat
+    forms: Lomakkeet
+
+  placeholders:
+    search: Hae ...

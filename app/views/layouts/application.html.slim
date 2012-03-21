@@ -18,14 +18,18 @@ html
           / Visible when user has logged in
           .login-info
             .login-name
-              span.label Olet kirjautuneena nimellä:
+              span.label
+                = t :logged_in_as
+                | :
               br
               span.name Eija Zitting
             a.login-btn(href='#')
           / Visible when user has not been logged in, hidden by default in CSS
           .login-request
             .login-name
-              span.label Kirjaudu HAKA-tunnuksilla:
+              span.label
+                = t :login_with_haka
+                | :
               br
               a.link(href='#') Linkki Hakaan
             a.login-btn(href='#')
@@ -33,13 +37,13 @@ html
         #navi-content
           ul.navi-links
             li: a.home(href='#')
-            li: a(href='#') Toimielimet
-            li: a(href='#') Avoimet haut
-            li: a(href='#') Hallopedit
-            li: a(href='#') Asiakirjat
-            li: a(href='#') Lomakkeet
+            li: a(href='#') = t('navi.organs')
+            li: a(href='#') = t('navi.open_calls')
+            li: a(href='#') = t('navi.hallopeds')
+            li: a(href='#') = t('navi.documents')
+            li: a(href='#') = t('navi.forms')
           form.search
-            input.field.search-field(type='text' placeholder='Hae ...')
+            input.field.search-field(type='text' placeholder="#{t 'placeholders.search'}")
       div#content
         div#page-content
           
