@@ -1,0 +1,23 @@
+.content
+  h2
+    | Lähetä hakemus
+    a.close-modal(href='#')
+  .item-block
+    .applicant-details
+      p.name Jouko Joukonen
+      p.email jouko.joukonen@joukonen.fi
+      p.phone +358 40 229 2299
+  .hr
+
+  form.send-application
+    .item-row
+      span.label Haen:
+      span.buttons
+        a.btn(href='#') Jäseneksi
+        a.btn(href='#') Varajäseneksi
+        a.btn(href='#') Molempiin
+      input.field.half(type='text' placeholder='Kenen varajäseneksi haluat')
+    textarea.wide(type='textarea' placeholder='Perustelut')
+    .button-row
+      a.cancel.close-modal.btn(href='#') Peruuta
+      a.submit.btn(href='#') Tallenna

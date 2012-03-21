@@ -56,6 +56,16 @@ $(document).ready ->
     $("#modal-wrap").hide()
     return false
 
+  $("#single-call a.send-application").click () ->
+    $("#modal-wrap").show()
+    $("#send-application").fadeIn('fast')
+    return false
+
+  $("#send-application a.close-modal").click () ->
+    $("#send-application").fadeOut('fast')
+    $("#modal-wrap").hide()
+    return false
+
   $('.tab-content').each ->
     $(this).children(':gt(0)').hide()
 
