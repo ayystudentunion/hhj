@@ -22,20 +22,26 @@
     a.add-members.btn(href='#')
       | Lisää kiintiöjäseniä
       span.plus-icon
-    label.field-label Haun avaamispäivämäärä:
-    input.field.half.datepicker(type='text' placeholder='Aseta aika')
+    .inline-block
+      label.field-label Haun avaamispäivämäärä:
+      input.field.date(type='text' placeholder='Aseta aika')
+      span.datepicker
     .inline-block
       label.field-label Haun alkamispäivämäärä:
-      input.field.datepicker(type='text' placeholder='Aseta aika')
+      input.field.date(type='text' placeholder='Aseta aika')
+      span.datepicker
     .inline-block.no-margin
       label.field-label Haun päättymispäivämäärä:
-      input.field.datepicker(type='text' placeholder='Aseta aika')
+      input.field.date(type='text' placeholder='Aseta aika')
+      span.datepicker
     .inline-block
       label.field-label Toimikauden alkamisaika:
-      input.field.datepicker(type='text' placeholder='Aseta aika')
+      input.field.date(type='text' placeholder='Aseta aika')
+      span.datepicker
     .inline-block.no-margin
       label.field-label Toimikauden päättymisaika:
-      input.field.datepicker(type='text' placeholder='Aseta aika')
+      input.field.date(type='text' placeholder='Aseta aika')
+      span.datepicker
     input.field.wide(type='text' placeholder='Päätöksenteon paikka ja ajankohta')
     textarea.wide(type='textarea' placeholder='Kuvaus hallopedin työnkuvasta')
     select
