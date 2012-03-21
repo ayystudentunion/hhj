@@ -46,6 +46,16 @@ $(document).ready ->
     $("#modal-wrap").hide()
     return false
 
+  $("#single-organ a.send-message").click () ->
+    $("#modal-wrap").show()
+    $("#send-group-message").fadeIn('fast')
+    return false
+
+  $("#send-group-message a.close-modal").click () ->
+    $("#send-group-message").fadeOut('fast')
+    $("#modal-wrap").hide()
+    return false
+
   $('.tab-content').each ->
     $(this).children(':gt(0)').hide()
 

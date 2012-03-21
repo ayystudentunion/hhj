@@ -393,17 +393,19 @@ div.button span {
 
 /* Select */
 div.selector {
+  display: inline-block;
   width: 260px;
-  font-size: 12px;
-  margin: 0 10px 14px 0;
-  display: block;
+  font-size: 13px;
+  margin: 0 0 0 -2px;
 }
 
 div.selector select {
-  min-width: 190px;
+  min-width: 183px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 24px;
   border: solid 1px #fff;
+  margin: -1px 0 0 5px;
 }
 
 div.selector span {

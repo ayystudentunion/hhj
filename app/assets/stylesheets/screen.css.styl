@@ -613,18 +613,19 @@ a.btn:hover
         margin 14px 0
         .applicant-details
           padding-left 10px
-          p
-            font-weight bold
         .label
           display inline-block
           width 160px
           font-weight bold
           vertical-align top
-        .text
+        .text, ul.list-of-recipients
           display inline-block
           width 370px
+        ul.list-of-recipients
+          li
+            line-height 18px
 
-#create-new-organ, #call-for-application, #received-application
+#create-new-organ, #call-for-application, #received-application, #send-group-message
   display none
 
 /* FORM ELEMENT STYLES */
@@ -643,11 +644,8 @@ label.inline-label
 
 input.wide, textarea.wide
   width 99%
-  margin-top 10px
-  margin-bottom 14px
 
 textarea.wide
-  margin-top 0
   height 120px
   resize none
 
@@ -669,11 +667,6 @@ form.application-workflow
     position absolute
     top 8px
     left -2px
-.selector
-  select
-    margin -2px 0 0 6px
-    option
-      color #333
 
 a.add-members
   padding 0 13px 0 30px
@@ -689,11 +682,25 @@ a.add-members
     top 6px
     left 10px
 
+form.new-application
+  textarea.wide
+    margin 14px 0 10px 0
+
+form.new-organ
+  input.wide
+    margin 14px 0 10px 0
+
+form.send-message
+  textarea.wide
+    margin 0 0 10px 0
+
 form.add-applicants
+  margin-bottom 14px
+form.add-applicants, form.select-recipients, form.add-recipients
   margin-top 10px
   input.wide
     width 491px
-    margin-right 6px
+    margin 14px 6px 0 0
   a.add-row
     padding 0
     width 25px
@@ -705,6 +712,10 @@ form.add-applicants
       height 11px
       background url('../img/plus-icon.png') no-repeat center center
 
+form.add-recipients
+  margin-top 0
+  input.wide
+    margin-top 0
 
 .inline-block
   display inline-block
@@ -712,8 +723,6 @@ form.add-applicants
   margin 0 10px 14px 0
   input
     width 98%
-  label
-    margin-right 8px
 .no-margin
   margin-right 0
 
@@ -721,7 +730,7 @@ form.add-applicants
   width 100%
   clear both
   text-align right
-  margin-bottom 14px
+  margin 10px 0 14px 0
   a.submit, a.cancel
     margin-left 3px
   a.cancel

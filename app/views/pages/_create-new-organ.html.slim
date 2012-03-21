@@ -19,16 +19,17 @@
     .inline-block.no-margin
       input.field(type='text' placeholder='Vastuuhenkilön sähköpostiosoite')
     input.field.half(type='text' placeholder='Nimityksen tekevä henkilö')
-    select
-      option(value='Kaikki') Valitse organisaatioyksikkö
-      option(value='Yliopisto') Yliopisto
-      option(value='Opintolinja') Opintolinja
-      option(value='Laitos') Laitos
+    .inline-block
+      select
+        option(value='Kaikki') Valitse organisaatioyksikkö
+        option(value='Yliopisto') Yliopisto
+        option(value='Opintolinja') Opintolinja
+        option(value='Laitos') Laitos
     .inline-block.no-margin
-      label
+      label.inline-label
         input(name='type-of-organ' type='radio' value='Lakisääteinen')
         | Lakisääteinen
-      label
+      label.inline-label
         input(type='radio' name='type-of-organ' value='Epävirallinen')
         | Epävirallinen
     textarea.wide(type='textarea' placeholder='Kuvaus toimieliminen toiminnasta')
