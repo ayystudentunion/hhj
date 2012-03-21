@@ -5,7 +5,8 @@ class Organ
   field :description, localize: true
   field :term_start, type: Date
   field :term_end, type: Date
-  field :owner, type: String # TODO: ref to Person
-
+  field :manager_name, type: String
+  field :manager_email, type: String
+  field :appointer, type: String
   belongs_to :organization
 end
