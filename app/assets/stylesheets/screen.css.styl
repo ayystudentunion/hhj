@@ -43,6 +43,11 @@ h2
   line-height 19px
   margin 6px 0
 
+h3
+  font-size 13px
+  line-height 16px
+  margin 10px 0 0 0
+
 p
   font-size 13px
   line-height 17px
@@ -312,7 +317,18 @@ a.btn:hover
           span.label
             font-weight bold
             margin-right 6px
-      .organ-members
+      .organ-members, .call-for-application
+        h2
+          .send-message
+            font-size 12px
+            color #999
+            margin-left 6px
+            font-weight normal
+            float right
+            background url('../img/mail-icon.png') no-repeat left center
+            padding-left 22px
+          .send-message:hover
+            color #505050
         .member-card
           gradient(color-1-light, color-1-dark)
           border-radius 2px
@@ -356,7 +372,7 @@ a.btn:hover
             display inline-block
             margin-left 1px
             vertical-align top
-            margin-left 58px
+            padding-left 58px
             a.status
               padding 0 6px
               font-size 12px
@@ -366,13 +382,24 @@ a.btn:hover
             a.active
               gradient(color-1-dark, color-1-light)
               color #333
-
         .member-card:hover
           background color-1-light
         .no-margin
           margin-right 0
         p.definition
           margin-top 10px
+
+      .call-for-application
+        .column
+          width 33%
+          display inline-block
+          vertical-align top
+          ul.list-of-names
+            margin 4px 0 13px 0
+            li
+              line-height 18px
+              margin-top 4px
+
 
       .sort-links
         width 100%
@@ -662,6 +689,23 @@ a.add-members
     top 6px
     left 10px
 
+form.add-applicants
+  margin-top 10px
+  input.wide
+    width 491px
+    margin-right 6px
+  a.add-row
+    padding 0
+    width 25px
+    height 23px
+    padding-top 2px
+    span.plus-icon
+      display inline-block
+      width 10px
+      height 11px
+      background url('../img/plus-icon.png') no-repeat center center
+
+
 .inline-block
   display inline-block
   width 260px
@@ -674,7 +718,7 @@ a.add-members
   margin-right 0
 
 .button-row
-  width 99%
+  width 100%
   clear both
   text-align right
   margin-bottom 14px

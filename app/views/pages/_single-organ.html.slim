@@ -71,7 +71,9 @@ div#single-organ
 
       .tab
         .organ-members
-          h2 Yliopiston edustajat
+          h2
+            | Yliopiston edustajat
+            a.send-message(href='#') Lähetä ryhmäviesti
           .member-card
             div.avatar
             a.remove-member(href='#')
@@ -100,9 +102,12 @@ div#single-organ
               br
               span.position Jäsenen toimenkuva
 
-          .hr
+        .hr
 
-          h2 Istuvat opiskelijaedustajat
+        .organ-members
+          h2
+            | Istuvat opiskelijaedustajat
+            a.send-message(href='#') Lähetä ryhmäviesti
           .member-card
             div.avatar
             a.remove-member(href='#')
@@ -113,7 +118,6 @@ div#single-organ
             .status-buttons
               a.status.btn.active(href='#') Jäsen
               a.status.btn(href='#') Varajäsen
-              a.status.btn(href='#') Kiintiö
           .member-card.no-margin
             div.avatar
             a.remove-member(href='#')
@@ -124,18 +128,16 @@ div#single-organ
             .status-buttons
               a.status.btn.active(href='#') Jäsen
               a.status.btn(href='#') Varajäsen
-              a.status.btn(href='#') Kiintiö
 
-          .hr
-
-          h2 Hakeneet opiskelijaedustajat
+        .call-for-application
+          h2 Haun nimi, 26.4.2012
           p.definition
             | Paikkahakuun määritelty:
             br
             span.predetermined-memberships 1 jäsen, 1 varajäsen ja 1 kiintiöpaikka (2. vuoden tuotantotalouden opiskelija, nainen)
+          h3 Hakemuksen lähettäneet opiskelijat:
           .member-card
             div.avatar
-            a.remove-member(href='#')
             p
               a.name(href='#') Eija Zitting
               br
@@ -143,10 +145,9 @@ div#single-organ
             .status-buttons
               a.status.btn.active(href='#') Jäsen
               a.status.btn(href='#') Varajäsen
-              a.status.btn(href='#') Kiintiö
+              a.status.btn(href='#') Hylätty
           .member-card.no-margin
             div.avatar
-            a.remove-member(href='#')
             p
               a.name(href='#') Eija Zitting
               br
@@ -154,13 +155,38 @@ div#single-organ
             .status-buttons
               a.status.btn.active(href='#') Jäsen
               a.status.btn(href='#') Varajäsen
-              a.status.btn(href='#') Kiintiö
-        form.add-members
-          input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia')
-        .button-row
-          a.submit.btn(href='#') Tallenna
+              a.status.btn(href='#') Hylätty
+          form.add-applicants
+            input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')
+            a.btn.add-row(href='#')
+              span.plus-icon
+          .button-row
+            a.submit.btn(href='#') Tallenna uudet jäsenet
+
         .hr
+
+        .call-for-application
+          h2
+            | Vanhan haun nimi, 7.1.2012
+            a.send-message(href='#') Lähetä ryhmäviesti
+          .column
+            h3 Jäsenet:
+            ul.list-of-names
+              li: a(href='#') Kyösti Alamäki
+              li: a(href='#') Sirpa Kakkonen
+          .column
+            h3 Varajäsenet:
+            ul.list-of-names
+              li: a(href='#') Eemeli Keskikoski
+              li: a(href='#') Taika Tuulinen
+          .column
+            h3 Hylätyt:
+            ul.list-of-names
+              li: a(href='#') Jummi Jamminen
+
+        .hr
+
         .button-row
-          a.submit.btn(href='#') Näytä hylätyt hakijat
-          a.submit.btn(href='#') Lähetä ryhmäviesti
+          a.submit.btn(href='#') Näytä vanhat haut
+          a.submit.btn(href='#') Piilota vanhat haut
   div.clear
