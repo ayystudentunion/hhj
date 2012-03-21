@@ -7,7 +7,9 @@ Feature: Creating a new organ
   @wip
   Scenario: Student union employee creates new organ
     When I press "Luo uusi toimielin"
-    Then I should see form "Luo uusi toimielin"
+    And fill in form "Luo uusi toimielin":
+      |  label                    | value                  |
+      |  Toimielimen nimi         | Tasa-arvotyöryhmä      |
 
     And fill in name as "Tasa-arvotyöryhmä"
     And fill in description as "Työryhmä varmistaa tasa-arvon toteutumisen"
