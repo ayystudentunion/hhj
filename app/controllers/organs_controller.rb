@@ -1,16 +1,16 @@
 class OrgansController < ApplicationController
 
   def index # list of all organs
-    respond_to do |fmt|
-      fmt.fragment { render :partial => "organs", :locals => { :organs => Organ.all } }
-      fmt.html { render "pages/index" }
-      fmt.json { render :json => Organ.all }
+    respond_to do |format|
+      format.fragment { render :partial => "organs", :locals => { :organs => Organ.all } }
+      format.html { render "pages/index" }
+      format.json { render :json => Organ.all }
     end
   end
 
   def new # form for creating a new organ
-    respond_to do |fmt|
-      fmt.html { render "pages/index" }
+    respond_to do |format|
+      format.html { render "pages/index" }
     end
   end
 
@@ -18,15 +18,15 @@ class OrgansController < ApplicationController
   end
 
   def show # return a single organ
-    respond_to do |fmt|
-      fmt.html { render "pages/index" }
-      fmt.json { render :json => Organ.find(params[:id]) }
+    respond_to do |format|
+      format.html { render "pages/index" }
+      format.json { render :json => Organ.find(params[:id]) }
     end
   end
 
   def edit # form for modifing an existing organ
-    respond_to do |fmt|
-      fmt.html { render "pages/index" }
+    respond_to do |format|
+      format.html { render "pages/index" }
     end
   end
 
