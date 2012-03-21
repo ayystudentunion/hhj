@@ -36,6 +36,7 @@ group :test do
   gem 'cucumber-rails'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  gem 'launchy'
 end
 
 # To use ActiveModel has_secure_password
