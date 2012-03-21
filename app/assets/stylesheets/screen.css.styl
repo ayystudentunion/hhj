@@ -95,7 +95,9 @@ a:hover
       left 164px
       font-size 36px
       text-shadow 0 1px 0 #FFF
-    .login-info
+    .login-request
+      display none
+    .login-info, .login-request
       width 240px
       height 90px
       position absolute
@@ -107,6 +109,8 @@ a:hover
         text-shadow 0 1px 0 #FFF
         line-height 17px
         margin-top 28px
+        .name, .link
+          font-weight bold
       a.login-btn
         display inline-block
         width 30px
@@ -270,7 +274,7 @@ a.btn:hover
       float right
       text-shadow 0 1px 0 #FFF
       gradient(color-2-light, color-2-dark)
-      .article, .organ-details, .organ-members
+      .article, .open-calls, .organ-details, .organ-members
         margin-bottom 30px
         h2
           font-size 16px
@@ -317,6 +321,16 @@ a.btn:hover
           span.label
             font-weight bold
             margin-right 6px
+        .item-block
+          margin 6px 0
+          .label
+            display inline-block
+            width 80px
+            font-weight bold
+            vertical-align top
+          .text
+            display inline-block
+            width 450px
       .organ-members, .call-for-application
         h2
           .send-message
@@ -490,8 +504,10 @@ a.btn:hover
         position absolute
         top 9px
         left 10px
-
-    .profile-info
+    .introduction-text
+      margin-top 24px
+      display none
+    .profile-info, .introduction-text
       width 240px
       margin-bottom 20px
       .info-tab
