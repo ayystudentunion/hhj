@@ -34,7 +34,7 @@ html
           ul.navi-links
             li: a.home(href='#')
             li: a(href='#') Toimielimet
-            li: a(href='#') Haut
+            li: a(href='#') Avoimet haut
             li: a(href='#') Hallopedit
             li: a(href='#') Asiakirjat
             li: a(href='#') Lomakkeet
@@ -42,7 +42,7 @@ html
             input.field.search-field(type='text' placeholder='Hae ...')
       div#content
         div#page-content
-          = render "open-calls"
+          = render "single-call"
           = render "sidebar"
           div.clear
 
