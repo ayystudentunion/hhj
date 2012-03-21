@@ -3,7 +3,7 @@
 
 FactoryGirl.define do
   factory :organ do
-    name "Tasa-arvotyöryhmä"
+    name  'Tasa-arvotyöryhmä'
     association :organization, :factory => :organization_leaf
   end
 end

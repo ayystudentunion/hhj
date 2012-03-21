@@ -34,4 +34,6 @@ Halloped::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  config.i18n.fallbacks = true
 end
