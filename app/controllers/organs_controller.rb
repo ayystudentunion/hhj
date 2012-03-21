@@ -2,9 +2,12 @@ class OrgansController < ApplicationController
 
   def index # list of all organs
     respond_to do |format|
-      format.fragment { render :partial => "organs", :locals => { :organs => Organ.all } }
+
+      @organs = Organ.all
+
+      format.fragment { render :partial => "organs", :locals => { :organs => @organs } }
       format.html { render "pages/index" }
-      format.json { render :json => Organ.all }
+      format.json { render :json => @organs }
     end
   end
 
