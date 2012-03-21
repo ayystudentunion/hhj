@@ -276,7 +276,7 @@ a.btn:active
       float right
       text-shadow 0 1px 0 #FFF
       gradient(color-2-light, color-2-dark)
-      .article, .open-calls, .organ-details, .call-details, .organ-members
+      .article, .open-calls, .organ-details, .call-details, .organ-members, .profile-details
         margin-bottom 30px
         h2
           font-size 16px
@@ -286,14 +286,14 @@ a.btn:active
             color #999
             margin-left 6px
             font-weight normal
-          .edit-icon
-            display inline-block
-            width 14px
-            height 14px
-            float right
-            background url('../img/edit-icon.png') no-repeat left top
-          .edit-icon:hover
-            background url('../img/edit-icon.png') no-repeat left bottom
+        .edit-icon
+          display inline-block
+          width 14px
+          height 14px
+          float right
+          background url('../img/edit-icon.png') no-repeat left top
+        .edit-icon:hover
+          background url('../img/edit-icon.png') no-repeat left bottom
         .inline-comment
           background #dcdcdc
           padding 4px
@@ -333,6 +333,60 @@ a.btn:active
           .text
             display inline-block
             width 450px
+      .profile-details
+        .item-row
+          position relative
+          margin 14px 0 16px 0
+          clear both
+          height auto
+          span.label
+            display inline-block
+            width 160px
+            font-weight bold
+            margin-right 6px
+            vertical-align top
+          p.address
+            display inline-block
+            margin 0
+          label.publicity-check
+            float right
+            margin 0 0 0 16px
+            span
+              margin-top -2px
+        .profile-picture
+          width 160px
+          height 100%
+          float left
+          .avatar
+            height 120px
+            width 120px
+            display inline-block
+            background-color #FFF
+            border 1px solid #cacaca
+        .profile-attachments
+          width 363px
+          float right
+          span.or
+            display inline-block
+            width 175px
+            margin 8px 0
+            text-align center
+          .uploader
+            margin-bottom 10px
+          input.field
+            width 323px
+            margin 6px 6px 4px 0
+          a.add-row
+            padding 0
+            width 25px
+            height 23px
+            padding-top 2px
+            span.plus-icon
+              display inline-block
+              width 10px
+              height 11px
+              background url('../img/plus-icon.png') no-repeat center center
+
       .organ-members, .call-for-application
         h2
           .send-message
@@ -569,7 +623,7 @@ a.btn:active
           li
             padding-left 18px
             line-height 20px
-            background url('../img/bullet.png') no-repeat left center
+            background url('../img/bullet.png') no-repeat left 3px
 
 /* MODAL STYLES */
 #modal-wrap
