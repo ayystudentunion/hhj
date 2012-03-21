@@ -1,4 +1,10 @@
 Halloped::Application.routes.draw do
+
+  scope "/:locale" do
+    resources :organs
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +54,8 @@ Halloped::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'pages#index'
+  match ':locale' => 'pages#index'
+  root :to => 'pages#locale_redirect'
 
   # See how all your routes lay out with "rake routes"
 
