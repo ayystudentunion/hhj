@@ -17,5 +17,14 @@ fi:
     documents: Asiakirjat
     forms: Lomakkeet
 
+  modals:
+    application: Hakemus
+    apply_date: Hakemus jätetty
+    apply_position: Haettu paikka
+    vice_member: Varajäsen
+    qualifications: Omat perustelut
+    print_application: Tulosta hakemus
+    close: Sulje
+
   placeholders:
     search: Hae ...
