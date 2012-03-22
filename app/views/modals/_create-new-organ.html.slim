@@ -22,11 +22,16 @@
       input.field(type='text' placeholder='Vastuuhenkilön sähköpostiosoite')
     input.field.half(type='text' placeholder='Nimityksen tekevä henkilö')
     .inline-block
-      select
-        option(value='Kaikki') Valitse organisaatioyksikkö
-        option(value='Yliopisto') Yliopisto
-        option(value='Opintolinja') Opintolinja
-        option(value='Laitos') Laitos
+      select(id='organization-select-0')
+        option.default(value='select') Valitse organisaatioyksikkö
+        option(value='01') Luonnontieteellinen tiedekunta
+        option(value='02') Humanististen tieteiden tiedekunta
+        option(value='03') Kirjasto
+      .inline-block
+      select(id='organization-select-1')
+        option(value='select') Valitse organisaatioyksikkö
+        option(value='11') Kemian laitos
+        option(value='12') Fysiikan laitos
     .inline-block.no-margin
       label.inline-label
         input(name='type-of-organ' type='radio' value='Lakisääteinen')
@@ -34,7 +39,7 @@
       label.inline-label
         input(type='radio' name='type-of-organ' value='Epävirallinen')
         | Epävirallinen
-    textarea.wide(type='textarea' placeholder='Kuvaus toimieliminen toiminnasta')
+    textarea.wide(type='textarea' placeholder='Kuvaus toimielimen toiminnasta')
     .button-row
       a.cancel.close-modal.btn(href='#') Peruuta
       a.submit.btn(href='#') Tallenna

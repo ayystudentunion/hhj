@@ -8,15 +8,13 @@ Feature: Creating a new organ
   Scenario: Student union employee creates new organ
     When I press "Luo uusi toimielin"
     And fill in form "Luo uusi toimielin":
-      |  label                           | value                                      |
-      |  Toimielimen nimi                | Tasa-arvotyöryhmä                          |
-      |  Kuvaus toimielimen toiminnasta  | Työryhmä varmistaa tasa-arvon toteutumisen |
-      |  Toimikauden alkamisaika:        | 2012-01-01                                 |
-      |  Toimikauden päättymisaika:      | 2012-07-01                                 |
+      |  label                           | value                                                            |
+      |  Toimielimen nimi                | Tasa-arvotyöryhmä                                                |
+      |  Kuvaus toimielimen toiminnasta  | Työryhmä varmistaa tasa-arvon toteutumisen                       |
+      |  Toimikauden alkamisaika:        | 2012-01-01                                                       |
+      |  Toimikauden päättymisaika:      | 2012-07-01                                                       |
+      |  Valitse organisaatioyksikkö     | Luonnontieteellinen tiedekunta/Fysiikan laitos+Lakisääteinen     |
 
-
-    And choose the classification "Virallinen"
-    And choose the organization "Luonnontieteellinen tiedekunta/Fysiikan laitos"
     And press "Tallenna"
     Then I should see "Esittely" of organ "Tasa-arvotyöryhmä"
     And organ's organization is "Luonnontieteellinen tiedekunta/Fysiikan laitos"
