@@ -10,6 +10,7 @@ gem 'bson_ext', '>= 1.5'
 gem 'mongoid_rails_migrations', '>= 0.0.13'
 # gem 'therubyracer'
 gem 'sprockets'
+gem 'slim'
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'
@@ -19,9 +20,8 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '>= 3.2.3'
-  gem 'coffee-rails', '>= 3.2.1'
   gem 'stylus'
-  gem 'slim'
+  gem 'coffee-rails', '>= 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 
