@@ -8,8 +8,12 @@ gem 'rails', '3.2.2'
 gem 'mongoid', '>= 2.4'
 gem 'bson_ext', '>= 1.5'
 gem 'mongoid_rails_migrations', '>= 0.0.13'
-gem 'therubyracer'
+# gem 'therubyracer'
+gem 'sprockets'
 
+group :development do
+  gem 'mongrel', '~> 1.2.0.pre2'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,9 +28,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+# gem 'jquery-rails'
 
-group :test, :development do
+group :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails', '>= 2.6'
   gem 'rspec_multi_matchers'
