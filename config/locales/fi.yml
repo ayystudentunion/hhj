@@ -3,6 +3,9 @@ fi:
   logged_in_as: Olet kirjautuneena nimellä
   login_with_haka: Kirjaudu HAKA-tunnuksilla
 
+  front_page: Etusivu
+  organs: Toimielimet
+
   sidebar:
     user_info: Omat tiedot
     edit: Muokkaa
