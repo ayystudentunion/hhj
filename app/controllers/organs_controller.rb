@@ -1,3 +1,5 @@
+require 'factory_girl_rails'
+
 class OrgansController < ApplicationController
 
   def index # list of all organs
@@ -18,6 +20,9 @@ class OrgansController < ApplicationController
   end
 
   def create # create a new organ document
+    respond_to do |format|
+      format.json { render json: Factory(:organ, params.select{|key, value| Organ.fields.keys.include? key}).to_json }
+    end
   end
 
   def show # return a single organ

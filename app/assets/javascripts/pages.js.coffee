@@ -15,6 +15,9 @@ index = ->
 newOrgan = ->
   openNewOrganDialog()
 
+organ = (id) ->
+  window.location = "/fi/organs/#{id}"
+
 $(document).ready ->
   $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit").uniform()
 
@@ -24,6 +27,11 @@ $(document).ready ->
 
   $("#create-new-organ a.close-modal").click () ->
     router.setRoute '/'
+    return false
+
+  $("#create-new-organ a.submit").click () ->
+    $.post '/fi/organs', $('#create-new-organ').serialize(), (data) ->
+      router.setRoute "/organs/#{data._id}"
     return false
 
   $("#single-organ a.application-call").click () ->
@@ -83,6 +91,7 @@ $(document).ready ->
     "/organ/new" :
       on:    newOrgan
       after: closeNewOrganDialog
+    "/organs/:organId" : organ
   )
 
   router.init()

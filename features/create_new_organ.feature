@@ -15,7 +15,7 @@ Feature: Creating a new organ
       |  Toimikauden päättymisaika:      | 2012-07-01                                                       |
       |  Valitse organisaatioyksikkö     | Luonnontieteellinen tiedekunta/Fysiikan laitos+Lakisääteinen     |
 
-    And press "Tallenna"
+    And I press "Tallenna"
     Then I should see "Esittely" of organ "Tasa-arvotyöryhmä"
     And organ's organization is "Luonnontieteellinen tiedekunta/Fysiikan laitos"
     And organ's description is "Työryhmä varmistaa tasa-arvon toteutumisen"
