@@ -8,3 +8,4 @@
 
 require 'factory_girl_rails'
 Factory(:tasa_arvotyoryhma)
+Factory(:kirjakerho)
