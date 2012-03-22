@@ -8,4 +8,5 @@
 
 require 'factory_girl_rails'
 Factory(:organization_leaf)
+Factory(:organ)
 

@@ -8,5 +8,5 @@
 
 require 'factory_girl'
 Factory(:organization_leaf)
-
+Factory(:organ)
 
