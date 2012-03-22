@@ -49,7 +49,7 @@ html
           
           = yield
 
-          = render "sidebar"
+          = render "shared/sidebar"
           div.clear
 
       div#footer
@@ -57,16 +57,16 @@ html
 
     div#modal-wrap
       .modal#create-new-organ
-        = render "create-new-organ"
+        = render "modals/create-new-organ"
 
       .modal#call-for-application
-        = render "call-for-application"
+        = render "modals/call-for-application"
 
       .modal#received-application
-        = render "received-application"
+        = render "modals/received-application"
 
       .modal#send-group-message
-        = render "send-group-message"
+        = render "modals/send-group-message"
 
       .modal#send-application
-        = render "send-application"
+        = render "modals/send-application"
