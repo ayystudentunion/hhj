@@ -4,7 +4,7 @@ div#sidebar
     .profile-info
       .info-tab
         span.tab-left
-        span.tab-middle Omat tiedot
+        span.tab-middle = t "sidebar.user_info"
         span.tab-right
       .info-content
         div.avatar
@@ -14,10 +14,12 @@ div#sidebar
           span.email eija.zitting@ayy.fi
           br
           span.phone +358 40 123 1234
-        a.edit-btn(href='#') Muokkaa
+        a.edit-btn(href='#') = t "sidebar.edit"
         div.clear
         /Visible if user is a member in one or more organs
-        h4 Omat toimielimet:
+        h4
+          = t "sidebar.my_organs"
+          | :
         ul.my-organs
           li: a(href='#') Joku toimielin
           li: a(href='#') Joku toimielin
@@ -25,10 +27,10 @@ div#sidebar
           li: a(href='#') Joku toimielin
 
     a.sidebar-button.btn.create-new-organ(href='#')
-      | Luo uusi toimielin
+      = t "sidebar.create_organ"
       span.plus-icon
     a.sidebar-button.btn(href='#')
-      | Kirjoita uusi tiedote tai uutinen
+      = t "sidebar.write_news_post"
       span.plus-icon
 
     /Visible when user has not been logged in

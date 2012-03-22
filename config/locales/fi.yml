@@ -3,6 +3,13 @@ fi:
   logged_in_as: Olet kirjautuneena nimellä
   login_with_haka: Kirjaudu HAKA-tunnuksilla
 
+  sidebar:
+    user_info: Omat tiedot
+    edit: Muokkaa
+    my_organs: Omat toimielimet
+    create_organ: Luo uusi toimielin
+    write_news_post: Kirjoita uusi tiedote tai uutinen
+
   navi:
     organs: Toimielimet
     open_calls: Avoimet haut
