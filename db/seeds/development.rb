@@ -7,6 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'factory_girl_rails'
-Factory(:organization_leaf)
-Factory(:organ)
-
+Factory(:tasa_arvotyoryhma)
