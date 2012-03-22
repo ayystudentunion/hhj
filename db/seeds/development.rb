@@ -7,5 +7,43 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'factory_girl_rails'
-Factory(:tasa_arvotyoryhma)
-Factory(:kirjakerho)
+
+def createOrganization(org, parent=nil)
+   current = Factory(:organization, org.reject{|key, value| key == :children}.merge(parent: parent))
+   org.fetch(:children, []).each{ |child| createOrganization child, current }
+end
+
+createOrganization( {
+  name: 'Spartan Teknillinen Yliopisto',
+  _id:  '4f6b1edf91bc2b33d3010000',
+  children: [
+    {
+      name: 'Luonnontieteellinen tiedekunta',
+      _id:   '4f6b1edf91bc2b33d3010100',
+      children: [
+      {
+        name: 'Kemian laitos',
+        _id:   '4f6b1edf91bc2b33d3010101'
+      }, {
+        name: 'Fysiikan laitos',
+        _id:   '4f6b1edf91bc2b33d3010102'
+      } ]
+    }, {
+      name: 'Humanististen tieteiden tiedekunta',
+      _id:   '4f6b1edf91bc2b33d3010300',
+      children: [
+      {
+        name: 'Filosofinen laitos',
+        _id:   '4f6b1edf91bc2b33d3010301'
+      }, {
+        name: 'Naistutkimuksen laitos',
+        _id:   '4f6b1edf91bc2b33d3010302'
+      } ]
+    }, {
+      name: 'Kirjasto',
+      _id:   '4f6b1edf91bc2b33d3010200'
+    }
+  ]
+} )
+
+
