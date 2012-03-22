@@ -9,8 +9,9 @@ gem 'mongoid', '>= 2.4'
 gem 'bson_ext', '>= 1.5'
 gem 'mongoid_rails_migrations', '>= 0.0.13'
 # gem 'therubyracer'
-gem 'sprockets'
 gem 'slim'
+# gem 'sprockets'
+# gem 'railties'
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'
