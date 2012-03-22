@@ -12,6 +12,7 @@ gem 'mongoid_rails_migrations', '>= 0.0.13'
 gem 'slim'
 # gem 'sprockets'
 # gem 'railties'
+ gem 'factory_girl_rails', :require => false
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'
@@ -32,7 +33,6 @@ end
 # gem 'jquery-rails'
 
 group :test do
-  gem 'factory_girl_rails'
   gem 'rspec-rails', '>= 2.6'
   gem 'rspec_multi_matchers'
 end
