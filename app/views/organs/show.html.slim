@@ -1,0 +1,193 @@
+div#single-organ
+  .breadcrumb
+    ul.breadcrumb-list
+      li
+        a(href='#')
+          | Etusivu
+          span.arrow ›
+      li
+        a(href='#')
+          | Toimielimet
+          span.arrow ›
+      li
+        a(href='#')
+          | Toimielimen nimi
+          span.arrow ›
+  .tabs-container
+    .tabs
+      ul.tabs-list
+        li.active: a(href='#') Esittely
+        li: a(href='#') Jäsenet
+    .tab-content
+      .tab
+        .organ-details
+          h2
+            a(href='#') Toimielimen nimi
+            span.date muokattu 23.4.2012
+            a.edit-icon(href='#')
+          .item-row
+            span.label Organisaatioyksikkö:
+            span.text Aalto Yliopisto - Kauppakorkeakoulu
+          .item-row
+            span.label Toimikausi:
+            span.text 12.4.2012 - 12.10.2012
+          .item-row
+            span.label Vastuuhenkilö:
+            span.text Tuula Hellaakoski
+          .item-row
+            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus. Donec ultricies nisl ut felis, suspendisse potenti.
+        em
+          | Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
+        a.application-call.btn(href='#') Avaa uusi paikkahaku
+        .hr
+        form.message-for-organ
+          textarea.wide(type='textarea' placeholder='Kirjoita viesti toimielimelle')
+        .button-row
+          a.submit.btn(href='#') Lähetä
+
+        .content-comments
+          .comment
+            span.user-avatar
+              img(src='img/comment-avatar.png')
+            p
+              span.user-name Santeri Kainulainen
+              br
+              span.content Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus.
+              br
+              span.date 13.5.2012 •
+              a.edit(href='#') muokkaa •
+              a.remove(href='#') poista asiaton viesti
+          .comment
+            span.user-avatar
+              img(src='img/comment-avatar.png')
+            p
+              span.user-name Saara Suttura
+              br
+              span.content Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis.
+              br
+              span.date 13.5.2012 •
+              a.edit(href='#') muokkaa •
+              a.remove(href='#') poista asiaton viesti
+
+      .tab
+        .organ-members
+          h2
+            | Yliopiston edustajat
+            a.send-message(href='#') Lähetä ryhmäviesti
+          .member-card
+            div.avatar
+            a.remove-member(href='#')
+            p
+              a.name(href='#') Eija Zitting
+              br
+              span.email eija.zitting@ayy.fi
+              br
+              span.position Jäsenen toimenkuva
+          .member-card.no-margin
+            div.avatar
+            a.remove-member(href='#')
+            p
+              a.name(href='#') Eija Zitting
+              br
+              span.email eija.zitting@ayy.fi
+              br
+              span.position Jäsenen toimenkuva
+          .member-card
+            div.avatar
+            a.remove-member(href='#')
+            p
+              a.name(href='#') Eija Zitting
+              br
+              span.email eija.zitting@ayy.fi
+              br
+              span.position Jäsenen toimenkuva
+
+        .hr
+
+        .organ-members
+          h2
+            | Istuvat opiskelijaedustajat
+            a.send-message(href='#') Lähetä ryhmäviesti
+          .member-card
+            div.avatar
+            a.remove-member(href='#')
+            p
+              a.name(href='#') Eija Zitting
+              br
+              span.email eija.zitting@ayy.fi
+            .status-buttons
+              a.status.btn.active(href='#') Jäsen
+              a.status.btn(href='#') Varajäsen
+          .member-card.no-margin
+            div.avatar
+            a.remove-member(href='#')
+            p
+              a.name(href='#') Eija Zitting
+              br
+              span.email eija.zitting@ayy.fi
+            .status-buttons
+              a.status.btn.active(href='#') Jäsen
+              a.status.btn(href='#') Varajäsen
+
+        .call-for-application
+          h2 Haun nimi, 26.4.2012
+          p.definition
+            | Paikkahakuun määritelty:
+            br
+            span.predetermined-memberships 1 jäsen, 1 varajäsen ja 1 kiintiöpaikka (2. vuoden tuotantotalouden opiskelija, nainen)
+          h3 Hakemuksen lähettäneet opiskelijat:
+          .member-card
+            div.avatar
+            p
+              a.name(href='#') Eija Zitting
+              br
+              span.email eija.zitting@ayy.fi
+            .status-buttons
+              a.status.btn.active(href='#') Jäsen
+              a.status.btn(href='#') Varajäsen
+              a.status.btn(href='#') Hylätty
+          .member-card.no-margin
+            div.avatar
+            p
+              a.name(href='#') Eija Zitting
+              br
+              span.email eija.zitting@ayy.fi
+            .status-buttons
+              a.status.btn.active(href='#') Jäsen
+              a.status.btn(href='#') Varajäsen
+              a.status.btn(href='#') Hylätty
+          form.add-applicants
+            input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')
+            a.btn.add-row(href='#')
+              span.plus-icon
+          .button-row
+            a.submit.btn(href='#') Tallenna uudet jäsenet
+
+        .hr
+
+        / Visible if user has clicked 'Näytä vanhat haut' button
+        .call-for-application
+          h2
+            | Vanhan haun nimi, 7.1.2012
+            a.send-message(href='#') Lähetä ryhmäviesti
+          .column
+            h3 Jäsenet:
+            ul.list-of-names
+              li: a(href='#') Kyösti Alamäki
+              li: a(href='#') Sirpa Kakkonen
+          .column
+            h3 Varajäsenet:
+            ul.list-of-names
+              li: a(href='#') Eemeli Keskikoski
+              li: a(href='#') Taika Tuulinen
+          .column
+            h3 Hylätyt:
+            ul.list-of-names
+              li: a(href='#') Jummi Jamminen
+
+        .hr
+
+        .button-row
+          /Should change to 'Piilota vanhat haut' when old calls are visible
+          a.submit.btn(href='#') Näytä vanhat haut
+  div.clear

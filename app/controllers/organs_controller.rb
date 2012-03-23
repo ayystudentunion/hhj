@@ -29,8 +29,9 @@ class OrgansController < ApplicationController
   end
 
   def show # return a single organ
+    @organ = Organ.find(params[:id])
     respond_to do |format|
-      format.html { render "pages/index" }
+      format.html
       format.json { render :json => Organ.find(params[:id]) }
     end
   end
