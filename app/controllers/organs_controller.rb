@@ -20,8 +20,11 @@ class OrgansController < ApplicationController
   end
 
   def create # create a new organ document
+    organ = Factory(:organ, params.select{|key, value| Organ.fields.keys.include? key})
+
     respond_to do |format|
-      format.json { render json: Factory(:organ, params.select{|key, value| Organ.fields.keys.include? key}).to_json }
+      format.json { render json: organ.to_json }
+      format.html { redirect_to action: :show, id: organ._id }
     end
   end
 

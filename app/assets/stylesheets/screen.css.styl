@@ -192,7 +192,7 @@ a:hover
 
 
 /* GENERAL BUTTON STYLES */
-a.btn
+a.btn, input.btn
   display inline-block
   gradient(color-2-light, color-2-dark)
   padding 0 16px
@@ -201,10 +201,10 @@ a.btn
   text-align center
   line-height 23px
   color #505050
-a.btn:hover
+a.btn:hover, input.btn:hover
   gradient(color-2-dark, color-2-light)
   color #333
-a.btn:active
+a.btn:active, input.btn:active
   gradient(color-1-dark, color-1-light)
 
 /* CONTENT STYLES */
@@ -656,14 +656,14 @@ a.btn:active
       padding 14px 14px 2px 14px
       gradient(color-2-light, color-2-dark)
       h2
-        a.close-modal
+        .close-modal
           display inline-block
           width 14px
           height 14px
           background url('../img/remove-icon.png') no-repeat left top
           float right
           margin-top 1px
-        a.close-modal:hover
+        .close-modal:hover
           background url('../img/remove-icon.png') no-repeat left bottom
           padding 2px
           border-radius 2px
@@ -818,7 +818,7 @@ form.send-application
       display inline-block
       padding-left 41px
       margin-bottom 14px
-      a.btn
+      a.btn, input.btn
         margin-left -1px
 
 .inline-block
@@ -837,7 +837,7 @@ form.send-application
   clear both
   text-align right
   margin 10px 0 14px 0
-  a.submit, a.cancel
+  a.submit, input.btn, a.cancel
     margin-left 3px
   a.cancel
     gradient(color-1-light, color-1-dark)

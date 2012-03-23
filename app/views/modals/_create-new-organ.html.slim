@@ -6,7 +6,7 @@
       a.lang.btn.active(href='#') FI
       a.lang.btn(href='#') EN
       a.lang.btn(href='#') SE
-  form.new-organ
+  form.new-organ(method='post' action='/fi/organs')
     input.field.wide(type='text' placeholder='Toimielimen nimi')
     .inline-block
       label.field-label Toimikauden alkamisaika:
@@ -42,4 +42,4 @@
     textarea.wide(type='textarea' placeholder='Kuvaus toimielimen toiminnasta')
     .button-row
       a.cancel.close-modal.btn(href='#') Peruuta
-      a.submit.btn(href='#') Tallenna
+      input.submit.close-modal.btn(type='submit' value='Tallenna')
