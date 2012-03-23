@@ -7,7 +7,7 @@
       a.lang.btn(href='#') EN
       a.lang.btn(href='#') SE
   = form_for Organ.new, class: 'new-organ'  do |f|
-    input.field.wide(type='text' placeholder='Toimielimen nimi')
+    = f.text_field :name, placeholder: t('modals.new_organ.name'), class: 'wide field'
     .inline-block
       label.field-label Toimikauden alkamisaika:
       input.field.date(type='text' placeholder='Aseta aika')

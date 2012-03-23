@@ -29,6 +29,9 @@ fi:
     print_application: Tulosta hakemus
     close: Sulje
 
+    new_organ:
+      name: Toimielimen nimi
+
   placeholders:
     search: Hae ...
     limit_results: Rajaa tuloksia haulla
