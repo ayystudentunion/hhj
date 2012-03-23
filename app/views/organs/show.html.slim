@@ -16,34 +16,46 @@ div#single-organ
   .tabs-container
     .tabs
       ul.tabs-list
-        li.active: a(href='#') Esittely
-        li: a(href='#') Jäsenet
+        li.active: a(href='#') = t :introduction
+        li: a(href='#') = t :members
     .tab-content
       .tab
         .organ-details
           h2
-            a(href='#') Toimielimen nimi
+            a(href='#') = @organ.name
             span.date muokattu 23.4.2012
             a.edit-icon(href='#')
           .item-row
-            span.label Organisaatioyksikkö:
+            span.label 
+              = t :organization
+              | :
             span.text Aalto Yliopisto - Kauppakorkeakoulu
           .item-row
-            span.label Toimikausi:
-            span.text 12.4.2012 - 12.10.2012
+            span.label 
+              = t :term
+              | :
+            span.text
+              = @organ.term_start
+              |  - 
+              = @organ.term_end
           .item-row
-            span.label Vastuuhenkilö:
-            span.text Tuula Hellaakoski
+            span.label 
+              = t :manager
+              | :
+            span.text
+              = @organ.manager_name
           .item-row
-            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus. Donec ultricies nisl ut felis, suspendisse potenti.
+            = @organ.description
         em
-          | Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
-        a.application-call.btn(href='#') Avaa uusi paikkahaku
+          = t :has_open_positions
+        a.application-call.btn(href='#')
+          = t :new_call_for_applications
         .hr
         form.message-for-organ
-          textarea.wide(type='textarea' placeholder='Kirjoita viesti toimielimelle')
+          textarea.wide(type='textarea' placeholder=t("placeholders.message_for_organ"))
         .button-row
-          a.submit.btn(href='#') Lähetä
+          a.submit.btn(href='#')
+            = t :send
 
         .content-comments
           .comment

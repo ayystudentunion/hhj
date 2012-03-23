@@ -6,6 +6,15 @@ fi:
   front_page: Etusivu
   organs: Toimielimet
 
+  introduction: Esittely
+  members: Jäsenet
+  organization: Organisaatioyksikkö
+  term: Toimikausi
+  manager: Vastuuhenkilö
+
+  has_open_positions: Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
+  new_call_for_applications: Avaa uusi paikkahaku
+
   sidebar:
     user_info: Omat tiedot
     edit: Muokkaa
@@ -35,3 +44,6 @@ fi:
   placeholders:
     search: Hae ...
     limit_results: Rajaa tuloksia haulla
+    message_for_organ: Kirjoita viesti toimielimelle
+
+  send: Lähetä
