@@ -3,10 +3,10 @@ require 'factory_girl_rails'
 class OrgansController < ApplicationController
 
   def index # list of all organs
+    @organ = Factory.build(:organ)
+    @organs = Organ.all
+
     respond_to do |format|
-
-      @organs = Organ.all
-
       format.html
       format.fragment { render :partial => "organs", :locals => { :organs => @organs } }
       format.json { render :json => @organs }
@@ -14,6 +14,7 @@ class OrgansController < ApplicationController
   end
 
   def new # form for creating a new organ
+    @organ = Factory.build(:organ)
     respond_to do |format|
       format.html { render "pages/index" }
     end
