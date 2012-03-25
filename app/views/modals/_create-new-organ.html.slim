@@ -9,8 +9,8 @@
   = form_for @organ, class: 'new-organ'  do |f|
     = f.text_field :name, placeholder: t('modals.new_organ.name'), class: 'wide field'
     .inline-block
-      label.field-label Toimikauden alkamisaika:
-      input.field.date(type='text' placeholder='Aseta aika')
+      = f.label :term_start, t('modals.new_organ.start_time'), class: 'field-label'
+      = f.text_field :term_start, placeholder: t('modals.new_organ.set_start_time'), class: 'field date'
       span.datepicker
     .inline-block.no-margin
       label.field-label Toimikauden päättymisaika:

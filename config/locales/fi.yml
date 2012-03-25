@@ -40,6 +40,8 @@ fi:
 
     new_organ:
       name: Toimielimen nimi
+      set_start_time: Aseta aika
+      start_time: "Toimikauden alkamisaika:"
 
   placeholders:
     search: Hae ...
