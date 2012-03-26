@@ -1,3 +1,5 @@
+
 Given /^there are several organs in the system$/ do
-  Factory :organ
+  Factory :tasa_arvotyoryhma
+  Factory :kirjakerho
 end
