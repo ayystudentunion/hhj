@@ -15,7 +15,7 @@ fi:
   has_open_positions: Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
   new_call_for_applications: Avaa uusi paikkahaku
 
-  lang:
+  languages:
     fi: FI
     in_finnish: Suomeksi
     en: EN
