@@ -1,8 +1,8 @@
 Feature: Viewing organs
 
   Background:
-    Given I am viewing the front page
-    And there are several organs in the system
+    Given there are several organs in the system
+    And I am viewing the front page
 
   Scenario: Visiting the organ list
     When I follow the link "Toimielimet"
