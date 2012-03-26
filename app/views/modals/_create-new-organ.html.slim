@@ -5,9 +5,9 @@
         = t '.title', locale: locale
         a.close-modal(href='#')
         .language-buttons
-          a.lang.btn.active(href='#' hreflang='fi') = t 'lang.fi', locale: locale
-          a.lang.btn(href='#' hreflang='se') = t 'lang.se', locale: locale
-          a.lang.btn(href='#' hreflang='en') = t 'lang.en', locale: locale
+          a.lang.btn.active(href='#' hreflang='fi') = t 'languages.fi', locale: locale
+          a.lang.btn(href='#' hreflang='se') = t 'languages.se', locale: locale
+          a.lang.btn(href='#' hreflang='en') = t 'languages.en', locale: locale
       = form_for @organ, class: 'new-organ'  do |f|
         = f.text_field :name, placeholder: t('.name', locale: locale), class: 'wide field'
         .inline-block
