@@ -10,3 +10,6 @@ Then /^show me the page$/ do
   save_and_open_page
 end
 
+When /^I follow the link "([^"]*)"$/ do |link_title|
+  click_link link_title
+end
