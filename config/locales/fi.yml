@@ -58,6 +58,8 @@ fi:
       manager_name: Vastuuhenkilön nimi
       manager_email: Vastuuhenkilön sähköpostiosoite
       appointer: Nimityksen tekevä henkilö
+      official: Lakisääteinen
+      unofficial: Epävirallinen
 
   placeholders:
     search: Hae ...

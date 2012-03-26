@@ -36,11 +36,11 @@
             option(value='12') Fysiikan laitos
         .inline-block.no-margin
           label.inline-label
-            input(name='type-of-organ' type='radio' value='Lakisääteinen')
-            | Lakisääteinen
+            = f.radio_button :official, 'true'
+            = t '.official', locale: locale
           label.inline-label
-            input(type='radio' name='type-of-organ' value='Epävirallinen')
-            | Epävirallinen
+            = f.radio_button :official, 'false'
+            = t '.unofficial', locale: locale
         = f.text_area :description, placeholder: t('.description', locale: locale), class: 'wide'
         .button-row
           a.cancel.close-modal.btn(href='#') = t 'modals.cancel', locale: locale
