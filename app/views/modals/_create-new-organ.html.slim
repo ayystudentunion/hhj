@@ -1,47 +1,48 @@
-.content
-  - languages.each do |locale|
-    div(id="create-new-organ-#{locale}" style="#{'display:none;' unless locale == I18n.locale}")
-      h2
-        = t '.title', locale: locale
-        a.close-modal(href='#')
-        .language-buttons
-          a.lang.btn.active(href='#' hreflang='fi') = t 'languages.fi', locale: locale
-          a.lang.btn(href='#' hreflang='se') = t 'languages.se', locale: locale
-          a.lang.btn(href='#' hreflang='en') = t 'languages.en', locale: locale
-      = form_for @organ, class: 'new-organ'  do |f|
-        = f.text_field :name, placeholder: t('.name', locale: locale), class: 'wide field'
-        .inline-block
-          = f.label :term_start, t('.start_time', locale: locale), class: 'field-label'
-          = f.text_field :term_start, placeholder: t('.set_time', locale: locale), class: 'field date'
-          span.datepicker
-        .inline-block.no-margin
-          = f.label :term_end, t('.end_time', locale: locale), class: 'field-label'
-          = f.text_field :term_end, placeholder: t('.set_time', locale: locale), class: 'field date'
-          span.datepicker
-        .inline-block
-          = f.text_field :manager_name, placeholder: t('.manager_name', locale: locale), class: 'field'
-        .inline-block.no-margin
-          = f.text_field :manager_name, placeholder: t('.manager_email', locale: locale), class: 'field'
-        = f.text_field :appointer, placeholder: t('.appointer', locale: locale), class: 'field half'
-        .inline-block
-          select#organization-select-0
-            option.default(value='select') Valitse organisaatioyksikkö
-            option(value='01') Luonnontieteellinen tiedekunta
-            option(value='02') Humanististen tieteiden tiedekunta
-            option(value='03') Kirjasto
+.modal
+  .content
+    - languages.each do |locale|
+      div(id="create-new-organ-#{locale}" style="#{'display:none;' unless locale == I18n.locale}")
+        h2
+          = t '.title', locale: locale
+          a.close-modal(href='#')
+          .language-buttons
+            a.lang.btn.active(href='#' hreflang='fi') = t 'languages.fi', locale: locale
+            a.lang.btn(href='#' hreflang='se') = t 'languages.se', locale: locale
+            a.lang.btn(href='#' hreflang='en') = t 'languages.en', locale: locale
+        = form_for @organ, class: 'new-organ'  do |f|
+          = f.text_field :name, placeholder: t('.name', locale: locale), class: 'wide field'
           .inline-block
-          select#organization-select-1
-            option(value='select') Valitse organisaatioyksikkö
-            option(value='11') Kemian laitos
-            option(value='12') Fysiikan laitos
-        .inline-block.no-margin
-          label.inline-label
-            input(name='type-of-organ' type='radio' value='Lakisääteinen')
-            | Lakisääteinen
-          label.inline-label
-            input(type='radio' name='type-of-organ' value='Epävirallinen')
-            | Epävirallinen
-        = f.text_area :description, placeholder: t('.description', locale: locale), class: 'wide'
-        .button-row
-          a.cancel.close-modal.btn(href='#') = t 'modals.cancel', locale: locale
-          input.submit.close-modal.btn(type='sumit' value="#{t 'modals.save', locale: locale}")
+            = f.label :term_start, t('.start_time', locale: locale), class: 'field-label'
+            = f.text_field :term_start, placeholder: t('.set_time', locale: locale), class: 'field date'
+            span.datepicker
+          .inline-block.no-margin
+            = f.label :term_end, t('.end_time', locale: locale), class: 'field-label'
+            = f.text_field :term_end, placeholder: t('.set_time', locale: locale), class: 'field date'
+            span.datepicker
+          .inline-block
+            = f.text_field :manager_name, placeholder: t('.manager_name', locale: locale), class: 'field'
+          .inline-block.no-margin
+            = f.text_field :manager_name, placeholder: t('.manager_email', locale: locale), class: 'field'
+          = f.text_field :appointer, placeholder: t('.appointer', locale: locale), class: 'field half'
+          .inline-block
+            select#organization-select-0
+              option.default(value='select') Valitse organisaatioyksikkö
+              option(value='01') Luonnontieteellinen tiedekunta
+              option(value='02') Humanististen tieteiden tiedekunta
+              option(value='03') Kirjasto
+            .inline-block
+            select#organization-select-1
+              option(value='select') Valitse organisaatioyksikkö
+              option(value='11') Kemian laitos
+              option(value='12') Fysiikan laitos
+          .inline-block.no-margin
+            label.inline-label
+              input(name='type-of-organ' type='radio' value='Lakisääteinen')
+              | Lakisääteinen
+            label.inline-label
+              input(type='radio' name='type-of-organ' value='Epävirallinen')
+              | Epävirallinen
+          = f.text_area :description, placeholder: t('.description', locale: locale), class: 'wide'
+          .button-row
+            a.cancel.close-modal.btn(href='#') = t 'modals.cancel', locale: locale
+            input.submit.close-modal.btn(type='sumit' value="#{t 'modals.save', locale: locale}")

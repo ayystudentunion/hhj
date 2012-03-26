@@ -7,7 +7,6 @@ html
     = csrf_meta_tags
     meta(http-equiv='Content-Type'
       content='text/html; charset=UTF-8')
-
   body
     div#content-wrap
       div#header
@@ -55,18 +54,21 @@ html
       div#footer
         p Copyright 2012 Halloped.fi
 
-    div#modal-wrap
-      .modal#create-new-organ
-        = render "modals/create-new-organ"
+    div#modal-wrap(style=modal_wrap_style)
+      = modal_dialog
 
-      .modal#call-for-application
-        = render "modals/call-for-application"
-
-      .modal#received-application
-        = render "modals/received-application"
-
-      .modal#send-group-message
-        = render "modals/send-group-message"
-
-      .modal#send-application
-        = render "modals/send-application"
+      
+/      .modal#create-new-organ
+/        = render "modals/create-new-organ"
+/
+/      .modal#call-for-application
+/        = render "modals/call-for-application"
+/
+/      .modal#received-application
+/        = render "modals/received-application"
+/
+/      .modal#send-group-message
+/        = render "modals/send-group-message"
+/
+/      .modal#send-application
+/        = render "modals/send-application"
