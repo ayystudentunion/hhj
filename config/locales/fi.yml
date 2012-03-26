@@ -60,6 +60,7 @@ fi:
       appointer: Nimityksen tekevä henkilö
       official: Lakisääteinen
       unofficial: Epävirallinen
+      select_organization: Valitse organisaatioyksikkö
 
   placeholders:
     search: Hae ...

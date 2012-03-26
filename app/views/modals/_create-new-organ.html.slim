@@ -24,16 +24,8 @@
           = f.text_field :manager_name, placeholder: t('.manager_email', locale: locale), class: 'field'
         = f.text_field :appointer, placeholder: t('.appointer', locale: locale), class: 'field half'
         .inline-block
-          select#organization-select-0
-            option.default(value='select') Valitse organisaatioyksikkö
-            option(value='01') Luonnontieteellinen tiedekunta
-            option(value='02') Humanististen tieteiden tiedekunta
-            option(value='03') Kirjasto
-          .inline-block
-          select#organization-select-1
-            option(value='select') Valitse organisaatioyksikkö
-            option(value='11') Kemian laitos
-            option(value='12') Fysiikan laitos
+          = f.collection_select :organization, @university.children, :id, :name,
+            prompt: t('.select_organization ', locale: locale)
         .inline-block.no-margin
           label.inline-label
             = f.radio_button :official, 'true'
@@ -44,4 +36,4 @@
         = f.text_area :description, placeholder: t('.description', locale: locale), class: 'wide'
         .button-row
           a.cancel.close-modal.btn(href='#') = t 'modals.cancel', locale: locale
-          input.submit.close-modal.btn(type='sumit' value="#{t 'modals.save', locale: locale}")
+          input.submit.close-modal.btn(type='submit' value="#{t 'modals.save', locale: locale}")
