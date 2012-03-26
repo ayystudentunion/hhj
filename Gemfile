@@ -39,6 +39,8 @@ end
 
 group :test do
   gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'capybara-webkit'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'launchy'
