@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_university
-    @university = Organization.root
+    @university = Organization.root || Factory.build(:organization)
   end
 
 end
