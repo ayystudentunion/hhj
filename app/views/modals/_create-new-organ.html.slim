@@ -1,5 +1,5 @@
 .content
-  - LANGUAGES.each do |locale|
+  - languages.each do |locale|
     div(id="create-new-organ-#{locale}" style="#{'display:none;' unless locale == I18n.locale}")
       h2
         = t '.title', locale: locale
