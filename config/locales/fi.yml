@@ -15,6 +15,14 @@ fi:
   has_open_positions: Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
   new_call_for_applications: Avaa uusi paikkahaku
 
+  lang:
+    fi: FI
+    in_finnish: Suomeksi
+    en: EN
+    in_english: In English
+    se: SE
+    in_swedish: På svenska
+
   sidebar:
     user_info: Omat tiedot
     edit: Muokkaa
@@ -37,11 +45,19 @@ fi:
     qualifications: Omat perustelut
     print_application: Tulosta hakemus
     close: Sulje
+    cancel: Peruuta
+    save: Tallenna
 
-    new_organ:
+    create_organ:
+      title: Luo uusi toimielin
       name: Toimielimen nimi
-      set_start_time: Aseta aika
+      description: Kuvaus toimielimen toiminnasta
+      set_time: Aseta aika
       start_time: "Toimikauden alkamisaika:"
+      end_time: "Toimikauden päättymisaika:"
+      manager_name: Vastuuhenkilön nimi
+      manager_email: Vastuuhenkilön sähköpostiosoite
+      appointer: Nimityksen tekevä henkilö
 
   placeholders:
     search: Hae ...
