@@ -7,7 +7,7 @@ class OrgansController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.fragment { render "index.html", layout: false, locals: { organs: @organs } }
+      format.fragment { render "index", formats: ['html'], layout: false, locals: { organs: @organs } }
       format.json { render :json => @organs }
     end
   end
@@ -33,7 +33,7 @@ class OrgansController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render :json => Organ.find(params[:id]) }
-      format.fragment { render "show.html", layout: false }
+      format.fragment { render "show", formats: ['html'], layout: false }
     end
   end
 

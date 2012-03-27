@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def index
     respond_to do |format|
       format.html { render "pages/_frontpage" }
-      format.fragment { render "pages/_frontpage.html", layout: false }
+      format.fragment { render "pages/_frontpage", formats: ['html'], layout: false }
     end
   end
 
