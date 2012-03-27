@@ -8,11 +8,12 @@ gem 'rails', '3.2.2'
 gem 'mongoid', '>= 2.4'
 gem 'bson_ext', '>= 1.5'
 gem 'mongoid_rails_migrations', '>= 0.0.13'
+gem 'mongoid-tree', require: 'mongoid/tree'
 # gem 'therubyracer'
 gem 'slim'
 # gem 'sprockets'
 # gem 'railties'
- gem 'factory_girl_rails', :require => false
+ gem 'factory_girl_rails', require: false
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'

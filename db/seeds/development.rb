@@ -9,9 +9,9 @@
 
 require 'factory_girl_rails'
 
-def createOrganization(org, parent=nil)
-   current = Factory(:organization, org.reject{|key, value| key == :children}.merge(parent: parent))
-   org.fetch(:children, []).each{ |child| createOrganization child, current }
+def createOrganization(org)
+   children = org.fetch(:children, []).map{ |child| createOrganization child}
+   Factory(:organization, org.reject{|key, value| key == :children}.merge(children: children))
 end
 
 createOrganization( {
@@ -58,3 +58,4 @@ createOrgans( [ {
   _id:   '4f6b1edf91bc2b3302010101',
   organization: Organization.find('4f6b1edf91bc2b33d3010200')
 } ] )
+

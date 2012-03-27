@@ -2,7 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  mongoid:
+    attributes:
+      organ:
+        term_start: "Term start date:"
 
   modals:
     create-new-organ:
       title: Create new organ
+

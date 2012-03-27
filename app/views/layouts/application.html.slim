@@ -36,11 +36,8 @@ html
         #navi-content
           ul.navi-links
             li: a.home(href='#')
-            li: a(href="#{organs_path}") = t('navi.organs')
-            li: a(href='#') = t('navi.open_calls')
-            li: a(href='#') = t('navi.hallopeds')
-            li: a(href='#') = t('navi.documents')
-            li: a(href='#') = t('navi.forms')
+            li: a(href=organs_path) = t('navi.organs')
+            li: a(href=calls_path) = t('navi.open_calls')
           form.search
             input.field.search-field(type='text' placeholder="#{t 'placeholders.search'}")
       div#content
