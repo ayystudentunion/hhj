@@ -4,7 +4,7 @@
       div(id="create-new-organ-#{locale}" style="#{'display:none;' unless locale == I18n.locale}")
         h2
           = t '.title', locale: locale
-          a.close-modal(href='#')
+          a.close-modal(href=close_modal_path)
           .language-buttons
             a.lang.btn.active(href='#' hreflang='fi') = t 'languages.fi', locale: locale
             a.lang.btn(href='#' hreflang='se') = t 'languages.se', locale: locale
@@ -36,5 +36,5 @@
               = Organ.human_attribute_name :unofficial, locale: locale
           = f.text_area :description, placeholder: Organ.human_attribute_name(:description, locale: locale), class: 'wide'
           .button-row
-            a.cancel.close-modal.btn(href='#') = t 'modals.cancel', locale: locale
+            a.cancel.close-modal.btn(href=close_modal_path) = t 'modals.cancel', locale: locale
             input.submit.close-modal.btn(type='submit' value="#{t 'modals.save', locale: locale}")
