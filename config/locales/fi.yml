@@ -37,6 +37,28 @@ fi:
     documents: Asiakirjat
     forms: Lomakkeet
 
+  mongoid:
+    errors:
+      models:
+        organ:
+          attributes:
+            manager_email:
+              blank: Vastuuhenkilön sähköpostiosoite puuttuu
+              not_found: Vastuuhenkilön sähköpostiosoite on virheellinen
+    attributes:
+      organ:
+        name: Toimielimen nimi
+        description: Kuvaus toimielimen toiminnasta
+        term_start: Toimikauden alkamisaika
+        term_end: Toimikauden päättymisaika
+        manager_name: Vastuuhenkilön nimi
+        manager_email: Vastuuhenkilön sähköpostiosoite
+        appointer: Nimityksen tekevä henkilö
+        official: Lakisääteinen
+        unofficial: Epävirallinen
+
+
+
   modals:
     application: Hakemus
     apply_date: Hakemus jätetty
@@ -50,16 +72,7 @@ fi:
 
     create-new-organ:
       title: Luo uusi toimielin
-      name: Toimielimen nimi
-      description: Kuvaus toimielimen toiminnasta
-      set_time: Aseta aika
-      start_time: "Toimikauden alkamisaika:"
-      end_time: "Toimikauden päättymisaika:"
-      manager_name: Vastuuhenkilön nimi
-      manager_email: Vastuuhenkilön sähköpostiosoite
-      appointer: Nimityksen tekevä henkilö
-      official: Lakisääteinen
-      unofficial: Epävirallinen
+      time_placeholder: Aseta aika
       select_organization: Valitse organisaatioyksikkö
 
   placeholders:

@@ -12,4 +12,9 @@ class Organ
   field :manager_email, type: String
   field :appointer, type: String
   field :official, type: Boolean
+
+  def unofficial
+    not official
+  end
+
 end
