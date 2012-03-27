@@ -1,13 +1,12 @@
 Halloped::Application.routes.draw do
 
-
   scope "/:locale" do
     resources :calls
     resources :organs
+    resources :organizations
 
     match "modals" => "modals#show", :as => :modal
   end
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

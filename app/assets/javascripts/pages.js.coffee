@@ -27,6 +27,14 @@ $(document).ready ->
     router.setRoute '/'
     return false
 
+  $("#create-new-organ select").change () ->
+    organization_id = $(this).val()
+    $.get "organizations.json", (organizations) ->
+      children = _(organizations).filter((org) -> org.parent_id == organization_id)
+      if children.length > 0
+        console.log children
+    return false
+
   $("#single-organ a.application-call").click () ->
     $("#modal-wrap").show()
     $("#call-for-application").fadeIn('fast')

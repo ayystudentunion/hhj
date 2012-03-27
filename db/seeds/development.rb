@@ -26,7 +26,12 @@ createOrganization( {
       _id:   '4f6b1edf91bc2b33d3010101'
     }, {
       name: 'Fysiikan laitos',
-      _id:   '4f6b1edf91bc2b33d3010102'
+      _id:   '4f6b1edf91bc2b33d3010102',
+      children: [
+      {
+        name: 'Teoreettisen fysiikan yksikkö',
+        _id:   '4f6b1edf91bc2b33d3010103'
+      } ]
     } ]
   }, {
     name: 'Humanististen tieteiden tiedekunta',
