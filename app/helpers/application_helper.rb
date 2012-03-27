@@ -11,15 +11,15 @@ module ApplicationHelper
   def modal_dialog
     case params[:modal]
     when 'new-organ'
-      render "modals/create-new-organ", formats: [:html]
+      render "modals/create-new-organ.html"
     when 'cfa'
-      render "modals/call-for-application", formats: [:html]
+      render "modals/call-for-application.html"
     when 'application'
-      render "modals/received-application", formats: [:html]
+      render "modals/received-application.html"
     when 'message'
-      render "modals/send-group-message", formats: [:html]
+      render "modals/send-group-message.html"
     when 'send-application'
-      render "modals/send-application", formats: [:html]
+      render "modals/send-application.html"
     else
       ;
     end
