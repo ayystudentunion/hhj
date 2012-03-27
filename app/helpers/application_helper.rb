@@ -26,7 +26,7 @@ module ApplicationHelper
   end
 
   def new_organ_modal_path
-    request.path + "?modal=new-organ"
+    "?modal=new-organ"
   end
 
   def close_modal_path
