@@ -1,7 +1,7 @@
 .modal
   .content
     - languages.each do |locale|
-      div(id="create-new-organ-#{locale}" style="#{'display:none;' unless locale == I18n.locale}")
+      div(id="create-new-organ-#{locale}" class="organ-form-container #{locale}"style="#{'display:none;' unless locale == I18n.locale}")
         h2
           = t '.title', locale: locale
           a.close-modal(href=close_modal_path)

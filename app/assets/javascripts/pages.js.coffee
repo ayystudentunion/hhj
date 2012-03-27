@@ -2,6 +2,16 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+$(document).ready ->
+  $("#modal-wrap").delegate ".lang.btn", "click", () ->
+    changeModalFormLanguage = (forms_container, lang) ->
+      forms_container.find('.organ-form-container').hide()
+      forms_container.find(".organ-form-container.#{lang}").show()
+      forms_container.find('.lang.btn').toggleClass('active', false)
+      forms_container.find(".lang.btn[hreflang='#{lang}']").toggleClass('active', true)
+
+    changeModalFormLanguage $(this).parents('.content:first'), $(this).attr('hreflang')
+
 ###
 openNewOrganDialog = ->
   $("#modal-wrap").show()
