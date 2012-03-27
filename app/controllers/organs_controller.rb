@@ -33,6 +33,7 @@ class OrgansController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render :json => Organ.find(params[:id]) }
+      format.fragment { render "show.html", layout: false }
     end
   end
 
