@@ -1,5 +1,5 @@
 
-loadFragment = (locale, controller, param) ->
+loadFragment = (locale, controller, param, modal) ->
   locale     ?= "fi"
   controller ?= "" # TODO
   param      ?= ""
@@ -16,15 +16,20 @@ loadFragment = (locale, controller, param) ->
   cached.getDOM url, (error, dom) ->
     dom.appendTo contentWrap
 
-  modal = $(document).getUrlParam "modal"
+  modalWrap = $('#modal-wrap').empty().hide()
   if modal
-    ; # TODO
+    modal_url = "/#{locale}/modals.fragment?modal=#{modal}"
+    cached.getDOM modal_url, (error, dom) ->
+      dom.appendTo modalWrap.show()
+
+  return true
 
 init_routing = () ->
-  console.log "init_routing"
   return if not History.enabled
+  crossroads.addRoute "/{locale}/:controller:/:param:?modal={modal}", loadFragment
+  crossroads.addRoute "/{locale}/:controller:/:param:?", loadFragment
   crossroads.addRoute "/{locale}/:controller:/:param:", loadFragment
-  crossroads.routed.add(console.log, console);
+  # crossroads.routed.add(console.log, console);
 
   $('a').live 'click', (ev) ->
     href = $(this).attr 'href'
@@ -35,7 +40,6 @@ init_routing = () ->
       return false
 
   History.Adapter.bind window, 'statechange', () ->
-    console.log History.getState()
     navigate History.getState().hash
 
 navigate = (url) ->

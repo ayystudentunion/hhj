@@ -4,6 +4,8 @@ Halloped::Application.routes.draw do
   scope "/:locale" do
     resources :calls
     resources :organs
+
+    match "modals" => "modals#show", :as => :modal
   end
 
 
