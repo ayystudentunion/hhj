@@ -25,6 +25,10 @@ module ApplicationHelper
     end
   end
 
+  def new_organ_modal_path
+    "?modal=new-organ"
+  end
+
   def modal_wrap_style
     if params[:modal]
       ""

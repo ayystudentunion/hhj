@@ -3,7 +3,6 @@ require 'factory_girl_rails'
 class OrgansController < ApplicationController
 
   def index # list of all organs
-    @organ = Factory.build(:organ)
     @organs = Organ.all
 
     respond_to do |format|
