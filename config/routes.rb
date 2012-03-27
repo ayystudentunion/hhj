@@ -1,6 +1,8 @@
 Halloped::Application.routes.draw do
 
+
   scope "/:locale" do
+    resources :calls
     resources :organs
   end
 
