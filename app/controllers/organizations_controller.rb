@@ -3,7 +3,7 @@ class OrganizationsController < ApplicationController
 
   def index
     respond_to do |format|
-      format.json { render :json => Organization.roots.map(&:tree_hash).as_json }
+      format.json { render :json => Organization.all.as_json }
     end
   end
 
