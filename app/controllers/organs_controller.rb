@@ -7,7 +7,7 @@ class OrgansController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.fragment { render :partial => "organs", :locals => { :organs => @organs } }
+      format.fragment { render "index.html", layout: false, locals: { organs: @organs } }
       format.json { render :json => @organs }
     end
   end
