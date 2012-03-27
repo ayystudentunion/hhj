@@ -35,7 +35,7 @@ html
       div#navi
         #navi-content
           ul.navi-links
-            li: a.home(href='#')
+            li: a.home(href=index_path)
             li: a(href=organs_path) = t('navi.organs')
             li: a(href=calls_path) = t('navi.open_calls')
           form.search
@@ -43,7 +43,8 @@ html
       div#content
         div#page-content
           
-          = yield
+          div#content-wrapper
+            = yield
 
           = render "shared/sidebar"
           div.clear
