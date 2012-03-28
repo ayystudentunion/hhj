@@ -75,6 +75,9 @@ fi:
       time_placeholder: Aseta aika
       select_organization: Valitse organisaatioyksikkö
 
+    call-for-application:
+      title: Avaa uusi paikkahaku toimielimelle
+
   placeholders:
     search: Hae ...
     limit_results: Rajaa tuloksia haulla

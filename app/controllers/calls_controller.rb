@@ -1,3 +1,5 @@
+require 'factory_girl_rails'
+
 class CallsController < ApplicationController
 
   def index
@@ -5,24 +7,25 @@ class CallsController < ApplicationController
 
   def new
     organ = Organ.find params[:organ_id]
-    call  = CallForApplications.new
+    call  = Call.new #Factory(:call)
     respond_to do |format|
       format.fragment { render partial: "modals/call-for-application.html", locals: {organ: organ, call: call} }
     end
   end
 
-  def create # create a new organ document
+  def create # create a new call for applications
 
-    organ = Factory(:call, params[:call_for_applications])
+    call = Factory(:call, params[:call])
+    call.organ = Organ.find params[:organ_id]
 
     respond_to do |format|
-      format.json { render json: organ.to_json }
-      format.html { redirect_to action: :show, id: organ._id }
+      format.json { render json: call.to_json }
+      format.html { redirect_to action: :show, id: call._id }
     end
   end
 
-  def show # return a single organ
-    @call = CallForApplications.find(params[:id])
+  def show # return a single call for applications
+    @call = Call.find(params[:id])
     respond_to do |format|
       format.html
       format.json { render :json => @call }
@@ -30,13 +33,13 @@ class CallsController < ApplicationController
     end
   end
 
-  def edit # form for modifing an existing organ
+  def edit # form for modifing an existing call
   end
 
-  def update # modify an existing organ
+  def update # modify an existing call
   end
 
-  def destroy # delete an organ
+  def destroy # delete an call
   end
 
 end

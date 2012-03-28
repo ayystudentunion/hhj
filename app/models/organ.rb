@@ -4,6 +4,7 @@ class Organ
   include Mongoid::Timestamps
 
   belongs_to :organization
+  has_many :call
 
   field :name, localize: true
   field :description, localize: true

@@ -1,12 +1,11 @@
 .modal#call-for-application
   .content
     h2
-      | Avaa uusi paikkahaku toimielimelle
+      = t '.title'
       a.close-modal(href='#')
       .language-buttons
-        a.lang.btn.active(href='#') FI
-        a.lang.btn(href='#') EN
-        a.lang.btn(href='#') SE
+        - languages.each do |locale|
+          a.lang.btn(href='#' hreflang="#{locale}" class="#{'active' if locale == I18n.locale}") = t "languages.#{locale}"
     form.application-workflow
       select
         option(value='Kaikki') Valitse työnkulku
@@ -15,7 +14,7 @@
         option(value='normaali') Normaali menettely
         option(value='suora') Suora menettely
     .hr
-    form.new-application
+    = form_for call, class: 'new-application' do |f|
       input.field.small(type='text')
       label.inline-label Varsinaista jäsentä
       input.field.small(type='text')
