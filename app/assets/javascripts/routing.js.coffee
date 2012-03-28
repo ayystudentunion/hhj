@@ -12,28 +12,30 @@ loadFragment = (locale, controller, param, modal) ->
 
   url += ".fragment"
 
-  contentWrap = $('#content-wrapper').empty()
+  contentWrap = $('#content-wrapper')
   cached.getDOM url, (error, dom) ->
-    dom.appendTo contentWrap
+    dom.appendTo contentWrap.empty()
 
+  ###
   modalWrap = $('#modal-wrap').empty().hide()
   if modal
     modal_url = "/#{locale}/modals.fragment?modal=#{modal}"
     cached.getDOM modal_url, (error, dom) ->
       $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit", dom).uniform()
       dom.appendTo modalWrap.show()
+  ###
 
   return true
 
 init_routing = () ->
   return if not History.enabled
-  crossroads.addRoute "/{locale}/:controller:/:param:?modal={modal}", loadFragment
-  crossroads.addRoute "/{locale}/:controller:/:param:?", loadFragment
   crossroads.addRoute "/{locale}/:controller:/:param:", loadFragment
   # crossroads.routed.add(console.log, console);
 
   $('a').live 'click', (ev) ->
-    href = $(this).attr 'href'
+    $this = $(this)
+    href = $this.attr 'href'
+    return false if $this.hasClass 'js-modal' or href == "#"
     if href.indexOf('http://') == 0
       return true
     else
