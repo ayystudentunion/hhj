@@ -24,7 +24,7 @@
           = f.text_field :manager_email, placeholder: Organ.human_attribute_name(:manager_email), class: 'field'
         = f.text_field :appointer, placeholder:  Organ.human_attribute_name(:appointer), class: 'field half'
         .inline-block
-          = f.collection_select :organization, @university.children, :id, :name, prompt: t('.select_organization')
+          = select("organ[organization]", "", @university.children.map{|p| [p.name, p.id]}, prompt: t('.select_organization'))
         .inline-block.no-margin
           label.inline-label
             = f.radio_button :official, 'true'
@@ -39,6 +39,6 @@
           input.submit.close-modal.btn(type='submit' value="#{t 'modals.save'}")
 
 script#organization-select-template(type='text/html')
-  select.organizations
+  select.organizations(name='organ[organization][]')
     option.item
 

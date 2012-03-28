@@ -20,8 +20,8 @@ class OrgansController < ApplicationController
   end
 
   def create # create a new organ document
-
-    organ = Factory(:organ, params[:organ])
+    selected_organization = params[:organ][:organization].reject(&:blank?).last
+    organ = Factory(:organ, params[:organ].merge(organization: selected_organization))
 
     respond_to do |format|
       format.json { render json: organ.to_json }
