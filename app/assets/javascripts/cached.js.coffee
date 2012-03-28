@@ -55,7 +55,7 @@ cache =
         type: "get"
         cache: false
       cache.html[url] = future
-
+    future.get callback
 
   clear: () ->
     cache =
