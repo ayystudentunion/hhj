@@ -20,8 +20,9 @@ $(document).ready ->
     $.get "fi/organizations.json", (organizations) ->
       children = _(organizations).filter((org) -> org.parent_id == organization_id)
       if children.length > 0
-        select.after $("#organization-select-template").html()
-        console.log children
+        template = $($("#organization-select-template").html())
+        select.after template.render(children, item: -> value: "#{@_id}", text: "#{@name}")
+
     return false
 
 ###
@@ -54,7 +55,7 @@ $(document).ready ->
     $.get "organizations.json", (organizations) ->
       children = _(organizations).filter((org) -> org.parent_id == organization_id)
       if children.length > 0
-        console.log children
+
     return false
 
   $("#single-organ a.application-call").click () ->

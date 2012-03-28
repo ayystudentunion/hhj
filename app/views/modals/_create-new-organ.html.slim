@@ -40,6 +40,7 @@
           input.submit.close-modal.btn(type='submit' value="#{t 'modals.save'}")
 
 script#organization-select-template(type='text/html')
-  select
+  select.organizations
     option = t('modals.create-new-organ.select_organization')
-    option
+    option.item
+
