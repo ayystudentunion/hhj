@@ -8,6 +8,7 @@
 cache =
   json: {}
   dom:  {}
+  html: {}
 
 @cached =
   getJSON: (url, callback) ->
@@ -40,8 +41,24 @@ cache =
       cache.dom[url] = future
     future.get callback
 
+  get: (url, callback) ->
+    future = cache.html[url]
+    if future?
+      future.get callback
+    else
+      future = new Future()
+      $.ajax
+        url: url
+        dataType: "html"
+        success: future.fulfill
+        error: future.fail
+        type: "get"
+        cache: false
+      cache.html[url] = future
+
 
   clear: () ->
     cache =
       json: {}
-      dom: {}
+      dom:  {}
+      html: {}
