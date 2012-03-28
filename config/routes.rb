@@ -6,8 +6,6 @@ Halloped::Application.routes.draw do
       resources :calls
     end
     resources :organizations
-
-    match "modals" => "modals#show", :as => :modal
   end
 
   # The priority is based upon order of creation:
