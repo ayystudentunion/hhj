@@ -5,6 +5,7 @@ require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
+require "mongoid"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -66,4 +67,18 @@ module Halloped
       g.fixture_replacement :factory_girl, :dir=>"spec/factories"
     end
   end
+
+  module AutoFormatLocalizedAttributes
+    def write_attribute(attr, value)
+      if value.is_a?(Hash)
+        self.send("#{attr}_translations=".to_sym, value)
+      else
+        super(attr, value)
+      end
+    end
+  end
+
 end
+
+
+
