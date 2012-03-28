@@ -4,13 +4,14 @@
 
 $(document).ready ->
   $("#modal-wrap").delegate ".lang.btn", "click", () ->
-    changeModalFormLanguage = (forms_container, lang) ->
-      forms_container.find('.organ-form-container').hide()
-      forms_container.find(".organ-form-container.#{lang}").show()
+    changeModalFormLanguage = (forms_container, locale) ->
+      forms_container.find('.localized').hide()
+      forms_container.find(".localized.#{locale}").show()
       forms_container.find('.lang.btn').toggleClass('active', false)
-      forms_container.find(".lang.btn[hreflang='#{lang}']").toggleClass('active', true)
+      forms_container.find(".lang.btn[hreflang='#{locale}']").toggleClass('active', true)
 
     changeModalFormLanguage $(this).parents('.content:first'), $(this).attr('hreflang')
+
 
 ###
 openNewOrganDialog = ->

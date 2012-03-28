@@ -9,7 +9,7 @@
             a.lang.btn(href='#' hreflang="#{locale}" class="#{'active' if locale == I18n.locale}") = t "languages.#{locale}"
       = form_for @organ, class: 'new-organ'  do |f|
         - languages.each do |locale|
-          = f.text_field :name, placeholder: Organ.human_attribute_name(:name, locale: locale), class: "wide field #{locale}", name: "organ[name[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}"
+          = f.text_field :name, placeholder: Organ.human_attribute_name(:name, locale: locale), class: "wide field localized #{locale}", name: "organ[name[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}"
         .inline-block
           = f.label :term_start, Organ.human_attribute_name(:term_start) + ':', class: "field-label"
           = f.text_field :term_start, placeholder: t('.time_placeholder'), class: 'field date'
@@ -34,7 +34,7 @@
             = f.radio_button :official, 'false'
             = Organ.human_attribute_name :unofficial
         - languages.each do |locale|
-          = f.text_area :description, placeholder: Organ.human_attribute_name(:description, locale: locale), class: 'wide #{locale}', name: "organ[description[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}"
+          = f.text_area :description, placeholder: Organ.human_attribute_name(:description, locale: locale), class: "wide localized #{locale}", name: "organ[description[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}"
         .button-row
           a.cancel.close-modal.btn(href=close_modal_path) = t 'modals.cancel'
           input.submit.close-modal.btn(type='submit' value="#{t 'modals.save'}")

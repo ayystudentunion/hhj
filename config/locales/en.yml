@@ -5,9 +5,7 @@ en:
   mongoid:
     attributes:
       organ:
-        term_start: "Term start date:"
+        name: "Name of organ"
+        description: "Description of organ"
 
-  modals:
-    create-new-organ:
-      title: Create new organ
 
