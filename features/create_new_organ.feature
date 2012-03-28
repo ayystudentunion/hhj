@@ -10,6 +10,8 @@ Feature: Creating a new organ
     When I press "Luo uusi toimielin"
     And fill in form "Luo uusi toimielin":
       |  label                           | value                                                            |
+      |  Toimielimen nimi                | Tasa-arvotyöryhmä                                                |
+      |  Kuvaus toimielimen toiminnasta  | Työryhmä varmistaa tasa-arvon toteutumisen                       |
       |  Toimikauden alkamisaika:        | 2012-01-01                                                       |
       |  Toimikauden päättymisaika:      | 2012-07-01                                                       |
       |  Valitse organisaatioyksikkö     | Luonnontieteellinen tiedekunta/Fysiikan laitos+Lakisääteinen     |
