@@ -2,8 +2,13 @@ Given /^I am viewing the front page$/ do
   visit('/')
 end
 
-When /^I press "([^"]*)"$/ do |element_name|
-  click_link element_name
+When /^I press "([^"]*)"$/ do |text|
+  form_button = first("input[value='#{text}']")
+  if form_button
+    form_button.click
+  else
+    click_link text
+  end
 end
 
 Then /^show me the page$/ do
