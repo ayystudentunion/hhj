@@ -5,7 +5,6 @@ require "action_mailer/railtie"
 require "active_resource/railtie"
 require "sprockets/railtie"
 require "rails/test_unit/railtie"
-require "mongoid"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -37,7 +36,7 @@ module Halloped
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :fi
-    config.i18n.fallbacks =[:fi, :se, :en]
+    # See more from initializers/i18n.rb
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
@@ -71,14 +70,15 @@ module Halloped
   module AutoFormatLocalizedAttributes
     def write_attribute(attr, value)
       if value.is_a?(Hash) and fields[attr].localized?
-        self.send("#{attr}_translations=".to_sym, value)
+        self.send("#{attr}_translations=".to_sym, value.reject{|key, value| value.blank?})
       else
         super(attr, value)
       end
     end
   end
-
 end
+
+
 
 
 
