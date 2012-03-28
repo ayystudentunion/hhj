@@ -15,7 +15,7 @@ class OrgansController < ApplicationController
   def new # form for creating a new organ
     @organ = Factory.build(:organ)
     respond_to do |format|
-      format.html { render "pages/index" }
+      format.fragment { render partial: "modals/create-new-organ.html", locals: {organ: @organ} }
     end
   end
 
