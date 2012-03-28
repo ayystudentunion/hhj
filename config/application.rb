@@ -70,7 +70,7 @@ module Halloped
 
   module AutoFormatLocalizedAttributes
     def write_attribute(attr, value)
-      if value.is_a?(Hash)
+      if value.is_a?(Hash) and fields[attr].localized?
         self.send("#{attr}_translations=".to_sym, value)
       else
         super(attr, value)
