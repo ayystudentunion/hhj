@@ -7,15 +7,15 @@ class OrgansController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.fragment { render "index", formats: ['html'], layout: false, locals: { organs: @organs } }
+      format.fragment { render "index", formats: ['html'], layout: false }
       format.json { render :json => @organs }
     end
   end
 
   def new # form for creating a new organ
-    @organ = Factory.build(:organ)
+    organ = Factory.build(:organ)
     respond_to do |format|
-      format.fragment { render partial: "modals/create-new-organ.html", locals: {organ: @organ} }
+      format.fragment { render partial: "modals/create-new-organ.html", locals: {organ: organ} }
     end
   end
 
@@ -33,7 +33,7 @@ class OrgansController < ApplicationController
     @organ = Organ.find(params[:id])
     respond_to do |format|
       format.html
-      format.json { render :json => Organ.find(params[:id]) }
+      format.json { render :json => @organ }
       format.fragment { render "show", formats: ['html'], layout: false }
     end
   end

@@ -4,10 +4,10 @@ class CallsController < ApplicationController
   end
 
   def new
-    @organ = Organ.find params[:organ_id]
-    @call  = CallForApplications.new
+    organ = Organ.find params[:organ_id]
+    call  = CallForApplications.new
     respond_to do |format|
-      format.fragment { render partial: "modals/call-for-application.html", locals: {organ: @organ, call: @call} }
+      format.fragment { render partial: "modals/call-for-application.html", locals: {organ: organ, call: call} }
     end
   end
 
