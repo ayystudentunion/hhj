@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def languages
-    I18n.fallbacks.keys.concat(I18n.available_locales).uniq
+    [:fi, :en, :se].concat(I18n.available_locales).uniq
   end
 
 end
