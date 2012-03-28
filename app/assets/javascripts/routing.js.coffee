@@ -16,15 +16,6 @@ loadFragment = (locale, controller, param, modal) ->
   cached.getDOM url, (error, dom) ->
     dom.appendTo contentWrap.empty()
 
-  ###
-  modalWrap = $('#modal-wrap').empty().hide()
-  if modal
-    modal_url = "/#{locale}/modals.fragment?modal=#{modal}"
-    cached.getDOM modal_url, (error, dom) ->
-      $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit", dom).uniform()
-      dom.appendTo modalWrap.show()
-  ###
-
   return true
 
 init_routing = () ->
