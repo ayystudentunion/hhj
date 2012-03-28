@@ -1,4 +1,4 @@
-.modal#create-new-organ
+.modal#create-new-organ(data-url=organizations_path(format: :json))
   .content
     div(id='organ-form-container')
       h2
@@ -7,7 +7,7 @@
         .language-buttons
           - languages.each do |locale|
             a.lang.btn(href='#' hreflang="#{locale}" class="#{'active' if locale == I18n.locale}") = t "languages.#{locale}"
-      = form_for organ, class: 'new-organ'  do |f|
+      = form_for organ, class: 'new-organ' do |f|
         - languages.each do |locale|
           = f.text_field :name, placeholder: Organ.human_attribute_name(:name, locale: locale), class: "wide field localized #{locale}", name: "organ[name[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}"
         .inline-block
@@ -24,8 +24,7 @@
           = f.text_field :manager_email, placeholder: Organ.human_attribute_name(:manager_email), class: 'field'
         = f.text_field :appointer, placeholder:  Organ.human_attribute_name(:appointer), class: 'field half'
         .inline-block
-          = f.collection_select :organization, @university.children, :id, :name,
-            prompt: t('.select_organization ')
+          = f.collection_select :organization, @university.children, :id, :name, prompt: t('.select_organization')
         .inline-block.no-margin
           label.inline-label
             = f.radio_button :official, 'true'
@@ -41,6 +40,5 @@
 
 script#organization-select-template(type='text/html')
   select.organizations
-    option = t('modals.create-new-organ.select_organization')
     option.item
 

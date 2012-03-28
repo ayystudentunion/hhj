@@ -17,11 +17,14 @@ $(document).ready ->
     organization_id = select.val()
     select.nextAll().remove()
 
-    $.get "fi/organizations.json", (organizations) ->
+    $.get $("#modal-wrap .modal").attr('data-url'), (organizations) ->
       children = _(organizations).filter((org) -> org.parent_id == organization_id)
       if children.length > 0
         template = $($("#organization-select-template").html())
-        select.after template.render(children, item: -> value: "#{@_id}", text: "#{@name}")
+        select.after template
+        template.render(children, item: -> value: "#{@_id}", text: "#{@name}")
+        default_option = select.children('option').first().clone().attr('selected', 'selected')
+        template.prepend(default_option)
 
     return false
 
