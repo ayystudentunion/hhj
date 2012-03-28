@@ -12,6 +12,17 @@ $(document).ready ->
 
     changeModalFormLanguage $(this).parents('.content:first'), $(this).attr('hreflang')
 
+  $("#modal-wrap").delegate "select", "change", () ->
+    select = $(this)
+    organization_id = select.val()
+    select.nextAll().remove()
+
+    $.get "fi/organizations.json", (organizations) ->
+      children = _(organizations).filter((org) -> org.parent_id == organization_id)
+      if children.length > 0
+        select.after $("#organization-select-template").html()
+        console.log children
+    return false
 
 ###
 openNewOrganDialog = ->

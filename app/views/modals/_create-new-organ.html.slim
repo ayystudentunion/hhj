@@ -38,3 +38,8 @@
         .button-row
           a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
           input.submit.close-modal.btn(type='submit' value="#{t 'modals.save'}")
+
+script#organization-select-template(type='text/html')
+  select
+    option = t('modals.create-new-organ.select_organization')
+    option
