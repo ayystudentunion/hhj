@@ -10,20 +10,20 @@
             a.lang.btn(href='#' hreflang='se') = t 'languages.se', locale: locale
             a.lang.btn(href='#' hreflang='en') = t 'languages.en', locale: locale
         = form_for @organ, class: 'new-organ'  do |f|
-          = f.text_field :name, placeholder: Organ.human_attribute_name(:name, locale: locale), class: 'wide field'
+          = f.text_field :name, placeholder: Organ.human_attribute_name(:name, locale: locale), class: 'wide field', name: "organ[name[#{locale}]]"
           .inline-block
             = f.label :term_start, Organ.human_attribute_name(:term_start, locale: locale) + ':', class: 'field-label'
-            = f.text_field :term_start, placeholder: t('.time_placeholder', locale: locale), class: 'field date'
+            = f.text_field :term_start, placeholder: t('.time_placeholder', locale: locale), class: 'field date', name: "organ[term_start[#{locale}]]"
             span.datepicker
           .inline-block.no-margin
             = f.label :term_end, Organ.human_attribute_name(:term_end, locale: locale) + ':', class: 'field-label'
-            = f.text_field :term_end, placeholder: t('.time_placeholder', locale: locale), class: 'field date'
+            = f.text_field :term_end, placeholder: t('.time_placeholder', locale: locale), class: 'field date', name: "organ[term_end[#{locale}]]"
             span.datepicker
           .inline-block
-            = f.text_field :manager_name, placeholder: Organ.human_attribute_name(:manager_name, locale: locale), class: 'field'
+            = f.text_field :manager_name, placeholder: Organ.human_attribute_name(:manager_name, locale: locale), class: 'field', name: "organ[manager_name[#{locale}]]"
           .inline-block.no-margin
-            = f.text_field :manager_name, placeholder: Organ.human_attribute_name(:manager_email, locale: locale), class: 'field'
-          = f.text_field :appointer, placeholder:  Organ.human_attribute_name(:appointer, locale: locale), class: 'field half'
+            = f.text_field :manager_name, placeholder: Organ.human_attribute_name(:manager_email, locale: locale), class: 'field', name: "organ[manager_email[#{locale}]]"
+            = f.text_field :appointer, placeholder:  Organ.human_attribute_name(:appointer, locale: locale), class: 'field half', name: "organ[appointer[#{locale}]]"
           .inline-block
             = f.collection_select :organization, @university.children, :id, :name,
               prompt: t('.select_organization ', locale: locale)
@@ -34,7 +34,7 @@
             label.inline-label
               = f.radio_button :official, 'false'
               = Organ.human_attribute_name :unofficial, locale: locale
-          = f.text_area :description, placeholder: Organ.human_attribute_name(:description, locale: locale), class: 'wide'
+          = f.text_area :description, placeholder: Organ.human_attribute_name(:description, locale: locale), class: 'wide', name: "organ[description[#{locale}]]"
           .button-row
             a.cancel.close-modal.btn(href=close_modal_path) = t 'modals.cancel', locale: locale
             input.submit.close-modal.btn(type='submit' value="#{t 'modals.save', locale: locale}")
