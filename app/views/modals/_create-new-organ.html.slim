@@ -1,9 +1,9 @@
-.modal
+.modal#create-new-organ
   .content
     div(id='organ-form-container')
       h2
         = t '.title'
-        a.close-modal(href=close_modal_path)
+        a.close-modal(href='#')
         .language-buttons
           - languages.each do |locale|
             a.lang.btn(href='#' hreflang="#{locale}" class="#{'active' if locale == I18n.locale}") = t "languages.#{locale}"
@@ -36,5 +36,5 @@
         - languages.each do |locale|
           = f.text_area :description, placeholder: Organ.human_attribute_name(:description, locale: locale), class: "wide localized #{locale}", name: "organ[description[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}"
         .button-row
-          a.cancel.close-modal.btn(href=close_modal_path) = t 'modals.cancel'
+          a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
           input.submit.close-modal.btn(type='submit' value="#{t 'modals.save'}")

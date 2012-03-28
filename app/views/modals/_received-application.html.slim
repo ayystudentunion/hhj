@@ -1,33 +1,34 @@
-.content
-  h2
-    = t "modals.application"
-    a.close-modal(href='#')
-  .item-block
-    .applicant-details
-      p.name Jouko Joukonen
-      p.email jouko.joukonen@joukonen.fi
-      p.phone +358 40 229 2299
-  .item-block
-    p.label
-      = t "modals.apply_date"
-      | :
-    p.text 28.4.2012
-  .item-block
-    p.label
-      = t "modals.apply_position"
-      | :
-    p.text Opiskelijahyvinvoinnin työryhmä, jäsen
-  .item-block
-    p.label
-      = t "modals.vice_member"
-      | :
-    p.text Kerkko Kumpula
-  .item-block
-    p.label 
-      = t "modals.qualifications"
-      | :
-    p.text Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus. Donec ultricies nisl ut felis, suspendisse potenti. Lorem ipsum ligula ut hendrerit mollis, ipsum erat vehicula risus, eu suscipit sem libero nec erat. Aliquam erat volutpat. Sed congue augue vitae neque. Nulla consectetuer porttitor pede. Fusce purus morbi tortor magna.
+.modal#received-application
+  .content
+    h2
+      = t "modals.application"
+      a.close-modal(href='#')
+    .item-block
+      .applicant-details
+        p.name Jouko Joukonen
+        p.email jouko.joukonen@joukonen.fi
+        p.phone +358 40 229 2299
+    .item-block
+      p.label
+        = t "modals.apply_date"
+        | :
+      p.text 28.4.2012
+    .item-block
+      p.label
+        = t "modals.apply_position"
+        | :
+      p.text Opiskelijahyvinvoinnin työryhmä, jäsen
+    .item-block
+      p.label
+        = t "modals.vice_member"
+        | :
+      p.text Kerkko Kumpula
+    .item-block
+      p.label 
+        = t "modals.qualifications"
+        | :
+      p.text Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus. Donec ultricies nisl ut felis, suspendisse potenti. Lorem ipsum ligula ut hendrerit mollis, ipsum erat vehicula risus, eu suscipit sem libero nec erat. Aliquam erat volutpat. Sed congue augue vitae neque. Nulla consectetuer porttitor pede. Fusce purus morbi tortor magna.
 
-  .button-row
-    a.print(href='#') = t "modals.print_application"
-    a.close-modal.btn(href='#') = t "modals.close"
+    .button-row
+      a.print(href='#') = t "modals.print_application"
+      a.close-modal.btn(href='#') = t "modals.close"
