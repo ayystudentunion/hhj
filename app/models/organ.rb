@@ -13,6 +13,22 @@ class Organ
   field :appointer, type: String
   field :official, type: Boolean
 
+  def name=(value)
+    if value.is_a?(Hash)
+      self.name_translations = value
+    else
+      super(value)
+    end
+  end
+
+  def description=(value)
+    if value.is_a?(Hash)
+      self.description_translations = value
+    else
+      super(value)
+    end
+  end
+
   def unofficial
     not official
   end
