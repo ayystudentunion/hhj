@@ -4,6 +4,7 @@ class Organ
   include Mongoid::Timestamps
 
   validates :name, allow_blank: false, presence: true
+  validates :organization, allow_blank: false, presence: true
 
   belongs_to :organization
   has_many :call

@@ -54,6 +54,8 @@ fi:
           attributes:
             name:
               blank: Toimielimen nimi puuttuu
+            organization:
+              blank: Organisaatioyksikkö puuttuu
     attributes:
       organ:
         name: Toimielimen nimi
