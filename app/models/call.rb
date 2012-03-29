@@ -5,6 +5,7 @@ class Call
 
   belongs_to :organ
 
+  field :title, type: String
   field :date_open, type: Date
   field :date_start, type: Date
   field :date_end, type: Date
