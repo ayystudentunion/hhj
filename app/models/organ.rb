@@ -20,6 +20,15 @@ class Organ
   end
 
   def organization_full_name
-    organization.ancestors_and_self.map(&:name).join(' - ')
+    organization.ancestors_and_self.drop(1).map(&:name).join(' - ')
   end
+
+  def formatted_term
+    if term_start and term_end
+      I18n.l(term_start) + ' - ' + I18n.l(term_end)
+    else
+      ''
+    end
+  end
+
 end
