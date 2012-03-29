@@ -20,7 +20,7 @@ class OrgansController < ApplicationController
   end
 
   def create # create a new organ document
-    selected_organization = params[:organ][:organization].reject(&:blank?).last
+    selected_organization = params[:organ][:organization].unshift(@university).reject(&:blank?).last
     organ = Factory(:organ, params[:organ].merge(organization: selected_organization))
 
     respond_to do |format|
