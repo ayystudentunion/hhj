@@ -46,14 +46,14 @@ fi:
     documents: Asiakirjat
     forms: Lomakkeet
 
+
   mongoid:
     errors:
       models:
         organ:
           attributes:
-            manager_email:
-              blank: Vastuuhenkilön sähköpostiosoite puuttuu
-              not_found: Vastuuhenkilön sähköpostiosoite on virheellinen
+            name:
+              blank: Toimielimen nimi puuttuu
     attributes:
       organ:
         name: Toimielimen nimi
