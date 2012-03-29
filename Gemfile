@@ -3,12 +3,12 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.2'
 
 # Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# gem 'rails', git: 'git://github.com/rails/rails.git'
 
-gem 'mongoid', :git => 'git://github.com/mongoid/mongoid'
+gem 'mongoid', git: 'git://github.com/mongoid/mongoid'
 gem 'bson_ext', '>= 1.5'
 gem 'mongoid_rails_migrations', '>= 0.0.13'
-gem 'mongoid-tree', :git => 'git://github.com/benedikt/mongoid-tree', :branch => 'mongoid-3.0', :require => 'mongoid/tree'
+gem 'mongoid-tree', git: 'git://github.com/benedikt/mongoid-tree', branch: 'mongoid-3.0', require: 'mongoid/tree'
 # gem 'therubyracer'
 gem 'slim'
 # gem 'sprockets'

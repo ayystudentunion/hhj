@@ -3,7 +3,7 @@ class Organ
   include Halloped::AutoFormatLocalizedAttributes
   include Mongoid::Timestamps
 
-  validates :name, :allow_blank => false, presence: { :message => "My custom message" }
+  validates :name, allow_blank: false, presence: true
 
   belongs_to :organization
   has_many :call
