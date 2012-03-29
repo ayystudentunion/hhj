@@ -36,7 +36,13 @@ module Halloped
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :fi
-    # See more from initializers/i18n.rb
+
+    # Fallbacks are configured to work only for dynamic values stored in database
+    # Fallbacks are not supported for static strings that come from locales/:locale.yml files
+    # See also initializers/i18n.rb
+    # Note: Defining "config.i18n.fallbacks = false" and defining fallback maps in i18n.rb
+    # seems to be only way to make this work correctly.
+    config.i18n.fallbacks = false
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
