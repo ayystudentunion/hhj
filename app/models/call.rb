@@ -6,6 +6,9 @@ class Call
   belongs_to :organ
 
   field :title, type: String
+  field :member_amount, type: Integer
+  field :deputy_amount, type: Integer
+  field :quota_information, type: String
   field :date_open, type: Date
   field :date_start, type: Date
   field :date_end, type: Date
@@ -13,6 +16,5 @@ class Call
   field :term_end, type: Date
   field :appointment_place_and_date, type: String
   field :description, type: String
-  field :quota_information, type: String
 
 end
