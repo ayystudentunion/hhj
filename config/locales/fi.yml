@@ -68,6 +68,7 @@ fi:
         official: Lakisääteinen
         unofficial: Epävirallinen
       call:
+        title: Paikkahaun otsikko
         member_amount: Varsinaisia jäseniä
         deputy_amount: Varajäseniä
         quota_information: Lisätietoa käsittelijälle (kiintiöpaikkojen määrä jne.)
