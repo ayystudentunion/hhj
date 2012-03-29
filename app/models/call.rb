@@ -4,4 +4,9 @@ class Call
   include Mongoid::Timestamps
 
   belongs_to :organ
+
+  field :date_open, type: Date
+  field :date_start, type: Date
+  field :date_end, type: Date
+
 end
