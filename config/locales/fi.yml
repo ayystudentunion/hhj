@@ -73,6 +73,8 @@ fi:
         date_end: Haun päättymispäivämäärä
         term_start: Toimikauden alkamisaika
         term_end: Toimikauden päättymisaika
+        appointment_place_and_date: Päätöksenteon paikka ja ajankohta
+        description: Kuvaus hallopedin työnkuvasta
 
   modals:
     application: Hakemus
