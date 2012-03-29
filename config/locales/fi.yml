@@ -75,6 +75,7 @@ fi:
         term_end: Toimikauden päättymisaika
         appointment_place_and_date: Päätöksenteon paikka ja ajankohta
         description: Kuvaus hallopedin työnkuvasta
+        quota_information: Lisätietoa käsittelijälle (kiintiöpaikkojen määrä jne.)
 
   modals:
     application: Hakemus

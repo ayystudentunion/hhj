@@ -19,9 +19,8 @@
       label.inline-label Varsinaista jäsentä
       input.field.small(type='text')
       label.inline-label Varajäsentä
-      a.add-members.btn(href='#')
-        | Lisää kiintiöjäseniä
-        span.plus-icon
+      - languages.each do |locale|
+        = f.text_field :quota_information, placeholder: Call.human_attribute_name(:quota_information, locale: locale), class: "wide field localized #{locale}", name: "call[quota_information[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}"
       .inline-block
         = f.label :date_open, Call.human_attribute_name(:date_open) + ':', class: "field-label"
         = f.text_field :date_open, placeholder: t('modals.time_placeholder'), class: 'field date'

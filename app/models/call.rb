@@ -12,5 +12,6 @@ class Call
   field :term_end, type: Date
   field :appointment_place_and_date, type: String
   field :description, type: String
+  field :quota_information, type: String
 
 end
