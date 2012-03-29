@@ -23,23 +23,22 @@ div#single-organ
         .organ-details
           h2
             a(href='#') = @organ.name
-            span.date muokattu 23.4.2012
+            span.date
+              = t(:modified) + ' ' + l(@organ.updated_at)
             a.edit-icon(href='#')
           .item-row
-            span.label 
+            span.label
               = t :organization
               | :
-            span.text Aalto Yliopisto - Kauppakorkeakoulu
+            span.text = @organ.organization_full_name
           .item-row
-            span.label 
+            span.label
               = t :term
               | :
             span.text
-              = @organ.term_start
-              |  - 
-              = @organ.term_end
+              = l(@organ.term_start) + ' - ' + l(@organ.term_end)
           .item-row
-            span.label 
+            span.label
               = t :manager
               | :
             span.text

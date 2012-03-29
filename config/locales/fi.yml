@@ -11,9 +11,18 @@ fi:
   organization: Organisaatioyksikkö
   term: Toimikausi
   manager: Vastuuhenkilö
+  modified: muokattu
 
   has_open_positions: Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
   new_call_for_applications: Avaa uusi paikkahaku
+
+  time:
+    formats:
+      default: "%d.%m.%Y klo %H:%M"
+
+  date:
+    formats:
+      default: "%d.%m.%Y"
 
   languages:
     fi: FI

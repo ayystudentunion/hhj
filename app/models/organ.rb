@@ -19,4 +19,7 @@ class Organ
     not official
   end
 
+  def organization_full_name
+    organization.ancestors_and_self.map(&:name).join(' - ')
+  end
 end
