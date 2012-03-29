@@ -64,3 +64,4 @@ createOrgans( [ {
   organization: Organization.find('4f6b1edf91bc2b33d3010200')
 } ] )
 
+Factory(:lukurinki)

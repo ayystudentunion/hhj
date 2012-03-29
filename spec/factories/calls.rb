@@ -1,6 +1,11 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :call, :class => Call do
+  factory :call do
+    factory :lukurinki, :class => Call do
+      title "Kirjakerhon lukurinki"
+      _id "4f6b1edf91bc2b4403020202"
+      association :organ, :factory => :kirjakerho
+    end
   end
 end
