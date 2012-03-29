@@ -5,8 +5,7 @@ Feature: Creating a new organ
     And I am logged in as a student union employee
     And I am viewing the front page
 
-  @wip @selenium
-  Scenario: Student union employee creates new organ
+  Scenario: Student union employee creates new organs
     When I press "Luo uusi toimielin"
     And fill in form "Luo uusi toimielin":
       |  label                           | value                                                            |
@@ -14,14 +13,23 @@ Feature: Creating a new organ
       |  Kuvaus toimielimen toiminnasta  | Työryhmä varmistaa tasa-arvon toteutumisen                       |
       |  Toimikauden alkamisaika:        | 2012-01-01                                                       |
       |  Toimikauden päättymisaika:      | 2012-07-01                                                       |
+      |  Vastuuhenkilön nimi             | Saima Salminen                                                   |
+      |  Vastuuhenkilön sähköpostiosoite | saima@halloped.fi                                                |
+      |  Nimityksen tekevä henkilö       | Dekaani                                                          |
       |  Valitse organisaatioyksikkö     | Luonnontieteellinen tiedekunta/Fysiikan laitos+Lakisääteinen     |
 
-    And I press "Tallenna"
-    Then I should see "Esittely" of organ "Tasa-arvotyöryhmä"
-    And organ's organization is "Luonnontieteellinen tiedekunta/Fysiikan laitos"
-    And organ's description is "Työryhmä varmistaa tasa-arvon toteutumisen"
-    And organ's term is 2012-01-01 to 2012-07-01
+    And I press "EN"
+    And fill in form "Luo uusi toimielin":
+      |  label                           | value                                                            |
+      |  Name of organ                   | Equality organ                                                   |
+      |  Description of organ            | Organ assures fulfilling of equality                             |
 
-  @ignore
-  Scenario: Studen union employee cancels creation of organ
+    And I press "Tallenna"
+
+    Then I should see introduction of organ "Tasa-arvotyöryhmä" with description "Työryhmä varmistaa tasa-arvon toteutumisen":
+      |  label                           | value                                                            |
+      |  Toimikausi                      | 01.01.2012 - 01.07.2012                                          |
+      |  Vastuuhenkilö                   | Saima Salminen                                                   |
+      |  Organisaatioyksikkö             | Luonnontieteellinen tiedekunta - Fysiikan laitos                 |
+
 
