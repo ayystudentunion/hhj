@@ -7,7 +7,7 @@ class Organ
   validates :organization, allow_blank: false, presence: true
 
   belongs_to :organization
-  has_many :call
+  has_many :calls
 
   field :name, localize: true
   field :description, localize: true

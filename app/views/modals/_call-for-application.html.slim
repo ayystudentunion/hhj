@@ -14,7 +14,7 @@
         option(value='normaali') Normaali menettely
         option(value='suora') Suora menettely
     .hr
-    = form_for call, class: 'new-application' do |f|
+    = form_for [organ,call], url: organ_calls_path, class: 'new-application' do |f|
       input.field.small(type='text')
       label.inline-label Varsinaista jäsentä
       input.field.small(type='text')
