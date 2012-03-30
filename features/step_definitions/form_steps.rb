@@ -36,7 +36,7 @@ def fill_in_form (form, data)
   end
 end
 
-When /^fill in form "([^"]*)":$/ do |form_title, table|
+When %r/^fill in form '([^']*)':$/ do |form_title, table|
   form = find("*:contains('#{form_title}') ~ form")
   fill_in_form form, table.hashes
 end

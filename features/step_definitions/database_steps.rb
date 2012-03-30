@@ -1,13 +1,17 @@
+# -*- encoding : utf-8 -*-
 
-Given /^there exist university organization$/ do
-  Factory :fysiikan_laitos
-  Factory :kemian_laitos
-  Factory :kirjasto
+Given %r/^there exist university organization$/ do
+  FactoryGirl.create :fysiikan_laitos
+  FactoryGirl.create :kemian_laitos
+  FactoryGirl.create :kirjasto
 end
 
-
-
-Given /^there are several organs in the system$/ do
-  Factory :tasa_arvotyoryhma
-  Factory :kirjakerho
+Given %r/^there are several organs in the system$/ do
+  FactoryGirl.create :tasa_arvotyoryhma
+  FactoryGirl.create :kirjakerho
 end
+
+Given %r/^there exists an organ 'Tasa-arvotyöryhmä'$/ do
+  FactoryGirl.create :tasa_arvotyoryhma
+end
+

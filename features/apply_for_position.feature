@@ -7,11 +7,11 @@ Feature: Applying for a position
     And I am in that organ's home page
 
   Scenario: Submitting an application
-    When I press "Lähetä hakemus"
+    When I press 'Lähetä hakemus'
     Then I should see my own name, phone number and email-address in the application form
 
-    When I press "Jäsen"
+    When I press 'Jäsen'
     And fill in the application fields
-    And press "Lähetä"
+    And press 'Lähetä'
 
-    Then I should see "Hakemus lähetetty"
+    Then I should see 'Hakemus lähetetty'

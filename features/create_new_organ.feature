@@ -6,8 +6,8 @@ Feature: Creating a new organ
     And I am viewing the front page
 
   Scenario: Student union employee creates new organs
-    When I press "Luo uusi toimielin"
-    And fill in form "Luo uusi toimielin":
+    When I press 'Luo uusi toimielin'
+    And fill in form 'Luo uusi toimielin':
       |  label                           | value                                                            |
       |  Toimielimen nimi                | Tasa-arvotyöryhmä                                                |
       |  Kuvaus toimielimen toiminnasta  | Työryhmä varmistaa tasa-arvon toteutumisen                       |
@@ -18,15 +18,15 @@ Feature: Creating a new organ
       |  Nimityksen tekevä henkilö       | Dekaani                                                          |
       |  Valitse organisaatioyksikkö     | Luonnontieteellinen tiedekunta/Fysiikan laitos+Lakisääteinen     |
 
-    And I press "EN"
-    And fill in form "Luo uusi toimielin":
+    And I press 'EN'
+    And fill in form 'Luo uusi toimielin':
       |  label                           | value                                                            |
       |  Name of organ                   | Equality organ                                                   |
       |  Description of organ            | Organ assures fulfilling of equality                             |
 
-    And I press "Tallenna"
+    And I press 'Tallenna'
 
-    Then I should see introduction of organ "Tasa-arvotyöryhmä" with description "Työryhmä varmistaa tasa-arvon toteutumisen":
+    Then I should see introduction of organ 'Tasa-arvotyöryhmä' with description 'Työryhmä varmistaa tasa-arvon toteutumisen':
       |  label                           | value                                                            |
       |  Toimikausi                      | 01.01.2012 - 01.07.2012                                          |
       |  Vastuuhenkilö                   | Saima Salminen                                                   |
