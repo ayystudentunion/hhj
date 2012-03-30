@@ -4,6 +4,12 @@ open_modal_dialog = (url) ->
   # TODO: use uncached get for edit modals
   cached.get url + ".fragment", (error, data) ->
     $(data).appendTo wrap
+    wrap.find('.field.date').datepicker
+      firstDay: 1
+      buttonImageOnly: true
+      showOn: 'both'
+      dateFormat: 'dd.mm.yy'
+      buttonImage: '/img/calendar-icon.png'
 
 init_modal_links = () ->
   $('a.js-modal').live 'click', () ->
