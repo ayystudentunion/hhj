@@ -30,13 +30,13 @@ div#single-call
             span.text #{t(".members", :count => @call.member_amount)}, #{t ".deputies", count: @call.deputy_amount}
           .item-row
             span.label #{t "mongoid.attributes.call.date_open"}:
-            span.text = @call.formatted_date_open
+            span.text = formatted_date @call.date_open
           .item-row
             span.label #{t ".submission_dates"}:
-            span.text = @call.formatted_submission_dates
+            span.text = formatted_date @call.date_start, @call.date_end
           .item-row
             span.label #{t ".term"}:
-            span.text = @call.formatted_term
+            span.text = formatted_date @call.term_start, @call.term_end
           .item-row
             span.label #{t "mongoid.attributes.call.appointment_place_and_date"}::
             span.text = @call.appointment_place_and_date

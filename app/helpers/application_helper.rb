@@ -8,4 +8,8 @@ module ApplicationHelper
     Halloped::languages
   end
 
+  def formatted_date(date, end_date=nil)
+    [date, end_date].reject(&:blank?).map{|date| I18n.l date}.join(' - ')
+  end
+
 end

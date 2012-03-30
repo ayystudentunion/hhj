@@ -19,29 +19,4 @@ class Call
   field :appointment_place_and_date, localize: true
   field :description, localize: true
 
-
-  def formatted_date_open
-    if date_open
-      I18n.l date_open
-    else
-      ''
-    end
-  end
-
-  def formatted_term
-    if term_start and term_end
-      I18n.l(term_start) + ' - ' + I18n.l(term_end)
-    else
-      ''
-    end
-  end
-
-  def formatted_submission_dates
-    if date_start and date_end
-      I18n.l(date_start) + ' - ' + I18n.l(date_end)
-    else
-      ''
-    end
-  end
-
 end
