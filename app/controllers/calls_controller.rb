@@ -3,6 +3,10 @@ require 'factory_girl_rails'
 class CallsController < ApplicationController
 
   def index
+    respond_to do |format|
+      format.html
+      format.fragment { render "index", formats: ['html'], layout: false }
+    end
   end
 
   def new
