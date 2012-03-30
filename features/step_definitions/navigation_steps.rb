@@ -22,3 +22,6 @@ Then %r/^show me the page$/ do
   save_and_open_page
 end
 
+And %r/^I change language to '([^']*)'$/ do |locale|
+  visit '/' + current_path.split('/').reject(&:blank?).drop(1).unshift(locale).join('/')
+end

@@ -32,4 +32,9 @@ Feature: Creating a new organ
       |  Vastuuhenkilö                   | Saima Salminen                                                   |
       |  Organisaatioyksikkö             | Luonnontieteellinen tiedekunta - Fysiikan laitos                 |
 
+    And I change language to 'en'
+    Then I should see introduction of organ 'Equality organ' with description 'Organ assures fulfilling of equality':
+      |  label                           | value                                                            |
+      |  Term                            | 2012-01-01 - 2012-07-01                                          |
+      |  Manager                         | Saima Salminen                                                   |
 
