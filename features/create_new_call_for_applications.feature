@@ -26,3 +26,12 @@ Feature: Creating new call for applications for organ
       |  Additional information for handler | At least one woman and one man                                   |
 
     And I press 'Tallenna'
+
+    Then I should see call for application 'Haetaan uusia edustajia Tasa-arvotyöryhmään kaudelle 2013' with description 'Valvoa opiskelijoiden etua tasa-arvon toteutumassa':
+      |  label                           | value                                                            |
+      |  Toimikausi                      | 02.02.2012 - 30.06.2012                                          |
+
+    And I change language to 'en'
+    Then I should see call for application 'Call for new representatives for Equality organ in term 2013' with description 'Lobbying the interests of students in equality':
+      |  label                           | value                                                            |
+      |  Term                            | 2012-02-02 - 2012-06-30                                          |

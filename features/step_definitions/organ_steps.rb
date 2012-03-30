@@ -17,3 +17,5 @@ Then %r/^I should see introduction of organ '([^']*)' with description '([^']*)'
     details.find(".label:contains('#{row[:label]}') + span").should have_content row[:value]
   end
 end
+
+
