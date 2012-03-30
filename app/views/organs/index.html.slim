@@ -13,12 +13,12 @@ div#organs
     .tabs
       ul.tabs-list
         li.active: a(href='#') Aktiiviset
-        li: a(href='#') Paikkahaussa
-        li: a(href='#') Lakkautetut
-        li.margin: a(href='#') Yliopistotaso
-        li: a(href='#') Korkeakoulutaso
-        li: a(href='#') Laitostaso
-        li: a(href='#') Ryhmätaso
+        li(style='display: none;'): a(href='#') Paikkahaussa
+        li(style='display: none;'): a(href='#') Lakkautetut
+        li.margin(style='display: none;'): a(href='#' style='display: none;') Yliopistotaso
+        li(style='display: none;'): a(href='#') Korkeakoulutaso
+        li(style='display: none;'): a(href='#') Laitostaso
+        li(style='display: none;'): a(href='#') Ryhmätaso
     .tab-content
       .tab
         form.organ-search
