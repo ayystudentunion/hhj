@@ -4,6 +4,7 @@ open_modal_dialog = (url) ->
   # TODO: use uncached get for edit modals
   cached.get url + ".fragment", (error, data) ->
     $(data).appendTo wrap
+    $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit", wrap).uniform()
     wrap.find('.field.date').datepicker
       firstDay: 1
       buttonImageOnly: true
