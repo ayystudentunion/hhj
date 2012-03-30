@@ -77,6 +77,14 @@ fi:
               blank: Toimielimen nimi puuttuu
             organization:
               blank: Organisaatioyksikkö puuttuu
+        call:
+          attributes:
+            title:
+              blank: Haun otsikko puuttuu
+            member_amount:
+              blank: Varsinaisten jäsenten määrä puuttuu
+            deputy_amount:
+              blank: Varajäsenten määrä puuttuu
     attributes:
       organ:
         name: Toimielimen nimi
