@@ -3,13 +3,17 @@ require 'factory_girl_rails'
 class CallsController < ApplicationController
 
   def index
+    respond_to do |format|
+      format.html
+      format.fragment { render "index", formats: ['html'], layout: false }
+    end
   end
 
   def new
     organ = Organ.find params[:organ_id]
-    call  = organ.calls.build
+    @call  = organ.calls.build
     respond_to do |format|
-      format.fragment { render partial: "modals/call-for-application.html", locals: {organ: organ, call: call} }
+      format.fragment
     end
   end
 
@@ -33,6 +37,10 @@ class CallsController < ApplicationController
   end
 
   def edit # form for modifing an existing call
+    @call = Call.find(params[:id])
+    respond_to do |format|
+      format.fragment { render "new" }
+    end
   end
 
   def update # modify an existing call

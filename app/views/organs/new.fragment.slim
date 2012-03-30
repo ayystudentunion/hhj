@@ -7,7 +7,7 @@
         .language-buttons
           - languages.each do |locale|
             a.lang.btn(href='#' hreflang="#{locale}" class="#{'active' if locale == I18n.locale}") = t "languages.#{locale}"
-      = form_for organ, class: 'new-organ' do |f|
+      = form_for @organ, class: 'new-organ' do |f|
         - languages.each do |locale|
           = f.text_field :name, placeholder: Organ.human_attribute_name(:name, locale: locale), class: "wide field localized #{locale}", name: "organ[name[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}"
         .inline-block

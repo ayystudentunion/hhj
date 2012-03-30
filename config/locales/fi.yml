@@ -46,7 +46,13 @@ fi:
     documents: Asiakirjat
     forms: Lomakkeet
 
+  organs:
+    new:
+      title: Luo uusi toimielin
+      select_organization: Valitse organisaatioyksikkö
   calls:
+    new:
+      title: Avaa uusi paikkahaku toimielimelle
     show:
       looking_for: Haetaan
       members:
@@ -71,6 +77,14 @@ fi:
               blank: Toimielimen nimi puuttuu
             organization:
               blank: Organisaatioyksikkö puuttuu
+        call:
+          attributes:
+            title:
+              blank: Haun otsikko puuttuu
+            member_amount:
+              blank: Varsinaisten jäsenten määrä puuttuu
+            deputy_amount:
+              blank: Varajäsenten määrä puuttuu
     attributes:
       organ:
         name: Toimielimen nimi
@@ -108,12 +122,7 @@ fi:
     save: Tallenna
     time_placeholder: Aseta aika
 
-    create-new-organ:
-      title: Luo uusi toimielin
-      select_organization: Valitse organisaatioyksikkö
 
-    call-for-application:
-      title: Avaa uusi paikkahaku toimielimelle
 
   placeholders:
     search: Hae ...

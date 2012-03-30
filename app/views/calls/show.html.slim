@@ -30,13 +30,13 @@ div#single-call
             span.text #{t(".members", :count => @call.member_amount)}, #{t ".deputies", count: @call.deputy_amount}
           .item-row
             span.label #{t "mongoid.attributes.call.date_open"}:
-            span.text 12.4.2012
+            span.text = formatted_date @call.date_open
           .item-row
             span.label #{t ".submission_dates"}:
-            span.text = @call.formatted_submission_dates
+            span.text = formatted_date @call.date_start, @call.date_end
           .item-row
             span.label #{t ".term"}:
-            span.text = @call.formatted_term
+            span.text = formatted_date @call.term_start, @call.term_end
           .item-row
             span.label #{t "mongoid.attributes.call.appointment_place_and_date"}::
             span.text = @call.appointment_place_and_date
@@ -47,7 +47,7 @@ div#single-call
           a.send-application.btn.js-modal(href=new_organ_call_application_path(organ_id:@call.organ._id, call_id:@call._id))
             = t(".send_application")
 
-      .tab
+      .tab(href='#' style='display: none;')
         .organ-members
           h2
             | Yliopiston edustajat

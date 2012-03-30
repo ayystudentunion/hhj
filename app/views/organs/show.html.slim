@@ -7,7 +7,7 @@ div#single-organ
           span.arrow ›
       li
         a(href=organs_path)
-          = t :organs
+          = t "navi.organs"
           span.arrow ›
       li
         a(href=organ_path(id:@organ._id))
@@ -36,7 +36,7 @@ div#single-organ
               = t :term
               | :
             span.text
-              = @organ.formatted_term
+              = formatted_date @organ.term_start, @organ.term_end
           .item-row
             span.label
               = t :manager
