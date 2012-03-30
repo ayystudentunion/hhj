@@ -21,10 +21,10 @@ $(document).ready ->
       children = _(organizations).filter((org) -> org.parent_id == organization_id)
       if children.length > 0
         template = $($("#organization-select-template").html())
-        select.after template
+        select.parents('.inline-block:first').append template
         template.render(children, item: -> value: "#{@_id}", text: "#{@name}")
         default_option = select.children('option').first().clone().attr('selected', 'selected')
-        template.prepend(default_option)
+        template.prepend(default_option).uniform()
 
     return false
 
