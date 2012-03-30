@@ -17,7 +17,7 @@ div#single-organ
     .tabs
       ul.tabs-list
         li.active: a(href='#') = t :introduction
-        li: a(href='#') = t :members
+        li(style='display: none;'): a(href='#') = t :members
     .tab-content
       .tab
         .organ-details
@@ -50,13 +50,13 @@ div#single-organ
         a.application-call.btn.js-modal(href=new_organ_call_path(organ_id:@organ._id))
           = t :new_call_for_applications
         .hr
-        form.message-for-organ
+        form.message-for-organ(style='display: none;')
           textarea.wide(type='textarea' placeholder=t("placeholders.message_for_organ"))
-        .button-row
+        .button-row(style='display: none;')
           a.submit.btn(href='#')
             = t :send
 
-        .content-comments
+        .content-comments(style='display: none;')
           .comment
             span.user-avatar
               img(src='/img/comment-avatar.png')
@@ -80,7 +80,7 @@ div#single-organ
               a.edit(href='#') muokkaa •
               a.remove(href='#') poista asiaton viesti
 
-      .tab
+      .tab(style='display: none;')
         .organ-members
           h2
             | Yliopiston edustajat
