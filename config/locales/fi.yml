@@ -64,6 +64,7 @@ fi:
         one: yhtä varajäsentä
         other: '%{count} varajäsentä'
       submission_dates: Hakuaika
+      description: Kuvaus
       term: Toimikausi
       send_application: Lähetä hakemus
 
