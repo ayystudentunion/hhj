@@ -1,0 +1,10 @@
+.open-calls
+  h2
+    a(href=call_path(id:open_call._id)) = open_call.title
+    a.edit-icon(href='#')
+  .item-block
+    .label #{t "calls.show.submission_dates"}:
+    .text = formatted_date(open_call.date_start, open_call.date_end)
+  .item-block
+    .label #{t "calls.show.description"}:
+    .text = open_call.description
