@@ -44,7 +44,8 @@ div#single-call
             = @call.description
         .hr
         .button-row
-          a.send-application.btn(href='#') = t(".send_application")
+          a.send-application.btn.js-modal(href=new_organ_call_application_path(organ_id:@call.organ._id, call_id:@call._id))
+            = t(".send_application")
 
       .tab
         .organ-members

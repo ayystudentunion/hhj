@@ -3,7 +3,10 @@ Halloped::Application.routes.draw do
   scope "/:locale" do
     resources :calls
     resources :organs do
-      resources :calls
+      resources :calls do
+        resources :applications do
+        end
+      end
     end
     resources :organizations
   end
