@@ -46,6 +46,21 @@ fi:
     documents: Asiakirjat
     forms: Lomakkeet
 
+  calls:
+    show:
+      looking_for: Haetaan
+      members:
+        zero: ei yhtäkään varsinaista jäsentä
+        one: yhtä varsinaista jäsentä
+        other: '%{count} varsinaista jäsentä'
+      deputies:
+        zero: ei yhtäkään varajäsentä
+        one: yhtä varajäsentä
+        other: '%{count} varajäsentä'
+      submission_dates: Hakuaika
+      term: Toimikausi
+      send_application: Lähetä hakemus
+
 
   mongoid:
     errors:

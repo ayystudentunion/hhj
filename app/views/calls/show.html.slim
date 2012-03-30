@@ -23,28 +23,28 @@ div#single-call
         .call-details
           h2
             a(href=call_path(id:@call._id)) = @call.title
-            span.date muokattu 23.4.2012
+            span.date = t(:modified) + " " + l(@call.updated_at)
             a.edit-icon(href='#')
           .item-row
-            span.label Haetaan:
-            span.text 2 jäsentä, 2 varajäsentä
+            span.label #{t ".looking_for"}:
+            span.text #{t(".members", :count => @call.member_amount)}, #{t ".deputies", count: @call.deputy_amount}
           .item-row
-            span.label Haun avaamispäivämäärä:
+            span.label #{t "mongoid.attributes.call.date_open"}:
             span.text 12.4.2012
           .item-row
-            span.label Hakuaika:
-            span.text 15.4.2012 - 15.5.20120
+            span.label #{t ".submission_dates"}:
+            span.text = @call.formatted_submission_dates
           .item-row
-            span.label Toimikausi:
-            span.text 15.5.2012 - 15.11.2012
+            span.label #{t ".term"}:
+            span.text = @call.formatted_term
           .item-row
-            span.label Valinnan paikka ja aika:
-            span.text Koulun etupiha klo 16, sopii tulla koittaan
+            span.label #{t "mongoid.attributes.call.appointment_place_and_date"}::
+            span.text = @call.appointment_place_and_date
           p.description
-            | Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus. Donec ultricies nisl ut felis, suspendisse potenti.
+            = @call.description
         .hr
         .button-row
-          a.send-application.btn(href='#') Lähetä hakemus
+          a.send-application.btn(href='#') = t(".send_application")
 
       .tab
         .organ-members
