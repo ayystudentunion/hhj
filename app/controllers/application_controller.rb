@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
   protected
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    locale = params[:locale] || I18n.default_locale
+    redirect_to('/', locale: I18n.default_locale) unless Halloped::languages.include?(locale.to_sym)
+    I18n.locale = locale
   end
 
   def set_university

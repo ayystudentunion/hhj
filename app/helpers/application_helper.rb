@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def languages
-    [:fi, :en, :se].concat(I18n.available_locales).uniq
+    Halloped::languages
   end
 
 end

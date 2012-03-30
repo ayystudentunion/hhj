@@ -82,6 +82,11 @@ module Halloped
       end
     end
   end
+
+  def self.languages
+    [:fi, :en, :se].concat(I18n.available_locales).uniq
+  end
+
 end
 
 
