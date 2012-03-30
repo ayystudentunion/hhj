@@ -11,7 +11,7 @@ require 'factory_girl_rails'
 
 def createOrganization(org)
    children = org.fetch(:children, []).map{ |child| createOrganization child}
-   Factory(:organization, org.reject{|key, value| key == :children}.merge(children: children))
+   FactoryGirl.create(:organization, org.reject{|key, value| key == :children}.merge(children: children))
 end
 
 createOrganization( {
@@ -51,7 +51,7 @@ createOrganization( {
 } )
 
 def createOrgans(organs)
-   organs.each{ |organ| Factory(:organ, organ) }
+   organs.each{ |organ| FactoryGirl.create(:organ, organ) }
 end
 
 createOrgans( [ {
@@ -64,4 +64,4 @@ createOrgans( [ {
   organization: Organization.find('4f6b1edf91bc2b33d3010200')
 } ] )
 
-Factory(:lukurinki)
+FactoryGirl.create(:lukurinki)

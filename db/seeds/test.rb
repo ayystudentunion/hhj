@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'factory_girl_rails'
-Factory(:tasa_arvotyoryhma)
-Factory(:kirjakerho)
+FactoryGirl.create(:tasa_arvotyoryhma)
+FactoryGirl.create(:kirjakerho)
 
 
 

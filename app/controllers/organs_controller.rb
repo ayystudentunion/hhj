@@ -13,7 +13,7 @@ class OrgansController < ApplicationController
   end
 
   def new # form for creating a new organ
-    organ = Factory.build(:organ)
+    organ = FactoryGirl.build(:organ)
     respond_to do |format|
       format.fragment { render partial: "modals/create-new-organ.html", locals: {organ: organ} }
     end
@@ -21,7 +21,7 @@ class OrgansController < ApplicationController
 
   def create # create a new organ document
     selected_organization = params[:organ][:organization].unshift(@university).reject(&:blank?).last
-    organ = Factory(:organ, params[:organ].merge(organization: selected_organization))
+    organ = FactoryGirl.create(:organ, params[:organ].merge(organization: selected_organization))
 
     respond_to do |format|
       format.json { render json: organ.to_json }

@@ -12,25 +12,25 @@ FactoryGirl.define do
     factory :luonnontieteellinen_tiedekunta do
       name  'Luonnontieteellinen tiedekunta'
       _id   '4f6b1edf91bc2b33d3010100'
-      parent { Factory(:spartan_teknillinen_yliopisto) }
+      parent { FactoryGirl.create(:spartan_teknillinen_yliopisto) }
     end
 
     factory :kirjasto do
       name  'Kirjasto'
       _id   '4f6b1edf91bc2b33d3010200'
-      parent { Factory(:spartan_teknillinen_yliopisto) }
+      parent { FactoryGirl.create(:spartan_teknillinen_yliopisto) }
     end
 
     factory :kemian_laitos do
       name  'Kemian laitos'
       _id   '4f6b1edf91bc2b33d3010101'
-      parent { Factory(:luonnontieteellinen_tiedekunta) }
+      parent { FactoryGirl.create(:luonnontieteellinen_tiedekunta) }
     end
 
     factory :fysiikan_laitos do
       name  'Fysiikan laitos'
       _id   '4f6b1edf91bc2b33d3010102'
-      parent { Factory(:luonnontieteellinen_tiedekunta) }
+      parent { FactoryGirl.create(:luonnontieteellinen_tiedekunta) }
     end
   end
 

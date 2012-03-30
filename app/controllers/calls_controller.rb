@@ -15,7 +15,7 @@ class CallsController < ApplicationController
 
   def create # create a new call for applications
 
-    call = Factory(:call, params[:call])
+    call = FactoryGirl.create(:call, params[:call])
     call.organ = Organ.find params[:organ_id]
 
     respond_to do |format|
