@@ -14,9 +14,8 @@ class CallsController < ApplicationController
   end
 
   def create # create a new call for applications
-
-    call = FactoryGirl.create(:call, params[:call])
-    call.organ = Organ.find params[:organ_id]
+    call_params = params[:call] || {}
+    call = FactoryGirl.create :call, call_params.merge(organ: Organ.find(params[:organ_id]))
 
     respond_to do |format|
       format.json { render json: call.to_json }
