@@ -46,6 +46,7 @@ group :test do
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'wait_for'
 end
 
 # To use ActiveModel has_secure_password

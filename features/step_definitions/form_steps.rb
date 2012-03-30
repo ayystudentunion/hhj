@@ -9,9 +9,11 @@ end
 
 def fillSelects(div, values)
   values.each_with_index do |value, index|
-    p div[:class]
-    selector = div.first(".selector:nth-child(#{index + 1})")
-    p selector[:class] + selector.text
+    selector = nil
+    wait_for(5) do
+      selector = div.first(".selector:nth-child(#{index + 1})")
+      not selector.nil?
+    end
     selector.should_not be_nil, "Expected there to be at least #{index + 1} selects (when trying to select: #{value}"
     selector.find("select option:contains('#{value}')").select_option
   end
