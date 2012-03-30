@@ -33,6 +33,10 @@ class CallsController < ApplicationController
   end
 
   def edit # form for modifing an existing call
+    @call = Call.find(params[:id])
+    respond_to do |format|
+      format.fragment { render "new" }
+    end
   end
 
   def update # modify an existing call

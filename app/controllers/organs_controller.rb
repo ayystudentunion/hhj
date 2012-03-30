@@ -39,8 +39,9 @@ class OrgansController < ApplicationController
   end
 
   def edit # form for modifing an existing organ
+    @call = Organ.find(params[:id])
     respond_to do |format|
-      format.html { render "pages/index" }
+      format.fragment { render "new" }
     end
   end
 
