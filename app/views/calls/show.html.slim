@@ -33,10 +33,10 @@ div#single-call
             span.text = formatted_date @call.date_open
           .item-row
             span.label #{t ".submission_dates"}:
-            span.text = formatted_date @call.date_start, @call.date_end
+            span.text = formatted_date @call.date_start, end_date: @call.date_end
           .item-row
             span.label #{t ".term"}:
-            span.text = formatted_date @call.term_start, @call.term_end
+            span.text = formatted_date @call.term_start, end_date: @call.term_end
           .item-row
             span.label #{t "mongoid.attributes.call.appointment_place_and_date"}::
             span.text = @call.appointment_place_and_date

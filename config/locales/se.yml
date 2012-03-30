@@ -3,6 +3,7 @@ se:
   time:
     formats:
       default: "%d.%m.%Y %H:%M"
+      date: "%d.%m.%Y"
 
   date:
     formats:

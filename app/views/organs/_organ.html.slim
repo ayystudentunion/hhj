@@ -3,5 +3,5 @@
   h2
     a(href="#{organ_path(id: organ.id)}") = organ.name
     a.edit-icon(href='#')
-    span.date 23.4.2012
+    span.date = formatted_date(organ.updated_at, format: :date)
   p.description = organ.description

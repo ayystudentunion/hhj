@@ -19,6 +19,7 @@ fi:
   time:
     formats:
       default: "%d.%m.%Y klo %H:%M"
+      date: "%d.%m.%Y"
 
   date:
     formats:
