@@ -7,7 +7,7 @@ class ApplicationsController < ApplicationController
 
   def new
     respond_to do |format|
-      format.fragment { render partial: "modals/send-application.html" }
+      format.fragment
     end
   end
 
