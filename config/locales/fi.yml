@@ -51,6 +51,8 @@ fi:
       title: Luo uusi toimielin
       select_organization: Valitse organisaatioyksikkö
   calls:
+    new:
+      title: Avaa uusi paikkahaku toimielimelle
     show:
       looking_for: Haetaan
       members:
@@ -113,8 +115,6 @@ fi:
     time_placeholder: Aseta aika
 
 
-    call-for-application:
-      title: Avaa uusi paikkahaku toimielimelle
 
   placeholders:
     search: Hae ...

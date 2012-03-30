@@ -7,9 +7,9 @@ class CallsController < ApplicationController
 
   def new
     organ = Organ.find params[:organ_id]
-    call  = organ.calls.build
+    @call  = organ.calls.build
     respond_to do |format|
-      format.fragment { render partial: "modals/call-for-application.html", locals: {organ: organ, call: call} }
+      format.fragment
     end
   end
 

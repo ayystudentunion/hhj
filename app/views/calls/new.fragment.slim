@@ -14,7 +14,7 @@
         option(value='normaali') Normaali menettely
         option(value='suora') Suora menettely
     .hr
-    = form_for call, url: organ_calls_path, class: 'new-application' do |f|
+    = form_for @call, url: organ_calls_path, class: 'new-application' do |f|
       - languages.each do |locale|
         = f.text_field :title, placeholder: Call.human_attribute_name(:title, locale: locale), class: "wide field localized #{locale}", name: "call[title[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}"
       = f.text_field :member_amount, class: 'field small'
