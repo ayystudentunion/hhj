@@ -46,6 +46,10 @@ fi:
     documents: Asiakirjat
     forms: Lomakkeet
 
+  organs:
+    new:
+      title: Luo uusi toimielin
+      select_organization: Valitse organisaatioyksikkö
   calls:
     show:
       looking_for: Haetaan
@@ -108,9 +112,6 @@ fi:
     save: Tallenna
     time_placeholder: Aseta aika
 
-    create-new-organ:
-      title: Luo uusi toimielin
-      select_organization: Valitse organisaatioyksikkö
 
     call-for-application:
       title: Avaa uusi paikkahaku toimielimelle
