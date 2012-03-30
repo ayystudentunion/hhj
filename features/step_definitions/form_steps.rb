@@ -1,6 +1,6 @@
 
 def fillFieldByPlaceholder(form, placeholder, value)
-  form.all("*[placeholder='#{placeholder}']").select(&:visible?).map { |input| input.set(value) }.any?
+  form.all("*[placeholder^='#{placeholder}']").select(&:visible?).map { |input| input.set(value) }.any?
 end
 
 def fillFieldByLabel(form, label, value)

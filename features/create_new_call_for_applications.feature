@@ -16,12 +16,13 @@ Feature: Creating new call for applications for organ
       |  Toimikauden alkamisaika:           | 2012-02-02                                                |
       |  Toimikauden päättymisaika:         | 2012-06-30                                                |
       |  Päätöksenteon paikka ja ajankohta  | Yliopiston ohjausryhmän kokous tammikuussa                |
-
+      |  Lisätietoa käsittelijälle          | Ainakin yksi nainen ja yksi mies                          |
 
     And I press 'EN'
     And fill in form 'Avaa uusi paikkahaku toimielimelle':
-      |  label                           | value                                                            |
-      |  Title of call for applications  | Call for new representatives for Equality organ in term 2013     |
-      |  Halloped job description        | Lobbying the interests of students in equality                   |
+      |  label                              | value                                                            |
+      |  Title of call for applications     | Call for new representatives for Equality organ in term 2013     |
+      |  Halloped job description           | Lobbying the interests of students in equality                   |
+      |  Additional information for handler | At least one woman and one man                                   |
 
     And I press 'Tallenna'

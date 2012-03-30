@@ -5,10 +5,11 @@ en:
   mongoid:
     attributes:
       organ:
-        name: "Name of organ"
-        description: "Description of organ"
+        name: Name of organ
+        description: Description of organ
       call:
-        title: "Title of call for applications"
-        description: "Halloped job description"
+        title: Title of call for applications
+        description: Halloped job description
+        quota_information: Additional information for handler (number or quota memebers etc.)
 
 
