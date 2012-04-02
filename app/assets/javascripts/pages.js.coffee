@@ -28,6 +28,8 @@ $(document).ready ->
 
     return false
 
+  uniformify('body')
+
 ###
 openNewOrganDialog = ->
   $("#modal-wrap").show()
