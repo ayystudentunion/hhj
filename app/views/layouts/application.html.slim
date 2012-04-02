@@ -9,7 +9,7 @@ html
     meta(http-equiv='Content-Type'
       content='text/html; charset=UTF-8')
   body
-    div#content-wrap
+    #wrapper
       div#header
         #header-content
           .logo
@@ -43,14 +43,12 @@ html
             input.field.search-field(type='text' placeholder="#{t 'placeholders.search'}")
       div#content
         div#page-content
+          = yield
 
-          div#content-wrapper
-            = yield
+        = render "shared/sidebar"
+        .clear
 
-          = render "shared/sidebar"
-          div.clear
+    div#footer
+      p Copyright 2012 Halloped.fi
 
-      div#footer
-        p Copyright 2012 Halloped.fi
-
-    div#modal-wrap
+  div#modal-wrap

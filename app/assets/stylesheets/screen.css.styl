@@ -60,11 +60,40 @@ a:hover
 
 
 /* LAYOUT COMPONENT STYLES */
+html, body, #wrapper
+  height 100%
 
-#content-wrap
-  width 100%
+.clearfix:after
+  content "."
+  display block
+  height 0
+  clear both
+  visibility hidden
+.clearfix
+  display inline-block
+/* Hides from IE-mac \*/
+* html .clearfix
+  height 1%
+.clearfix
+  display block
+/* End hide from IE-mac */
+
+body > #wrapper
+  height auto
   min-height 100%
-  position relative
+
+#content
+  width 960px
+  margin 0 auto
+  padding-bottom 40px
+
+/*Opera Fix*/
+body:before
+  content ""
+  height 100%
+  float left
+  width 0
+  margin-top -32767px
 
 #header, #navi, #content, #footer, #sidebar
   font-family basic-fonts
@@ -146,10 +175,9 @@ a:hover
         a.home
           display block
           padding 0
-          margin 9px 18px
-          width 24px
-          height 22px
-          background url('../img/navi-home.png') no-repeat
+          width 60px
+          height 40px
+          background url('../img/navi-home.png') no-repeat center center
       li:hover
         background #CCC
     form.search
@@ -163,19 +191,101 @@ a:hover
 
 #sidebar
   width 240px
-  height 100px
-  position absolute
-  right 0
-  top 14px
+  float right
+  padding-top 15px
+  .sidebar-content
+    a.sidebar-button
+      display block
+      width 208px
+      height 28px
+      line-height 27px
+      position relative
+      padding 0 0 0 30px
+      margin-bottom 3px
+      text-align left
+      span.plus-icon
+        display inline-block
+        width 10px
+        height 11px
+        background url('../img/plus-icon.png') no-repeat
+        position absolute
+        top 9px
+        left 10px
+    .introduction-text
+      margin-top 24px
+      display none
+    .profile-info, .introduction-text
+      width 240px
+      margin-bottom 20px
+      .info-tab
+        height 26px
+        border-bottom 1px solid #f2f2f2
+        margin-bottom -1px
+        span.tab-left
+          display inline-block
+          width 11px
+          height 27px
+          background url('../img/tab-end-left.png') no-repeat
+        span.tab-middle
+          display inline-block
+          height 27px
+          padding 0 6px
+          background url('../img/tab-bg.png') repeat-x
+          vertical-align top
+          line-height 26px
+        span.tab-right
+          display inline-block
+          width 11px
+          height 27px
+          background url('../img/tab-end-right.png') no-repeat
+      .info-content
+        background #f2f2f2
+        border 1px solid #cacaca
+        padding 12px
+        text-shadow 0 1px 0 #FFF
+        .avatar
+          display inline-block
+          width 50px
+          height 50px
+          background #CCC
+          margin-right 8px
+        p
+          width 124px
+          display inline-block
+          vertical-align top
+          line-height 17px
+          margin-top 0
+        a.edit-btn
+          display inline-block
+          width 85px
+          height 25px
+          background url('../img/edit-btn.png') no-repeat left top
+          text-shadow 0 1px 0 #000
+          line-height 23px
+          text-align center
+          color #FFF
+          float right
+        a.edit-btn:hover
+          background url('../img/edit-btn.png') no-repeat left bottom
+        h4
+          margin-top 14px
+        ul.my-organs
+          margin 6px 0 2px 0
+          li
+            padding-left 18px
+            line-height 20px
+            background url('../img/bullet.png') no-repeat left 3px
+
 
 #footer
+  position relative
+  margin-top -40px
+  clear both
   width 100%
   height 40px
   background #dadada
   text-align center
   text-shadow 0 1px 0 #FFF
-  position absolute
-  bottom -4px
   p
     line-height 38px
     margin 0
@@ -196,11 +306,11 @@ a.btn, input.btn
   display inline-block
   gradient(color-2-light, color-2-dark)
   padding 0 16px
-  height 23px
   border 1px solid #cacaca
   text-align center
   line-height 23px
   color #505050
+  cursor pointer
 a.btn:hover, input.btn:hover
   gradient(color-2-dark, color-2-light)
   color #333
@@ -210,10 +320,9 @@ a.btn:active, input.btn:active
 /* CONTENT STYLES */
 
 #page-content
-  width 960px
-  margin 0 auto
-  padding-bottom 70px
-  position relative
+  width 700px
+  float left
+  overflow auto
 
   .breadcrumb
     ul.breadcrumb-list
@@ -542,89 +651,6 @@ a.btn:active, input.btn:active
         a.edit:hover, a.remove:hover
           color #505050
 
-  .sidebar-content
-    a.sidebar-button
-      display block
-      width 210px
-      height 28px
-      line-height 27px
-      position relative
-      padding 0 0 0 30px
-      margin-bottom 3px
-      text-align left
-      span.plus-icon
-        display inline-block
-        width 10px
-        height 11px
-        background url('../img/plus-icon.png') no-repeat
-        position absolute
-        top 9px
-        left 10px
-    .introduction-text
-      margin-top 24px
-      display none
-    .profile-info, .introduction-text
-      width 240px
-      margin-bottom 20px
-      .info-tab
-        height 26px
-        border-bottom 1px solid #f2f2f2
-        margin-bottom -1px
-        span.tab-left
-          display inline-block
-          width 11px
-          height 27px
-          background url('../img/tab-end-left.png') no-repeat
-        span.tab-middle
-          display inline-block
-          height 27px
-          padding 0 6px
-          background url('../img/tab-bg.png') repeat-x
-          vertical-align top
-          line-height 26px
-        span.tab-right
-          display inline-block
-          width 11px
-          height 27px
-          background url('../img/tab-end-right.png') no-repeat
-      .info-content
-        background #f2f2f2
-        border 1px solid #cacaca
-        padding 12px
-        text-shadow 0 1px 0 #FFF
-        .avatar
-          display inline-block
-          width 50px
-          height 50px
-          background #CCC
-          margin-right 8px
-        p
-          width 124px
-          display inline-block
-          vertical-align top
-          line-height 17px
-          margin-top 0
-        a.edit-btn
-          display inline-block
-          width 85px
-          height 25px
-          background url('../img/edit-btn.png') no-repeat left top
-          text-shadow 0 1px 0 #000
-          line-height 23px
-          text-align center
-          color #FFF
-          float right
-        a.edit-btn:hover
-          background url('../img/edit-btn.png') no-repeat left bottom
-        h4
-          margin-top 14px
-        ul.my-organs
-          margin 6px 0 2px 0
-          li
-            padding-left 18px
-            line-height 20px
-            background url('../img/bullet.png') no-repeat left 3px
-
 /* MODAL STYLES */
 #modal-wrap
   width 100%
@@ -738,7 +764,7 @@ input.small
   width 40px
   margin 0 8px 14px 0
 
-span.datepicker
+img.ui-datepicker-trigger
   display inline-block
   width 16px
   height 16px
@@ -775,7 +801,7 @@ form.new-application
   textarea.wide
     margin 14px 0 10px 0
 
-form.new-organ
+form.new_organ
   input.wide
     margin 14px 0 10px 0
 

@@ -12,7 +12,7 @@ loadFragment = (locale, controller, param, modal) ->
 
   url += ".fragment"
 
-  contentWrap = $('#content-wrapper')
+  contentWrap = $('#page-content')
   cached.getDOM url, (error, dom) ->
     dom.appendTo contentWrap.empty()
 
