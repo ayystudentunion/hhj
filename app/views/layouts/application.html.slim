@@ -16,7 +16,7 @@ html
           .headline
             | Halloped.fi
           / Visible when user has logged in
-          .login-info
+          .login-info(href='#' style='display: none;')
             .login-name
               span.label
                 = t :logged_in_as
@@ -25,7 +25,7 @@ html
               span.name Eija Zitting
             a.login-btn(href='#')
           / Visible when user has not been logged in, hidden by default in CSS
-          .login-request
+          .login-request(href='#' style='display: none;')
             .login-name
               span.label
                 = t :login_with_haka
@@ -39,7 +39,7 @@ html
             li: a.home(href=index_path)
             li: a(href=organs_path) = t('navi.organs')
             li: a(href=calls_path) = t('navi.open_calls')
-          form.search
+          form.search(href='#' style='display: none;')
             input.field.search-field(type='text' placeholder="#{t 'placeholders.search'}")
       div#content
         div#page-content

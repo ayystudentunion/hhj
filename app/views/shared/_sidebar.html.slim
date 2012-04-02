@@ -1,7 +1,7 @@
 div#sidebar
   .sidebar-content
     /Visible when user has logged in
-    .profile-info
+    .profile-info(href='#' style='display: none;')
       .info-tab
         span.tab-left
         span.tab-middle = t "sidebar.user_info"
@@ -29,7 +29,7 @@ div#sidebar
     a.sidebar-button.btn.create-new-organ.js-modal(href=new_organ_path)
       = t "sidebar.create_organ"
       span.plus-icon
-    a.sidebar-button.btn(href='#')
+    a.sidebar-button.btn(href='#' style='display: none;')
       = t "sidebar.write_news_post"
       span.plus-icon
 
