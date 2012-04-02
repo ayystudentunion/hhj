@@ -14,11 +14,12 @@
       .item-row
         span.label = t '.apply_to'
         span.buttons
-          a.btn(href='#') Jäseneksi
-          a.btn(href='#') Varajäseneksi
-          a.btn(href='#') Molempiin
-        input.field.half(type='text' placeholder='Kenen varajäseneksi haluat')
-      textarea.wide(type='textarea' placeholder='Perustelut')
+          - [:position_member, :position_deputy, :position_both].each do |position_value|
+            label
+              = f.radio_button :position, position_value
+              span = PositionApplication.human_attribute_name(position_value)
+        = f.text_field :deputy_of, placeholder:  PositionApplication.human_attribute_name(:deputy_of), class: 'field half'
+      = f.text_area :personal_statement, placeholder: PositionApplication.human_attribute_name(:personal_statement), class: 'wide'
       .button-row
-        a.cancel.close-modal.btn(href='#') Peruuta
-        a.submit.btn(href='#') Tallenna
+        a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
+        input.submit.close-modal.btn(type='submit' value="#{t 'modals.save'}")

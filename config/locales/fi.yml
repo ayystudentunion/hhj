@@ -99,6 +99,11 @@ fi:
               blank: Sukunimi puuttuu
             email:
               blank: Sähköpostiosoite puuttuu
+        position_application:
+          attributes:
+            position:
+              blank: Haettavaa paikkaa ei ole valittu
+              invalid: "Haettava paikka voi olla: Jäsen, Varajäsen tai Molemmat"
 
     attributes:
       organ:
@@ -127,7 +132,13 @@ fi:
         first_name: Etunimi
         last_name: Sukunimi
         email: Sähköpostiosoite
-
+      position_application:
+        position: Haen
+        position_member: Jäseneksi
+        position_deputy: Varajäseneksi
+        position_both: Molempiin
+        deputy_of: Kenen varajäseneksi haluat
+        personal_statement: Perustelut
 
   modals:
     application: Hakemus
