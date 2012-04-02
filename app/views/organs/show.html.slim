@@ -17,7 +17,7 @@ div#single-organ
     .tabs
       ul.tabs-list
         li.active: a(href='#') = t :introduction
-        li(style='display: none;'): a(href='#') = t :members
+        li.unimplemented: a(href='#') = t :members
     .tab-content
       .tab
         .organ-details
@@ -25,7 +25,7 @@ div#single-organ
             a(href='#') = @organ.name
             span.date
               = t(:modified) + ' ' + l(@organ.updated_at)
-            a.edit-icon(href='#' style='display: none;')
+            a.edit-icon.unimplemented(href='#')
           .item-row
             span.label
               = t :organization
@@ -50,13 +50,13 @@ div#single-organ
         a.application-call.btn.js-modal(href=new_organ_call_path(organ_id:@organ._id))
           = t :new_call_for_applications
         .hr
-        form.message-for-organ(style='display: none;')
+        form.message-for-organ.unimplemented
           textarea.wide(type='textarea' placeholder=t("placeholders.message_for_organ"))
-        .button-row(style='display: none;')
+        .button-row.unimplemented
           a.submit.btn(href='#')
             = t :send
 
-        .content-comments(style='display: none;')
+        .content-comments.unimplemented
           .comment
             span.user-avatar
               img(src='/img/comment-avatar.png')
@@ -80,7 +80,7 @@ div#single-organ
               a.edit(href='#') muokkaa •
               a.remove(href='#') poista asiaton viesti
 
-      .tab(style='display: none;')
+      .tab.unimplemented
         .organ-members
           h2
             | Yliopiston edustajat

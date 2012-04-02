@@ -13,9 +13,9 @@ div#open-calls
     .tabs
       ul.tabs-list
         li.active: a(href='#') Kaikki
-        li(href='#' style='display: none;'): a(href='#') Työryhmä
-        li(href='#' style='display: none;'): a(href='#') Neuvostot
-        li(href='#' style='display: none;'): a(href='#') Johtoryhmät
+        li.unimplemented(href='#'): a(href='#') Työryhmä
+        li.unimplemented(href='#'): a(href='#') Neuvostot
+        li.unimplemented(href='#'): a(href='#') Johtoryhmät
     .tab-content
       .tab
         = render partial: "open_call", collection: @calls

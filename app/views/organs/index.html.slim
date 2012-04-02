@@ -13,23 +13,23 @@ div#organs
     .tabs
       ul.tabs-list
         li.active: a(href='#') Aktiiviset
-        li(style='display: none;'): a(href='#') Paikkahaussa
-        li(style='display: none;'): a(href='#') Lakkautetut
-        li.margin(style='display: none;'): a(href='#' style='display: none;') Yliopistotaso
-        li(style='display: none;'): a(href='#') Korkeakoulutaso
-        li(style='display: none;'): a(href='#') Laitostaso
-        li(style='display: none;'): a(href='#') Ryhmätaso
+        li.unimplemented: a(href='#') Paikkahaussa
+        li.unimplemented: a(href='#') Lakkautetut
+        li.margin.unimplemented: a.unimplemented(href='#') Yliopistotaso
+        li.unimplemented: a(href='#') Korkeakoulutaso
+        li.unimplemented: a(href='#') Laitostaso
+        li.unimplemented: a(href='#') Ryhmätaso
     .tab-content
       .tab
-        form.organ-search(href='#' style='display: none;')
+        form.organ-search.unimplemented(href='#')
           input.field.wide(type='text' placeholder="#{t "placeholders.limit_results"}")
         .sort-links
-          a.sort-name(href='#' style='display: none;')
+          a.sort-name.unimplemented(href='#')
             | Nimi
             span.arrow-down
-          a.sort-date(href='#' style='display: none;')
+          a.sort-date.unimplemented(href='#')
             | Muokattu
             span.arrow-down
         = render "organs"
 
-        a.show-more.btn(href='#' style='display: none;') Näytä lisää
+        a.show-more.btn.unimplemented(href='#') Näytä lisää

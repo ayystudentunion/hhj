@@ -13,12 +13,12 @@ div#sidebar
           span.email = @user.email
           br
           span.phone = @user.phone
-        a.edit-btn(href='#' style='display: none;') = t "sidebar.edit"
+        a.edit-btn.unimplemented(href='#') = t "sidebar.edit"
         div.clear
-        h4(style='display: none;')
+        h4.unimplemented
           = t "sidebar.my_organs"
           | :
-        ul.my-organs(style='display: none;')
+        ul.my-organs.unimplemented
           li: a(href='#') Joku toimielin
           li: a(href='#') Joku toimielin
           li: a(href='#') Joku toimielin
@@ -27,7 +27,7 @@ div#sidebar
     a.sidebar-button.btn.create-new-organ.js-modal(href=new_organ_path)
       = t "sidebar.create_organ"
       span.plus-icon
-    a.sidebar-button.btn(href='#' style='display: none;')
+    a.sidebar-button.btn.unimplemented(href='#')
       = t "sidebar.write_news_post"
       span.plus-icon
 

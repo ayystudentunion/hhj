@@ -17,14 +17,14 @@ div#single-call
     .tabs
       ul.tabs-list
         li.active: a(href='#') Haun tiedot
-        li(style='display: none;'): a(href='#') Istuvat jäsenet
+        li.unimplemented: a(href='#') Istuvat jäsenet
     .tab-content
       .tab
         .call-details
           h2
             a(href=call_path(id:@call._id)) = @call.title
             span.date = t(:modified) + " " + l(@call.updated_at)
-            a.edit-icon(href='#' style='display: none;')
+            a.edit-icon.unimplemented(href='#')
           .item-row
             span.label #{t ".looking_for"}:
             span.text #{t(".members", :count => @call.member_amount)}, #{t ".deputies", count: @call.deputy_amount}
@@ -47,7 +47,7 @@ div#single-call
           a.send-application.btn.js-modal(href=new_organ_call_application_path(organ_id:@call.organ._id, call_id:@call._id))
             = t(".send_application")
 
-      .tab(href='#' style='display: none;')
+      .tab.unimplemented(href='#')
         .organ-members
           h2
             | Yliopiston edustajat

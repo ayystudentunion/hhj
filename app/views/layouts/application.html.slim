@@ -23,9 +23,9 @@ html
                 | :
               br
               span.name = @user.full_name
-            a.login-btn(href='#' style='display: none;')
+            a.login-btn.unimplemented(href='#')
           / Visible when user has not been logged in, hidden by default in CSS
-          .login-request(href='#' style='display: none;')
+          .login-request.unimplemented(href='#')
             .login-name
               span.label
                 = t :login_with_haka
@@ -39,7 +39,7 @@ html
             li: a.home(href=index_path)
             li: a(href=organs_path) = t('navi.organs')
             li: a(href=calls_path) = t('navi.open_calls')
-          form.search(href='#' style='display: none;')
+          form.search.unimplemented(href='#')
             input.field.search-field(type='text' placeholder="#{t 'placeholders.search'}")
       div#content
         div#page-content
