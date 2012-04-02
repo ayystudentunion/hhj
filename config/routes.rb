@@ -1,5 +1,4 @@
 Halloped::Application.routes.draw do
-
   scope "/:locale" do
     resources :calls
     resources :organs do
@@ -9,6 +8,7 @@ Halloped::Application.routes.draw do
       end
     end
     resources :organizations
+    resources :users
   end
 
   # The priority is based upon order of creation:
