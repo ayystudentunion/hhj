@@ -4,8 +4,8 @@ require "i18n/backend/fallbacks"
 # Fallbacks are not supported for static strings that come from locales/:locale.yml files
 # See also config/application.rb
 ::I18n.fallbacks = {
-  en: [:en, :fi, :se],
-  fi: [:fi, :se, :en],
-  se: [:se, :fi, :en]
+  en: [:en, :fi, :sv],
+  fi: [:fi, :sv, :en],
+  sv: [:sv, :fi, :en]
 }
 
