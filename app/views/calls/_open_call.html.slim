@@ -4,7 +4,7 @@
     a.edit-icon(href='#')
   .item-block
     .label #{t "calls.show.submission_dates"}:
-    .text = formatted_date(open_call.date_start, open_call.date_end)
+    .text = formatted_date(open_call.date_start, end_date: open_call.date_end)
   .item-block
     .label #{t "calls.show.description"}:
     .text = open_call.description
