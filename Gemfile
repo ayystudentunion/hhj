@@ -33,7 +33,7 @@ end
 
 # gem 'jquery-rails'
 
-group :test, :development do
+group :test do
   gem 'rspec-rails', '>= 2.6'
   gem 'rspec_multi_matchers'
 end
