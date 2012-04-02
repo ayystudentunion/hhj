@@ -87,6 +87,15 @@ fi:
               blank: Varsinaisten jäsenten määrä puuttuu
             deputy_amount:
               blank: Varajäsenten määrä puuttuu
+        user:
+          attributes:
+            first_name:
+              blank: Etunimi puuttuu
+            last_name:
+              blank: Sukunimi puuttuu
+            email:
+              blank: Sähköpostiosoite puuttuu
+
     attributes:
       organ:
         name: Toimielimen nimi
@@ -110,6 +119,10 @@ fi:
         term_end: Toimikauden päättymisaika
         appointment_place_and_date: Päätöksenteon paikka ja ajankohta
         description: Kuvaus hallopedin työnkuvasta
+      user:
+        first_name: Etunimi
+        last_name: Sukunimi
+        email: Sähköpostiosoite
 
 
   modals:

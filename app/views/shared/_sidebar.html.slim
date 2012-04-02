@@ -1,7 +1,6 @@
 div#sidebar
   .sidebar-content
-    /Visible when user has logged in
-    .profile-info(href='#' style='display: none;')
+    .profile-info(href='#' style="#{'display:none;' if @user.nil?}")
       .info-tab
         span.tab-left
         span.tab-middle = t "sidebar.user_info"
@@ -9,18 +8,17 @@ div#sidebar
       .info-content
         div.avatar
         p
-          span.name Eija Zitting
+          span.name = @user.first_name + ' ' + @user.last_name
           br
-          span.email eija.zitting@ayy.fi
+          span.email = @user.email
           br
-          span.phone +358 40 123 1234
-        a.edit-btn(href='#') = t "sidebar.edit"
+          span.phone = @user.phone
+        a.edit-btn(href='#' style='display: none;') = t "sidebar.edit"
         div.clear
-        /Visible if user is a member in one or more organs
-        h4
+        h4(style='display: none;')
           = t "sidebar.my_organs"
           | :
-        ul.my-organs
+        ul.my-organs(style='display: none;')
           li: a(href='#') Joku toimielin
           li: a(href='#') Joku toimielin
           li: a(href='#') Joku toimielin
