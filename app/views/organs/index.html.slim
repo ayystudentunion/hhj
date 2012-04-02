@@ -21,15 +21,15 @@ div#organs
         li(style='display: none;'): a(href='#') Ryhmätaso
     .tab-content
       .tab
-        form.organ-search
+        form.organ-search(href='#' style='display: none;')
           input.field.wide(type='text' placeholder="#{t "placeholders.limit_results"}")
         .sort-links
-          a.sort-name(href='#')
+          a.sort-name(href='#' style='display: none;')
             | Nimi
             span.arrow-down
-          a.sort-date(href='#')
+          a.sort-date(href='#' style='display: none;')
             | Muokattu
             span.arrow-down
         = render "organs"
 
-        a.show-more.btn(href='#') Näytä lisää
+        a.show-more.btn(href='#' style='display: none;') Näytä lisää
