@@ -8,4 +8,7 @@ class User
   field :email, type: String
   field :phone, type: String
 
+  def full_name
+    first_name + ' ' + last_name
+  end
 end
