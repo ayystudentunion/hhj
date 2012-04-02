@@ -43,9 +43,7 @@ cache =
 
   get: (url, callback) ->
     future = cache.html[url]
-    if future?
-      future.get callback
-    else
+    if not future?
       future = new Future()
       $.ajax
         url: url
