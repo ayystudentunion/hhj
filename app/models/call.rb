@@ -6,6 +6,7 @@ class Call
   validates :title, :member_amount, :deputy_amount, allow_blank: false, presence: true
 
   belongs_to :organ
+  has_many :position_applications
 
   field :title, localize: true
   field :member_amount, type: Integer, default: 0

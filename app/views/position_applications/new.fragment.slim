@@ -10,7 +10,7 @@
         p.phone = @user.phone
     .hr
 
-    form.send-application
+    = form_for @position_application, url: call_position_applications_path, class: 'send-application' do |f|
       .item-row
         span.label = t '.apply_to'
         span.buttons
