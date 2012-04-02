@@ -47,7 +47,7 @@ fi:
     documents: Asiakirjat
     forms: Lomakkeet
 
-  applications:
+  position_applications:
     new:
       title: Lähetä hakemus
       apply_to: 'Haen:'

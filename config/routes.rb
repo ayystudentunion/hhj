@@ -3,7 +3,7 @@ Halloped::Application.routes.draw do
     resources :calls
     resources :organs do
       resources :calls do
-        resources :applications do
+        resources :position_applications do
         end
       end
     end
