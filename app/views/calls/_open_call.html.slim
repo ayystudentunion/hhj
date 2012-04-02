@@ -1,7 +1,7 @@
 .open-calls
   h2
     a(href=call_path(id:open_call._id)) = open_call.title
-    a.edit-icon(href='#')
+    a.edit-icon(href='#' style='display: none;')
   .item-block
     .label #{t "calls.show.submission_dates"}:
     .text = formatted_date(open_call.date_start, end_date: open_call.date_end)
