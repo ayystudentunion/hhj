@@ -8,6 +8,8 @@ class User
   field :email, type: String
   field :phone, type: String
 
+  has_many :position_applications
+
   def full_name
     first_name + ' ' + last_name
   end

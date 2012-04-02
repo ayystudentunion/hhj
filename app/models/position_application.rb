@@ -8,5 +8,6 @@ class PositionApplication
   field :personal_statement, type: String
 
   belongs_to :call
+  belongs_to :user
 
 end
