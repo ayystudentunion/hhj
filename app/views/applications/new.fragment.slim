@@ -1,18 +1,18 @@
 .modal#send-application
   .content
     h2
-      | Lähetä hakemus
+      = t '.title'
       a.close-modal(href='#')
     .item-block
       .applicant-details
-        p.name Jouko Joukonen
-        p.email jouko.joukonen@joukonen.fi
-        p.phone +358 40 229 2299
+        p.name = @user.full_name
+        p.email = @user.email
+        p.phone = @user.phone
     .hr
 
     form.send-application
       .item-row
-        span.label Haen:
+        span.label = t '.apply_to'
         span.buttons
           a.btn(href='#') Jäseneksi
           a.btn(href='#') Varajäseneksi

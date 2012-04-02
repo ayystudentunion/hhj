@@ -47,6 +47,10 @@ fi:
     documents: Asiakirjat
     forms: Lomakkeet
 
+  applications:
+    new:
+      title: Lähetä hakemus
+      apply_to: 'Haen:'
   organs:
     new:
       title: Luo uusi toimielin
