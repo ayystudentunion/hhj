@@ -10,7 +10,7 @@
         p.phone = @user.phone
     .hr
 
-    = form_for @position_application, url: call_position_applications_path, class: 'send-application' do |f|
+    = form_for @position_application, url: call_position_applications_path(format: :fragment), class: 'send-application' do |f|
       = f.hidden_field :user_id
       .item-row
         span.label = t '.apply_to'

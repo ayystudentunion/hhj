@@ -51,6 +51,10 @@ fi:
     new:
       title: Lähetä hakemus
       apply_to: 'Haen:'
+    create:
+      title: Hakemus lähetetty
+      apply_to: 'Haen:'
+
   organs:
     new:
       title: Luo uusi toimielin

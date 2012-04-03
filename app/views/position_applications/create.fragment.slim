@@ -1,0 +1,23 @@
+.modal#application-sent
+  .content
+    h2
+      = t '.title'
+      a.close-modal(href='#')
+    .item-block
+      .applicant-details
+        p.name = @user.full_name
+        p.email = @user.email
+        p.phone = @user.phone
+    .hr
+      .item-row
+        span.label = t('.apply_to') + ' '
+        span.label = PositionApplication.human_attribute_name @position_application.position
+      - if not @position_application.deputy_of.blank?
+        .item-row
+          span.label = PositionApplication.human_attribute_name(:deputy_of) + ': ' +  @position_application.deputy_of
+      .item-row
+        span.label = PositionApplication.human_attribute_name(:personal_statement) + ': ' + @position_application.personal_statement
+      .button-row
+        a.ok.close-modal.btn(href='#') = t 'modals.ok'
+
+

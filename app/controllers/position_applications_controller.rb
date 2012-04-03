@@ -21,13 +21,8 @@ class PositionApplicationsController < ApplicationController
   def create
     position_application_params = params[:position_application] || {}
     call = Call.find params[:call_id]
-    position_application = FactoryGirl.create :position_application,
+    @position_application = FactoryGirl.create :position_application,
       position_application_params.merge(call: call)
-
-    respond_to do |format|
-      format.json { render json: position_application.to_json }
-      format.html { redirect_to organ_call_path(organ_id: call.organ_id, id: call._id) }
-    end
   end
 
   def update
