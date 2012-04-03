@@ -8,7 +8,7 @@ end
 def check_details(details_selector, title, description, table)
   details = page.find details_selector
   details.find("h2").should have_content title
-  if description and table
+  if not description.nil? and not table.nil?
     details.should have_content description
     check_view_values details, table
   end
