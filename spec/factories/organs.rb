@@ -3,6 +3,7 @@
 
 FactoryGirl.define do
   factory :organ do
+    official true
     factory :tasa_arvotyoryhma do
       name  'Tasa-arvotyöryhmä'
       _id   "4f6b1edf91bc2b3301010101"
