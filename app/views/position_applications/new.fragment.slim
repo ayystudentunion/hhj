@@ -16,7 +16,7 @@
         span.label = t '.apply_to'
         span.buttons
           - [:position_member, :position_deputy, :position_both].each do |position_value|
-            label
+            label.btn
               = f.radio_button :position, position_value, checked: (position_value == :position_member)
               span = PositionApplication.human_attribute_name(position_value)
         = f.text_field :deputy_of, placeholder:  PositionApplication.human_attribute_name(:deputy_of), class: 'field half', style: 'display:none;'

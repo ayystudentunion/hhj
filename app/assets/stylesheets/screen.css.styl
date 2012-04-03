@@ -305,7 +305,7 @@ body:before
 
 
 /* GENERAL BUTTON STYLES */
-a.btn, input.btn
+a.btn, input.btn, label.btn
   display inline-block
   gradient(color-2-light, color-2-dark)
   padding 0 16px
@@ -314,10 +314,10 @@ a.btn, input.btn
   line-height 23px
   color #505050
   cursor pointer
-a.btn:hover, input.btn:hover
+a.btn:hover, input.btn:hover, label.btn:hover
   gradient(color-2-dark, color-2-light)
   color #333
-a.btn:active, input.btn:active
+a.btn:active, input.btn:active, label.btn:active
   gradient(color-1-dark, color-1-light)
 
 /* CONTENT STYLES */
@@ -813,8 +813,10 @@ form.send_message
   textarea.wide
     margin 0 0 10px 0
 
-form.organ_search
+form.organ_search, form.new_call
   input.wide
+    margin 0 0 10px 0
+  textarea.wide
     margin 0 0 10px 0
 
 form.add_applicants
@@ -855,6 +857,15 @@ form.send_application
       a.btn, input.btn
         margin-left -1px
 
+form.new_position_application
+  .radio
+    position absolute
+    top -999px
+  label.btn
+    margin-right -1px
+  input#position_application_deputy_of
+    margin 12px 0 0 41px
+
 .inline-block
   display inline-block
   width 260px
@@ -865,6 +876,12 @@ form.send_application
     width 235px
 .no-margin
   margin-right 0
+
+.item-row
+  margin 14px 0 10px 0
+  span.label
+    font-weight bold
+    margin-right 6px
 
 .button-row
   width 100%
