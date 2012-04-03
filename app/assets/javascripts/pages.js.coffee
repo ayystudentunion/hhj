@@ -3,35 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready ->
-  $("#modal-wrap").delegate ".lang.btn", "click", () ->
-    changeModalFormLanguage = (forms_container, locale) ->
-      forms_container.find('.localized').hide()
-      forms_container.find(".localized.#{locale}").show()
-      forms_container.find('.lang.btn').toggleClass('active', false)
-      forms_container.find(".lang.btn[hreflang='#{locale}']").toggleClass('active', true)
-
-    changeModalFormLanguage $(this).parents('.content:first'), $(this).attr('hreflang')
-
-  $("#modal-wrap").delegate "select", "change", () ->
-    select = $(this)
-    organization_id = select.val()
-    select.nextAll().remove()
-
-    $.get $("#modal-wrap .modal").attr('data-url'), (organizations) ->
-      children = _(organizations).filter((org) -> org.parent_id == organization_id)
-      if children.length > 0
-        template = $($("#organization-select-template").html())
-        select.parents('.inline-block:first').append template
-        template.render(children, item: -> value: "#{@_id}", text: "#{@name}")
-        default_option = select.children('option').first().clone().attr('selected', 'selected')
-        template.prepend(default_option).uniform()
-
-    return false
-
-  $("#modal-wrap").delegate "#send-application .radio input", "change", () ->
-    itemRow = $(this).parents('.item-row:first')
-    itemRow.find("#position_application_deputy_of").toggle($(this).val() != 'position_member')
-
   uniformify('body')
 
 ###
