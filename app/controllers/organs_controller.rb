@@ -31,6 +31,7 @@ class OrgansController < ApplicationController
 
   def show # return a single organ
     @organ = Organ.find(params[:id])
+    @position_applications = @organ.calls.map(&:position_applications).flatten
     respond_to do |format|
       format.html
       format.json { render :json => @organ }

@@ -1,0 +1,11 @@
+.member-card.no-margin
+  div.avatar
+  p
+    a.name(href='#') = applicant.user.full_name
+    br
+    span.email applicant.user.email
+  .status-buttons
+    a.status.btn.member(href='#') = t '.member'
+    a.status.btn.deputy(href='#') = t '.deputy'
+    a.status.btn.rejected(href='#') = t '.rejected'
+

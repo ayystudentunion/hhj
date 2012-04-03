@@ -80,8 +80,8 @@ div#single-organ
               a.edit(href='#') muokkaa •
               a.remove(href='#') poista asiaton viesti
 
-      .tab.unimplemented
-        .organ-members
+      .tab
+        .organ-members.unimplemented
           h2
             | Yliopiston edustajat
             a.send-message(href='#') Lähetä ryhmäviesti
@@ -113,9 +113,9 @@ div#single-organ
               br
               span.position Jäsenen toimenkuva
 
-        .hr
+        .hr.unimplemented
 
-        .organ-members
+        .organ-members.unimplemented
           h2
             | Istuvat opiskelijaedustajat
             a.send-message(href='#') Lähetä ryhmäviesti
@@ -147,26 +147,7 @@ div#single-organ
             br
             span.predetermined-memberships 1 jäsen, 1 varajäsen ja 1 kiintiöpaikka (2. vuoden tuotantotalouden opiskelija, nainen)
           h3 Hakemuksen lähettäneet opiskelijat:
-          .member-card
-            div.avatar
-            p
-              a.name(href='#') Eija Zitting
-              br
-              span.email eija.zitting@ayy.fi
-            .status-buttons
-              a.status.btn.active(href='#') Jäsen
-              a.status.btn(href='#') Varajäsen
-              a.status.btn(href='#') Hylätty
-          .member-card.no-margin
-            div.avatar
-            p
-              a.name(href='#') Eija Zitting
-              br
-              span.email eija.zitting@ayy.fi
-            .status-buttons
-              a.status.btn.active(href='#') Jäsen
-              a.status.btn(href='#') Varajäsen
-              a.status.btn(href='#') Hylätty
+          = render :partial => "applicant", :collection => @position_applications
           form.add-applicants
             input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')
             a.btn.add-row(href='#')
@@ -174,10 +155,10 @@ div#single-organ
           .button-row
             a.submit.btn(href='#') Tallenna uudet jäsenet
 
-        .hr
+        .hr.unimplemented
 
         / Visible if user has clicked 'Näytä vanhat haut' button
-        .call-for-application
+        .call-for-application.unimplemented
           h2
             | Vanhan haun nimi, 7.1.2012
             a.send-message(href='#') Lähetä ryhmäviesti
@@ -196,9 +177,9 @@ div#single-organ
             ul.list-of-names
               li: a(href='#') Jummi Jamminen
 
-        .hr
+        .hr.unimplemented
 
-        .button-row
+        .button-row.unimplemented
           /Should change to 'Piilota vanhat haut' when old calls are visible
           a.submit.btn(href='#') Näytä vanhat haut
   div.clear

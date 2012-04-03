@@ -59,6 +59,10 @@ fi:
     new:
       title: Luo uusi toimielin
       select_organization: Valitse organisaatioyksikkö
+    applicant:
+      member: Jäsen
+      deputy: Varajäsen
+      rejected: Hylätty
   calls:
     new:
       title: Avaa uusi paikkahaku toimielimelle
@@ -156,7 +160,6 @@ fi:
     save: Tallenna
     send: Lähetä
     time_placeholder: Aseta aika
-
 
 
   placeholders:
