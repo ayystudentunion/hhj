@@ -1,6 +1,6 @@
 
 open_modal_dialog = (url) ->
-  wrap = $('#modal-wrap').empty().show()
+  wrap = $('#modal-wrap').empty().fadeIn('fast')
   # TODO: use uncached get for edit modals
   cached.get url + ".fragment", (error, data) ->
     $(data).appendTo wrap
@@ -19,7 +19,7 @@ init_modals = () ->
     return false
 
   $('#modal-wrap').delegate '.close-modal', 'click', () ->
-    $('#modal-wrap').empty().hide()
+    $('#modal-wrap').empty().fadeOut('fast')
 
   $("#modal-wrap").delegate ".lang.btn", "click", () ->
     changeModalFormLanguage = (forms_container, locale) ->
