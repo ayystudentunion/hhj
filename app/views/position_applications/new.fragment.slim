@@ -17,9 +17,9 @@
         span.buttons
           - [:position_member, :position_deputy, :position_both].each do |position_value|
             label
-              = f.radio_button :position, position_value
+              = f.radio_button :position, position_value, checked: (position_value == :position_member)
               span = PositionApplication.human_attribute_name(position_value)
-        = f.text_field :deputy_of, placeholder:  PositionApplication.human_attribute_name(:deputy_of), class: 'field half'
+        = f.text_field :deputy_of, placeholder:  PositionApplication.human_attribute_name(:deputy_of), class: 'field half', style: 'display:none;'
       = f.text_area :personal_statement, placeholder: PositionApplication.human_attribute_name(:personal_statement), class: 'wide'
       .button-row
         a.cancel.close-modal.btn(href='#') = t 'modals.cancel'

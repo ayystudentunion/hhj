@@ -28,6 +28,10 @@ $(document).ready ->
 
     return false
 
+  $("#modal-wrap").delegate "#send-application .radio input", "change", () ->
+    itemRow = $(this).parents('.item-row:first')
+    itemRow.find("#position_application_deputy_of").toggle($(this).val() != 'position_member')
+
   uniformify('body')
 
 ###
