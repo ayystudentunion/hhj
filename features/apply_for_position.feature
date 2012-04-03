@@ -16,3 +16,15 @@ Feature: Applying for a position
 
     And I press 'Lähetä'
 
+    Then I should see my own name, phone number and email-address in the confirmation dialog
+    Then I should see dialog 'Hakemus lähetetty':
+      |  label                              | value                                     |
+      |  Haen                               | Varajäseneksi                             |
+      |  Kenen varajäseneksi haluat         | Tenho Taipale                             |
+      |  Perustelut                         | 3 vuoden kokemus Hallopedina toimimisesta |
+
+    And I press 'Ok'
+
+    Then I should see call for application 'Kirjakerhon lukurinki'
+
+

@@ -154,6 +154,7 @@ fi:
     close: Sulje
     cancel: Peruuta
     save: Tallenna
+    send: Lähetä
     time_placeholder: Aseta aika
 
 

@@ -20,6 +20,6 @@ end
 
 Then %r/^I should see dialog '([^']*)':$/ do |title, table|
   content = find(".modal .content")
-  content.find("h2:contains('#{title}")
+  content.find("h2:contains('#{title}')")
   check_view_values content, table
 end

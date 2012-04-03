@@ -14,9 +14,11 @@
         span.label = PositionApplication.human_attribute_name @position_application.position
       - if not @position_application.deputy_of.blank?
         .item-row
-          span.label = PositionApplication.human_attribute_name(:deputy_of) + ': ' +  @position_application.deputy_of
+          span.label = PositionApplication.human_attribute_name(:deputy_of) + ': '
+          span.label = @position_application.deputy_of
       .item-row
-        span.label = PositionApplication.human_attribute_name(:personal_statement) + ': ' + @position_application.personal_statement
+        span.label = PositionApplication.human_attribute_name(:personal_statement) + ': '
+        span.label = @position_application.personal_statement
       .button-row
         a.ok.close-modal.btn(href='#') = t 'modals.ok'
 

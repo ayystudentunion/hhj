@@ -23,4 +23,4 @@
       = f.text_area :personal_statement, placeholder: PositionApplication.human_attribute_name(:personal_statement), class: 'wide'
       .button-row
         a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
-        input.submit.close-modal.btn(type='submit' value="#{t 'modals.save'}")
+        input.submit.js-submit.btn(type='submit' value="#{t 'modals.send'}")

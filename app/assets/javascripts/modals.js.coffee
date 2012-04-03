@@ -21,6 +21,14 @@ init_modals = () ->
   $('#modal-wrap').delegate '.close-modal', 'click', () ->
     $('#modal-wrap').empty().fadeOut('fast')
 
+  $('#modal-wrap').delegate '.js-submit', 'click', (e) ->
+    form = $(this).parents('form')
+    wrap = $('#modal-wrap').empty()
+    $.post form.attr('action'), form.serialize(), (data) ->
+      $(data).appendTo wrap
+      uniformify wrap
+    return false
+
   $("#modal-wrap").delegate ".lang.btn", "click", () ->
     changeModalFormLanguage = (forms_container, locale) ->
       forms_container.find('.localized').hide()
