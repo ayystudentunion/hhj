@@ -7,7 +7,7 @@ Feature: Creating a new organ
 
   Scenario: Student union employee creates new organs
     When I press 'Luo uusi toimielin'
-    And fill in form 'Luo uusi toimielin':
+    And I fill in form 'Luo uusi toimielin':
       |  label                           | value                                                            |
       |  Toimielimen nimi                | Tasa-arvotyöryhmä                                                |
       |  Kuvaus toimielimen toiminnasta  | Työryhmä varmistaa tasa-arvon toteutumisen                       |
@@ -19,7 +19,7 @@ Feature: Creating a new organ
       |  Valitse organisaatioyksikkö     | Luonnontieteellinen tiedekunta/Fysiikan laitos+Lakisääteinen     |
 
     And I press 'EN'
-    And fill in form 'Luo uusi toimielin':
+    And I fill in form 'Luo uusi toimielin':
       |  label                           | value                                                            |
       |  Name of organ                   | Equality organ                                                   |
       |  Description of organ            | Organ assures fulfilling of equality                             |

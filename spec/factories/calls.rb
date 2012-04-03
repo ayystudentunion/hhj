@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :call do
-    factory :lukurinki, :class => Call do
+    factory :lukurinki do
       title "Kirjakerhon lukurinki"
       member_amount 2
       deputy_amount 1

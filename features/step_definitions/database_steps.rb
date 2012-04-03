@@ -15,3 +15,7 @@ Given %r/^there exists an organ 'Tasa-arvotyöryhmä'$/ do
   FactoryGirl.create :tasa_arvotyoryhma
 end
 
+Given %r/^there is open call for applications called 'Kirjakerhon lukurinki'$/ do
+  FactoryGirl.create :lukurinki
+end
+

@@ -12,10 +12,16 @@ Given %r/^I am viewing the front page$/ do
   visit('/')
 end
 
-Given %r/^I am in home page or organ '([^']*)'$/ do |organ_name|
+Given %r/^I am in home page of organ '([^']*)'$/ do |organ_name|
   visit('/')
   step "I follow the link 'Toimielimet'"
   step "I follow the link '#{organ_name}'"
+end
+
+Given %r/^I am in home page of call '([^']*)'$/ do |call_name|
+  visit('/')
+  step "I follow the link 'Avoimet haut'"
+  step "I follow the link '#{call_name}'"
 end
 
 Then %r/^show me the page$/ do
