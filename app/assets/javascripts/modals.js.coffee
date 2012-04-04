@@ -54,10 +54,8 @@ init_modals = () ->
 
     return false
 
+  initRadioButtons $("#modal-wrap")
   $("#modal-wrap").delegate "#send-application .radio input", "change", () ->
-    itemRow = $(this).parents('.item-row:first')
-    itemRow.find("#position_application_deputy_of").toggle($(this).val() != 'position_member')
-    itemRow.find('.btn').removeClass('checked')
-    $(this).parents('.btn:first').addClass('checked')
+    $(this).parents('.item-row:first').find("#position_application_deputy_of").toggle($(this).val() != 'position_member')
 
 $(init_modals)

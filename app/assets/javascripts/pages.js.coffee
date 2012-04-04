@@ -4,6 +4,7 @@
 
 $(document).ready ->
   uniformify('body')
+  initRadioButtons()
 
 ###
 openNewOrganDialog = ->
