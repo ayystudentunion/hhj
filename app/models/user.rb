@@ -1,5 +1,6 @@
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   validates :first_name, :last_name, :email, allow_blank: false, presence: true
 

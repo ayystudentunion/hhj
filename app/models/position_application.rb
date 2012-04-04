@@ -1,6 +1,6 @@
 class PositionApplication
   include Mongoid::Document
-
+  include Mongoid::Timestamps
 
   validates :position, presence: true, :format => { :with => /(position_member|position_deputy|position_both)/ }
   validates :selected_as, allow_nil: true, :format => { :with => /(position_member|position_deputy|position_both|position_rejected)/ }
