@@ -27,7 +27,7 @@ div#single-call
             a.edit-icon.unimplemented(href='#')
           .item-row
             span.label #{t ".looking_for"}:
-            span.text #{t(".members", :count => @call.member_amount)}, #{t ".deputies", count: @call.deputy_amount}
+            span.text = formatted_looking_for(@call)
           .item-row
             span.label #{t "mongoid.attributes.call.date_open"}:
             span.text = formatted_date @call.date_open
