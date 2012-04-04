@@ -115,30 +115,13 @@ div#single-organ
 
         .hr.unimplemented
 
-        .organ-members.unimplemented
+        .organ-members
           h2
-            | Istuvat opiskelijaedustajat
-            a.send-message(href='#') Lähetä ryhmäviesti
-          .member-card
-            div.avatar
-            a.remove-member(href='#')
-            p
-              a.name(href='#') Eija Zitting
-              br
-              span.email eija.zitting@ayy.fi
-            .status-buttons
-              a.status.btn.active(href='#') Jäsen
-              a.status.btn(href='#') Varajäsen
-          .member-card.no-margin
-            div.avatar
-            a.remove-member(href='#')
-            p
-              a.name(href='#') Eija Zitting
-              br
-              span.email eija.zitting@ayy.fi
-            .status-buttons
-              a.status.btn.active(href='#') Jäsen
-              a.status.btn(href='#') Varajäsen
+            | #{t '.hallopeds'}
+            a.send-message.unimplemented(href='#') Lähetä ryhmäviesti
+          = render partial: 'member', collection: @members
+        .hr
+
         .call-for-application.open
           = render partial: 'call_results', collection: @open_calls, as: :call
 

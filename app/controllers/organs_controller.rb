@@ -31,6 +31,7 @@ class OrgansController < ApplicationController
 
   def show # return a single organ
     @organ = Organ.find(params[:id])
+    @members = @organ.members.where(current: true)
     @open_calls = @organ.calls.where(closed: false).asc(:date_end)
     respond_to do |format|
       format.html

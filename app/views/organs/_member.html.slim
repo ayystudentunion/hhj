@@ -1,0 +1,14 @@
+.member-card.no-margin
+  div.avatar
+  p
+    a.name(href='#') = member.user.full_name
+    br
+    span.email = member.user.email
+
+  span.buttons
+    - [:position_member, :position_deputy].each do |position|
+      - selected = member.position == position
+      label.btn(class="#{'checked' if selected}")
+        = radio_button "position", member._id, position, checked: selected
+        span = t ".#{position}"
+
