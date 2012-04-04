@@ -22,7 +22,7 @@ class Call
   field :description, localize: true
 
   def set_results(position_results)
-    return if position_results.nil?
+    return if position_results.nil? or position_results.empty?
     set_results_to_applications(position_results)
     create_new_members(position_results)
   end
