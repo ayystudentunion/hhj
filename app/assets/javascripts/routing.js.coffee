@@ -14,7 +14,7 @@ loadFragment = (locale, controller, param, modal) ->
 
   contentWrap = $('#page-content')
   cached.getDOM url, (error, dom) ->
-    uniformify dom.clone().appendTo(contentWrap.empty())
+    initDom dom.clone().appendTo(contentWrap.empty())
   return true
 
 init_routing = () ->

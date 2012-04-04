@@ -1,17 +1,15 @@
 
-window.initRadioButtons = (delegateFor) ->
-  check = (input) ->
-    input.parents('.buttons:first').find('.btn').removeClass('checked')
-    input.parents('.btn:first').addClass('checked')
+initRadioButtons = (delegateFor) ->
+  delegateFor.delegate ".buttons .radio input", "change", () ->
+    $(this).parents('.buttons:first').find('.btn').removeClass('checked')
+    $(this).parents('.btn:first').addClass('checked')
 
-  if delegateFor?
-    delegateFor.delegate ".radio input", "change", () ->
-      check $(this)
-  else
-    $('.buttons .radio input').change () ->
-      check $(this)
-
-window.uniformify = (selector) ->
-  node = $(selector)
+uniformify = (node) ->
   $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit", node).uniform()
+
+window.initDom = (selector) ->
+  node = $(selector)
+  uniformify node
+  initRadioButtons node
   return node
+

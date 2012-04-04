@@ -4,7 +4,7 @@ open_modal_dialog = (url) ->
   # TODO: use uncached get for edit modals
   cached.get url + ".fragment", (error, data) ->
     $(data).appendTo wrap
-    uniformify wrap
+    initDom wrap
     wrap.find('.field.date').datepicker
       firstDay: 1
       buttonImageOnly: true
@@ -26,7 +26,7 @@ init_modals = () ->
     wrap = $('#modal-wrap').empty()
     $.post form.attr('action'), form.serialize(), (data) ->
       $(data).appendTo wrap
-      uniformify wrap
+      initDom wrap
     return false
 
   $("#modal-wrap").delegate ".lang.btn", "click", () ->
@@ -54,7 +54,6 @@ init_modals = () ->
 
     return false
 
-  initRadioButtons $("#modal-wrap")
   $("#modal-wrap").delegate "#send-application .radio input", "change", () ->
     $(this).parents('.item-row:first').find("#position_application_deputy_of").toggle($(this).val() != 'position_member')
 
