@@ -140,7 +140,7 @@ div#single-organ
               a.status.btn.active(href='#') Jäsen
               a.status.btn(href='#') Varajäsen
         .call-for-application.open
-          = render partial: 'handle_calls', collection: @open_calls, as: :call
+          = render partial: 'call_results', collection: @open_calls, as: :call
 
         / Visible if user has clicked 'Näytä vanhat haut' button
         .call-for-application.unimplemented

@@ -63,7 +63,7 @@ fi:
       position_member: Jäsen
       position_deputy: Varajäsen
       position_rejected: Hylätty
-    handle_calls:
+    call_results:
       applicants: Hakemuksen lähettäneet opiskelijat
       save_applicants: Tallenna uudet jäsenet
       close_call: Sulje haku
