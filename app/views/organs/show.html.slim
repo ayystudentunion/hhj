@@ -139,23 +139,24 @@ div#single-organ
             .status-buttons
               a.status.btn.active(href='#') Jäsen
               a.status.btn(href='#') Varajäsen
-
-        .call-for-application
-          h2 Haun nimi, 26.4.2012
-          p.definition
-            | Paikkahakuun määritelty:
-            br
-            span.predetermined-memberships 1 jäsen, 1 varajäsen ja 1 kiintiöpaikka (2. vuoden tuotantotalouden opiskelija, nainen)
-          h3 Hakemuksen lähettäneet opiskelijat:
-          = render :partial => "applicant", :collection => @position_applications
-          form.add-applicants
+        - @open_calls.each do |call|
+          = form_for call, :html => { :method => "put" } do |f|
+            .call-for-application
+              h2 = call.title + ', ' + formatted_date(call.term_start, end_date: call.term_end)
+              p.definition
+                | #{t 'calls.show.looking_for'} #{formatted_looking_for(call)}
+                br
+                span.quota_information = call.quota_information
+              h3 #{t '.applicants'}:
+              = render :partial => "applicant", :collection => call.position_applications, :locals => { :f => f }
+            .button-row
+              a.btn(href='#') = t '.close_call'
+              a.submit.btn(href='#') = t '.save_applicants'
+          form.add-applicants.unimplemented
             input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')
             a.btn.add-row(href='#')
               span.plus-icon
-          .button-row
-            a.submit.btn(href='#') Tallenna uudet jäsenet
-
-        .hr.unimplemented
+          hr
 
         / Visible if user has clicked 'Näytä vanhat haut' button
         .call-for-application.unimplemented

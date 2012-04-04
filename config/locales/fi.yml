@@ -60,9 +60,14 @@ fi:
       title: Luo uusi toimielin
       select_organization: Valitse organisaatioyksikkö
     applicant:
-      member: Jäsen
-      deputy: Varajäsen
-      rejected: Hylätty
+      position_member: Jäsen
+      position_deputy: Varajäsen
+      position_rejected: Hylätty
+    show:
+      applicants: Hakemuksen lähettäneet opiskelijat
+      save_applicants: Tallenna uudet jäsenet
+      close_call: Sulje haku
+
   calls:
     new:
       title: Avaa uusi paikkahaku toimielimelle
