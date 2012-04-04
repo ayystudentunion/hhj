@@ -5,6 +5,7 @@ class Member
   validates :position, presence: true, :format => { :with => /(position_member|position_deputy)/ }
 
   belongs_to :organ
+  belongs_to :user
 
   field :halloped, type: Boolean, default: true
   field :position, type: Symbol

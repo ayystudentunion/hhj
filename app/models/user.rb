@@ -10,6 +10,7 @@ class User
   field :phone, type: String
 
   has_many :position_applications
+  has_many :members
 
   def full_name
     first_name + ' ' + last_name

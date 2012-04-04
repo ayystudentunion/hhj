@@ -26,4 +26,16 @@ class Organ
     organization.ancestors_and_self.drop(1).map(&:name).join(' - ')
   end
 
+  def add_members_from_applications(position_results)
+    return if position_results.nil? or position_results.empty?
+
+    position_results.select{ |position, ids|
+      [:position_member, :position_deputy].include? position.to_sym
+    }.each do | position, ids|
+      ids.each do |id|
+        self.members << Member.create(user: PositionApplication.find(id).user, position: position)
+      end
+    end
+  end
+
 end

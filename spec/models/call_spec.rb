@@ -10,8 +10,9 @@ describe Call do
     application.selected_as.should == nil
   end
 
-  it 'can handle empty hash as results to position applications' do
+  it 'can handle empty hash and nil as results to position applications' do
     call.set_results({})
+    call.set_results nil
     call.reload_relations
     call.position_applications.each do | application |
       application.selected_as.should == nil
@@ -19,15 +20,7 @@ describe Call do
 
   end
 
-  it 'can set results to one position applications' do
-    call.set_results position_deputy: call.position_applications.map(&:_id)
-    call.reload_relations
-    call.position_applications.each do | application |
-      application.selected_as.should == :position_deputy
-    end
-  end
-
-  it 'can set results to multiple position applications' do
+  it 'can set results to position applications' do
     applications = FactoryGirl.create_list(:kirjakerho_application, 7)
 
     call.set_results(

@@ -41,8 +41,9 @@ class CallsController < ApplicationController
   end
 
   def update
-    call = Call.find(params[:id])
-    call.set_results(params[:results])
+    call = Call.find params[:id]
+    call.set_results params[:results]
+    call.organ.add_members_from_applications params[:results]
     call.closed = true if params.has_key? :close
     call.save
     respond_to do |format|
