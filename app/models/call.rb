@@ -9,6 +9,7 @@ class Call
   has_many :position_applications
 
   field :title, localize: true
+  field :closed, type: Boolean, default: false
   field :member_amount, type: Integer, default: 0
   field :deputy_amount, type: Integer, default: 0
   field :quota_information, localize: true

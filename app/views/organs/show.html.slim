@@ -149,9 +149,11 @@ div#single-organ
                 span.quota_information = call.quota_information
               h3 #{t '.applicants'}:
               = render :partial => "applicant", :collection => call.position_applications, :locals => { :f => f }
-            .button-row
-              a.btn(href='#') = t '.close_call'
-              input.submit.btn(type='submit' value="#{t '.save_applicants'}")
+            - if not call.closed
+              .button-row
+                = f.submit "#{t '.close_call'}", class: 'submit btn', name: :close
+                = f.submit "#{t '.save_applicants'}", class: 'submit btn', name: :save
+
           form.add-applicants.unimplemented
             input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')
             a.btn.add-row(href='#')

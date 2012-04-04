@@ -43,6 +43,8 @@ class CallsController < ApplicationController
   def update # modify an existing call
     call = Call.find(params[:id])
     call.set_results(params[:results])
+    call.closed = true if params.has_key? :close
+    call.save
     respond_to do |format|
       format.html { redirect_to organ_path(id: call.organ._id) }
     end
