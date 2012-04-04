@@ -18,6 +18,6 @@ div#open-calls
         li.unimplemented(href='#'): a(href='#') Johtoryhmät
     .tab-content
       .tab
-        = render partial: "open_call", collection: @calls
-
+        .open-calls
+          = render @calls
         a.show-more.btn(href='#' style='display:none') Näytä lisää
