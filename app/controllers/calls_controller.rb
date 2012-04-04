@@ -38,13 +38,14 @@ class CallsController < ApplicationController
   end
 
   def edit # form for modifing an existing call
-    @call = Call.find(params[:id])
-    respond_to do |format|
-      format.fragment { render "new" }
-    end
   end
 
   def update # modify an existing call
+    call = Call.find(params[:id])
+    call.set_results(params[:results])
+    respond_to do |format|
+      format.html { redirect_to organ_path(id: call.organ._id) }
+    end
   end
 
   def destroy # delete an call

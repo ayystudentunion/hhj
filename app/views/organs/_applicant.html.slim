@@ -3,9 +3,12 @@
   p
     a.name(href='#') = applicant.user.full_name
     br
-    span.email applicant.user.email
-  span.buttons
-    - [:position_member, :position_deputy, :position_rejected].each do |result_value|
-      label.btn
-        = radio_button "call[result]", applicant.user.id, result_value
-        span = t ".#{result_value}"
+    span.email = applicant.user.email
+  - if applicant.selected_as.blank?
+    span.buttons
+      - [:position_member, :position_deputy, :position_rejected].each do |selected_as|
+        label.btn
+          = radio_button "results[#{selected_as}]", '', applicant._id
+          span = t ".#{selected_as}"
+  - else
+    span = t ".#{applicant.selected_as}"

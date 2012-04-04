@@ -140,7 +140,7 @@ div#single-organ
               a.status.btn.active(href='#') Jäsen
               a.status.btn(href='#') Varajäsen
         - @open_calls.each do |call|
-          = form_for call, :html => { :method => "put" } do |f|
+          = form_for call, url: organ_call_path(organ_id: @organ._id, id: call._id), method: :put do |f|
             .call-for-application
               h2 = call.title + ', ' + formatted_date(call.term_start, end_date: call.term_end)
               p.definition
@@ -151,7 +151,7 @@ div#single-organ
               = render :partial => "applicant", :collection => call.position_applications, :locals => { :f => f }
             .button-row
               a.btn(href='#') = t '.close_call'
-              a.submit.btn(href='#') = t '.save_applicants'
+              input.submit.btn(type='submit' value="#{t '.save_applicants'}")
           form.add-applicants.unimplemented
             input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')
             a.btn.add-row(href='#')

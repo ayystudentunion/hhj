@@ -20,4 +20,15 @@ class Call
   field :appointment_place_and_date, localize: true
   field :description, localize: true
 
+  def set_results(position_results)
+    return if position_results.nil?
+    position_results.each do |position, ids|
+      ids.each do |id|
+        application = position_applications.find(id)
+        application.selected_as = position
+        application.save
+      end
+    end
+  end
+
 end
