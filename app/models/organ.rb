@@ -7,6 +7,7 @@ class Organ
 
   belongs_to :organization
   has_many :calls
+  has_many :members
 
   field :name, localize: true
   field :description, localize: true

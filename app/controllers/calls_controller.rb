@@ -40,7 +40,7 @@ class CallsController < ApplicationController
   def edit # form for modifing an existing call
   end
 
-  def update # modify an existing call
+  def update
     call = Call.find(params[:id])
     call.set_results(params[:results])
     call.closed = true if params.has_key? :close
