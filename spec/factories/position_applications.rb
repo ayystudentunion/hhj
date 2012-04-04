@@ -2,5 +2,10 @@
 
 FactoryGirl.define do
   factory :position_application do
+    factory :kirjakerho_application do
+      association :call, :factory => :lukurinki
+      association :user, :factory => :eija
+      position  :position_member
+    end
   end
 end
