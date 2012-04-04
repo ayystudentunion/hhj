@@ -16,8 +16,9 @@
         span.label = t '.apply_to'
         span.buttons
           - [:position_member, :position_deputy, :position_both].each do |position_value|
-            label.btn
-              = f.radio_button :position, position_value, checked: (position_value == :position_member)
+            - selected = position_value == :position_member
+            label.btn(class="#{'checked' if selected}")
+              = f.radio_button :position, position_value, checked: selected
               span = PositionApplication.human_attribute_name(position_value)
         = f.text_field :deputy_of, placeholder:  PositionApplication.human_attribute_name(:deputy_of), class: 'field half', style: 'display:none;'
       = f.text_area :personal_statement, placeholder: PositionApplication.human_attribute_name(:personal_statement), class: 'wide'
