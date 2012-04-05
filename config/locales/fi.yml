@@ -70,8 +70,9 @@ fi:
       term: Kausi
     call_results:
       applicants: Hakemuksen lähettäneet opiskelijat
-      save_applicants: Tallenna uudet jäsenet
+      save_applicants: Tallenna
       close_call: Sulje haku
+      open_call: Avaa haku
     show:
       hallopeds: Istuvat opiskelijaedustajat
 

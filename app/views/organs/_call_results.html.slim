@@ -7,9 +7,11 @@
       span.quota_information = call.quota_information
     h3 #{t '.applicants'}:
     = render :partial => "applicant", :collection => call.position_applications, :locals => { :f => f }
-  - if not call.closed
     .button-row
-      = f.submit "#{t '.close_call'}", class: 'submit btn', name: :close
+      - if call.closed
+        = f.submit "#{t '.close_call'}", class: 'submit btn', name: :close
+      - else
+        = f.submit "#{t '.open_call'}", class: 'submit btn', name: :open
       = f.submit "#{t '.save_applicants'}", class: 'submit btn', name: :save
   .add-applicants.unimplemented
     input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')
