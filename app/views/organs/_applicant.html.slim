@@ -4,7 +4,7 @@
     a.name(href='#') = applicant.user.full_name
     br
     span.email = applicant.user.email
-  - if applicant.selected_as.blank? and not applicant.call.closed
+  - if applicant.selected_as.blank?
     span.buttons
       - [:position_member, :position_deputy, :position_rejected].each do |selected_as|
         label.btn
