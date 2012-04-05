@@ -5,7 +5,7 @@
     br
     span.email = member.user.email
     br
-    span.terms = formatted_terms member
+    span.term = t('.term') + ': ' + formatted_term_of(member)
   span.buttons
     - [:position_member, :position_deputy].each do |position|
       - selected = member.position == position

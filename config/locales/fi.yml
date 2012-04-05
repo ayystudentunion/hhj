@@ -67,6 +67,7 @@ fi:
       position_member: Jäsen
       position_deputy: Varajäsen
       open_ended: Toistaiseksi
+      term: Kausi
     call_results:
       applicants: Hakemuksen lähettäneet opiskelijat
       save_applicants: Tallenna uudet jäsenet
