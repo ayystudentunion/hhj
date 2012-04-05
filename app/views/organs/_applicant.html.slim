@@ -1,4 +1,4 @@
-.member-card.no-margin
+.member-card(class="#{'no-margin' if applicant_counter%2 == 1}")
   div.avatar
   p
     a.name(href='#') = applicant.user.full_name
