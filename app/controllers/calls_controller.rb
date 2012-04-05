@@ -3,7 +3,7 @@ require 'factory_girl_rails'
 class CallsController < ApplicationController
 
   def index
-    @calls = Call.all
+    @calls = Call.where(closed: false)
     respond_to do |format|
       format.html
       format.fragment { render "index", formats: ['html'], layout: false }
@@ -45,6 +45,7 @@ class CallsController < ApplicationController
     call.set_results params[:results]
     call.organ.add_members_from_applications params[:results]
     call.closed = true if params.has_key? :close
+    call.closed = false if params.has_key? :open
     call.save
     respond_to do |format|
       format.html { redirect_to organ_path(id: call.organ._id) }
