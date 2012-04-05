@@ -46,6 +46,7 @@ class CallsController < ApplicationController
     call.organ.add_members_from_applications params[:results]
     call.closed = true if params.has_key? :close
     call.closed = false if params.has_key? :open
+    call.archived = true if params.has_key? :archive
     call.save
     respond_to do |format|
       format.html { redirect_to organ_path(id: call.organ._id) }

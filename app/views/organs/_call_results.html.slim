@@ -12,6 +12,7 @@
         = f.submit "#{t '.close_call'}", class: 'submit btn', name: :open
       - else
         = f.submit "#{t '.open_call'}", class: 'submit btn', name: :close
+        = f.submit "#{t '.archive_call'}", class: 'submit btn', name: :archive
       = f.submit "#{t '.save_applicants'}", class: 'submit btn', name: :save
   .add-applicants.unimplemented
     input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')

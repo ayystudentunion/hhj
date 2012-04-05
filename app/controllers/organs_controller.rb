@@ -32,7 +32,7 @@ class OrgansController < ApplicationController
   def show # return a single organ
     @organ = Organ.find(params[:id])
     @members = @organ.members.where(current: true)
-    @open_calls = @organ.calls.asc(:date_end, :title)
+    @open_calls = @organ.calls.where(archived: false).asc(:date_end, :title)
     respond_to do |format|
       format.html
       format.json { render :json => @organ }

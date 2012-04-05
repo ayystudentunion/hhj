@@ -10,6 +10,7 @@ class Call
 
   field :title, localize: true
   field :closed, type: Boolean, default: false
+  field :archived, type: Boolean, default: false
   field :member_amount, type: Integer, default: 0
   field :deputy_amount, type: Integer, default: 0
   field :quota_information, localize: true
@@ -20,6 +21,7 @@ class Call
   field :term_end, type: Date
   field :appointment_place_and_date, localize: true
   field :description, localize: true
+
 
   def set_results(position_results)
     return if position_results.nil? or position_results.empty?
