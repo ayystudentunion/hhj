@@ -33,7 +33,13 @@ class Organ
       [:position_member, :position_deputy].include? position.to_sym
     }.each do | position, ids|
       ids.each do |id|
-        self.members << Member.create(user: PositionApplication.find(id).user, position: position)
+        application = PositionApplication.find(id)
+        self.members << Member.create(
+          user: application.user,
+          position: position,
+          term_start: application.call.term_start,
+          term_end: application.call.term_end
+        )
       end
     end
   end
