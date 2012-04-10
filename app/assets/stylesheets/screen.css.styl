@@ -317,7 +317,7 @@ a.btn, input.btn, label.btn
 a.btn:hover, input.btn:hover, label.btn:hover
   gradient(color-2-dark, color-2-light)
   color #333
-a.btn:active, input.btn:active, label.btn.checked
+a.btn:active, input.btn:active
   gradient(color-1-dark, color-1-light)
 
 /* CONTENT STYLES */
@@ -520,16 +520,19 @@ a.btn:active, input.btn:active, label.btn.checked
           -khtml-border-radius 2px
           border 1px solid #cacaca
           width 231px
+          min-height 58px
           padding 13px
           display inline-block
           position relative
           margin 11px 11px 0 0
           .avatar
-            display inline-block
+            float left
             width 50px
             height 50px
             background #CCC
             margin-right 8px
+          a.name
+            font-weight bold
           a.remove-member
             width 8px
             height 8px
@@ -559,24 +562,25 @@ a.btn:active, input.btn:active, label.btn.checked
             background-position left bottom
           p
             display inline-block
-            margin 0
+            margin -2px 0 0 0
             vertical-align top
+            line-height 15px
+          p.term
+            margin-top 6px
           .status-buttons
-            display inline-block
-            margin-left 1px
+            float right
+            margin 8px 0 0 1px
             vertical-align top
-            padding-left 58px
+            width 172px
             label.btn
-              padding 0 6px
+              padding 0 8px 0 7px
               font-size 12px
               height 18px
               line-height 18px
               margin-left -1px
-            label.active
+            label.btn.checked
               gradient(color-1-dark, color-1-light)
               color #333
-        .member-card:hover
-          background color-1-light
         .no-margin
           margin-right 0
         p.definition
@@ -918,7 +922,7 @@ form.new_position_application, .member-card, form.edit_call
   width 100%
   clear both
   text-align right
-  margin 10px 0 14px 0
+  margin 16px 0 14px 0
   a.submit, input.btn, a.cancel, a.ok
     margin-left 3px
   a.cancel

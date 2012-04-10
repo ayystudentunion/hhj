@@ -4,12 +4,8 @@
     a.name(href='#') = member.user.full_name
     br
     span.email = member.user.email
+  p.term
+    span.term = t(".#{member.position}") + ': '
     br
-    span.term = t('.term') + ': ' + formatted_term_of(member)
-  span.status-buttons
-    - [:position_member, :position_deputy].each do |position|
-      - selected = member.position == position
-      label.btn(class="#{'checked' if selected}")
-        = radio_button "position", member._id, position, checked: selected
-        span = t ".#{position}"
+    = formatted_term_of(member)
 

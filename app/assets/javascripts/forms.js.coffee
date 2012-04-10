@@ -1,7 +1,7 @@
 
 initRadioButtons = (delegateFor) ->
-  delegateFor.delegate ".buttons .radio input", "change", () ->
-    $(this).parents('.buttons:first').find('.btn').removeClass('checked')
+  delegateFor.delegate ".status-buttons .radio input", "change", () ->
+    $(this).parents('.status-buttons:first').find('.btn').removeClass('checked')
     $(this).parents('.btn:first').addClass('checked')
 
 uniformify = (node) ->
