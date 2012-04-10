@@ -16,11 +16,11 @@ describe Organ do
   it 'can add members' do
     applications = FactoryGirl.create_list(:kirjakerho_application, 7)
 
-    organ.add_members_from_applications(
-      position_deputy: applications[0..2].map(&:_id),
-      position_member: applications[3..4].map(&:_id),
-      position_rejected: [ applications[5]._id ],
-    )
+    organ.add_members_from_applications(Hash[
+        applications[0..2].map{|a| [a.id.to_s, :position_deputy]  } +
+        applications[3..4].map{|a| [a.id.to_s, :position_member]  } +
+        applications[5..5].map{|a| [a.id.to_s, :position_rejected] }
+    ])
 
     organ.reload_relations
     organ.members.count.should == 5

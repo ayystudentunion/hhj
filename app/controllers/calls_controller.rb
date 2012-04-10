@@ -42,8 +42,8 @@ class CallsController < ApplicationController
 
   def update
     call = Call.find params[:id]
-    call.set_results params[:results]
-    call.organ.add_members_from_applications params[:results]
+    call.set_results params[:selected_as]
+    call.organ.add_members_from_applications params[:selected_as]
     if params.has_key? :close
       call.closed = true
     elsif params.has_key? :open

@@ -28,19 +28,16 @@ class Organ
 
   def add_members_from_applications(position_results)
     return if position_results.nil? or position_results.empty?
-
-    position_results.select{ |position, ids|
+    position_results.select{ |id, position|
       [:position_member, :position_deputy].include? position.to_sym
-    }.each do | position, ids|
-      ids.each do |id|
-        application = PositionApplication.find(id)
-        self.members << Member.create(
-          user: application.user,
-          position: position,
-          term_start: application.call.term_start,
-          term_end: application.call.term_end
-        )
-      end
+    }.each do | id, position|
+      application = PositionApplication.find(id)
+      self.members << Member.create(
+        user: application.user,
+        position: position,
+        term_start: application.call.term_start,
+        term_end: application.call.term_end
+      )
     end
   end
 

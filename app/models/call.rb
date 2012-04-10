@@ -26,12 +26,10 @@ class Call
   def set_results(position_results)
     return if position_results.nil? or position_results.empty?
 
-    position_results.each do |position, ids|
-      ids.each do |id|
-        application = position_applications.find(id)
-        application.selected_as = position
-        application.save
-      end
+    position_results.each do |id, position|
+      application = position_applications.find(id)
+      application.selected_as = position
+      application.save
     end
   end
 

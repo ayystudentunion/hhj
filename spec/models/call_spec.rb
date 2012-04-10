@@ -23,11 +23,11 @@ describe Call do
   it 'can set results to position applications' do
     applications = FactoryGirl.create_list(:kirjakerho_application, 7)
 
-    call.set_results(
-      position_deputy: applications[0..2].map(&:_id),
-      position_member: applications[3..4].map(&:_id),
-      position_rejected: [ applications[5]._id ],
-    )
+    call.set_results( Hash[
+        applications[0..2].map{|a| [a.id.to_s, :position_deputy]  } +
+        applications[3..4].map{|a| [a.id.to_s, :position_member]  } +
+        applications[5..5].map{|a| [a.id.to_s, :position_rejected] }
+    ])
 
     call.reload_relations
     call.position_applications.where(selected_as: :position_deputy).count.should == 3
