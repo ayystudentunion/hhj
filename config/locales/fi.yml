@@ -72,7 +72,6 @@ fi:
       applicants: Hakemuksen lähettäneet opiskelijat
       save_applicants: Tallenna
       close_call: Sulje haku
-      open_call: Avaa haku
       archive_call: Arkistoi
     show:
       hallopeds: Istuvat opiskelijaedustajat

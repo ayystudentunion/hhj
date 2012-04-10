@@ -46,8 +46,6 @@ class CallsController < ApplicationController
     call.organ.add_members_from_applications params[:selected_as]
     if params.has_key? :close
       call.closed = true
-    elsif params.has_key? :open
-      call.closed = false
     elsif params.has_key? :archive
       call.closed = true
       call.archived = true
