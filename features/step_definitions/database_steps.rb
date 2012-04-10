@@ -19,3 +19,8 @@ Given %r/^there is open call for applications called 'Kirjakerhon lukurinki'$/ d
   FactoryGirl.create :lukurinki
 end
 
+Given %r/^there are 3 applications for 'Kirjakerhon lukurinki'$/ do
+  FactoryGirl.create :kirjakerho_application, user: FactoryGirl.create(:student_martti)
+  FactoryGirl.create :kirjakerho_application, user: FactoryGirl.create(:student_emma)
+  FactoryGirl.create :kirjakerho_application, user: FactoryGirl.create(:student_topias)
+end

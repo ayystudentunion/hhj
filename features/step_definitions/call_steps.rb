@@ -17,3 +17,11 @@ end
 Then %r/^I should see my own name, phone number and email\-address in the confirmation dialog$/ do
   check_personal_details '#application-sent .applicant-details', FactoryGirl.attributes_for(:eija)
 end
+
+Then %r/^I should see (\d+) persons in '([^']*)'$/ do |person_count, title|
+  all(".organ-members:contains('#{title}') .member-card" ).count().should == person_count.to_i
+end
+
+Then %r/^I set applicant '([^']*)' as '([^']*)'$/ do |name, position|
+  find(".edit_call .member-card:contains('#{name}') .btn:contains('#{position}')").click
+end
