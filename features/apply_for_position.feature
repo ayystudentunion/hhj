@@ -17,11 +17,10 @@ Feature: Applying for a position
     And I press 'Lähetä'
 
     Then I should see my own name, phone number and email-address in the confirmation dialog
-    Then I should see dialog 'Hakemus lähetetty':
+    Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
       |  label                              | value                                     |
       |  Haen                               | Varajäseneksi                             |
       |  Kenen varajäseneksi haluat         | Tenho Taipale                             |
-      |  Perustelut                         | 3 vuoden kokemus Hallopedina toimimisesta |
 
     And I press 'Ok'
 

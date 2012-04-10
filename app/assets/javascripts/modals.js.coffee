@@ -1,4 +1,5 @@
 
+
 open_modal_dialog = (url) ->
   wrap = $('#modal-wrap').empty().fadeIn('fast')
   # TODO: use uncached get for edit modals
@@ -23,10 +24,14 @@ init_modals = () ->
 
   $('#modal-wrap').delegate '.js-submit', 'click', (e) ->
     form = $(this).parents('form')
-    wrap = $('#modal-wrap').empty()
     $.post form.attr('action'), form.serialize(), (data) ->
-      $(data).appendTo wrap
+      wrap = $('#modal-wrap')
+      height = wrap.find('.content').height()
+      width = wrap.find('.content').width()
+      $(data).appendTo wrap.empty()
       initDom wrap
+      wrap.find('.content').height(height)
+      wrap.find('.content').width(width)
     return false
 
   $("#modal-wrap").delegate ".lang.btn", "click", () ->

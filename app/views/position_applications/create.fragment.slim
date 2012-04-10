@@ -10,15 +10,14 @@
     .hr
     .item-row
       span.label = t('.apply_to') + ' '
-      span.label = PositionApplication.human_attribute_name @position_application.position
+      span = PositionApplication.human_attribute_name @position_application.position
     - if not @position_application.deputy_of.blank?
       .item-row
         span.label = PositionApplication.human_attribute_name(:deputy_of) + ': '
-        span.label = @position_application.deputy_of
+        span = @position_application.deputy_of
     .item-row
-      span.label = PositionApplication.human_attribute_name(:personal_statement) + ': '
-      span.label = @position_application.personal_statement
-    .button-row
-      a.ok.close-modal.btn(href='#') = t 'modals.ok'
-
+      textarea.wide-text(readonly="readonly") = @position_application.personal_statement
+    .button-row-bottom
+      .button-row
+        a.ok.close-modal.btn(href='#') = t 'modals.ok'
 
