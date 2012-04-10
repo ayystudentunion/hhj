@@ -6,7 +6,7 @@
     span.email = member.user.email
     br
     span.term = t('.term') + ': ' + formatted_term_of(member)
-  span.buttons
+  span.status-buttons
     - [:position_member, :position_deputy].each do |position|
       - selected = member.position == position
       label.btn(class="#{'checked' if selected}")

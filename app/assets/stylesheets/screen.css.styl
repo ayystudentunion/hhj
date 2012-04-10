@@ -547,6 +547,16 @@ a.btn:active, input.btn:active, label.btn.checked
             border 1px solid #cacaca
             background url('../img/remove-icon-small.png') no-repeat center -9px
             margin -2px -2px 0 0
+          a.show-application
+            width 16px
+            height 16px
+            background url('../img/application-icon.png') no-repeat left top
+            display inline-block
+            position absolute
+            top 13px
+            right 13px
+          a.show-application:hover
+            background-position left bottom
           p
             display inline-block
             margin 0
@@ -556,13 +566,13 @@ a.btn:active, input.btn:active, label.btn.checked
             margin-left 1px
             vertical-align top
             padding-left 58px
-            a.status
+            label.btn
               padding 0 6px
               font-size 12px
               height 18px
               line-height 18px
               margin-left -1px
-            a.active
+            label.active
               gradient(color-1-dark, color-1-light)
               color #333
         .member-card:hover
@@ -857,9 +867,7 @@ form.send_application
       a.btn, input.btn
         margin-left -1px
 
-form.new_position_application,
-.member-card,
-form.edit_call
+form.new_position_application, .member-card, form.edit_call
   .radio
     position absolute
     top -999px
@@ -867,6 +875,7 @@ form.edit_call
     margin-right -1px
   input#position_application_deputy_of
     margin 12px 0 0 41px
+
 
 .inline-block
   display inline-block

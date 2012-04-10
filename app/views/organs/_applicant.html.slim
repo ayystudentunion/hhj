@@ -1,11 +1,12 @@
 .member-card(class="#{'no-margin' if applicant_counter%2 == 1}")
+  a.show-application(href='#')
   div.avatar
   p
     a.name(href='#') = applicant.user.full_name
     br
     span.email = applicant.user.email
   - if applicant.selected_as.blank?
-    span.buttons
+    span.status-buttons
       - [:position_member, :position_deputy, :position_rejected].each do |selected_as|
         label.btn
           = radio_button "results[#{selected_as}]", '', applicant._id
