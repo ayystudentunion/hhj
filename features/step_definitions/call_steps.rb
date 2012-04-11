@@ -3,8 +3,6 @@ Then %r/^I should see call for application '([^']*)'(?: with description '([^']*
   check_details '.call-details', name, description, table
 end
 
-
-
 def check_personal_details(container_selector, person_attributes)
   check_that_contains_values container_selector, person_attributes[:first_name], person_attributes[:last_name],
     person_attributes[:phone], person_attributes[:email]
@@ -22,9 +20,11 @@ Then %r/^I should see (\d+) persons in '([^']*)'$/ do |person_count, title|
   all(".organ-members:contains('#{title}') .member-card" ).count().should == person_count.to_i
 end
 
-Then %r/^I set applicant '([^']*)' as '([^']*)'$/ do |name, position|
-  member = find ".edit_call .member-card:contains('#{name}')"
-  button = member.find ".btn:contains('#{position}') input"
-  button.click
+def member(name)
+  find ".edit_call .member-card:contains('#{name}')"
 end
 
+Then %r/^I set applicant '([^']*)' as '([^']*)'$/ do |name, position|
+  button = member(name).find ".btn:contains('#{position}') input"
+  button.click
+end
