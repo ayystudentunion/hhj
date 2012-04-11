@@ -1,4 +1,3 @@
-@wip
 Feature: Handling the results of call for applications
 
   Background:
@@ -14,6 +13,14 @@ Feature: Handling the results of call for applications
     And I set applicant 'Topias' as 'Hylätty'
     And I press 'Tallenna'
 
-    Then I should see 2 persons in 'Istuvat opiskelijaedustajat'
-    And I should see following persons in 'Istuvat opiskelijaedustajat':
-    | name | term | position |
+    Then I should see exactly the following persons in 'Istuvat opiskelijaedustajat':
+    | name    | term             | position     |
+    | Martti  | Toistaiseksi     | Jäsen        |
+    | Emma    | Toistaiseksi     | Varajäsen    |
+
+    Then I should see exactly the following persons in 'Hakemuksen lähettäneet opiskelijat':
+    | name    | position     |
+    | Martti  | Jäsen        |
+    | Emma    | Varajäsen    |
+    | Topia   | Hylätty      |
+

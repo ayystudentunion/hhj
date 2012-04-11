@@ -23,5 +23,8 @@ Then %r/^I should see (\d+) persons in '([^']*)'$/ do |person_count, title|
 end
 
 Then %r/^I set applicant '([^']*)' as '([^']*)'$/ do |name, position|
-  find(".edit_call .member-card:contains('#{name}') .btn:contains('#{position}')").click
+  member = find ".edit_call .member-card:contains('#{name}')"
+  button = member.find ".btn:contains('#{position}') input"
+  button.click
 end
+
