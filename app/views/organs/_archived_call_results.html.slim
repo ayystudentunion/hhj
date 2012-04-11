@@ -1,0 +1,10 @@
+.call-for-application
+  h2 = call.title + ', ' + formatted_date(call.term_start, end_date: call.term_end)
+  p.definition
+    | #{t 'calls.show.looking_for'} #{formatted_looking_for(call)}
+    br
+    span.quota_information = call.quota_information
+  - PositionApplication::SELECTED_AS_VALUES.each do |selected_as|
+    p = t(".#{selected_as}") + ':'
+    = render :partial => "archived_applicant", :collection => call.position_applications.where(selected_as: selected_as), as: :applicant
+.hr

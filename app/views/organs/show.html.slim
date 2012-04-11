@@ -125,26 +125,8 @@ div#single-organ
         .call-for-application.open
           = render partial: 'call_results', collection: @open_calls, as: :call
 
-        / Visible if user has clicked 'Näytä vanhat haut' button
-        .call-for-application.unimplemented
-          h2
-            | Vanhan haun nimi, 7.1.2012
-            a.send-message(href='#') Lähetä ryhmäviesti
-          .column
-            h3 Jäsenet:
-            ul.list-of-names
-              li: a(href='#') Kyösti Alamäki
-              li: a(href='#') Sirpa Kakkonen
-          .column
-            h3 Varajäsenet:
-            ul.list-of-names
-              li: a(href='#') Eemeli Keskikoski
-              li: a(href='#') Taika Tuulinen
-          .column
-            h3 Hylätyt:
-            ul.list-of-names
-              li: a(href='#') Jummi Jamminen
-
+        .archived-call-for-applications
+          = render partial: 'archived_call_results', collection: @archived_calls, as: :call
         .hr.unimplemented
 
         .button-row

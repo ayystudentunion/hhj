@@ -8,7 +8,7 @@
   - if applicant.selected_as.blank?
     p
       span.status-buttons
-        - [:position_member, :position_deputy, :position_rejected].each do |selected_as|
+        - PositionApplication::SELECTED_AS_VALUES.each do |selected_as|
           label.btn
             = radio_button :selected_as, applicant._id, selected_as.to_s
             span = t ".#{selected_as}"

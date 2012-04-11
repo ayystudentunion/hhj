@@ -86,6 +86,10 @@ fi:
       save_applicants: Tallenna
       close_call: Sulje haku
       archive_call: Arkistoi
+    archived_call_results:
+      position_member: Jäsenet
+      position_deputy: Varajäsenet
+      position_rejected: Hylätyt
     show:
       hallopeds: Istuvat opiskelijaedustajat
 
