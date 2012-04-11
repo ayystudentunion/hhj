@@ -1,17 +1,12 @@
 
 initRadioButtons = (delegateFor) ->
-  delegateFor.delegate ".status-buttons .radio input,.buttons .radio input", "click", () ->
+  delegateFor.delegate ".status-buttons .radio input,.buttons .radio input", "change", () ->
     buttons = $(this).parents('.status-buttons,.buttons').first()
     buttons.find('.btn').removeClass('checked')
-#    buttons.find('input').attr('checked', false).change()
     $(this).parents('.btn:first').addClass('checked')
- #   $(this).attr('checked', true).change()
-
-
 
 uniformify = (node) ->
   $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit", node).uniform()
-
 
 initOrganPage = (delegateFor) ->
   toggleArchived = (visible) ->
