@@ -1,5 +1,5 @@
 .member-card(class="#{'no-margin' if applicant_counter%2 == 1}")
-  a.show-application(href='#')
+  a.show-application.js-modal(href=call_position_application_path(call_id:call._id, id:applicant._id))
   div.avatar
   p
     a.name(href='#') = applicant.user.full_name

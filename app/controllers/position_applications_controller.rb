@@ -4,6 +4,10 @@ class PositionApplicationsController < ApplicationController
   end
 
   def show
+    @position_application = PositionApplication.find(params[:id])
+    respond_to do |format|
+      format.fragment
+    end
   end
 
   def new

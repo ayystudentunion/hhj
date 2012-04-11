@@ -54,6 +54,10 @@ fi:
     create:
       title: Hakemus lähetetty
       apply_to: 'Haen:'
+    show:
+      title: Hakemus
+      apply_date: Hakemus jätetty
+      apply_position: Haettu paikka
 
   organs:
     new:
@@ -162,18 +166,12 @@ fi:
         personal_statement: Perustelut
 
   modals:
-    application: Hakemus
-    apply_date: Hakemus jätetty
-    apply_position: Haettu paikka
-    vice_member: Varajäsen
-    qualifications: Omat perustelut
     print_application: Tulosta hakemus
     close: Sulje
     cancel: Peruuta
     save: Tallenna
     send: Lähetä
     time_placeholder: Aseta aika
-
 
   placeholders:
     search: Hae ...

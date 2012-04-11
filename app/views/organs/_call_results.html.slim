@@ -6,7 +6,7 @@
       br
       span.quota_information = call.quota_information
     h3 #{t '.applicants'}:
-    = render :partial => "applicant", :collection => call.position_applications, :locals => { :f => f }
+    = render :partial => "applicant", :collection => call.position_applications, :locals => { f: f, call: call }
     .button-row
       - if call.closed
         = f.submit "#{t '.archive_call'}", class: 'submit btn', name: :archive
