@@ -125,11 +125,14 @@ div#single-organ
         .call-for-application.open
           = render partial: 'call_results', collection: @open_calls, as: :call
 
-        .archived-call-for-applications
+        .button-row
+          a.hide-archived.btn(href='#' style='display:none;') = t '.hide_archived_calls'
+
+        .archived-call-for-applications(style='display:none;')
           = render partial: 'archived_call_results', collection: @archived_calls, as: :call
         .hr.unimplemented
 
         .button-row
-          /Should change to 'Piilota vanhat haut' when old calls are visible
-          a.submit.btn(href='#') Näytä vanhat haut
+          a.show-archived.btn(href='#') = t '.show_archived_calls'
+          a.hide-archived.btn(href='#' style='display:none;') = t '.hide_archived_calls'
   div.clear

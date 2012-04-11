@@ -92,6 +92,8 @@ fi:
       position_rejected: Hylätyt
     show:
       hallopeds: Istuvat opiskelijaedustajat
+      show_archived_calls: Näytä arkistoidut haut
+      hide_archived_calls: Piilota arkistoidut haut
 
   calls:
     new:
