@@ -7,17 +7,19 @@ initRadioButtons = (delegateFor) ->
 uniformify = (node) ->
   $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit", node).uniform()
 
+
 initOrganPage = (delegateFor) ->
+  toggleArchived = (visible) ->
+    $('.archived-call-for-applications').toggle visible
+    $('.hide-archived').toggle visible
+    $('.show-archived').toggle not visible
+
   delegateFor.delegate ".show-archived", "click", () ->
-    $('.archived-call-for-applications').toggle true
-    $('.hide-archived').toggle true
-    $('.show-archived').toggle false
+    toggleArchived true
     return false
 
   delegateFor.delegate ".hide-archived", "click", () ->
-    $('.archived-call-for-applications').toggle false
-    $('.hide-archived').toggle false
-    $('.show-archived').toggle true
+    toggleArchived false
     return false
 
 window.initDom = (selector) ->
