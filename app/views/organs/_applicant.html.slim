@@ -1,4 +1,4 @@
-.member-card(class="#{'no-margin' if applicant_counter%2 == 1}")
+.member-card(class="#{'no-margin' if applicant_counter%2 == 1} #{'handled' unless applicant.selected_as.blank? }")
   a.show-application.js-modal(href=call_position_application_path(call_id:call._id, id:applicant._id))
   div.avatar
   p
