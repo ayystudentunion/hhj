@@ -42,13 +42,18 @@ class OrgansController < ApplicationController
   end
 
   def edit # form for modifing an existing organ
-    @call = Organ.find(params[:id])
+    @organ = Organ.find(params[:id])
     respond_to do |format|
       format.fragment { render "new" }
     end
   end
 
   def update # modify an existing organ
+    organ = Organ.find(params[:id])
+    organ.resign_member(params[:resign])
+    respond_to do |format|
+      format.html { redirect_to action: :show, id: organ._id }
+    end
   end
 
   def destroy # delete an organ

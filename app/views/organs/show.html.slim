@@ -115,12 +115,13 @@ div#single-organ
 
         .hr.unimplemented
 
-        .organ-members
-          h2
-            | #{t '.hallopeds'}
-            a.send-message.unimplemented(href='#') Lähetä ryhmäviesti
-          = render partial: 'member', collection: @members
-        .hr
+        = form_for @organ, url: organ_path do |f|
+          .organ-members
+            h2
+              | #{t '.hallopeds'}
+              a.send-message.unimplemented(href='#') Lähetä ryhmäviesti
+            = render partial: 'member', collection: @members, locals: {f: f}
+          .hr
 
         .call-for-application.open
           = render partial: 'call_results', collection: @open_calls, as: :call

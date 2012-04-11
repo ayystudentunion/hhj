@@ -41,4 +41,10 @@ class Organ
     end
   end
 
+  def resign_member(id)
+    return if id.nil?
+    members.where(_id: id).update_all(current: false, resigned_date: Time.now.utc)
+  end
+
 end
+

@@ -12,4 +12,6 @@ class Member
   field :current, type: Boolean, default: true
   field :term_start, type: Date
   field :term_end, type: Date
+  field :removed_date, type: Date
+
 end
