@@ -58,6 +58,15 @@ fi:
       title: Hakemus
       apply_date: Hakemus jätetty
       apply_position: Haettu paikka
+      position_member: Jäsen
+      position_deputy:
+        zero: Varajäsen
+        other: Varajäsen jäsenelle %{name}
+      position_both:
+        zero: Jäsen tai varajäsen
+        other: Jäsen tai varajäsen jäsenelle %{name}
+      deputy_of: Varajäseneksi jäsenelle
+      personal_statement: Perustelut
 
   organs:
     new:

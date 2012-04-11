@@ -5,29 +5,24 @@
       a.close-modal(href='#')
     .item-block
       .applicant-details
-        p.name Jouko Joukonen
-        p.email jouko.joukonen@joukonen.fi
-        p.phone +358 40 229 2299
+        p.name = @position_application.user.full_name
+        p.email = @position_application.user.email
+        p.phone = @position_application.user.phone
     .item-block
       p.label
         = t ".apply_date"
         | :
-      p.text 28.4.2012
+      p.text = formatted_date @position_application.created_at
     .item-block
       p.label
         = t ".apply_position"
         | :
-      p.text Opiskelijahyvinvoinnin työryhmä, jäsen
+      p.text = @position_application.call.title + ', ' + t(".#{@position_application.position}", count: @position_application.deputy_of.length, name: @position_application.deputy_of)
     .item-block
       p.label
-        = t '.Varajen'
+        = t '.personal_statement'
         | :
-      p.text Kerkko Kumpula
-    .item-block
-      p.label
-        = "Persitlstau"
-        | :
-      p.text Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus. Donec ultricies nisl ut felis, suspendisse potenti. Lorem ipsum ligula ut hendrerit mollis, ipsum erat vehicula risus, eu suscipit sem libero nec erat. Aliquam erat volutpat. Sed congue augue vitae neque. Nulla consectetuer porttitor pede. Fusce purus morbi tortor magna.
+      textarea.wide-text(readonly="readonly") = @position_application.personal_statement
 
     .button-row
       a.unimplemented.print(href='#') = t "modals.print_application"
