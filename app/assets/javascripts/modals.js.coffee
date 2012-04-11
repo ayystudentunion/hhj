@@ -42,6 +42,7 @@ init_modals = () ->
       forms_container.find(".lang.btn[hreflang='#{locale}']").toggleClass('active', true)
 
     changeModalFormLanguage $(this).parents('.content:first'), $(this).attr('hreflang')
+    return false
 
   $("#modal-wrap").delegate "select", "change", () ->
     select = $(this)
