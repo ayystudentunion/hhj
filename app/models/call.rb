@@ -33,4 +33,8 @@ class Call
     end
   end
 
+  def has_unhandled_applications
+    position_applications.where(selected_as: nil).exists?
+  end
+
 end

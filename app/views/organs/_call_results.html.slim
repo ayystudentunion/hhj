@@ -8,11 +8,12 @@
     h3 #{t '.applicants'}:
     = render :partial => "applicant", :collection => call.position_applications, :locals => { f: f, call: call }
     .button-row
-      - if call.closed
-        = f.submit "#{t '.archive_call'}", class: 'submit btn', name: :archive
-      - else
+      - if not call.closed
         = f.submit "#{t '.close_call'}", class: 'submit btn', name: :close
-      = f.submit "#{t '.save_applicants'}", class: 'submit btn', name: :save
+      - elsif not call.has_unhandled_applications
+        = f.submit "#{t '.archive_call'}", class: 'submit btn', name: :archive
+      - if call.has_unhandled_applications
+        = f.submit "#{t '.save_applicants'}", class: 'submit btn', name: :save
   .add-applicants.unimplemented
     input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')
     a.btn.add-row(href='#')
