@@ -7,7 +7,17 @@ class Organization
 
   # root organizations must have unique key, because it is used for routing
   validates_each :key do |record, attr, value|
-    record.errors.add(attr, record.errors.generate_message(attr, :blank, name: record.name)) if value.blank? && record.parent.nil?
+    next unless record.parent.nil?
+
+    if value.blank?
+      record.errors.add(attr, record.errors.generate_message(attr, :blank, name: record.name))
+    else
+      where(key: value, :_id.ne => record._id).each do |other|
+        record.errors.add(
+          attr, record.errors.generate_message(
+            attr, :taken, name: record.name, key:value, other: other.name))
+      end
+    end
   end
 
   field     :name, localize: true

@@ -120,7 +120,8 @@ fi:
         organization:
           attributes:
             key:
-              blank: Ylimmän tason organisaation '%{name}' lyhenne (key) puuttuu
+              blank: "Ylimmän tason organisaation '%{name}' lyhenne (key) puuttuu"
+              taken: "Organisaation '%{name}' lyhenne '%{key}' on jo käytössä organisaatiolla '%{other}'"
         organ:
           attributes:
             name:

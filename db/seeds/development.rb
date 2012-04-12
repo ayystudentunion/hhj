@@ -56,7 +56,7 @@ create_organizations([
     } ]
   }, {
     name: 'Akhaimenidien Yliopisto',
-    key: 'sty',
+    key: 'ay',
     _id:  '5e5c1edf91bc2b3300000000',
     children: [ {
       name: 'Mystiikan tiedekunta',
