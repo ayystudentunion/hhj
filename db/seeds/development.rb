@@ -9,46 +9,62 @@
 
 require 'factory_girl_rails'
 
-def createOrganization(org)
-   children = org.fetch(:children, []).map{ |child| createOrganization child}
-   FactoryGirl.create(:organization, org.reject{|key, value| key == :children}.merge(children: children))
+def createOrganization(*orgs)
+  orgs.map{|org|
+    children = org.fetch(:children, []).map{ |child| createOrganization child}
+    FactoryGirl.create(:organization, org.reject{|key, value| key == :children}.merge(children: children))
+  }.first
 end
 
-createOrganization( {
-  name: 'Spartan Teknillinen Yliopisto',
-  _id:  '4f6b1edf91bc2b33d3010000',
-  children: [ {
-    name: 'Luonnontieteellinen tiedekunta',
-    _id:   '4f6b1edf91bc2b33d3010100',
-    children: [
-    {
-      name: 'Kemian laitos',
-      _id:   '4f6b1edf91bc2b33d3010101'
-    }, {
-      name: 'Fysiikan laitos',
-      _id:   '4f6b1edf91bc2b33d3010102',
+createOrganization(
+  {
+    name: 'Spartan Teknillinen Yliopisto',
+    _id:  '4f6b1edf91bc2b33d3010000',
+    children: [ {
+      name: 'Luonnontieteellinen tiedekunta',
+      _id:   '4f6b1edf91bc2b33d3010100',
       children: [
       {
-        name: 'Teoreettisen fysiikan yksikkö',
-        _id:   '4f6b1edf91bc2b33d3010103'
+        name: 'Kemian laitos',
+        _id:   '4f6b1edf91bc2b33d3010101'
+      }, {
+        name: 'Fysiikan laitos',
+        _id:   '4f6b1edf91bc2b33d3010102',
+        children: [
+        {
+          name: 'Teoreettisen fysiikan yksikkö',
+          _id:   '4f6b1edf91bc2b33d3010103'
+        } ]
       } ]
-    } ]
-  }, {
-    name: 'Humanististen tieteiden tiedekunta',
-    _id:   '4f6b1edf91bc2b33d3010300',
-    children: [
-    {
-      name: 'Filosofinen laitos',
-      _id:   '4f6b1edf91bc2b33d3010301'
     }, {
-      name: 'Naistutkimuksen laitos',
-      _id:   '4f6b1edf91bc2b33d3010302'
+      name: 'Humanististen tieteiden tiedekunta',
+      _id:   '4f6b1edf91bc2b33d3010300',
+      children: [
+      {
+        name: 'Filosofinen laitos',
+        _id:   '4f6b1edf91bc2b33d3010301'
+      }, {
+        name: 'Naistutkimuksen laitos',
+        _id:   '4f6b1edf91bc2b33d3010302'
+      } ]
+    }, {
+      name: 'Kirjasto',
+      _id:   '4f6b1edf91bc2b33d3010200'
     } ]
   }, {
-    name: 'Kirjasto',
-    _id:   '4f6b1edf91bc2b33d3010200'
-  } ]
-} )
+    name: 'Akhaimenidien Yliopisto',
+    _id:  '5e5c1edf91bc2b3300000000',
+    children: [ {
+      name: 'Mystiikan tiedekunta',
+      _id:   '5e5c1edf91bc2b3301000000',
+      children: [
+      {
+        name: 'Salatieteen laitos',
+        _id:   '5e5c1edf91bc2b3301010000'
+      } ]
+    }]
+  }
+)
 
 def createOrgans(organs)
    organs.each{ |organ| FactoryGirl.create(:organ, organ) }
