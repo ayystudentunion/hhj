@@ -6,6 +6,7 @@ FactoryGirl.define do
   factory :organization do
     factory :spartan_teknillinen_yliopisto do
       name  'Spartan Teknillinen Yliopisto'
+      key   'sty'
       _id   '4f6b1edf91bc2b33d3010000'
     end
 

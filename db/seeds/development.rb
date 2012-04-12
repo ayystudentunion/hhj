@@ -9,16 +9,19 @@
 
 require 'factory_girl_rails'
 
-def createOrganization(*orgs)
-  orgs.map{|org|
-    children = org.fetch(:children, []).map{ |child| createOrganization child}
-    FactoryGirl.create(:organization, org.reject{|key, value| key == :children}.merge(children: children))
-  }.first
+def create_organizations(organizations, parent=nil)
+  organizations.each do |org|
+    create_organizations(
+      org.fetch(:children, []),
+      FactoryGirl.create(:organization, org.except(:children).merge(parent: parent))
+    )
+  end
 end
 
-createOrganization(
+create_organizations([
   {
     name: 'Spartan Teknillinen Yliopisto',
+    key: 'sty',
     _id:  '4f6b1edf91bc2b33d3010000',
     children: [ {
       name: 'Luonnontieteellinen tiedekunta',
@@ -53,6 +56,7 @@ createOrganization(
     } ]
   }, {
     name: 'Akhaimenidien Yliopisto',
+    key: 'sty',
     _id:  '5e5c1edf91bc2b3300000000',
     children: [ {
       name: 'Mystiikan tiedekunta',
@@ -63,7 +67,7 @@ createOrganization(
         _id:   '5e5c1edf91bc2b3301010000'
       } ]
     }]
-  }
+  }]
 )
 
 def createOrgans(organs)
