@@ -5,26 +5,34 @@ class Organization
 
   has_many  :organs
 
-  # root organizations must have unique key, because it is used for routing
-  validates_each :key do |record, attr, value|
-    next unless record.parent.nil?
-
-    if value.blank?
-      record.errors.add(attr, record.errors.generate_message(attr, :blank, name: record.name))
-    else
-      where(key: value, :_id.ne => record._id).each do |other|
-        record.errors.add(
-          attr, record.errors.generate_message(
-            attr, :taken, name: record.name, key:value, other: other.name))
-      end
-    end
-  end
+  before_validation :downcase_key
+  validate :validate_key_uniqueness_for_root_organizations
 
   field     :name, localize: true
   field     :key, type: String
 
   def tree_hash
     serializable_hash.merge(children: children.map(&:serializable_hash))
+  end
+
+  protected
+
+  def downcase_key
+    self.key.downcase! unless key.blank?
+  end
+
+  def validate_key_uniqueness_for_root_organizations
+    return unless parent.nil?
+
+    if key.blank?
+      errors.add(:key, errors.generate_message(:key, :blank, name: name))
+    else
+      Organization.where(key: key, :_id.ne => _id).each do |other|
+        errors.add(
+          :key, errors.generate_message(
+            :key, :taken, name: name, key: key, other: other.name))
+      end
+    end
   end
 
 end
