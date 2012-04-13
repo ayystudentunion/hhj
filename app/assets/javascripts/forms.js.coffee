@@ -22,10 +22,16 @@ initOrganPage = (delegateFor) ->
     toggleArchived false
     return false
 
+initPopups = (delegateFor) ->
+  delegateFor.delegate "a.popup", "click", () ->
+    window.open $(this).prop 'href'
+    return false
+
 window.initDom = (selector) ->
   node = $(selector)
   uniformify node
   initRadioButtons node
   initOrganPage node
+  initPopups node
   return node
 
