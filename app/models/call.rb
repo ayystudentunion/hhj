@@ -37,4 +37,8 @@ class Call
     position_applications.where(selected_as: nil).exists?
   end
 
+  def file_name
+    sanitize_filename(title + '_' + I18n.l(updated_at, format: :file))
+  end
+
 end

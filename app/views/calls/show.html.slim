@@ -44,6 +44,7 @@ div#single-call
             = @call.description
         .hr
         .button-row
+          a.print(href=call_path(format: :pdf)) = t :print
           a.send-application.btn.js-modal(href=new_call_position_application_path(call_id:@call._id))
             = t(".send_application")
 

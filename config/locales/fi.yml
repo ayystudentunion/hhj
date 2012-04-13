@@ -12,6 +12,7 @@ fi:
   term: Toimikausi
   manager: Vastuuhenkilö
   modified: muokattu
+  print: Tulosta
 
   has_open_positions: Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
   new_call_for_applications: Avaa uusi paikkahaku
@@ -20,6 +21,7 @@ fi:
     formats:
       default: "%d.%m.%Y klo %H:%M"
       date: "%d.%m.%Y"
+      file: "%Y_%m_%d"
 
   date:
     formats:
@@ -186,7 +188,6 @@ fi:
         personal_statement: Perustelut
 
   modals:
-    print_application: Tulosta hakemus
     close: Sulje
     cancel: Peruuta
     save: Tallenna
