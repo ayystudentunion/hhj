@@ -38,7 +38,7 @@ class Call
   end
 
   def file_name
-    sanitize_filename(title + '_' + I18n.l(updated_at, format: :file))
+    ::Sanitizer.sanitize_filename(title + '_' + I18n.l(updated_at, format: :file))
   end
 
 end
