@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title Halloped
+    = wicked_pdf_stylesheet_link_tag "application"
+    = wicked_pdf_javascript_include_tag "application"
+    = wicked_pdf_javascript_include_tag "/i18n/jquery.ui.datepicker-#{locale}"
+    = csrf_meta_tags
+    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+  body
+    #wrapper
+      div#header
+        #header-content
+
+      div#navi
+        #navi-content
+
+      div#content
+        div#page-content
+          = yield
+
+    div#footer
+      p Copyright 2012 Halloped.fi
+
+  div#modal-wrap

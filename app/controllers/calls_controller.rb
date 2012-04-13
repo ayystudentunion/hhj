@@ -34,6 +34,7 @@ class CallsController < ApplicationController
       format.html
       format.json { render :json => @call }
       format.fragment { render "show", formats: ['html'], layout: false }
+      format.pdf { render pdf: 'call', encoding: 'utf-8', layout: true }
     end
   end
 

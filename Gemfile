@@ -13,7 +13,9 @@ gem 'mongoid-tree', git: 'git://github.com/benedikt/mongoid-tree', branch: 'mong
 gem 'slim'
 # gem 'sprockets'
 # gem 'railties'
- gem 'factory_girl_rails', require: false
+gem 'factory_girl_rails', require: false
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'
