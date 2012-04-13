@@ -61,10 +61,10 @@ fi:
       position_member: Jäsen
       position_deputy:
         zero: Varajäsen
-        other: Varajäsen jäsenelle %{name}
+        other: "Varajäsen jäsenelle %{name}"
       position_both:
         zero: Jäsen tai varajäsen
-        other: Jäsen tai varajäsen jäsenelle %{name}
+        other: "Jäsen tai varajäsen jäsenelle %{name}"
       deputy_of: Varajäseneksi jäsenelle
       personal_statement: Perustelut
 
@@ -87,8 +87,8 @@ fi:
       close_call: Sulje haku
       archive_call: Arkistoi
     archived_call_results:
-      position_member: Jäsenet
-      position_deputy: Varajäsenet
+      position_member: Valitut jäsenet
+      position_deputy: Valitut varajäsenet
       position_rejected: Hylätyt
     show:
       hallopeds: Istuvat opiskelijaedustajat
