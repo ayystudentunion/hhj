@@ -1,6 +1,6 @@
 class Call
   include Mongoid::Document
-  include Halloped::AutoFormatLocalizedAttributes
+  include Ext::Mongoid::AutoFormatLocalizedAttributes
   include Mongoid::Timestamps
 
   validates :title, :member_amount, :deputy_amount, allow_blank: false, presence: true

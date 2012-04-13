@@ -73,22 +73,7 @@ module Halloped
     end
   end
 
-  module AutoFormatLocalizedAttributes
-    def write_attribute(attr, value)
-      if value.is_a?(Hash) and fields[attr].localized?
-        self.send("#{attr}_translations=".to_sym, value.reject{|key, value| value.blank?})
-      else
-        super(attr, value)
-      end
-    end
-  end
-
   def self.languages
     [:fi, :sv, :en].concat(I18n.available_locales).uniq
   end
-
 end
-
-
-
-

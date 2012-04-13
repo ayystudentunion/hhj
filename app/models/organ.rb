@@ -1,6 +1,6 @@
 class Organ
   include Mongoid::Document
-  include Halloped::AutoFormatLocalizedAttributes
+  include Ext::Mongoid::AutoFormatLocalizedAttributes
   include Mongoid::Timestamps
 
   validates :name, :organization, :official, allow_blank: false, presence: true
