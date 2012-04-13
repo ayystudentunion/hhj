@@ -9,17 +9,17 @@ When %r/^I follow the link '([^']*)'$/ do |link_title|
 end
 
 Given %r/^I am viewing the front page$/ do
-  visit('/')
+  visit root_path
 end
 
 Given %r/^I am in home page of organ '([^']*)'$/ do |organ_name|
-  visit('/')
+  visit root_path
   step "I follow the link 'Toimielimet'"
   step "I follow the link '#{organ_name}'"
 end
 
 Given %r/^I am in home page of call '([^']*)'$/ do |call_name|
-  visit('/')
+  visit root_path
   step "I follow the link 'Avoimet haut'"
   step "I follow the link '#{call_name}'"
 end

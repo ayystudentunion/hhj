@@ -1,10 +1,9 @@
 
-loadFragment = (locale, controller, param, modal) ->
-  locale     ?= "fi"
-  controller ?= "" # TODO
+loadFragment = (locale, university, controller, param, modal) ->
+  controller ?= ""
   param      ?= ""
 
-  url = "/#{locale}"
+  url = "/#{locale}/#{university}"
   if controller
     url += "/#{controller}"
     if param
@@ -19,7 +18,7 @@ loadFragment = (locale, controller, param, modal) ->
 
 init_routing = () ->
   return if not History.enabled
-  crossroads.addRoute "/{locale}/:controller:/:param:", loadFragment
+  crossroads.addRoute "/{locale}/{university}/:controller:/:param:", loadFragment
   # crossroads.routed.add(console.log, console);
 
   $('a').live 'click', (ev) ->

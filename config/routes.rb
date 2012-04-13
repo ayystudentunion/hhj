@@ -1,5 +1,5 @@
 Halloped::Application.routes.draw do
-  scope "/:locale" do
+  scope "/:locale/:university" do
     resources :calls do
       resources :position_applications
     end
@@ -61,8 +61,9 @@ Halloped::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+  match ':locale/:university' => 'pages#university', :as => :university
   match ':locale' => 'pages#index', :as => :index
-  root :to => 'pages#locale_redirect'
+  root :to => 'pages#default_locale_redirect'
 
   # See how all your routes lay out with "rake routes"
 
