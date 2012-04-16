@@ -66,6 +66,6 @@ Halloped::Application.configure do
 
   # wkhtmltopdf binary gem does not work in Redhat production environment
   # Comment this if you need to run locally using production env
-  WickedPdf.config = {exe_path: '/bin/wkhtmltopdf'}
+  WickedPdf.config = {exe_path: '~/bin/wkhtmltopdf'}
 
 end
