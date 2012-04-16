@@ -20,7 +20,7 @@ init_modals = () ->
     return false
 
   $('#modal-wrap').delegate '.close-modal', 'click', () ->
-    $('#modal-wrap').empty().fadeOut('fast')
+    $('#modal-wrap').fadeOut('fast')
 
   $('#modal-wrap').delegate '.js-submit', 'click', (e) ->
     form = $(this).parents('form')
