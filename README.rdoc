@@ -20,3 +20,13 @@ Install Gem Dependencies
   gem install bundler
   bundle install
 
+=== Production environment Setup ===
+
+Install Qt (PDF printing has qt dependency)
+
+  yum install qt
+
+You might also need to install wkhtmltopdf binary manually. At least Redhat could not use the wkhtmltopdf binary that comes with the gems.
+Install working wkhtmltopdf binary to ~/bin folder (app is configured to use it from there)
+
+
