@@ -63,4 +63,9 @@ Halloped::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # wkhtmltopdf binary gem does not work in Redhat production environment
+  # Comment this if you need to run locally using production env
+  WickedPdf.config = exe_path: '/bin/wkhtmltopdf'
+
 end
