@@ -1,6 +1,6 @@
 Halloped::Application.routes.draw do
 
-  match "/env" => "pages#env"
+  match "/env" => "pages#environment"
 
   scope "/:locale/:university" do
     resources :calls do
