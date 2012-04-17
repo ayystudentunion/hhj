@@ -17,4 +17,9 @@ class PagesController < ApplicationController
     redirect_to university_path(locale: params[:locale], university: Organization.root.key)
   end
 
+  def env
+    @environment = request.env
+    render "env", layout: false
+  end
+
 end
