@@ -21,6 +21,8 @@ init_modals = () ->
 
   $('#modal-wrap').delegate '.close-modal', 'click', () ->
     $('#modal-wrap').fadeOut('fast')
+    if $(this).attr('href') == '#'
+      return false
 
   $('#modal-wrap').delegate '.js-submit', 'click', (e) ->
     form = $(this).parents('form')
