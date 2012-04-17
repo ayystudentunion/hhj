@@ -10,5 +10,8 @@ sv:
       default: "%d.%m.%Y"
 
   modals:
-    create-new-organ:
-      title: Luo uusi toimielin
+    close: Close
+    cancel: Cancel
+    save: Save
+    send: Send
+    time_placeholder: Time placeholder
