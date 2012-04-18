@@ -25,7 +25,7 @@ div#single-organ
             a(href='#') = @organ.name
             span.date
               = t(:modified) + ' ' + l(@organ.updated_at)
-            a.edit-icon.unimplemented(href='#')
+            a.edit-icon.js-modal(href=edit_organ_path(id: @organ._id))
           .item-row
             span.label
               = t :organization
