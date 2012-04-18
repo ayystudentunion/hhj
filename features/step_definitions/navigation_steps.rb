@@ -14,14 +14,14 @@ end
 
 Given %r/^I am in home page of organ '([^']*)'$/ do |organ_name|
   visit root_path
-  step "I follow the link 'Toimielimet'"
-  step "I follow the link '#{organ_name}'"
+  click_link 'Toimielimet'
+  click_link organ_name
 end
 
 Given %r/^I am in home page of call '([^']*)'$/ do |call_name|
   visit root_path
-  step "I follow the link 'Avoimet haut'"
-  step "I follow the link '#{call_name}'"
+  click_link 'Avoimet haut'
+  click_link call_name
 end
 
 Then %r/^show me the page$/ do
