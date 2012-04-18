@@ -11,8 +11,10 @@ class User
 
   has_many :position_applications
   has_many :members
+  has_one :edu_person
 
   def full_name
     first_name + ' ' + last_name
   end
+
 end

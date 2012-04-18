@@ -7,6 +7,7 @@ class Call
 
   belongs_to :organ
   has_many :position_applications
+  has_and_belongs_to_many :eligibility_rule_sets
 
   field :title, localize: true
   field :closed, type: Boolean, default: false
