@@ -16,8 +16,10 @@ loadFragment = (locale, university, controller, param, modal) ->
     initDom dom.clone().appendTo(contentWrap.empty())
   return true
 
+testEnvironment = () -> $('body').attr('data-env') == 'test'
+
 init_routing = () ->
-  return if not History.enabled
+  return if not History.enabled or testEnvironment()
   crossroads.addRoute "/{locale}/{university}/:controller:/:param:", loadFragment
   # crossroads.routed.add(console.log, console);
 
