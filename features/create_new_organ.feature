@@ -3,7 +3,7 @@ Feature: Creating a new organ
   Background:
     Given there exist university organization
     And I am logged in as a student union employee
-    And I am viewing the front page
+    And I am at front page of 'Spartan Teknillinen Yliopisto'
 
   Scenario: Student union employee creates new organs
     When I press 'Luo uusi toimielin'

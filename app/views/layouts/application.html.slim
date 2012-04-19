@@ -1,56 +1,10 @@
-doctype html
-html
-  head
-    title Halloped
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "application"
-    = csrf_meta_tags
-    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
-  body(data-env=Rails.env)
-    #wrapper
-      div#header
-        #header-content
-          .logo
-          .headline
-            | Halloped.fi
-          / Visible when user has logged in
-          .language-sel
-            a.fi(href='#') Suomeksi &thinsp;• &thinsp;
-            a.sw(href='#') på Svenska &thinsp;• &thinsp;
-            a.en(href='#') in English
-          .login-info(href='#' style="#{'display:none;' if @user.nil?}")
-            .login-name
-              span.label
-                = t :logged_in_as
-                | :
-              br
-              span.name = @user.full_name
-            a.login-btn.unimplemented(href='#')
-          / Visible when user has not been logged in, hidden by default in CSS
-          .login-request.unimplemented(href='#')
-            .login-name
-              span.label
-                = t :login_with_haka
-                | :
-              br
-              a.link(href='#') Linkki Hakaan
-            a.login-btn(href='#')
-      div#navi
-        #navi-content
-          ul.navi-links
-            li: a.home(href=university_path)
-            li: a(href=organs_path) = t('navi.organs')
-            li: a(href=calls_path) = t('navi.open_calls')
-          form.search.unimplemented(href='#')
-            input.field.search-field(type='text' placeholder="#{t 'placeholders.search'}")
-      div#content
-        div#page-content
-          = yield
-
-        = render "shared/sidebar"
-        .clear
-
-    div#footer
-      p Copyright 2012 Halloped.fi
-
-  div#modal-wrap
+- content_for :navigation do
+  ul.navi-links
+    li: a.home(href=university_path)
+    li: a(href=organs_path) = t('navi.organs')
+    li: a(href=calls_path) = t('navi.open_calls')
+  form.search.unimplemented(href='#')
+    input.field.search-field(type='text' placeholder="#{t 'placeholders.search'}")
+- content_for :sidebar do
+  = render "shared/sidebar"
+= render :template => 'layouts/base'

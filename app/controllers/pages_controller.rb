@@ -14,7 +14,11 @@ class PagesController < ApplicationController
   end
 
   def index
-    redirect_to university_path(locale: params[:locale], university: Organization.root.key)
+    @universities = Organization.roots
+    respond_to do |format|
+      format.html { render "pages/index", layout: 'index' }
+      format.fragment { render "pages/index", formats: ['html'], layout: false }
+    end
   end
 
   def environment

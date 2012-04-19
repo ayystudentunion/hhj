@@ -2,7 +2,7 @@ Feature: Viewing organs
 
   Background:
     Given there are several organs in the system
-    And I am viewing the front page
+    And I am at front page of 'Spartan Teknillinen Yliopisto'
 
   Scenario: Visiting the organ list
     When I follow the link 'Toimielimet'

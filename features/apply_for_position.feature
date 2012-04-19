@@ -3,7 +3,8 @@ Feature: Applying for a position
   Background:
     Given I am logged in as a student
     And there is open call for applications called 'Kirjakerhon lukurinki'
-    And I am in home page of call 'Kirjakerhon lukurinki'
+    And I am at front page of 'Spartan Teknillinen Yliopisto'
+    And I navigate to home page of call 'Kirjakerhon lukurinki'
 
   Scenario: Submitting an application
     When I press 'Lähetä hakemus'
