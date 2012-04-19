@@ -9,8 +9,8 @@ end
 
 def fillSelects(div, values)
   values.each_with_index do |value, index|
-    selector = div.find(".selector:nth-child(#{index + 1})")
-    selector.find("select option:contains('#{value}')").select_option
+    selector = div.find("select:nth-child(#{index + 1})")
+    selector.find("option:contains('#{value}')").select_option
   end
 end
 

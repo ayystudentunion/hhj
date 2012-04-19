@@ -14,7 +14,7 @@ class OrgansController < ApplicationController
 
   def new # form for creating a new organ
     @organ = Organ.new #FactoryGirl.build(:organ)
-    @form_path = new_organ_path
+    @form_path = organs_path
     @form_title = t 'organs.new.title'
     respond_to do |format|
       format.fragment
