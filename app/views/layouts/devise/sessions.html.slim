@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title Halloped
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+  body(data-env=Rails.env)
+    #wrapper
+      div#header
+        #header-content
+          .logo
+          .headline
+            | Halloped.fi Administration
+          / Visible when user has logged in
+      div#content
+        div#page-content
+          = yield
+
+    div#footer
+      p Copyright 2012 Halloped.fi
+
+  div#modal-wrap
