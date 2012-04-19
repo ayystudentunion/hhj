@@ -85,3 +85,5 @@ createOrgans( [ {
 } ] )
 
 FactoryGirl.create(:lukurinki)
+
+Admin.create! email:'halloped@localhost.fi', password:'password', password_confirmation:'password'
