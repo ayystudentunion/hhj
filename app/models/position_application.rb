@@ -19,4 +19,8 @@ class PositionApplication
   def reset_deputy_of_for_position_member
     self.deputy_of = "" if position == :position_member
   end
+
+  def eligible?
+    return call.eligibility_rule_sets.all?{rule.match?(self)}
+  end
 end

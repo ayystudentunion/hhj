@@ -1,6 +1,8 @@
 Halloped::Application.routes.draw do
 
   match "/env" => "pages#environment"
+  devise_for :admins
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   scope "/:locale/:university" do
     resources :calls do
@@ -14,6 +16,7 @@ Halloped::Application.routes.draw do
     resources :organizations
     resources :users
   end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -62,10 +65,14 @@ Halloped::Application.routes.draw do
   #     resources :products
   #   end
 
+
+
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   match ':locale/:university' => 'pages#university', :as => :university
   match ':locale' => 'pages#index', :as => :index
+
+
   root :to => 'pages#default_locale_redirect'
 
   # See how all your routes lay out with "rake routes"

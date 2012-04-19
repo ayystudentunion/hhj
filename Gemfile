@@ -16,6 +16,8 @@ gem 'slim'
 gem 'factory_girl_rails', require: false
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
+gem 'rails_admin'
+gem 'devise'
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'
@@ -65,3 +67,5 @@ gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+

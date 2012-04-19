@@ -26,6 +26,11 @@ class Organ
     organization.ancestors_and_self.drop(1).map(&:name).join(' - ')
   end
 
+  def organization_ids
+    return "" if not organization
+    organization.ancestors_and_self.drop(1).map(&:_id).join('|')
+  end
+
   def add_members_from_applications(position_results)
     return if position_results.nil? or position_results.empty?
     position_results.select{ |id, position|
