@@ -3,7 +3,8 @@ Feature: Editing an existing organ
   Background:
     Given there exists an organ 'Tasa-arvotyöryhmä'
     And I am logged in as a student union employee
-    And I am in home page of organ 'Tasa-arvotyöryhmä'
+    And I am at front page of 'Spartan Teknillinen Yliopisto'
+    And I navigate to home page of organ 'Tasa-arvotyöryhmä'
 
   Scenario: Student union employee edits an existing organ
     When I press the edit icon
