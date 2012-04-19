@@ -74,6 +74,8 @@ fi:
     new:
       title: Luo uusi toimielin
       select_organization: Valitse organisaatioyksikkö
+    edit:
+      title: Muokkaa toimielintä
     applicant:
       position_member: Jäsen
       position_deputy: Varajäsen

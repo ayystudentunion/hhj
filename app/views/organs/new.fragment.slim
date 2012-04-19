@@ -2,7 +2,7 @@
   .content
     div(id='organ-form-container')
       h2
-        = t '.title'
+        = @form_title
         a.close-modal(href='#')
         .language-buttons
           - languages.each do |locale|
