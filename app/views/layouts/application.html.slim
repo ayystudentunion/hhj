@@ -14,6 +14,10 @@ html
           .headline
             | Halloped.fi
           / Visible when user has logged in
+          .language-sel
+            a.fi(href='#') Suomeksi &thinsp;• &thinsp;
+            a.sw(href='#') på Svenska &thinsp;• &thinsp;
+            a.en(href='#') in English
           .login-info(href='#' style="#{'display:none;' if @user.nil?}")
             .login-name
               span.label
