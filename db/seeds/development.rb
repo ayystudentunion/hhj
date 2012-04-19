@@ -70,20 +70,8 @@ create_organizations([
   }]
 )
 
-def createOrgans(organs)
-   organs.each{ |organ| FactoryGirl.create(:organ, organ) }
-end
-
-createOrgans( [ {
-  name:  'Tasa-arvotyöryhmä',
-  _id:   '4f6b1edf91bc2b3301010101',
-  organization: Organization.find('4f6b1edf91bc2b33d3010101')
-}, {
-  name:  'Kirjakerho',
-  _id:   '4f6b1edf91bc2b3302010101',
-  organization: Organization.find('4f6b1edf91bc2b33d3010200')
-} ] )
-
+FactoryGirl.create(:tasa_arvotyoryhma)
+FactoryGirl.create(:kirjakerho)
 FactoryGirl.create(:lukurinki)
 
 Admin.create! email:'halloped@localhost.fi', password:'password', password_confirmation:'password'

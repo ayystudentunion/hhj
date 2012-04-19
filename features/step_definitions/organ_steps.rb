@@ -12,6 +12,11 @@ Then %r/^I should see introduction of organ '([^']*)' with description '([^']*)'
   check_details '.organ-details', organ_name, description, table
 end
 
+When %r/^I press the edit icon$/ do
+  page.find(".edit-icon").click
+end
+
+
 Then %r/^I should see (:?exactly )?the following persons in '([^']*)':$/ do |exactly, title, table|
   members = find(:xpath, "//div[(h2|h3)[contains(text(),'#{title}')]]")
   table.hashes.each do |row|
