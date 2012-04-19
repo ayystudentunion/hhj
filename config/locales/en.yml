@@ -2,6 +2,14 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  languages:
+    fi: FI
+    to_fi: Suomeksi
+    en: EN
+    to_en: In English
+    sv: SE
+    to_sv: På svenska
+
   mongoid:
     attributes:
       organ:

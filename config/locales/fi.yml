@@ -29,11 +29,11 @@ fi:
 
   languages:
     fi: FI
-    in_finnish: Suomeksi
+    to_fi: Suomeksi
     en: EN
-    in_english: In English
+    to_en: In English
     sv: SE
-    in_swedish: På svenska
+    to_sv: På svenska
 
   sidebar:
     user_info: Omat tiedot

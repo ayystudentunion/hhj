@@ -1,4 +1,11 @@
 sv:
+  languages:
+    fi: FI
+    to_fi: Suomeksi
+    en: EN
+    to_en: In English
+    sv: SE
+    to_sv: På svenska
 
   time:
     formats:
