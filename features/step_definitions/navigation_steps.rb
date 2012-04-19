@@ -31,5 +31,6 @@ Then %r/^show me the page$/ do
 end
 
 And %r/^I change language to '([^']*)'$/ do |locale|
-  visit '/' + current_path.split('/').reject(&:blank?).drop(1).unshift(locale).join('/')
+  lang_selector = find ".language-sel a[hreflang=#{locale}]"
+  lang_selector.click
 end
