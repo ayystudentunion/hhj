@@ -62,7 +62,7 @@ init_modals = () ->
   $("#modal-wrap").delegate "select", "change", () ->
     select = $(this)
     organization_id = select.val()
-    select.parents('.selector:first').nextAll().remove()
+    select.nextAll().remove()
 
     $.get $("#modal-wrap .modal").attr('data-url'), (organizations) ->
       children = _(organizations).filter((org) -> org.parent_id == organization_id)
