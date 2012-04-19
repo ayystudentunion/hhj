@@ -6,7 +6,7 @@ initRadioButtons = (delegateFor) ->
     $(this).parents('.btn:first').addClass('checked')
 
 uniformify = (node) ->
-  $("select, input:checkbox, input:radio, input:file, input:text, textarea, submit", node).uniform()
+  $("input:checkbox, input:radio, input:file, input:text, textarea, submit", node).uniform()
 
 initOrganPage = (delegateFor) ->
   toggleArchived = (visible) ->

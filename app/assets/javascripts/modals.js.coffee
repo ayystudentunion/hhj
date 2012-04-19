@@ -12,6 +12,19 @@ open_modal_dialog = (url) ->
       showOn: 'both'
       dateFormat: 'dd.mm.yy'
       buttonImage: '/img/calendar-icon.png'
+    org_path = wrap.find('#organization-path').text()
+    if org_path
+      async.mapSeries org_path.split('|'), choose_org(wrap), (()->) if org_path
+
+choose_org = (parent) -> (id, cb) ->
+  option = parent.find("option[value='#{id}']")
+  select = option.parent()
+  select.unbind("resolved").bind("resolved", () -> cb())
+
+  #select.find("option").removeAttr("selected")
+  #option.attr("selected", "selected")
+  select.val(id).change()
+  #$.uniform.update()
 
 init_modals = () ->
   $('a.js-modal').live 'click', () ->
@@ -58,7 +71,8 @@ init_modals = () ->
         select.parents('.inline-block:first').append template
         template.render(children, item: -> value: "#{@_id}", text: "#{@name}")
         default_option = select.children('option').first().clone().attr('selected', 'selected')
-        template.prepend(default_option).uniform()
+        template.prepend(default_option) #.uniform()
+      select.trigger("resolved")
 
     return false
 

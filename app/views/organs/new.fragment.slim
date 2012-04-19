@@ -25,6 +25,8 @@
         = f.text_field :appointer, placeholder:  Organ.human_attribute_name(:appointer), class: 'field half'
         .inline-block
           = select("organ[organization]", "", @university.children.map{|p| [p.name, p.id]}, prompt: t('.select_organization'))
+          span#organization-path.js-data
+            = @organ.organization_ids
         .inline-block.no-margin
           label.inline-label
             = f.radio_button :official, 'true', checked: true
