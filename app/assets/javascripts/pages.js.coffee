@@ -4,12 +4,13 @@
 
 initLanguageSelectors = () ->
   $('.language-sel a').click ->
-     window.location = window.location.pathname + "?locale=#{$(this).attr 'hreflang'}"
-     return false
+    window.location = window.location.pathname + "?locale=#{$(this).attr 'hreflang'}"
+    return false
 
 $(document).ready ->
-  initDom('body')
   initLanguageSelectors()
+  initDom('body')
+
 
 ###
 openNewOrganDialog = ->
