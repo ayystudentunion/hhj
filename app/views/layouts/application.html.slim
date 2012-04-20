@@ -6,5 +6,8 @@
   form.search.unimplemented(href='#')
     input.field.search-field(type='text' placeholder="#{t 'placeholders.search'}")
 - content_for :sidebar do
-  = render "shared/sidebar"
+  - if @user.nil?
+    = render "shared/not_logged_in_side_bar"
+  - else
+    = render "shared/sidebar"
 = render :template => 'layouts/base'

@@ -49,6 +49,20 @@ fi:
     documents: Asiakirjat
     forms: Lomakkeet
 
+  pages:
+    index:
+      choose_university: Valitse oma yliopistosi
+
+  shared:
+    not_logged_in_side_bar:
+      title: Mitä on Halloped-toiminta?
+      description: |
+        Halloped eli hallinnon opiskelijaedustajat ovat ylioppilaskunnan edustajiston jäsenistöstään valitsemia edustajia hallinnon toimielimissä. He edustavat itsensä lisäksi koko opiskelijakuntaa toimitehtävässään. Opiskelijaedustajat ovat hallinnon täysivaltaisia jäseniä - ainoastaan opinnäytetöiden arvosteluun he eivät suoraan voi vaikuttaa. Hallopediksi voi hakeutua avomissa hauissa kuka tahansa ylioppilaskunnan jäsen.
+
+        Hallopedit ja ylioppilaskunnan hallitus pyrkivät yhdessä säilyttämään ja parantamaan opiskelijoiden palveluja ja oikeudenmukaisuutta kouluyhteisössämmä. Jokaisen opiskelijan on toivottavaa tarjota heille palautetta antamaan suuntaviivoja vaikutustyölle.
+
+
+
   position_applications:
     new:
       title: Lähetä hakemus
@@ -116,7 +130,6 @@ fi:
       description: Kuvaus
       term: Toimikausi
       send_application: Lähetä hakemus
-
 
   mongoid:
     errors:
