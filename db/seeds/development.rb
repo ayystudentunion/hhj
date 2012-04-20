@@ -75,5 +75,5 @@ FactoryGirl.create(:kirjakerho)
 FactoryGirl.create(:lukurinki)
 
 if not Admin.where(email: 'halloped@localhost.fi').exists?
-  Admin.create!(email:'halloped@localhost.fi', password:'password', password_confirmation:'password')
+  Admin.create! email:'halloped@localhost.fi', password:'password', password_confirmation:'password'
 end
