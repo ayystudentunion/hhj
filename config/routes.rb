@@ -2,7 +2,11 @@ Halloped::Application.routes.draw do
 
   match "/env" => "pages#environment"
   devise_for :admins
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  match "/admin" => redirect("/en/admin")
+
+  scope "/:locale" do
+    mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  end
 
   scope "/:locale/:university" do
     resources :calls do
