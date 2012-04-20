@@ -132,6 +132,9 @@ fi:
       send_application: Lähetä hakemus
 
   mongoid:
+    models:
+      organ: Toimielin
+
     errors:
       models:
         organization:

@@ -26,6 +26,9 @@ div#single-call
             span.date = t(:modified) + " " + l(@call.updated_at)
             a.edit-icon.unimplemented(href='#')
           .item-row
+            span.label #{Organ.model_name.human}:
+            a(href=organ_path(id:@call.organ._id)) = @call.organ.name
+          .item-row
             span.label #{t ".looking_for"}:
             span.text = formatted_looking_for(@call)
           .item-row
