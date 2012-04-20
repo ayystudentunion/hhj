@@ -12,13 +12,13 @@ en:
 
   time:
     formats:
-      default: "%m/%d/%Y %H:%M"
-      date: "%m/%d/%Y"
+      default: "%Y-%m-%d %H:%M"
+      date: "%Y-%m-%d"
       file: "%Y_%m_%d"
 
   date:
     formats:
-      default: "%m/%d/%Y"
+      default: "%Y-%m-%d"
 
   mongoid:
     attributes:
