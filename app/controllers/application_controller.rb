@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :change_language
   before_filter :set_locale
   before_filter :set_university
+  before_filter :set_fixed_locale_for_rails_admin
 
   protected
 
@@ -25,15 +26,17 @@ class ApplicationController < ActionController::Base
     locale = params[:locale]
     return if locale.nil?
     change_language(I18n.default_locale) unless Halloped::languages.include?(locale.to_sym)
-    locale = :en if request.fullpath.match(/^admin/)
     I18n.locale = locale
-
   end
 
   def set_university
     return if params[:university].nil?
     @university = Organization.roots.where(key: params[:university]).first
     redirect_to(index_path(locale: params[:locale])) if @university.nil?
+  end
+
+  def set_fixed_locale_for_rails_admin
+    I18n.locale = :en if request.fullpath.match /^\/admin\//
   end
 
 end
