@@ -16,7 +16,7 @@ html
           / Visible when user has logged in
           .language-sel
             - languages.reject{|l| l == I18n.locale}.each do |locale|
-              a(href='#' hreflang=locale) = t("languages.to_#{locale}") + '  '
+              a(href='#' hreflang=locale) = t("languages.to_#{locale}") + ' • '
           .login-info(href='#' style="#{'display:none;' if @user.nil?}")
             .login-name
               span.label

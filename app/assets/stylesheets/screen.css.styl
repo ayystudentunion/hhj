@@ -337,7 +337,7 @@ a.btn:active, input.btn:active
 #page-content
   width 700px
   float left
-  overflow auto
+  overflow visible
   margin-bottom 40px
 
   .breadcrumb
@@ -731,6 +731,14 @@ a.btn:active, input.btn:active
         a.edit:hover, a.remove:hover
           color #505050
 
+  #index
+    padding-top 15px
+    ul.universities
+      li
+        background url('../img/bullet.png') no-repeat left 0
+        padding-left 17px
+        margin 10px 0 12px 0
+
 /* MODAL STYLES */
 #modal-wrap
   width 100%
@@ -899,7 +907,7 @@ form.new_application
   textarea.wide
     margin 14px 0 10px 0
 
-form.new_organ
+form.new_organ, form.edit_organ
   input.wide
     margin 14px 0 10px 0
 
