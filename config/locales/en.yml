@@ -10,6 +10,16 @@ en:
     sv: SE
     to_sv: På svenska
 
+  time:
+    formats:
+      default: "%m/%d/%Y %H:%M"
+      date: "%m/%d/%Y"
+      file: "%Y_%m_%d"
+
+  date:
+    formats:
+      default: "%m/%d/%Y"
+
   mongoid:
     attributes:
       organ:

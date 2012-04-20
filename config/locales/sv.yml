@@ -11,6 +11,7 @@ sv:
     formats:
       default: "%d.%m.%Y %H:%M"
       date: "%d.%m.%Y"
+      file: "%Y_%m_%d"
 
   date:
     formats:
