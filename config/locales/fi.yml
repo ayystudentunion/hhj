@@ -135,6 +135,41 @@ fi:
     models:
       organ: Toimielin
 
+    attributes:
+      organ:
+        name: Toimielimen nimi
+        description: Kuvaus toimielimen toiminnasta
+        term_start: Toimikauden alkamisaika
+        term_end: Toimikauden päättymisaika
+        manager_name: Vastuuhenkilön nimi
+        manager_email: Vastuuhenkilön sähköpostiosoite
+        appointer: Nimityksen tekevä henkilö
+        official: Lakisääteinen
+        unofficial: Epävirallinen
+      call:
+        title: Paikkahaun otsikko
+        member_amount: Varsinaisia jäseniä
+        deputy_amount: Varajäseniä
+        quota_information: Lisätietoa käsittelijälle (kiintiöpaikkojen määrä jne.)
+        date_open: Haun avaamispäivämäärä
+        date_start: Haun alkamispäivämäärä
+        date_end: Haun päättymispäivämäärä
+        term_start: Toimikauden alkamisaika
+        term_end: Toimikauden päättymisaika
+        appointment_place_and_date: Päätöksenteon paikka ja ajankohta
+        description: Kuvaus hallopedin työnkuvasta
+      user:
+        first_name: Etunimi
+        last_name: Sukunimi
+        email: Sähköpostiosoite
+      position_application:
+        position: Haen
+        position_member: Jäseneksi
+        position_deputy: Varajäseneksi
+        position_both: Molempiin
+        deputy_of: Kenen varajäseneksi haluat
+        personal_statement: Perustelut
+
     errors:
       models:
         organization:
@@ -170,40 +205,6 @@ fi:
               blank: Haettavaa paikkaa ei ole valittu
               invalid: "Haettava paikka voi olla: Jäsen, Varajäsen tai Molemmat"
 
-    attributes:
-      organ:
-        name: Toimielimen nimi
-        description: Kuvaus toimielimen toiminnasta
-        term_start: Toimikauden alkamisaika
-        term_end: Toimikauden päättymisaika
-        manager_name: Vastuuhenkilön nimi
-        manager_email: Vastuuhenkilön sähköpostiosoite
-        appointer: Nimityksen tekevä henkilö
-        official: Lakisääteinen
-        unofficial: Epävirallinen
-      call:
-        title: Paikkahaun otsikko
-        member_amount: Varsinaisia jäseniä
-        deputy_amount: Varajäseniä
-        quota_information: Lisätietoa käsittelijälle (kiintiöpaikkojen määrä jne.)
-        date_open: Haun avaamispäivämäärä
-        date_start: Haun alkamispäivämäärä
-        date_end: Haun päättymispäivämäärä
-        term_start: Toimikauden alkamisaika
-        term_end: Toimikauden päättymisaika
-        appointment_place_and_date: Päätöksenteon paikka ja ajankohta
-        description: Kuvaus hallopedin työnkuvasta
-      user:
-        first_name: Etunimi
-        last_name: Sukunimi
-        email: Sähköpostiosoite
-      position_application:
-        position: Haen
-        position_member: Jäseneksi
-        position_deputy: Varajäseneksi
-        position_both: Molempiin
-        deputy_of: Kenen varajäseneksi haluat
-        personal_statement: Perustelut
 
   modals:
     close: Sulje
