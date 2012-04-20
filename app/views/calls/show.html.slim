@@ -16,8 +16,7 @@ div#single-call
   .tabs-container
     .tabs
       ul.tabs-list
-        li.active: a(href='#') Haun tiedot
-        li.unimplemented: a(href='#') Istuvat jäsenet
+        li.active: a(href=call_path(id:@call._id)) = t '.details'
     .tab-content
       .tab
         .call-details
@@ -50,63 +49,4 @@ div#single-call
           a.print.popup(href=call_path(format: :pdf)) = t :print
           a.send-application.btn.js-modal(href=new_call_position_application_path(call_id:@call._id))
             = t(".send_application")
-
-      .tab.unimplemented(href='#')
-        .organ-members
-          h2
-            | Yliopiston edustajat
-            a.send-message(href='#') Lähetä ryhmäviesti
-          .member-card
-            div.avatar
-            a.remove-member(href='#')
-            p
-              a.name(href='#') Eija Zitting
-              br
-              span.email eija.zitting@ayy.fi
-              br
-              span.position Jäsenen toimenkuva
-          .member-card.no-margin
-            div.avatar
-            a.remove-member(href='#')
-            p
-              a.name(href='#') Eija Zitting
-              br
-              span.email eija.zitting@ayy.fi
-              br
-              span.position Jäsenen toimenkuva
-          .member-card
-            div.avatar
-            a.remove-member(href='#')
-            p
-              a.name(href='#') Eija Zitting
-              br
-              span.email eija.zitting@ayy.fi
-              br
-              span.position Jäsenen toimenkuva
-
-        .hr
-
-        .organ-members
-          h2
-            | Istuvat opiskelijaedustajat
-            a.send-message(href='#') Lähetä ryhmäviesti
-          .member-card
-            div.avatar
-            a.remove-member(href='#')
-            p
-              a.name(href='#') Eija Zitting
-              br
-              span.email eija.zitting@ayy.fi
-              br
-              span.position Jäsenen toimenkuva
-          .member-card.no-margin
-            div.avatar
-            a.remove-member(href='#')
-            p
-              a.name(href='#') Eija Zitting
-              br
-              span.email eija.zitting@ayy.fi
-              br
-              span.position Jäsenen toimenkuvan
-
   div.clear

@@ -117,6 +117,7 @@ fi:
     new:
       title: Avaa uusi paikkahaku toimielimelle
     show:
+      details: Haun tiedot
       looking_for: Haetaan
       members:
         zero: ei yhtäkään varsinaista jäsentä
