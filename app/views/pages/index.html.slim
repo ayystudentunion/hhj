@@ -3,5 +3,6 @@ div#index
   ul.universities
     - @universities.each do |university|
       li
-        a(href='#') = link_to university.name, university_path(university: university.key)
+        a.js-reload(href=university_path(university: university.key))
+          = university.name
 

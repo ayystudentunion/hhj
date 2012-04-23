@@ -27,7 +27,7 @@ init_routing = () ->
     $this = $(this)
     href = $this.attr 'href'
     return false if $this.hasClass 'js-modal' or href == "#"
-    if href.indexOf('http://') == 0
+    if href.indexOf('http://') == 0 or $this.hasClass("js-reload")
       return true
     else
       navigate href
