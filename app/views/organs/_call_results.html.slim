@@ -5,13 +5,16 @@
       | #{t 'calls.show.looking_for'} #{formatted_looking_for(call)}
       br
       span.quota_information = call.quota_information
-    .member-card-empty
-      h2 Raahaa ja pudota jäsen tähän
-    .arrow
-    .member-card-empty
-      h2 Raahaa ja pudota varajäsen tähän
-    h3 #{t '.applicants'}:
-    = render :partial => "applicant", :collection => call.position_applications, :locals => { f: f, call: call }
+    div.selected
+      - call.member_amount.times do
+        .member-card-empty
+          h2 Raahaa ja pudota jäsen tähän
+        .arrow
+        .member-card-empty
+          h2 Raahaa ja pudota varajäsen tähän
+    div.applicants
+      h3 #{t '.applicants'}:
+      = render :partial => "applicant", :collection => call.position_applications, :locals => { f: f, call: call }
     .button-row
       - if not call.closed
         = f.submit "#{t '.close_call'}", class: 'submit btn', name: :close
