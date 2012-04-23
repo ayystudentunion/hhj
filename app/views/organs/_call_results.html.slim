@@ -8,12 +8,14 @@
     div.selected
       - call.member_amount.times do
         .member-card-empty
-          h2 Raahaa ja pudota jäsen tähän
+          .placeholder
+            h2 Raahaa ja pudota jäsen tähän
         .arrow
         .member-card-empty
-          h2 Raahaa ja pudota varajäsen tähän
+          .placeholder
+            h2 Raahaa ja pudota varajäsen tähän
+    h3 #{t '.applicants'}:
     div.applicants
-      h3 #{t '.applicants'}:
       = render :partial => "applicant", :collection => call.position_applications, :locals => { f: f, call: call }
     .button-row
       - if not call.closed

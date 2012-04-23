@@ -30,13 +30,16 @@ initOrganPage = (delegateFor) ->
     $('.call-for-application.open .applicants').droppable
       drop: (event, ui) ->
         $(@).append(ui.draggable)
+        ui.draggable.position
+          my: "top left"
+          at: "top left"
+          of: $(this)
 
     $('.call-for-application.open .member-card-empty').droppable
       accept: (draggable) ->
         return false unless draggable.hasClass 'member-card'
         return false if $(@).find('.member-card').length > 0
         true
-
       drop: (event, ui) ->
         $(@).prepend(ui.draggable)
         ui.draggable.position

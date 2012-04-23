@@ -525,6 +525,7 @@ a.btn:active, input.btn:active
           .send-message:hover
             color #505050
         .member-card-empty
+          position relative
           width 257px
           height 80px
           display inline-block
@@ -533,11 +534,16 @@ a.btn:active, input.btn:active
           background-color color-1-light
           text-align center
           vertical-align top
-          h2
-            width 170px
-            margin 20px auto 0 auto
-            text-shadow none
-            color #CCC
+          .placeholder
+            position absolute
+            top 0px
+            margin-left 40px
+            z-index 0
+            h2
+              width 170px
+              margin 20px auto 0 auto
+              text-shadow none
+              color #CCC
         .arrow
           width 11px
           height 82px
@@ -558,6 +564,7 @@ a.btn:active, input.btn:active
           position relative
           margin 11px 11px 0 0
           cursor pointer
+          z-index 100
           .avatar
             float left
             width 50px
@@ -616,6 +623,8 @@ a.btn:active, input.btn:active
               height 18px
               line-height 18px
               margin-left -1px
+        .applicants
+          min-height 100px
         .member-card.handled
           background #e9e9e9
           border 1px solid #dcdcdc
