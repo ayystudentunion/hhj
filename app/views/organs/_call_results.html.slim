@@ -6,14 +6,19 @@
       br
       span.quota_information = call.quota_information
     div.selected
-      - call.member_amount.times do
-        .member-card-empty
+      - has_deputy_array(call).each do |has_deputy|
+        .member-card-empty.member
           .placeholder
             h2 Raahaa ja pudota jäsen tähän
         .arrow
-        .member-card-empty
-          .placeholder
-            h2 Raahaa ja pudota varajäsen tähän
+        - if has_deputy
+          .member-card-empty.deputy
+            .placeholder
+              h2 = t '.dragndrop_deputy_placeholder'
+        - else
+          .member-card-empty.no-deputy
+            .placeholder
+              h2 = t '.no_deputy_placeholder'
     h3 #{t '.applicants'}:
     div.applicants
       = render :partial => "applicant", :collection => call.position_applications, :locals => { f: f, call: call }

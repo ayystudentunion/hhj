@@ -100,6 +100,8 @@ fi:
       open_ended: Toistaiseksi
       term: Kausi
     call_results:
+      dragndrop_deputy_placeholder: Raahaa ja pudota varajäsen tähän
+      no_deputy_placeholder: Ei varajäsentä
       applicants: Hakemuksen lähettäneet opiskelijat
       save_applicants: Tallenna
       close_call: Sulje haku

@@ -28,15 +28,18 @@ initOrganPage = (delegateFor) ->
       revert: 'invalid'
 
     $('.call-for-application.open .applicants').droppable
+      activeClass: 'highlight-drop-area'
       drop: (event, ui) ->
         $(@).append(ui.draggable.removeAttr('style'))
         $(@).find('.member-card:even').removeClass('no-margin')
         $(@).find('.member-card:odd').addClass('no-margin')
 
     $('.call-for-application.open .member-card-empty').droppable
+      activeClass: 'highlight-drop-area'
       accept: (draggable) ->
         return false unless draggable.hasClass 'member-card'
         return false if $(@).find('.member-card').length > 0
+        return false if $(@).hasClass('no-deputy')
         true
       drop: (event, ui) ->
         $(@).prepend(ui.draggable)
