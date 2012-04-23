@@ -33,7 +33,7 @@ initOrganPage = (delegateFor) ->
       putUrl = () ->
         form.attr('action') + '.json'
       putParams = () ->
-        form.serialize() + "&selected_as={#{draggable.data('id')}:#{droppable.data('name')}}"
+        form.serialize() + "&selected_as[#{draggable.data('id')}]=#{droppable.data('name')}"
 
       superagent.post(putUrl())
         .type('form-data')
