@@ -25,6 +25,6 @@ def member(name)
 end
 
 Then %r/^I set applicant '([^']*)' as '([^']*)'$/ do |name, position|
-  button = member(name).find ".btn:contains('#{position}') input"
-  button.click
+  member_slot = find ".member-card-empty:contains('#{position.downcase}')"
+  member(name).drag_to member_slot
 end
