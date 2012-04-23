@@ -26,14 +26,13 @@ describe Call do
     call.set_results( Hash[
         applications[0..2].map{|a| [a.id.to_s, :position_deputy]  } +
         applications[3..4].map{|a| [a.id.to_s, :position_member]  } +
-        applications[5..5].map{|a| [a.id.to_s, :position_rejected] }
+        applications[5..5].map{|a| [a.id.to_s, nil] }
     ])
 
     call.reload_relations
     call.position_applications.where(selected_as: :position_deputy).count.should == 3
     call.position_applications.where(selected_as: :position_member).count.should == 2
-    call.position_applications.where(selected_as: :position_rejected).count.should == 1
-    call.position_applications.where(selected_as: nil).count.should == 1 # Don't change applications whose id is not in set_results args
+    call.position_applications.where(selected_as: nil).count.should == 2
   end
 
 end

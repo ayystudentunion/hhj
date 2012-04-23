@@ -1,18 +1,8 @@
-.member-card.draggable(class="#{'no-margin' if applicant_counter%2 == 1} #{'handled' unless applicant.selected_as.blank? }" data-id=applicant._id)
+.member-card.draggable(class="#{'no-margin' if applicant_counter%2 == 1}" data-id=applicant._id)
   a.show-application.js-modal(href=call_position_application_path(call_id:call._id, id:applicant._id))
   div.avatar
   p
     a.name(href='#') = applicant.user.full_name
     br
     span.email = applicant.user.email
-  - if applicant.selected_as.blank?
-    p
-      span.status-buttons
-        - PositionApplication::SELECTED_AS_VALUES.each do |selected_as|
-          label.btn
-            = radio_button :selected_as, applicant._id, selected_as.to_s
-            span = t ".#{selected_as}"
-  - else
-    p.selected-as
-      span = t ".#{applicant.selected_as}" unless applicant.selected_as.blank?
 

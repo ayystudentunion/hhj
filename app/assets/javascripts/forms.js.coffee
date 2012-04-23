@@ -29,14 +29,17 @@ initOrganPage = (delegateFor) ->
       elem1Form.attr('id') == elem2Form.attr('id')
 
     saveSelection = (droppable, draggable) ->
+      form = droppable.parents('form:first').first()
       putUrl = () ->
-        droppable.parents('form:first').first().attr('action') + '.json'
+        form.attr('action') + '.json'
       putParams = () ->
-        selection = {}
-        selection[draggable.data('id')] = droppable.data('name')
-        $.extend({}, selected_as: selection )
-      superagent.put putUrl(), putParams(), () ->
-        return true
+        form.serialize() + "&selected_as={#{draggable.data('id')}:#{droppable.data('name')}}"
+
+      superagent.post(putUrl())
+        .type('form-data')
+        .send(putParams())
+        .end () ->
+          return true
 
     $('.call-for-application.open .member-card').draggable
       revert: 'invalid'

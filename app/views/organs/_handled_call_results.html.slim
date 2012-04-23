@@ -6,5 +6,5 @@
     span.quota_information = call.quota_information
   - PositionApplication::SELECTED_AS_VALUES.each do |selected_as|
     h3 = t(".#{selected_as}") + ':'
-    = render :partial => "archived_applicant", :collection => call.position_applications.where(selected_as: selected_as), as: :applicant, locals:{call: call}
+    = render :partial => "handled_applicant", :collection => call.position_applications.where(selected_as: selected_as), as: :applicant, locals:{call: call}
 .hr

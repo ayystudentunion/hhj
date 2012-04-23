@@ -11,16 +11,22 @@ Feature: Handling the results of call for applications
     Then I should see 0 persons in 'Istuvat opiskelijaedustajat'
     Then I set applicant 'Martti' as 'Jäsen'
     And I set applicant 'Emma' as 'Varajäsen'
-    And I press 'Tallenna'
+    And I press 'Hyväksy'
 
     Then I should see exactly the following persons in 'Istuvat opiskelijaedustajat':
     | name    | term             | position     |
     | Martti  | Toistaiseksi     | Jäsen        |
     | Emma    | Toistaiseksi     | Varajäsen    |
 
-    Then I should see exactly the following persons in 'Hakemuksen lähettäneet opiskelijat':
-    | name    | position     |
-    | Martti  | Jäsen        |
-    | Emma    | Varajäsen    |
-    | Topias  | Hylätty      |
+    Then I should see exactly the following persons in 'Valitut jäsenet':
+    | name    |
+    | Martti  |
+
+    Then I should see exactly the following persons in 'Valitut varajäsenet':
+    | name  |
+    | Emma  |
+
+    Then I should see exactly the following persons in 'Valitsematta jääneet':
+    | name   |
+    | Topias |
 

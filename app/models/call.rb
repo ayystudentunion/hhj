@@ -4,12 +4,14 @@ class Call
   include Mongoid::Timestamps
 
   validates :title, :member_amount, :deputy_amount, allow_blank: false, presence: true
+  validates :status, presence: true, :format => { :with => /(open|closed|handled|archived)/ }
 
   belongs_to :organ
   has_many :position_applications
   has_and_belongs_to_many :eligibility_rule_sets
 
   field :title, localize: true
+  field :status, type: Symbol, default: :open
   field :closed, type: Boolean, default: false
   field :archived, type: Boolean, default: false
   field :member_amount, type: Integer, default: 0

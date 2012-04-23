@@ -93,7 +93,6 @@ fi:
     applicant:
       position_member: Jäsen
       position_deputy: Varajäsen
-      position_rejected: Hylätty
     member:
       position_member: Jäsen
       position_deputy: Varajäsen
@@ -103,13 +102,13 @@ fi:
       dragndrop_deputy_placeholder: Raahaa ja pudota varajäsen tähän
       no_deputy_placeholder: Ei varajäsentä
       applicants: Hakemuksen lähettäneet opiskelijat
-      save_applicants: Tallenna
+      save_applicants: Hyväksy
       close_call: Sulje haku
       archive_call: Arkistoi
-    archived_call_results:
+    handled_call_results:
       position_member: Valitut jäsenet
       position_deputy: Valitut varajäsenet
-      position_rejected: Hylätyt
+      position_rejected: Valitsematta jääneet
     show:
       hallopeds: Istuvat opiskelijaedustajat
       show_archived_calls: Näytä arkistoidut haut

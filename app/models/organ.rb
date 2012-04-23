@@ -34,6 +34,7 @@ class Organ
   def add_members_from_applications(position_results)
     return if position_results.nil? or position_results.empty?
     position_results.select{ |id, position|
+      next if position.nil?
       [:position_member, :position_deputy].include? position.to_sym
     }.each do | id, position|
       application = PositionApplication.find(id)

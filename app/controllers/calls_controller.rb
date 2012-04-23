@@ -45,6 +45,7 @@ class CallsController < ApplicationController
     call = Call.find params[:id]
     call.set_results params[:selected_as]
     call.organ.add_members_from_applications params[:selected_as]
+    call.status = params[:action] || call.status
     if params.has_key? :close
       call.closed = true
     elsif params.has_key? :archive

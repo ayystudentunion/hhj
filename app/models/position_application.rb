@@ -2,7 +2,7 @@ class PositionApplication
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  SELECTED_AS_VALUES = [:position_member, :position_deputy, :position_rejected]
+  SELECTED_AS_VALUES = [:position_member, :position_deputy]
 
   validates :position, presence: true, :format => { :with => /(position_member|position_deputy|position_both)/ }
   validates :selected_as, allow_nil: true, inclusion: { in:  SELECTED_AS_VALUES }

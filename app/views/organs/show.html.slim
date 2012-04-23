@@ -130,7 +130,7 @@ div#single-organ
           a.hide-archived.btn(href='#' style='display:none;') = t '.hide_archived_calls'
 
         .archived-call-for-applications(style='display:none;')
-          = render partial: 'archived_call_results', collection: @archived_calls, as: :call
+          = render partial: 'handled_call_results', collection: @archived_calls, as: :call
         .hr.unimplemented
 
         .button-row

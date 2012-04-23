@@ -24,11 +24,11 @@
       = render :partial => "applicant", :collection => call.position_applications, :locals => { f: f, call: call }
     .button-row
       - if not call.closed
-        = f.submit "#{t '.close_call'}", class: 'submit btn', name: :close
+        = f.submit "#{t '.close_call'}", class: 'submit btn', name: 'action[close]'
       - elsif not call.has_unhandled_applications
-        = f.submit "#{t '.archive_call'}", class: 'submit btn', name: :archive
+        = f.submit "#{t '.archive_call'}", class: 'submit btn', name: 'action[archive]'
       - if call.has_unhandled_applications
-        = f.submit "#{t '.save_applicants'}", class: 'submit btn', name: :save
+        = f.submit "#{t '.save_applicants'}", class: 'submit btn', name: 'action[save]'
   .add-applicants.unimplemented
     input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')
     a.btn.add-row(href='#')

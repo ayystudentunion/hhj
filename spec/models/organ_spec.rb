@@ -19,7 +19,7 @@ describe Organ do
     organ.add_members_from_applications(Hash[
         applications[0..2].map{|a| [a.id.to_s, :position_deputy]  } +
         applications[3..4].map{|a| [a.id.to_s, :position_member]  } +
-        applications[5..5].map{|a| [a.id.to_s, :position_rejected] }
+        applications[5..5].map{|a| [a.id.to_s, nil] }
     ])
 
     organ.reload_relations
