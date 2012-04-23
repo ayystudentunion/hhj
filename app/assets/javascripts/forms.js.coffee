@@ -1,4 +1,3 @@
-
 initRadioButtons = (delegateFor) ->
   delegateFor.delegate ".status-buttons .radio input,.buttons .radio input", "change", () ->
     buttons = $(this).parents('.status-buttons,.buttons').first()
@@ -25,9 +24,19 @@ initOrganPage = (delegateFor) ->
 
   initCallSelectionDragNDrops = () ->
     onSameForm = (elem1, elem2) ->
-      elem1_form = elem1.parents('form:first').first()
-      elem2_form = elem2.parents('form:first').first()
-      elem1_form.attr('id') == elem2_form.attr('id')
+      elem1Form = elem1.parents('form:first').first()
+      elem2Form = elem2.parents('form:first').first()
+      elem1Form.attr('id') == elem2Form.attr('id')
+
+    saveSelection = (droppable, draggable) ->
+      putUrl = () ->
+        droppable.parents('form:first').first().attr('action') + '.json'
+      putParams = () ->
+        selection = {}
+        selection[draggable.data('id')] = droppable.data('name')
+        $.extend({}, selected_as: selection )
+      superagent.put putUrl(), putParams(), () ->
+        return true
 
     $('.call-for-application.open .member-card').draggable
       revert: 'invalid'
@@ -35,9 +44,11 @@ initOrganPage = (delegateFor) ->
     $('.call-for-application.open .applicants').droppable
       activeClass: 'highlight-drop-area'
       drop: (event, ui) ->
+        droppable = $(@)
         $(@).append(ui.draggable.removeAttr('style'))
         $(@).find('.member-card:even').removeClass('no-margin')
         $(@).find('.member-card:odd').addClass('no-margin')
+        saveSelection(droppable, ui.draggable)
       accept: (draggable) ->
         return false unless draggable.hasClass 'member-card'
         onSameForm $(@), draggable
@@ -49,13 +60,14 @@ initOrganPage = (delegateFor) ->
         return false if $(@).find('.member-card').length > 0
         return false if $(@).hasClass('no-deputy')
         onSameForm $(@), draggable
-
       drop: (event, ui) ->
-        $(@).prepend(ui.draggable)
+        droppable = $(@)
+        droppable.prepend(ui.draggable)
         ui.draggable.position
           my: "top left"
           at: "top left"
-          of: $(this)
+          of: droppable
+        saveSelection(droppable, ui.draggable)
 
   initToggleArchived()
   initCallSelectionDragNDrops()

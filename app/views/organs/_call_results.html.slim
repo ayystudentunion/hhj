@@ -7,12 +7,12 @@
       span.quota_information = call.quota_information
     div.selected
       - has_deputy_array(call).each do |has_deputy|
-        .member-card-empty.member
+        .member-card-empty.member(data-name=:position_member)
           .placeholder
             h2 Raahaa ja pudota jäsen tähän
         .arrow
         - if has_deputy
-          .member-card-empty.deputy
+          .member-card-empty.deputy(data-name=:position_deputy)
             .placeholder
               h2 = t '.dragndrop_deputy_placeholder'
         - else

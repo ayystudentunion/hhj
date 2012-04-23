@@ -54,6 +54,7 @@ class CallsController < ApplicationController
     call.save
     respond_to do |format|
       format.html { redirect_to organ_path(id: call.organ._id) }
+      format.json { render :json => @call }
     end
   end
 
