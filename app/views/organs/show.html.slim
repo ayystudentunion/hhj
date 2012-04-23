@@ -124,7 +124,7 @@ div#single-organ
           .hr
 
         .call-for-application.open
-          = render partial: 'call_results', collection: @open_calls, as: :call
+          = render partial: 'call_results', collection: @calls, as: :call
 
         .button-row
           a.hide-archived.btn(href='#' style='display:none;') = t '.hide_archived_calls'

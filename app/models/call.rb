@@ -4,7 +4,7 @@ class Call
   include Mongoid::Timestamps
 
   validates :title, :member_amount, :deputy_amount, allow_blank: false, presence: true
-  validates :status, presence: true, :format => { :with => /(open|closed|handled|archived)/ }
+  validates :status, presence: true, allow_blank: false, :format => { :with => /(open|closed|handled|archived)/ }
 
   belongs_to :organ
   has_many :position_applications
@@ -12,8 +12,6 @@ class Call
 
   field :title, localize: true
   field :status, type: Symbol, default: :open
-  field :closed, type: Boolean, default: false
-  field :archived, type: Boolean, default: false
   field :member_amount, type: Integer, default: 0
   field :deputy_amount, type: Integer, default: 0
   field :quota_information, localize: true
@@ -32,7 +30,7 @@ class Call
     position_results.each do |id, position|
       application = position_applications.find(id)
       application.selected_as = position
-      application.save
+      application.save!
     end
   end
 
