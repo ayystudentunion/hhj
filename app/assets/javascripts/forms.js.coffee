@@ -24,6 +24,11 @@ initOrganPage = (delegateFor) ->
       return false
 
   initCallSelectionDragNDrops = () ->
+    onSameForm = (elem1, elem2) ->
+      elem1_form = elem1.parents('form:first').first()
+      elem2_form = elem2.parents('form:first').first()
+      elem1_form.attr('id') == elem2_form.attr('id')
+
     $('.call-for-application.open .member-card').draggable
       revert: 'invalid'
 
@@ -33,6 +38,9 @@ initOrganPage = (delegateFor) ->
         $(@).append(ui.draggable.removeAttr('style'))
         $(@).find('.member-card:even').removeClass('no-margin')
         $(@).find('.member-card:odd').addClass('no-margin')
+      accept: (draggable) ->
+        return false unless draggable.hasClass 'member-card'
+        onSameForm $(@), draggable
 
     $('.call-for-application.open .member-card-empty').droppable
       activeClass: 'highlight-drop-area'
@@ -40,7 +48,8 @@ initOrganPage = (delegateFor) ->
         return false unless draggable.hasClass 'member-card'
         return false if $(@).find('.member-card').length > 0
         return false if $(@).hasClass('no-deputy')
-        true
+        onSameForm $(@), draggable
+
       drop: (event, ui) ->
         $(@).prepend(ui.draggable)
         ui.draggable.position
