@@ -65,7 +65,13 @@ class CallsController < ApplicationController
       call.save!
     end
     respond_to do |format|
-      format.html { redirect_to call_path(id: call._id) }
+      format.html {
+        if updated_call
+          redirect_to call_path(id: call._id)
+        else
+          redirect_to organ_path(id: call.organ._id)
+        end
+      }
       format.json { render :json => call }
     end
   end
