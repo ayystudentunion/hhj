@@ -102,9 +102,9 @@ fi:
       dragndrop_deputy_placeholder: Raahaa ja pudota varajäsen tähän
       no_deputy_placeholder: Ei varajäsentä
       applicants: Hakemuksen lähettäneet opiskelijat
-      save_applicants: Hyväksy
+      save_applicants: Hyväksy valinnat
       close_call: Sulje haku
-      archive_call: Arkistoi
+      archive_call: Arkistoi haku
     handled_call_results:
       position_member: Valitut jäsenet
       position_deputy: Valitut varajäsenet

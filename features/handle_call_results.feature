@@ -11,7 +11,7 @@ Feature: Handling the results of call for applications
     Then I should see 0 persons in 'Istuvat opiskelijaedustajat'
     Then I set applicant 'Martti' as 'Jäsen'
     And I set applicant 'Emma' as 'Varajäsen'
-    And I press 'Hyväksy'
+    And I press 'Hyväksy valinnat'
 
     Then I should see exactly the following persons in 'Istuvat opiskelijaedustajat':
     | name    | term             | position     |
