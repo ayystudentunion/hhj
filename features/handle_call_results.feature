@@ -9,6 +9,7 @@ Feature: Handling the results of call for applications
 
   Scenario: Student union employee handles results of call for application
     Then I should see 0 persons in 'Istuvat opiskelijaedustajat'
+    And I press 'Sulje haku'
     Then I set applicant 'Martti' as 'Jäsen'
     And I set applicant 'Emma' as 'Varajäsen'
     And I press 'Hyväksy valinnat'

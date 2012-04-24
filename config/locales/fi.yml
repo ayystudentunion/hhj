@@ -104,11 +104,11 @@ fi:
       applicants: Hakemuksen lähettäneet opiskelijat
       save_applicants: Hyväksy valinnat
       close_call: Sulje haku
-      archive_call: Arkistoi haku
     handled_call_results:
       position_member: Valitut jäsenet
       position_deputy: Valitut varajäsenet
-      position_rejected: Valitsematta jääneet
+      not_selected: Valitsematta jääneet
+      archive_call: Arkistoi haku
     show:
       hallopeds: Istuvat opiskelijaedustajat
       show_archived_calls: Näytä arkistoidut haut

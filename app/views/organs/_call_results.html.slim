@@ -27,8 +27,6 @@
         = f.submit "#{t '.close_call'}", class: 'submit btn', name: 'status[closed]'
       - elsif call.status == :closed
         = f.submit "#{t '.save_applicants'}", class: 'submit btn', name: 'status[handled]'
-      - else
-        = f.submit "#{t '.archive_call'}", class: 'submit btn', name: 'status[archived]'
   .add-applicants.unimplemented
     input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')
     a.btn.add-row(href='#')
