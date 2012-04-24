@@ -23,6 +23,7 @@ initOrganPage = (delegateFor) ->
       return false
 
   initCallSelectionDragNDrops = () ->
+
     onSameForm = (elem1, elem2) ->
       elem1Form = elem1.parents('form:first').first()
       elem2Form = elem2.parents('form:first').first()
@@ -30,13 +31,26 @@ initOrganPage = (delegateFor) ->
 
     saveSelection = (droppable, draggable) ->
       form = droppable.parents('form:first').first()
+      valueOrEmpty = (value) ->
+        if value?
+          value
+        else
+          ''
       putUrl = () ->
         form.attr('action') + '.json'
       putParams = () ->
+        correspondingDeputyOrMember = () ->
+          if droppable.hasClass 'deputy'
+            memberId = valueOrEmpty droppable.prevAll('.member:first').find('.member-card').data('id')
+            "&member=#{memberId}"
+          else if droppable.hasClass 'member'
+            deputyId = valueOrEmpty droppable.nextAll('.deputy:first').find('.member-card').data('id')
+            "&deputy=#{deputyId}"
         id = draggable.data('id')
-        value = droppable.data('name')
-        value = '' unless value?
-        form.serialize() + "&selected_as[#{id}]=#{value}"
+        value = valueOrEmpty droppable.data('name')
+        form.serialize() +
+          "&selected_as[#{id}]=#{value}" +
+          correspondingDeputyOrMember()
 
       superagent.post(putUrl())
         .type('form-data')
