@@ -24,12 +24,27 @@ class Call
   field :description, localize: true
 
 
-  def set_results(position_results)
-    return if position_results.nil? or position_results.empty?
+  #def set_selected(id, position, my_member_id, my_deputy_id)
+  def set_selected!(position_hash, member_or_deputy_id)
+    return if position_hash.nil? or position_hash.empty?
 
-    position_results.each do |id, position|
+    position_hash.each do |id, position|
       application = position_applications.find(id)
       application.selected_as = position
+      my_member_or_deputy = member_or_deputy_id.blank? ? nil : PositionApplication.find(member_or_deputy_id)
+
+      application.my_deputy = nil
+      application.my_member = nil
+      unless my_member_or_deputy.nil?
+        my_member_or_deputy.my_member = nil
+        my_member_or_deputy.my_deputy = nil
+      end
+
+      if application.selected_as == :position_member
+        application.my_deputy = my_member_or_deputy
+      elsif application.selected_as == :position_deputy
+        application.my_member = my_member_or_deputy
+      end
       application.save!
     end
   end

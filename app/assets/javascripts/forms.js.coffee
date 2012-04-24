@@ -46,10 +46,12 @@ initOrganPage = (delegateFor) ->
           else if droppable.hasClass 'member'
             deputyId = valueOrEmpty droppable.nextAll('.deputy:first').find('.member-card').data('id')
             "&deputy=#{deputyId}"
+          else
+            ''
         id = draggable.data('id')
-        value = valueOrEmpty droppable.data('name')
+        position = valueOrEmpty droppable.data('name')
         form.serialize() +
-          "&selected_as[#{id}]=#{value}" +
+          "&selected_as[#{id}]=#{position}" +
           correspondingDeputyOrMember()
 
       superagent.post(putUrl())
