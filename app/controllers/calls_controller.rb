@@ -13,7 +13,7 @@ class CallsController < ApplicationController
   def new
     organ = Organ.find params[:organ_id]
     @call  = organ.calls.build
-    @form_path = calls_path
+    @form_path = organ_calls_path
     @form_title = t "calls.new.title"
     respond_to do |format|
       format.fragment
