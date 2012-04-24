@@ -20,14 +20,14 @@ Feature: Handling the results of call for applications
     | Emma    | Toistaiseksi     | Varajäsen    |
 
     Then I should see exactly the following persons in 'Valitut jäsenet':
-    | name    |
-    | Martti  |
+    | email          |
+    | martti@spu.fi  |
 
     Then I should see exactly the following persons in 'Valitut varajäsenet':
-    | name  |
-    | Emma  |
+    | email          |
+    | emma@spu.fi    |
 
     Then I should see exactly the following persons in 'Valitsematta jääneet':
-    | name   |
-    | Topias |
+    | email          |
+    | tlap@spu.fi  |
 
