@@ -2,12 +2,12 @@ div#open-calls
   .breadcrumb
     ul.breadcrumb-list
       li
-        a(href='#')
-          | Etusivu
+        a(href=index_path)
+          = t :front_page
           span.arrow ›
       li
-        a(href='#')
-          | Avoimet haut
+        a(href=calls_path)
+          = t "navi.open_calls"
           span.arrow ›
   .tabs-container
     .tabs

@@ -13,6 +13,8 @@ class CallsController < ApplicationController
   def new
     organ = Organ.find params[:organ_id]
     @call  = organ.calls.build
+    @form_path = calls_path
+    @form_title = t "calls.new.title"
     respond_to do |format|
       format.fragment
     end
@@ -39,20 +41,32 @@ class CallsController < ApplicationController
   end
 
   def edit # form for modifing an existing call
+    @call = Call.find(params[:id])
+    @form_path = call_path
+    @form_title = t "calls.edit.title"
+    respond_to do |format|
+      format.fragment { render "new" }
+    end
   end
 
   def update
     call = Call.find params[:id]
-    call.set_results params[:selected_as]
-    call.organ.add_members_from_applications params[:selected_as]
-    status = params[:status]
-    unless status.nil?
-      call.status = status.first.first.to_sym
+
+    updated_call = params[:call]
+    if updated_call
+      call.update_attributes!(updated_call)
+    else
+      call.set_results params[:selected_as]
+      call.organ.add_members_from_applications params[:selected_as]
+      status = params[:status]
+      unless status.nil?
+        call.status = status.first.first.to_sym
+      end
+      call.save!
     end
-    call.save!
     respond_to do |format|
-      format.html { redirect_to organ_path(id: call.organ._id) }
-      format.json { render :json => @call }
+      format.html { redirect_to call_path(id: call._id) }
+      format.json { render :json => call }
     end
   end
 

@@ -23,7 +23,7 @@ div#single-call
           h2
             a(href=call_path(id:@call._id)) = @call.title
             span.date = t(:modified) + " " + l(@call.updated_at)
-            a.edit-icon.unimplemented(href='#')
+            a.edit-icon.js-modal(href=edit_call_path(id: @call.id))    
           .item-row
             span.label #{Organ.model_name.human}:
             a(href=organ_path(id:@call.organ._id)) = @call.organ.name
