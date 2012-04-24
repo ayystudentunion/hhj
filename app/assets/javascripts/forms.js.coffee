@@ -67,7 +67,7 @@ initOrganPage = (delegateFor) ->
       revert: 'invalid'
 
     $('.call-for-application.open .applicants').droppable
-      activeClass: 'highlight-drop-area'
+      activeClass: 'highlight-return-area'
       drop: (event, ui) ->
         droppable = $(@)
         $(@).append(ui.draggable.removeAttr('style'))
