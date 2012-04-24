@@ -15,6 +15,8 @@ class PositionApplication
 
   belongs_to :call
   belongs_to :user
+  has_one :selected_deputy, :class_name => 'PositionApplication', :inverse_of => :selected_member
+  belongs_to :selected_member, :class_name => 'PositionApplication', :inverse_of => :selected_deputy
 
   def reset_deputy_of_for_position_member
     self.deputy_of = "" if position == :position_member
