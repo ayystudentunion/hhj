@@ -44,6 +44,11 @@ initOrganPage = (delegateFor) ->
         .end () ->
           return true
 
+    alignApplicants = (droppable) ->
+      applicants = droppable.parents('.call-for-application').find('.applicants')
+      applicants.find('.member-card:even').removeClass('no-margin')
+      applicants.find('.member-card:odd').addClass('no-margin')
+
     $('.call-for-application.open .member-card').draggable
       revert: 'invalid'
 
@@ -52,8 +57,7 @@ initOrganPage = (delegateFor) ->
       drop: (event, ui) ->
         droppable = $(@)
         $(@).append(ui.draggable.removeAttr('style'))
-        $(@).find('.member-card:even').removeClass('no-margin')
-        $(@).find('.member-card:odd').addClass('no-margin')
+        alignApplicants(droppable)
         saveSelection(droppable, ui.draggable)
       accept: (draggable) ->
         return false unless draggable.hasClass 'member-card'
@@ -74,6 +78,7 @@ initOrganPage = (delegateFor) ->
           at: "top left"
           of: droppable
         saveSelection(droppable, ui.draggable)
+        alignApplicants(droppable)
 
   initToggleArchived()
   initCallSelectionDragNDrops()
