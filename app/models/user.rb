@@ -20,9 +20,11 @@ class User
   def self.update_or_create_from_env(env)
     attrs = env_to_attributes(env)
     pn = attrs[:principal_name]
-    user = find_or_create_by principal_name: pn
-    user.update_attributes!(attrs)
-    user
+    if pn
+      user = find_or_create_by principal_name: pn
+      user.update_attributes!(attrs)
+      user
+    end
   end
 
   def self.env_to_attributes(env)
