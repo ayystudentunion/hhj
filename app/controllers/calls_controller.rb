@@ -55,10 +55,12 @@ class CallsController < ApplicationController
     if updated_call
       call.update_attributes!(updated_call)
     else
-      call.organ.add_members_from_applications params[:selected_as]
-      status = params[:status]
-      unless status.nil?
-        call.status = status.first.first.to_sym
+      unless params[:status].blank?
+        status = params[:status].first.first.to_sym
+        if status == :handled and status != call.status
+          call.organ.add_selected_members!(call)
+        end
+        call.status = status
       end
       call.save!
     end

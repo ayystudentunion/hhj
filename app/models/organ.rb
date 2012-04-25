@@ -31,18 +31,13 @@ class Organ
     organization.ancestors_and_self.drop(1).map(&:_id).join('|')
   end
 
-  def add_members_from_applications(position_results)
-    return if position_results.nil? or position_results.empty?
-    position_results.select{ |id, position|
-      next if position.nil?
-      [:position_member, :position_deputy].include? position.to_sym
-    }.each do | id, position|
-      application = PositionApplication.find(id)
-      self.members << Member.create(
-        user: application.user,
-        position: position,
-        term_start: application.call.term_start,
-        term_end: application.call.term_end
+  def add_selected_members!(call)
+    call.position_applications.where(:selected_as.ne => nil).each do | position_application |
+      self.members << Member.create!(
+        user: position_application.user,
+        position: position_application.selected_as,
+        term_start: position_application.call.term_start,
+        term_end: position_application.call.term_end
       )
     end
   end
