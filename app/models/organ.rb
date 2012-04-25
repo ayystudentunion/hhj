@@ -46,7 +46,7 @@ class Organ
         term_start: call.term_start,
         term_end: call.term_end
       )
-      self.members << [member, deputy].reject(&:blank)
+      self.members << [member, deputy].reject(&:blank?)
     end
   end
 
