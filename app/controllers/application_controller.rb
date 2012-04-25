@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   def set_fake_env_for_development
     # In order to run and test authentication in development
     # environment. Add fake Shibboleth variables to request env
-    if Rails.env.development?
+    if Rails.env.development? || Rails.env.test?
       request.env["A_PRINCIPAL_NAME"] = "eizit@ayy.fi"
       request.env["A_GIVEN_NAME"] = "Eija"
       request.env["A_SURNAME"] = "Zitting"
