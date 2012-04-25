@@ -1,34 +1,34 @@
-= form_for call, url: organ_call_path(organ_id: @organ._id, id: call._id), method: :put do |f|
-  .call-for-application
-    h2 = call.title + ', ' + formatted_date(call.term_start, end_date: call.term_end)
-    p.definition
-      | #{t 'calls.show.looking_for'} #{formatted_looking_for(call)}
-      br
-      span.quota_information = call.quota_information
-    div.selected
-      - has_deputy_array(call).each do |has_deputy|
-        .member-card-empty.member(data-name=:position_member)
+.call-for-application
+  h2 = call.title + ', ' + formatted_date(call.term_start, end_date: call.term_end)
+  p.definition
+    | #{t 'calls.show.looking_for'} #{formatted_looking_for(call)}
+    br
+    span.quota_information = call.quota_information
+  div.selected
+    - has_deputy_array(call).each do |has_deputy|
+      .member-card-empty.member(data-name=:position_member)
+        .placeholder
+          h2 Raahaa ja pudota jäsen tähän
+      .arrow
+      - if has_deputy
+        .member-card-empty.deputy(data-name=:position_deputy)
           .placeholder
-            h2 Raahaa ja pudota jäsen tähän
-        .arrow
-        - if has_deputy
-          .member-card-empty.deputy(data-name=:position_deputy)
-            .placeholder
-              h2 = t '.dragndrop_deputy_placeholder'
-        - else
-          .member-card-empty.no-deputy
-            .placeholder
-              h2 = t '.no_deputy_placeholder'
-    h3 #{t '.applicants'}:
-    div.applicants
-      = render :partial => "applicant", :collection => call.position_applications, :locals => { f: f, call: call }
+            h2 = t '.dragndrop_deputy_placeholder'
+      - else
+        .member-card-empty.no-deputy
+          .placeholder
+            h2 = t '.no_deputy_placeholder'
+  h3 #{t '.applicants'}:
+  div.applicants
+    = render :partial => "applicant", :collection => call.position_applications, :locals => { call: call }
+  = form_for call, url: organ_call_path(organ_id: @organ._id, id: call._id), method: :put do |f|
     .button-row
       - if call.status == :open
         = f.submit "#{t '.close_call'}", class: 'submit btn', name: 'status[closed]'
       - elsif call.status == :closed
         = f.submit "#{t '.save_applicants'}", class: 'submit btn', name: 'status[handled]'
-  .add-applicants.unimplemented
-    input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')
-    a.btn.add-row(href='#')
-      span.plus-icon
-  .hr
+.add-applicants.unimplemented
+  input.field.wide(type='text' placeholder='Lisää opiskelijaedustajia hakuun sähköpostiosoitteella')
+  a.btn.add-row(href='#')
+    span.plus-icon
+.hr

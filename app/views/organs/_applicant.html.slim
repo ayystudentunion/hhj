@@ -1,8 +1,12 @@
 .member-card.draggable(class="#{'no-margin' if applicant_counter%2 == 1}" data-id=applicant._id)
-  a.show-application.js-modal(href=call_position_application_path(call_id:call._id, id:applicant._id))
-  div.avatar
-  p
-    a.name(href='#') = applicant.user.full_name
-    br
-    span.email = applicant.user.email
+  = form_for [call, applicant], url: call_position_application_path(call_id: call._id, id: applicant._id, format: :json) do |f|
+    = f.hidden_field :member, value: applicant[:member_id]
+    = f.hidden_field :deputy, value: applicant[:deputy_id]
+    = f.hidden_field :position
+    a.show-application.js-modal(href=call_position_application_path(call_id:call._id, id:applicant._id))
+    div.avatar
+    p
+      a.name(href='#') = applicant.user.full_name
+      br
+      span.email = applicant.user.email
 

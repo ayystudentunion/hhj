@@ -23,42 +23,26 @@ initOrganPage = (delegateFor) ->
       return false
 
   initCallSelectionDragNDrops = () ->
-
     onSameForm = (elem1, elem2) ->
       elem1Form = elem1.parents('form:first').first()
       elem2Form = elem2.parents('form:first').first()
       elem1Form.attr('id') == elem2Form.attr('id')
 
     saveSelection = (droppable, draggable) ->
-      form = droppable.parents('form:first').first()
-      valueOrEmpty = (value) ->
-        if value?
-          value
-        else
-          ''
-      putUrl = () ->
-        form.attr('action') + '.json'
-      putParams = () ->
-        correspondingDeputyOrMember = () ->
-          if droppable.hasClass 'deputy'
-            memberId = valueOrEmpty droppable.prevAll('.member:first').find('.member-card').data('id')
-            "&member=#{memberId}"
-          else if droppable.hasClass 'member'
-            deputyId = valueOrEmpty droppable.nextAll('.deputy:first').find('.member-card').data('id')
-            "&deputy=#{deputyId}"
-          else
-            ''
-        id = draggable.data('id')
-        position = valueOrEmpty droppable.data('name')
-        form.serialize() +
-          "&selected_as[#{id}]=#{position}" +
-          correspondingDeputyOrMember()
-
-      superagent.post(putUrl())
-        .type('form-data')
-        .send(putParams())
-        .end () ->
-          return true
+      form = draggable.find('form')
+      member = form.find('#position_application_member')
+      deputy = form.find('#position_application_deputy')
+      member.val ''
+      deputy.val ''
+      if droppable.hasClass 'deputy'
+        member.val droppable.prevAll('.member:first').find('.member-card').data('id')
+      else if droppable.hasClass 'member'
+        deputy.val droppable.nextAll('.deputy:first').find('.member-card').data('id')
+      form.find('#position_application_position').val droppable.data('name')
+      superagent.post(form.attr 'action').
+        type('form-data').
+        send(form.serialize()).
+        end()
 
     alignApplicants = (droppable) ->
       applicants = droppable.parents('.call-for-application').find('.applicants')

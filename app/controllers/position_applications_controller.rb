@@ -31,11 +31,13 @@ class PositionApplicationsController < ApplicationController
 
   def update
     position_application = PositionApplication.find params[:id]
-    if params[:selected_as].to_sym == :position_member
-      position_application.mark_as_member! params[:deputy]
-    elsif params[:selected_as].to_sym == :position_deputy
-      position_application.mark_as_deputy! params[:member]
-    elsif params.include?(:selected_as)
+    position_application_params = params[:position_application]
+
+    if position_application_params[:position] == :position_member.to_s
+      position_application.mark_as_member! position_application_params[:deputy]
+    elsif position_application_params[:position] == :position_deputy.to_s
+      position_application.mark_as_deputy! position_application_params[:member]
+    else
       position_application.mark_as_not_selected!
     end
     respond_to do |format|
