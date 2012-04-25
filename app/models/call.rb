@@ -43,4 +43,8 @@ class Call
     members + lone_deputies
   end
 
+  def not_selected_applicants
+    position_applications.where(selected_as: nil)
+  end
+
 end
