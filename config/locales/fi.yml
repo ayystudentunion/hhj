@@ -208,7 +208,10 @@ fi:
             position:
               blank: Haettavaa paikkaa ei ole valittu
               invalid: "Haettava paikka voi olla: Jäsen, Varajäsen tai Molemmat"
-
+            deputy:
+              position: "Merkitse ensin haluttu hakijan varajäsen varajäseneksi"
+            member:
+              position: "Merkitse ensin haluttu varajäsenen jäsen jäseneksi"
 
   modals:
     close: Sulje

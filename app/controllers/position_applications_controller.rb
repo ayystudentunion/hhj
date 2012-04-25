@@ -30,6 +30,17 @@ class PositionApplicationsController < ApplicationController
   end
 
   def update
+    position_application = PositionApplication.find params[:id]
+    if params[:selected_as].to_sym == :position_member
+      position_application.mark_as_member! params[:deputy]
+    elsif params[:selected_as].to_sym == :position_deputy
+      position_application.mark_as_deputy! params[:member]
+    elsif params.include?(:selected_as)
+      position_application.mark_as_not_selected!
+    end
+    respond_to do |format|
+      format.json { render :json => position_application }
+    end
   end
 
   def destroy

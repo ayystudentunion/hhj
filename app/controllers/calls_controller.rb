@@ -51,12 +51,10 @@ class CallsController < ApplicationController
 
   def update
     call = Call.find params[:id]
-
     updated_call = params[:call]
     if updated_call
       call.update_attributes!(updated_call)
     else
-      call.set_selected! params[:selected_as], params[:deputy] || params[:member]
       call.organ.add_members_from_applications params[:selected_as]
       status = params[:status]
       unless status.nil?
