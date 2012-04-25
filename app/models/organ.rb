@@ -56,8 +56,8 @@ class Organ
   end
 
   def members_with_deputies
-    members = self.members.where(position: :position_member).map{|a| [a, a.deputy]}
-    lone_deputies = self.members.where(position: :position_deputy).select{|m| m.member.blank?}.map{|a| [nil, a]}
+    members = self.members.where(position: :position_member, current: true).map{|a| [a, a.deputy]}
+    lone_deputies = self.members.where(position: :position_deputy, current: true).select{|m| m.member.blank?}.map{|a| [nil, a]}
     members + lone_deputies
   end
 
