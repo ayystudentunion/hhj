@@ -31,4 +31,16 @@ class Call
     ::Sanitizer.sanitize_filename(title + '_' + I18n.l(updated_at, format: :file))
   end
 
+  def selected_with_deputies
+    members = position_applications.
+      where(selected_as: :position_member).
+        map{|a| [a, a.deputy]}
+
+    lone_deputies = position_applications.
+      where(selected_as: :position_deputy, member_id: nil).
+        map{|a| [nil, a]}
+
+    members + lone_deputies
+  end
+
 end

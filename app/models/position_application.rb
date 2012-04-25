@@ -63,7 +63,7 @@ class PositionApplication
   end
 
   def validate_member_and_deputy_positions
-    def validate(relation, allowed_position)
+    def has_value(relation, allowed_position)
       other = send(relation)
       return if other.nil?
       if other.selected_as != allowed_position
@@ -72,8 +72,8 @@ class PositionApplication
               relation, :position))
       end
     end
-    validate :deputy, :position_deputy
-    validate :member, :position_member
+    has_value :deputy, :position_deputy
+    has_value :member, :position_member
   end
 
 end

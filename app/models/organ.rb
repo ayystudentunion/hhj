@@ -32,13 +32,21 @@ class Organ
   end
 
   def add_selected_members!(call)
-    call.position_applications.where(:selected_as.ne => nil).each do | position_application |
-      self.members << Member.create!(
-        user: position_application.user,
-        position: position_application.selected_as,
-        term_start: position_application.call.term_start,
-        term_end: position_application.call.term_end
+    call.selected_with_deputies.each do | member, deputy |
+      member = member.nil? ? nil : Member.create!(
+        user: member.user,
+        position: member.selected_as,
+        term_start: call.term_start,
+        term_end: call.term_end
       )
+      deputy = deputy.nil? ? nil : Member.create!(
+        user: deputy.user,
+        position: deputy.selected_as,
+        member: member,
+        term_start: call.term_start,
+        term_end: call.term_end
+      )
+      self.members << [member, deputy].reject(&:blank)
     end
   end
 

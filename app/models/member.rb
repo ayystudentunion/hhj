@@ -4,6 +4,8 @@ class Member
 
   belongs_to :organ
   belongs_to :user
+  belongs_to :member, :inverse_of => :deputy
+  has_one :deputy, :class_name => 'Member', :inverse_of => :member
 
   validates :position, presence: true, :format => { :with => /(position_member|position_deputy)/ }
 
