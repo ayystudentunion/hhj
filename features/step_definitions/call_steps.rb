@@ -20,11 +20,11 @@ Then %r/^I should see (\d+) persons in '([^']*)'$/ do |person_count, title|
   all(".organ-members:contains('#{title}') .member-card" ).count().should == person_count.to_i
 end
 
-def member(name)
-  find ".edit_call .member-card:contains('#{name}')"
+def applicant(name)
+  find ".applicants .member-card:contains('#{name}')"
 end
 
 Then %r/^I set applicant '([^']*)' as '([^']*)'$/ do |name, position|
   member_slot = find ".member-card-empty:contains('#{position.downcase}')"
-  member(name).drag_to member_slot
+  applicant(name).drag_to member_slot
 end
