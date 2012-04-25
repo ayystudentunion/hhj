@@ -3,6 +3,7 @@ require 'factory_girl_rails'
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  before_filter :set_fake_env_for_development
   before_filter :set_user
   before_filter :change_language
   before_filter :set_locale
@@ -13,8 +14,20 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def set_fake_env_for_development
+    # In order to run and test authentication in development
+    # environment. Add fake Shibboleth variables to request env
+    if Rails.env.development?
+      request.env["A_PRINCIPAL_NAME"] = "eizit@ayy.fi"
+      request.env["A_GIVEN_NAME"] = "Eija"
+      request.env["A_SURNAME"] = "Zitting"
+      request.env["A_MOBILE"] = "+358 40 123 1234"
+      request.env["A_MAIL"] = "eija.zitting@ayy.fi"
+    end
+  end
+
   def set_user
-    @user = FactoryGirl.create(:eija)
+    @user = User.update_or_create_from_env(request.env) # FactoryGirl.create(:eija)
   end
 
   def change_language(to_locale=nil)
