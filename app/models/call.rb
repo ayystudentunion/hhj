@@ -3,12 +3,12 @@ class Call
   include Ext::Mongoid::AutoFormatLocalizedAttributes
   include Mongoid::Timestamps
 
-  validates :title, :member_amount, :deputy_amount, allow_blank: false, presence: true
-  validates :status, presence: true, allow_blank: false, :format => { :with => /(open|closed|handled|archived)/ }
-
   belongs_to :organ
   has_many :position_applications
   has_and_belongs_to_many :eligibility_rule_sets
+
+  validates :title, :member_amount, :deputy_amount, allow_blank: false, presence: true
+  validates :status, presence: true, allow_blank: false, :format => { :with => /(open|closed|handled|archived)/ }
 
   field :title, localize: true
   field :status, type: Symbol, default: :open

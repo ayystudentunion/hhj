@@ -2,10 +2,10 @@ class Member
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  validates :position, presence: true, :format => { :with => /(position_member|position_deputy)/ }
-
   belongs_to :organ
   belongs_to :user
+
+  validates :position, presence: true, :format => { :with => /(position_member|position_deputy)/ }
 
   field :halloped, type: Boolean, default: true
   field :position, type: Symbol

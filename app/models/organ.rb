@@ -3,11 +3,11 @@ class Organ
   include Ext::Mongoid::AutoFormatLocalizedAttributes
   include Mongoid::Timestamps
 
-  validates :name, :organization, :official, allow_blank: false, presence: true
-
   belongs_to :organization
   has_many :calls
   has_many :members
+
+  validates :name, :organization, :official, allow_blank: false, presence: true
 
   field :name, localize: true
   field :description, localize: true
