@@ -22,6 +22,14 @@ module ApplicationHelper
     }.join(' - ')
   end
 
+  def login_info_style
+    "display:none" if not @user
+  end
+
+  def login_request_style
+    "display:none" if @user
+  end
+
   protected
 
   def format_date(date, options)

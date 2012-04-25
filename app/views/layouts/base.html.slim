@@ -14,27 +14,7 @@ html
           .logo
           a.headline.js-reload(href=root_path)
             | Halloped.fi
-          / Visible when user has logged in
-          .language-sel
-            - languages.reject{|l| l == I18n.locale}.each do |locale|
-              a(href='#' hreflang=locale) = t("languages.to_#{locale}") + ' • '
-          .login-info(href='#' style="#{'display:none;' if @user.nil?}")
-            .login-name
-              span.label
-                = t :logged_in_as
-                | :
-              br
-              span.name = @user.full_name
-            a.login-btn.unimplemented(href='#')
-          / Visible when user has not been logged in, hidden by default in CSS
-          .login-request.unimplemented(href='#')
-            .login-name
-              span.label
-                = t :login_with_haka
-                | :
-              br
-              a.link(href='#') Linkki Hakaan
-            a.login-btn(href='#')
+          = yield(:login)
       div#navi
         #navi-content
           = yield(:navigation)
