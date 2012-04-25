@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     # environment. Add fake Shibboleth variables to request env
     if Rails.env.development? || Rails.env.test?
       test_user = session[:test_user]
-      if test_user == "eija"
+      if test_user == "eija" || Rails.env.test?
         request.env["A_PRINCIPAL_NAME"] = "eizit@ayy.fi"
         request.env["A_GIVEN_NAME"] = "Eija"
         request.env["A_SURNAME"] = "Zitting"
