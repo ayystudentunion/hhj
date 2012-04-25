@@ -113,6 +113,8 @@ fi:
       hallopeds: Istuvat opiskelijaedustajat
       show_archived_calls: Näytä arkistoidut haut
       hide_archived_calls: Piilota arkistoidut haut
+      member_missing_for_deputy: Ei jäsentä
+      deputy_missing_for_member: Ei varajäsentä
 
   calls:
     new:

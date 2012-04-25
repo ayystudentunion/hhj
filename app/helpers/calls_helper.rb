@@ -6,4 +6,5 @@ module CallsHelper
   def has_deputy_array(call)
     call.member_amount.times.zip(call.deputy_amount.times).map{|pair| not pair.last.nil?}
   end
+
 end
