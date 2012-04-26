@@ -31,4 +31,9 @@ class PagesController < ApplicationController
     redirect_to params[:target]
   end
 
+  def dev_logout
+    session[:test_user] = nil
+    redirect_to "/"
+  end
+
 end

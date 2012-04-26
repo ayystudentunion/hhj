@@ -42,6 +42,12 @@ module ApplicationHelper
     end
   end
 
+  def logout_link
+    if Rails.env.development?
+      dev_logout_path
+    end
+  end
+
   protected
 
   def format_date(date, options)

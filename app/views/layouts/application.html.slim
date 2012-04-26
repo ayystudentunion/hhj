@@ -22,7 +22,7 @@
         | :
       br
       span.name = @user.full_name if @user
-    a.login-btn.unimplemented(href='#')
+    a.login-btn.js-reload(href=logout_link)
   / Visible when user has not been logged in, hidden by default in CSS
   .login-request(href='#' style=login_request_style)
     .login-name
@@ -30,6 +30,6 @@
         = t :login_with_haka
         | :
       br
-    a.login-btn(href=login_link)
+    a.login-btn.js-reload(href=login_link)
 
 = render :template => 'layouts/base'
