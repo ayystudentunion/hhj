@@ -34,7 +34,7 @@
     .button-row
       - if call.status == :open
         = f.submit "#{t '.close_call'}", class: 'submit btn', name: 'status[closed]'
-      - elsif call.status == :closed and call.work_flow == :proposal_available
+      - elsif call.status == :closed and call.workflow == :proposal_available
         = f.submit "#{t '.propose_applicants'}", class: 'submit btn', name: 'status[proposed]'
       - elsif call.status == :closed or call.status == :proposed
         = f.submit "#{t '.save_applicants'}", class: 'submit btn', name: 'status[handled]'

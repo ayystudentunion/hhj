@@ -157,7 +157,7 @@ fi:
         unofficial: Epävirallinen
       call:
         title: Paikkahaun otsikko
-        work_flow: Työnkulku
+        workflow: Työnkulku
         member_amount: Varsinaisia jäseniä
         deputy_amount: Varajäseniä
         quota_information: Lisätietoa käsittelijälle (kiintiöpaikkojen määrä jne.)
