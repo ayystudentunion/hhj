@@ -550,10 +550,7 @@ a.btn:active, input.btn:active
               margin 20px auto 0 auto
               text-shadow none
               color #CCC
-        .no-deputy, .no-member
-          border none
-          background none
-        .current-member, .current-deputy
+        .no-deputy, .no-member, .current-member, .current-deputy
           border none
           background none
         .arrow
@@ -574,7 +571,7 @@ a.btn:active, input.btn:active
           padding 13px
           display inline-block
           position relative
-          margin 0 11px 11px 0
+          margin 0 0 11px 0
           cursor pointer
           z-index 1
           text-align left
@@ -625,9 +622,8 @@ a.btn:active, input.btn:active
           p.term, p.selected-as
             margin-top 6px
             min-width 100px
-        .applicants
-          min-height 100px
-          margin 11px 0 0 0
+        .no-margin
+          margin-right 0
         .highlight-drop-area
           background #FFF
         .highlight-return-area
@@ -683,7 +679,23 @@ a.btn:active, input.btn:active
             li
               line-height 18px
               margin-top 4px
+        .applicants
+          min-height 100px
+          margin 11px 0 0 0
+          .member-card
+            margin-right 11px
+          .no-margin
+            margin-right 0
 
+      .organ-members
+        .member-card
+          margin 11px 0 0 0
+          vertical-align top
+        .arrow, .current-deputy, .current-member
+          height 92px
+          .placeholder
+            h2
+              margin-top 38px
 
       .sort-links
         width 100%
