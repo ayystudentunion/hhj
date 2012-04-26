@@ -10,9 +10,8 @@
         .member-card-empty.member(data-name=:position_member)
           - unless member.nil?
             = render :partial => "applicant", object: member, :locals => { applicant_counter: 0, call: call }
-          - else
-            .placeholder
-              h2 = t '.dragndrop_member_placeholder'
+          .placeholder
+            h2 = t '.dragndrop_member_placeholder'
       - else
         .member-card-empty.no-deputy
           .placeholder
@@ -22,9 +21,8 @@
         .member-card-empty.deputy(data-name=:position_deputy)
           - unless deputy.nil?
             = render :partial => "applicant", object: deputy, :locals => { applicant_counter: 0, call: call }
-          - else
-            .placeholder
-              h2 = t '.dragndrop_deputy_placeholder'
+          .placeholder
+            h2 = t '.dragndrop_deputy_placeholder'
       - else
         .member-card-empty.no-deputy
           .placeholder
