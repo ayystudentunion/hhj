@@ -121,17 +121,17 @@ div#single-organ
               | #{t '.hallopeds'}
               a.send-message.unimplemented(href='#') Lähetä ryhmäviesti
             - @organ.member_deputy_pairs.each do |member, deputy|
-              .member-card-empty.member
-                - unless member.nil?
-                  = render partial: 'member', object: member, locals: {f: f}
-                - else
+              - unless member.nil?
+                = render partial: 'member', object: member, locals: {f: f}
+              - else
+                .member-card-empty.current-member
                   .placeholder
                     h2 = t '.member_missing_for_deputy'
               .arrow
-              .member-card-empty.deputy
-                - unless deputy.nil?
-                  = render partial: 'member', object: deputy, locals: {f: f}
-                - else
+              - unless deputy.nil?
+                = render partial: 'member', object: deputy, locals: {f: f}
+              - else
+                .member-card-empty.current-deputy
                   .placeholder
                     h2 = t '.deputy_missing_for_member'
           .hr

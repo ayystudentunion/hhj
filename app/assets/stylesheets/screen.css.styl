@@ -550,6 +550,12 @@ a.btn:active, input.btn:active
               margin 20px auto 0 auto
               text-shadow none
               color #CCC
+        .no-deputy, .no-member
+          border none
+          background none
+        .current-member, .current-deputy
+          border none
+          background none
         .arrow
           width 11px
           height 82px
@@ -571,6 +577,7 @@ a.btn:active, input.btn:active
           margin 0 11px 11px 0
           cursor pointer
           z-index 1
+          text-align left
           .avatar
             float left
             width 50px
@@ -618,17 +625,6 @@ a.btn:active, input.btn:active
           p.term, p.selected-as
             margin-top 6px
             min-width 100px
-          .status-buttons
-            float right
-            margin 8px 0 0 1px
-            vertical-align top
-            width 172px
-            label.btn
-              padding 0 8px 0 7px
-              font-size 12px
-              height 18px
-              line-height 18px
-              margin-left -1px
         .applicants
           min-height 100px
           margin 11px 0 0 0

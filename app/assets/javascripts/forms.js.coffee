@@ -1,6 +1,6 @@
 initRadioButtons = (delegateFor) ->
-  delegateFor.delegate ".status-buttons .radio input,.buttons .radio input", "change", () ->
-    buttons = $(this).parents('.status-buttons,.buttons').first()
+  delegateFor.delegate ".buttons .radio input", "change", () ->
+    buttons = $(this).parents('.buttons').first()
     buttons.find('.btn').removeClass('checked')
     $(this).parents('.btn:first').addClass('checked')
 
