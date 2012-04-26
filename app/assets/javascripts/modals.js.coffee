@@ -59,7 +59,7 @@ init_modals = () ->
     changeModalFormLanguage $(this).parents('.content:first'), $(this).attr('hreflang')
     return false
 
-  $("#modal-wrap").delegate "select", "change", () ->
+  $("#modal-wrap").delegate "select.organizations", "change", () ->
     select = $(this)
     organization_id = select.val()
     select.nextAll().remove()

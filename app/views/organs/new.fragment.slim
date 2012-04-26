@@ -24,7 +24,7 @@
           = f.text_field :manager_email, placeholder: Organ.human_attribute_name(:manager_email), class: 'field'
         = f.text_field :appointer, placeholder:  Organ.human_attribute_name(:appointer), class: 'field half'
         .inline-block
-          = select("organ[organization]", "", @university.children.map{|p| [p.name, p.id]}, prompt: t('.select_organization'))
+          = select("organ[organization]", "", @university.children.map{|p| [p.name, p.id]}, {prompt: t('.select_organization')}, {class: 'organizations'})
           span#organization-path.js-data
             = @organ.organization_ids
         .inline-block.no-margin
