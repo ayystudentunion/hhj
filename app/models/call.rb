@@ -15,7 +15,7 @@ class Call
 
   field :title, localize: true
   field :status, type: Symbol, default: :open
-  field :workflow, type: Symbol, default: :normal
+  field :workflow, type: Symbol, default: :workflow_normal
   field :member_amount, type: Integer, default: 0
   field :deputy_amount, type: Integer, default: 0
   field :quota_information, localize: true
