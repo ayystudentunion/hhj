@@ -26,4 +26,9 @@ class PagesController < ApplicationController
     render "env", layout: false
   end
 
+  def dev_login
+    session[:test_user] = "eija"
+    redirect_to params[:target]
+  end
+
 end

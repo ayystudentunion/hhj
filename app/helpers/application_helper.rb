@@ -1,3 +1,6 @@
+
+require "cgi"
+
 module ApplicationHelper
 
   def nav_link
@@ -31,8 +34,11 @@ module ApplicationHelper
   end
 
   def login_link
+    current = request.fullpath
     if Rails.env.development?
+      dev_login_path(target: current)
     else
+      "/Shibboleth.sso/Login?target=#{CGI.escape current}"
     end
   end
 

@@ -1,6 +1,8 @@
 Halloped::Application.routes.draw do
 
   match "/env" => "pages#environment"
+  match "/dev_login" => "pages#dev_login"
+
   devise_for :admins
   match "/admin" => redirect("/en/admin")
 
