@@ -16,4 +16,18 @@ class Member
   field :term_end, type: Date
   field :removed_date, type: Date
 
+  scope :current_members, where(position: :position_member, current: true)
+  scope :current_deputies, where(position: :position_deputy, current: true)
+
+  def current_deputy
+    return nil if deputy.nil?
+    return nil unless deputy.current
+    deputy
+  end
+
+  def current_member
+    return nil if member.nil?
+    return nil unless member.current
+    member
+  end
 end

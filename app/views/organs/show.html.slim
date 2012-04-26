@@ -120,7 +120,7 @@ div#single-organ
             h2
               | #{t '.hallopeds'}
               a.send-message.unimplemented(href='#') Lähetä ryhmäviesti
-            - @organ.members_with_deputies.each do |member, deputy|
+            - @organ.member_deputy_pairs.each do |member, deputy|
               .member-card-empty.member
                 - unless member.nil?
                   = render partial: 'member', object: member, locals: {f: f}

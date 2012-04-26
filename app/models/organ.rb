@@ -55,10 +55,11 @@ class Organ
     members.where(_id: id).update_all(current: false, resigned_date: Time.now.utc)
   end
 
-  def members_with_deputies
-    members = self.members.where(position: :position_member, current: true).map{|a| [a, a.deputy]}
-    lone_deputies = self.members.where(position: :position_deputy, current: true).select{|m| m.member.blank?}.map{|a| [nil, a]}
-    members + lone_deputies
+
+  def member_deputy_pairs
+    members_with_deputies = self.members.current_members.map{|a| [a, a.current_deputy]}
+    lone_deputies = self.members.current_deputies.select{|d| d.current_member.nil?}.map{|a| [nil, a]}
+    members_with_deputies + lone_deputies
   end
 
 end
