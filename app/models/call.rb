@@ -8,10 +8,12 @@ class Call
   has_and_belongs_to_many :eligibility_rule_sets
 
   validates :title, :member_amount, :deputy_amount, allow_blank: false, presence: true
-  validates :status, presence: true, allow_blank: false, :format => { :with => /(open|closed|handled|archived)/ }
+  validates :status, presence: true, allow_blank: false, :format => { :with => /(open|closed|handled|archived|proposed)/ }
+  validates :work_flow, presence: true, allow_blank: false, :format => { :with => /(normal|administration_election|proposal_available)/ }
 
   field :title, localize: true
   field :status, type: Symbol, default: :open
+  field :work_flow, type: Symbol, default: :normal
   field :member_amount, type: Integer, default: 0
   field :deputy_amount, type: Integer, default: 0
   field :quota_information, localize: true

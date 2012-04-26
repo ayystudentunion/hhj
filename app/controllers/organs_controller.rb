@@ -33,7 +33,7 @@ class OrgansController < ApplicationController
 
   def show # return a single organ
     @organ = Organ.find(params[:id])
-    @calls = @organ.calls.where(:status.in => [:open, :closed]).asc(:date_end, :title)
+    @calls = @organ.calls.where(:status.in => [:open, :closed, :proposed]).asc(:date_end, :title)
     @handled_calls = @organ.calls.where(status: :handled).asc(:date_end, :title)
     @archived_calls = @organ.calls.where(status: :archived).asc(:date_end, :title)
     respond_to do |format|

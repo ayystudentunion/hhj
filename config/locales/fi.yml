@@ -104,8 +104,9 @@ fi:
       no_member_placeholder: Ei jäsentä
       no_deputy_placeholder: Ei varajäsentä
       applicants: Hakemuksen lähettäneet opiskelijat
-      save_applicants: Hyväksy valinnat
       close_call: Sulje haku
+      save_applicants: Hyväksy valinnat
+      propose_applicants: Esitä valittaviksi
     handled_call_results:
       position_member: Valitut jäsenet
       position_deputy: Valitut varajäsenet
@@ -156,6 +157,7 @@ fi:
         unofficial: Epävirallinen
       call:
         title: Paikkahaun otsikko
+        work_flow: Työnkulku
         member_amount: Varsinaisia jäseniä
         deputy_amount: Varajäseniä
         quota_information: Lisätietoa käsittelijälle (kiintiöpaikkojen määrä jne.)
