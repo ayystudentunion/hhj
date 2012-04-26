@@ -4,11 +4,11 @@ module CallsHelper
   end
 
   def free_positions(call)
-    call.member_amount.times.zip(call.deputy_amount.times).
-      map{|member_counter, deputy_counter|
-        if deputy_counter.nil?
+    [call.member_amount, call.deputy_amount].max.times.
+      map{|index|
+        if index >= call.deputy_amount
           :position_member
-        elsif member_counter.nil?
+        elsif index >= call.member_amount
           :position_deputy
         else
           :position_both
