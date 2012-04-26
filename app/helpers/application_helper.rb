@@ -30,6 +30,12 @@ module ApplicationHelper
     "display:none" if @user
   end
 
+  def login_link
+    if Rails.env.development?
+    else
+    end
+  end
+
   protected
 
   def format_date(date, options)
