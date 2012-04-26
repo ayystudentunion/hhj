@@ -3,7 +3,7 @@ class Call
   include Ext::Mongoid::AutoFormatLocalizedAttributes
   include Mongoid::Timestamps
 
-  WORKFLOW_VALUES = [:normal, :administration_election, :proposal_available]
+  WORKFLOW_VALUES = [:workflow_normal, :workflow_administration_election, :workflow_proposal_available]
 
   belongs_to :organ
   has_many :position_applications

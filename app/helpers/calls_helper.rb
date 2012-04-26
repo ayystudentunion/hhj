@@ -19,4 +19,8 @@ module CallsHelper
   def free_positions_with_selected_applicants(call)
     free_positions(call).zip(call.selected_with_deputies).map(&:flatten)
   end
+
+  def workflow_values_with_names
+    Call::WORKFLOW_VALUES.map{|v| [Call.human_attribute_name(v), v]}
+  end
 end

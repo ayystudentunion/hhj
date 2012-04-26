@@ -158,6 +158,9 @@ fi:
       call:
         title: Paikkahaun otsikko
         workflow: Työnkulku
+        workflow_normal: Normaali menettely
+        workflow_administration_election: Hallintovaalimenettely
+        workflow_proposal_available: Esitys nähtävillä -menettely
         member_amount: Varsinaisia jäseniä
         deputy_amount: Varajäseniä
         quota_information: Lisätietoa käsittelijälle (kiintiöpaikkojen määrä jne.)
