@@ -1,5 +1,5 @@
 = form_for call, url: organ_call_path(organ_id: @organ._id, id: call._id), method: :put do |f|
-  .call-for-application
+  .call-for-application.handled
     h2 = call.title + ', ' + formatted_date(call.term_start, end_date: call.term_end)
     p.definition
       | #{t 'calls.show.looking_for'} #{formatted_looking_for(call)}

@@ -137,11 +137,9 @@ div#single-organ
           .hr
 
         - if @user.can_edit_call_results?
-          .call-for-application.open
           = render partial: 'call_results', collection: @calls, as: :call
           = render partial: 'handled_call_results', collection: @handled_calls, as: :call
         - else
-          .call-for-application.proposal
           = render partial: 'proposal_call_results', collection: @proposals, as: :call
 
         .button-row

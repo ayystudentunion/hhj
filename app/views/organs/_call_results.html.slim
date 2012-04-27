@@ -1,4 +1,4 @@
-.call-for-application
+.call-for-application.open
   h2 = call.title + ', ' + formatted_date(call.term_start, end_date: call.term_end)
   p.definition
     | #{Call.human_attribute_name(call.workflow)}: #{t 'calls.show.looking_for'} #{formatted_looking_for(call)}
