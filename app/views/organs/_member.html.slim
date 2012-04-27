@@ -1,12 +1,14 @@
 .member-card
   div.avatar
-  = f.submit class: 'submit btn remove-member', url: { action:"update"}, name: :resign, value: member._id
+  - if edit
+    = f.submit class: 'submit btn remove-member', url: { action:"update"}, name: :resign, value: member._id
   p
     a.name(href='#') = member.user.full_name
     br
     span.email = member.user.email
-  p.term
-    span.term = t(".#{member.position}") + ': '
-    br
-    = formatted_term_of(member)
+  - unless edit
+    p.term
+      span.term = t(".#{member.position}") + ': '
+      br
+      = formatted_term_of(member)
 

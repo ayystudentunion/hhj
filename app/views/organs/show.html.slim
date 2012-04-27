@@ -116,27 +116,33 @@ div#single-organ
               span.position Jäsenen toimenkuva
 
         .hr.unimplemented
+        .organ-members.hallopeds
+          h2
+            | #{t '.hallopeds'}
+            a.send-message.unimplemented(href='#') Lähetä ryhmäviesti
+            - unless @edit_hallopeds
+              a.edit-icon(href=organ_path(id: @organ._id, edit_hallopeds: true))
+          - if @edit_hallopeds
+            = form_for @organ, url: organ_path do |f|
+              .edit-members
+                = render partial: 'edit_members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair, locals: {f: f}
+                .member-card-empty.member(data-name=:position_member)
+                  .placeholder
+                    h2 = t 'organs.call_results.dragndrop_member_placeholder'
+                .arrow
+                .member-card-empty.deputy(data-name=:position_deputy)
+                  .placeholder
+                    h2 = t 'organs.call_results.dragndrop_deputy_placeholder'
+                .add-applicants.unimplemented
+                  input.field(type='text' placeholder='Lisää opiskelijaedustaja sähköpostiosoitteella')
+                    a.btn.add-row(href='#')
+                      span.plus-icon
+                .button-row
+                  a.btn(href=organ_path) #{t '.done_edit'}
+          - else
+            = render partial: 'members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair
 
-        = form_for @organ, url: organ_path do |f|
-          .organ-members
-            h2
-              | #{t '.hallopeds'}
-              a.send-message.unimplemented(href='#') Lähetä ryhmäviesti
-            - @organ.member_deputy_pairs.each do |member, deputy|
-              - unless member.nil?
-                = render partial: 'member', object: member, locals: {f: f}
-              - else
-                .member-card-empty.current-member
-                  .placeholder
-                    h2 = t '.member_missing_for_deputy'
-              .arrow
-              - unless deputy.nil?
-                = render partial: 'member', object: deputy, locals: {f: f}
-              - else
-                .member-card-empty.current-deputy
-                  .placeholder
-                    h2 = t '.deputy_missing_for_member'
-          .hr
+        .hr
 
         - if can_admin_calls?
           = render partial: 'call_results', collection: @calls, as: :call

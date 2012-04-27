@@ -39,6 +39,7 @@ class OrgansController < ApplicationController
     @proposals = @organ.calls.where(status: :proposed).asc(:date_end, :title)
     @handled_calls = @organ.calls.where(status: :handled).asc(:date_end, :title)
     @archived_calls = @organ.calls.where(status: :archived).asc(:date_end, :title)
+    @edit_hallopeds = params.include? :edit_hallopeds
     respond_to do |format|
       format.html
       format.json { render :json => @organ }

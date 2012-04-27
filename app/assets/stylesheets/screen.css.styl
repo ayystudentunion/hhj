@@ -516,7 +516,7 @@ a.btn:active, input.btn:active
               height 11px
               background url('../img/plus-icon.png') no-repeat center center
 
-      .organ-members, .call-for-application, .proposed-to-be-selected
+      .organ-members, .call-for-application, .proposed-to-be-selected, .edit-members
         h2
           .send-message
             font-size 12px
@@ -667,7 +667,7 @@ a.btn:active, input.btn:active
         .no-margin
           margin-right 0
 
-      .call-for-application
+      .call-for-application, .edit-members
         .column
           width 33%
           display inline-block
@@ -915,6 +915,17 @@ form.application-workflow
     top 8px
     left -2px
 
+a.add-row
+  padding 0
+  width 25px
+  height 23px
+  padding-top 2px
+  span.plus-icon
+    display inline-block
+    width 10px
+    height 11px
+    background url('../img/plus-icon.png') no-repeat center center
+
 a.add-members
   padding 0 13px 0 30px
   margin-bottom 3px
@@ -968,16 +979,6 @@ form.add_applicants, form.select_recipients, form.add_recipients
   input.wide
     width 491px
     margin 14px 6px 0 0
-  a.add-row
-    padding 0
-    width 25px
-    height 23px
-    padding-top 2px
-    span.plus-icon
-      display inline-block
-      width 10px
-      height 11px
-      background url('../img/plus-icon.png') no-repeat center center
 
 form.add_recipients
   margin-top 0

@@ -49,7 +49,7 @@ initOrganPage = (delegateFor) ->
       applicants.find('.member-card:even').removeClass('no-margin')
       applicants.find('.member-card:odd').addClass('no-margin')
 
-    $('.call-for-application.open .member-card').draggable
+    $('.call-for-application.open .member-card, .edit-members .member-card').draggable
       revert: 'invalid'
 
     $('.call-for-application.open .applicants').droppable
@@ -63,7 +63,7 @@ initOrganPage = (delegateFor) ->
         return false unless draggable.hasClass 'member-card'
         onSameCall $(@), draggable
 
-    $('.call-for-application.open .member-card-empty').droppable
+    $('.call-for-application.open .member-card-empty, .edit-members .member-card-empty').droppable
       activeClass: 'highlight-drop-area'
       accept: (draggable) ->
         return false unless draggable.hasClass 'member-card'
