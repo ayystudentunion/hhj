@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
@@ -6,8 +7,19 @@ FactoryGirl.define do
       _id        '4f7963bf91bc2bc1f6000001'
       first_name 'Eija'
       last_name  'Zitting'
-      email      'eija.zitting@ayy.fi'
+      email      'eija.zitting@sty.fi'
       phone      '+358 40 123 1234'
+      principal_name 'eizit@sty.fi'
+      role 'employee'
+    end
+    factory :aaro do
+      _id        '4f7963bf91bc2bc1f6000001'
+      first_name 'Aaro'
+      last_name  'Häkkinen'
+      email      'aaro.hakkinen@sty.fi'
+      phone      '+358 40 123 1234'
+      principal_name 'aaroha@sty.fi'
+      role 'admin_staff'
     end
     factory :student_martti do
       _id        '4f7963bf91bc2bc1f6000002'
