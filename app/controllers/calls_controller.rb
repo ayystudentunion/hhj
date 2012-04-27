@@ -2,6 +2,8 @@ require 'factory_girl_rails'
 
 class CallsController < ApplicationController
 
+  before_filter :authorize_call_admin, except: [:index, :show]
+
   def index
     @calls = Call.where(status: :open)
     respond_to do |format|
