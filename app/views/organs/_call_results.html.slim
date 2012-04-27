@@ -1,7 +1,7 @@
 .call-for-application
   h2 = call.title + ', ' + formatted_date(call.term_start, end_date: call.term_end)
   p.definition
-    | #{t 'calls.show.looking_for'} #{formatted_looking_for(call)}
+    | #{Call.human_attribute_name(call.workflow)}: #{t 'calls.show.looking_for'} #{formatted_looking_for(call)}
     br
     span.quota_information = call.quota_information
   div.selected
