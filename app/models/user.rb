@@ -20,7 +20,7 @@ class User
   end
 
   def university
-    university_domain.split(".").first
+    university_domain.split(".").first if university_domain
   end
 
   def self.update_or_create_from_env(env)

@@ -25,7 +25,8 @@ div#single-organ
             a(href='#') = @organ.name
             span.date
               = t(:modified) + ' ' + l(@organ.updated_at)
-            a.edit-icon.js-modal(href=edit_organ_path(id: @organ._id))
+            - if can_admin_organs?
+              a.edit-icon.js-modal(href=edit_organ_path(id: @organ._id))
           .item-row
             span.label
               = t :organization
@@ -47,8 +48,9 @@ div#single-organ
             = @organ.description
         em
           = t :has_open_positions
-        a.application-call.btn.js-modal(href=new_organ_call_path(organ_id:@organ._id))
-          = t :new_call_for_applications
+        - if can_admin_calls?
+          a.application-call.btn.js-modal(href=new_organ_call_path(organ_id:@organ._id))
+            = t :new_call_for_applications
         .hr
         form.message-for-organ.unimplemented
           textarea.wide(type='textarea' placeholder=t("placeholders.message_for_organ"))
@@ -136,7 +138,7 @@ div#single-organ
                     h2 = t '.deputy_missing_for_member'
           .hr
 
-        - if @user.can_edit_call_results?
+        - if can_admin_calls?
           = render partial: 'call_results', collection: @calls, as: :call
           = render partial: 'handled_call_results', collection: @handled_calls, as: :call
         - else

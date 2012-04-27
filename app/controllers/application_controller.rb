@@ -15,6 +15,9 @@ class ApplicationController < ActionController::Base
   helper_method :is_admin_staff?
   helper_method :is_in_current_university?
 
+  helper_method :can_admin_calls?
+  helper_method :can_admin_organs?
+
   layout :layout_by_context
 
   protected
@@ -28,7 +31,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_admin_staff?
-    is_in_current_university? and has_role("admin_staff")
+    is_in_current_university? and has_role?("admin_staff")
   end
 
   def is_in_current_university?
@@ -39,6 +42,28 @@ class ApplicationController < ActionController::Base
   def has_role?(role)
     return false if not @user
     @user.role == role
+  end
+
+  def can_admin_organs?
+    is_employee? or Rails.env.test?
+  end
+
+  def can_admin_calls?
+    is_admin_staff? or Rails.env.test?
+  end
+
+  def authorize_organ_admin
+    if not can_admin_organs?
+      render text: "Unauthorized", status: :unauthorized
+      return false
+    end
+  end
+
+  def authorize_call_admin
+    if not can_admin_calls?
+      render text: "Unauthorized", status: :unauthorized
+      return false
+    end
   end
 
   def set_fake_env_for_development
@@ -52,6 +77,7 @@ class ApplicationController < ActionController::Base
         request.env["A_SURNAME"] = "Zitting"
         request.env["A_MOBILE"] = "+358 40 123 1234"
         request.env["A_MAIL"] = "eija.zitting@ayy.fi"
+        request.env["A_HOME_ORGANIZATION"] = "sty.fi"
       end
     end
   end
