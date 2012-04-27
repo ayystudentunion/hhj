@@ -40,4 +40,7 @@ class User
     }
   end
 
+  def can_edit_call_results?
+    true
+  end
 end

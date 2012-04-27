@@ -103,13 +103,14 @@ fi:
       dragndrop_member_placeholder: Raahaa ja pudota jäsen tähän
       no_member_placeholder: Ei jäsentä
       no_deputy_placeholder: Ei varajäsentä
-      proposed_to_be_selected: Esitetään valittaviksi
       not_proposed_applicants: Muut hakijat
       applicants: Hakemuksen lähettäneet opiskelijat
       close_call: Sulje haku
       accept_proposal: Hyväksy esitettävät valituiksi
       save_applicants: Hyväksy valinnat
       propose_applicants: Esitä valittaviksi
+    proposal_call_results:
+      proposed_to_be_selected: Esitetään valittaviksi
     handled_call_results:
       position_member: Valitut jäsenet
       position_deputy: Valitut varajäsenet

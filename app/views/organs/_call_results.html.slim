@@ -5,7 +5,7 @@
     br
     span.quota_information = call.quota_information
   - if call.status == :proposed
-    h3 #{t '.proposed_to_be_selected'}:
+    h3 #{t 'organs.proposal_call_results.proposed_to_be_selected'}:
   div.selected
     - free_positions_with_selected_applicants(call).each do |position, member, deputy|
       - unless position == :position_deputy

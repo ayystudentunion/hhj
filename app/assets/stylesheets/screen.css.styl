@@ -516,7 +516,7 @@ a.btn:active, input.btn:active
               height 11px
               background url('../img/plus-icon.png') no-repeat center center
 
-      .organ-members, .call-for-application
+      .organ-members, .call-for-application, .proposed-to-be-selected
         h2
           .send-message
             font-size 12px
@@ -685,15 +685,20 @@ a.btn:active, input.btn:active
           .no-margin
             margin-right 0
 
-      .organ-members
+      .organ-members, .proposed-to-be-selected
         .member-card
           margin 11px 0 0 0
           vertical-align top
+          cursor default
         .arrow, .current-deputy, .current-member
           height 92px
           .placeholder
             h2
               margin-top 38px
+
+      .proposed-to-be-selected
+        .arrow
+          height 82px
 
       .sort-links
         width 100%

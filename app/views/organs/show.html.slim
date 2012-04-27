@@ -136,9 +136,13 @@ div#single-organ
                     h2 = t '.deputy_missing_for_member'
           .hr
 
-        .call-for-application.open
+        - if @user.can_edit_call_results?
+          .call-for-application.open
           = render partial: 'call_results', collection: @calls, as: :call
           = render partial: 'handled_call_results', collection: @handled_calls, as: :call
+        - else
+          .call-for-application.proposal
+          = render partial: 'proposal_call_results', collection: @proposals, as: :call
 
         .button-row
           a.hide-archived.btn(href='#' style='display:none;') = t '.hide_archived_calls'
