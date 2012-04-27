@@ -10,9 +10,36 @@ class ApplicationController < ActionController::Base
   before_filter :set_university
   before_filter :set_fixed_locale_for_admin_login
 
+  helper_method :is_student?
+  helper_method :is_employee?
+  helper_method :is_admin_staff?
+  helper_method :is_in_current_university?
+
   layout :layout_by_context
 
   protected
+
+  def is_student?
+    is_in_current_university? # TODO: how to determine student status
+  end
+
+  def is_employee?
+    is_in_current_university? and has_role?("employee")
+  end
+
+  def is_admin_staff?
+    is_in_current_university? and has_role("admin_staff")
+  end
+
+  def is_in_current_university?
+    return false if not @user
+    @user.university == @university.key
+  end
+
+  def has_role?(role)
+    return false if not @user
+    @user.role == role
+  end
 
   def set_fake_env_for_development
     # In order to run and test authentication in development

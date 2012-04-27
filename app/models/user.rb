@@ -7,6 +7,7 @@ class User
   field :pricipal_name, type: String
   field :first_name, type: String
   field :last_name, type: String
+  field :univesity_domain, type: String
   field :email, type: String
   field :phone, type: String
   field :role, type: String
@@ -16,6 +17,10 @@ class User
 
   def full_name
     first_name + ' ' + last_name
+  end
+
+  def university
+    university_domain.split(".").first
   end
 
   def self.update_or_create_from_env(env)
@@ -36,7 +41,8 @@ class User
       first_name: env["A_GIVEN_NAME"],
       last_name: env["A_SURNAME"],
       email: env["A_MAIL"],
-      phone: env["A_MOBILE"]
+      phone: env["A_MOBILE"],
+      university_domain: env["A_HOME_ORGANIZATION"]
     }
   end
 
