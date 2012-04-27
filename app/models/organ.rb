@@ -50,12 +50,6 @@ class Organ
     end
   end
 
-  def resign_member(id)
-    return if id.nil?
-    members.where(_id: id).update_all(current: false, resigned_date: Time.now.utc)
-  end
-
-
   def member_deputy_pairs
     members_with_deputies = self.members.current_members.map{|a| [a, a.current_deputy]}
     lone_deputies = self.members.current_deputies.select{|d| d.current_member.nil?}.map{|a| [nil, a]}

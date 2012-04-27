@@ -58,17 +58,12 @@ class OrgansController < ApplicationController
 
   def update # modify an existing organ
     organ = Organ.find(params[:id])
-
-    resign = params[:resign]
-    organ.resign_member(resign) if resign.present?
-
     new_organ = params[:organ]
     if new_organ
       selected_organization = new_organ[:organization].unshift(@university).reject(&:blank?).last
       new_organ = new_organ.merge(organization: selected_organization)
       organ.update_attributes!(new_organ)
     end
-
     respond_to do |format|
       format.html { redirect_to action: :show, id: organ._id }
     end
