@@ -36,7 +36,8 @@ module ApplicationHelper
   def login_link
     current = request.fullpath
     if Rails.env.development?
-      dev_login_path(target: current)
+      #dev_login_path(target: current)
+      dev_users_path(target: current)
     else
       "/Shibboleth.sso/Login?target=#{CGI.escape current}"
     end

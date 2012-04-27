@@ -9,6 +9,7 @@ class User
   field :last_name, type: String
   field :email, type: String
   field :phone, type: String
+  field :role, type: String
 
   has_many :position_applications
   has_many :members

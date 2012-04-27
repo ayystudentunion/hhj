@@ -27,13 +27,18 @@ class PagesController < ApplicationController
   end
 
   def dev_login
-    session[:test_user] = "eija"
+    session[:test_user] = params[:user] || "eija"
     redirect_to params[:target]
   end
 
   def dev_logout
     session[:test_user] = nil
     redirect_to "/"
+  end
+
+  def dev_users
+    @users = ["eija"]
+    render :dev_users, layout: false
   end
 
 end
