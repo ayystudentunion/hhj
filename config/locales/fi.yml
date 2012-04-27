@@ -117,9 +117,10 @@ fi:
       not_selected: Valitsematta jääneet
       archive_call: Arkistoi haku
     show:
-      hallopeds: Istuvat opiskelijaedustajat
       show_archived_calls: Näytä arkistoidut haut
       hide_archived_calls: Piilota arkistoidut haut
+    current_members:
+      hallopeds: Istuvat opiskelijaedustajat
       done_edit: Done
     members:
       member_missing_for_deputy: Ei jäsentä
