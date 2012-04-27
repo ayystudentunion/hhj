@@ -23,10 +23,17 @@ initOrganPage = (delegateFor) ->
       return false
 
   initCallSelectionDragNDrops = () ->
-    onSameCall = (elem1, elem2) ->
+    sameContext = (droppable, draggable) ->
       getCallFormId = (elem) ->
-        elem.parents('.call-for-application:first').find('form.edit_call').attr('id')
-      getCallFormId(elem1) == getCallFormId(elem2)
+        call = elem.parents('.call-for-application:first')
+        if call.length > 0
+          call.find('form.edit_call').attr('id')
+        else
+          elem.parents('form.edit_organ').attr('id')
+      droppableId = getCallFormId(droppable)
+      draggableId = getCallFormId(draggable)
+      droppableId? and draggableId? and droppableId == draggableId
+
 
     saveSelection = (droppable, draggable) ->
       form = draggable.find('form')
@@ -61,7 +68,7 @@ initOrganPage = (delegateFor) ->
         saveSelection(droppable, ui.draggable)
       accept: (draggable) ->
         return false unless draggable.hasClass 'member-card'
-        onSameCall $(@), draggable
+        sameContext $(@), draggable
 
     $('.call-for-application.open .member-card-empty, .edit-members .member-card-empty').droppable
       activeClass: 'highlight-drop-area'
@@ -69,7 +76,7 @@ initOrganPage = (delegateFor) ->
         return false unless draggable.hasClass 'member-card'
         return false if $(@).find('.member-card').length > 0
         return false if $(@).hasClass('no-deputy')
-        onSameCall $(@), draggable
+        sameContext $(@), draggable
       drop: (event, ui) ->
         droppable = $(@)
         droppable.prepend(ui.draggable)
