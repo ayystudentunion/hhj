@@ -36,14 +36,14 @@ initOrganPage = (delegateFor) ->
 
   initCallSelectionDragNDrops = () ->
     sameContext = (droppable, draggable) ->
-      getCallFormId = (elem) ->
+      getContextId = (elem) ->
         call = elem.parents('.call-for-application:first')
         if call.length > 0
           call.find('form.edit_call').attr('id')
         else
-          elem.parents('form.edit_organ').attr('id')
-      droppableId = getCallFormId(droppable)
-      draggableId = getCallFormId(draggable)
+          elem.parents('.organ-members').attr('class')
+      droppableId = getContextId(droppable)
+      draggableId = getContextId(draggable)
       droppableId? and draggableId? and droppableId == draggableId
 
 
