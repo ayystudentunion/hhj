@@ -1,14 +1,14 @@
 h2
   | #{t '.hallopeds'}
   a.send-message.unimplemented(href='#') Lähetä ryhmäviesti
-  - unless @edit_hallopeds
+  - if can_admin_calls? and not @edit_hallopeds
     a.edit-icon(href=organ_path(id: @organ._id, edit_hallopeds: true))
 - if @edit_hallopeds
   = form_for @organ, url: organ_path do |f|
     .edit-members
       = render partial: 'edit_members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair, locals: {f: f}
       .member-card-empty.member(data-name=:position_member)
-        .placeholder
+        .placeholderedit-icon
           h2 = t 'organs.call_results.dragndrop_member_placeholder'
       .arrow
       .member-card-empty.deputy(data-name=:position_deputy)

@@ -1,7 +1,8 @@
 .call
   h2
     a(href=call_path(id:call._id)) = call.title
-    a.edit-icon.js-modal(href=edit_call_path(id: call.id))    
+    - if can_admin_calls?
+      a.edit-icon.js-modal(href=edit_call_path(id: call.id))    
   .item-block
     .label #{t "calls.show.submission_dates"}:
     .text = formatted_date(call.date_start, end_date: call.date_end)
