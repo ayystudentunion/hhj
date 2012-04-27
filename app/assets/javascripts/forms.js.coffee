@@ -22,6 +22,18 @@ initOrganPage = (delegateFor) ->
       toggleArchived false
       return false
 
+  initRemoveMember = () ->
+    $('.btn.remove-member').click () ->
+      form = $(@).parents('form.edit_member')
+      form.find('#member_current').val false
+      superagent.post(form.attr 'action').
+        type('form-data').
+        send(form.serialize()).
+        end()
+      $(@).parents('.member-card').fadeOut 'fast', ->
+        $(@).remove()
+      return false
+
   initCallSelectionDragNDrops = () ->
     sameContext = (droppable, draggable) ->
       getCallFormId = (elem) ->
@@ -89,6 +101,7 @@ initOrganPage = (delegateFor) ->
 
   initToggleArchived()
   initCallSelectionDragNDrops()
+  initRemoveMember()
 
 
 initPopups = (delegateFor) ->

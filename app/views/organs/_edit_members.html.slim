@@ -1,13 +1,13 @@
 - member, deputy = member_deputy_pair
 .member-card-empty.member(data-name=:position_member)
   - unless member.nil?
-    = render :partial => 'member', object: member, locals: {edit: true, f: f}
+    = render :partial => 'member', object: member, locals: { edit: true }
   .placeholder
     h2 = t 'organs.call_results.dragndrop_member_placeholder'
 .arrow
 .member-card-empty.deputy(data-name=:position_deputy)
   - unless deputy.nil?
-    = render :partial => 'member', object: deputy, locals: {edit: true, f: f}
+    = render :partial => 'member', object: deputy, locals: { edit: true }
   .placeholder
     h2 = t 'organs.call_results.dragndrop_deputy_placeholder'
 

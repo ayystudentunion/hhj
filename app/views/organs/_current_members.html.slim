@@ -4,21 +4,20 @@ h2
   - if can_admin_calls? and not @edit_hallopeds
     a.edit-icon(href=organ_path(id: @organ._id, edit_hallopeds: true))
 - if @edit_hallopeds
-  = form_for @organ, url: organ_path do |f|
-    .edit-members
-      = render partial: 'edit_members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair, locals: {f: f}
-      .member-card-empty.member(data-name=:position_member)
-        .placeholderedit-icon
-          h2 = t 'organs.call_results.dragndrop_member_placeholder'
-      .arrow
-      .member-card-empty.deputy(data-name=:position_deputy)
-        .placeholder
-          h2 = t 'organs.call_results.dragndrop_deputy_placeholder'
-      .add-applicants.unimplemented
-        input.field(type='text' placeholder='Lisää opiskelijaedustaja sähköpostiosoitteella')
-          a.btn.add-row(href='#')
-            span.plus-icon
-      .button-row
-        a.btn(href=organ_path) #{t '.done_edit'}
+  .edit-members
+    = render partial: 'edit_members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair
+    .member-card-empty.member(data-name=:position_member)
+      .placeholder
+        h2 = t 'organs.call_results.dragndrop_member_placeholder'
+    .arrow
+    .member-card-empty.deputy(data-name=:position_deputy)
+      .placeholder
+        h2 = t 'organs.call_results.dragndrop_deputy_placeholder'
+    .add-applicants.unimplemented
+      input.field(type='text' placeholder='Lisää opiskelijaedustaja sähköpostiosoitteella')
+        a.btn.add-row(href='#')
+          span.plus-icon
+    .button-row
+      a.btn(href=organ_path) #{t '.done_edit'}
 - else
   = render partial: 'members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair

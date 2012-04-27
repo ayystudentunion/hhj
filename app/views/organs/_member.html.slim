@@ -1,7 +1,12 @@
 .member-card
   div.avatar
   - if edit
-    = f.submit class: 'submit btn remove-member', url: { action:"update"}, name: :resign, value: member._id
+    = form_for member, url: organ_member_path(organ_id: @organ._id, id: member._id, format: :json), method: :put do |f|
+      = f.hidden_field :current
+      = f.hidden_field :position
+      = f.hidden_field :member, value: member[:member_id]
+      = f.hidden_field :deputy, value: member[:deputy_id]
+      a.submit.btn.remove-member(href='#')
   p
     a.name(href='#') = member.user.full_name
     br

@@ -19,6 +19,7 @@ Halloped::Application.routes.draw do
 
     resources :organs do
       resources :calls
+      resources :members
     end
 
     resources :organizations
