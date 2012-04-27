@@ -1,5 +1,7 @@
 class PositionApplicationsController < ApplicationController
 
+  before_filter :authorize_call_admin, except: [:index, :show]
+
   def index
   end
 
