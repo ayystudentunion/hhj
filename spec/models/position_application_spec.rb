@@ -24,7 +24,7 @@ describe PositionApplication do
 
     it 'can mark applicant as not selected' do
       application = FactoryGirl.create(:kirjakerho_application)
-      application.mark_as_not_selected!
+      application.to_not_selected!
       PositionApplication.all.each do |a|
         a.selected_as.should == nil
       end
@@ -33,9 +33,9 @@ describe PositionApplication do
     it 'can mark multiple applications according to selections' do
       applications = FactoryGirl.create_list(:kirjakerho_application, 7)
 
-      applications[0..2].each{ |a| a.mark_as_deputy!(nil) }
-      applications[3..4].each{ |a| a.mark_as_member!(nil) }
-      applications[5..5].each{ |a| a.mark_as_not_selected! }
+      applications[0..2].each{ |a| a.to_deputy!(nil) }
+      applications[3..4].each{ |a| a.to_member!(nil) }
+      applications[5..5].each{ |a| a.to_not_selected! }
 
 
       PositionApplication.where(selected_as: :position_deputy).count.should == 3
@@ -46,14 +46,14 @@ describe PositionApplication do
     it 'can set member for deputy and deputy for member' do
       applications = FactoryGirl.create_list(:kirjakerho_application, 2)
 
-      applications[0].mark_as_member!(nil)
-      applications[1].mark_as_deputy!(applications[0].id.to_s)
+      applications[0].to_member!(nil)
+      applications[1].to_deputy!(applications[0].id.to_s)
 
       PositionApplication.where(selected_as: :position_deputy).first.member.id.to_s.should == applications[0].id.to_s
       PositionApplication.where(selected_as: :position_member).first.deputy.id.to_s.should == applications[1].id.to_s
 
-      applications[0].reload.mark_as_deputy!(nil)
-      applications[1].reload.mark_as_member!(applications[0].id.to_s)
+      applications[0].reload.to_deputy!(nil)
+      applications[1].reload.to_member!(applications[0].id.to_s)
 
       PositionApplication.where(selected_as: :position_deputy).first.member.id.to_s.should == applications[1].id.to_s
       PositionApplication.where(selected_as: :position_member).first.deputy.id.to_s.should == applications[0].id.to_s
@@ -63,9 +63,9 @@ describe PositionApplication do
     it 'clears old deputy-member relations when deputy changes' do
       applications = FactoryGirl.create_list(:kirjakerho_application, 3)
 
-      applications[0].mark_as_member!(nil)
-      applications[1].mark_as_deputy!(applications[0].id.to_s)
-      applications[2].mark_as_deputy!(applications[0].id.to_s)
+      applications[0].to_member!(nil)
+      applications[1].to_deputy!(applications[0].id.to_s)
+      applications[2].to_deputy!(applications[0].id.to_s)
 
       PositionApplication.find(applications[0].id).deputy.id.should == applications[2].id
       PositionApplication.find(applications[0].id).member.should == nil
@@ -78,9 +78,9 @@ describe PositionApplication do
     it 'can reset deputy/member' do
       applications = FactoryGirl.create_list(:kirjakerho_application, 2)
 
-      applications[0].mark_as_deputy!(nil)
-      applications[1].mark_as_member!(applications[0].id.to_s)
-      applications[0].reload.mark_as_deputy!(nil)
+      applications[0].to_deputy!(nil)
+      applications[1].to_member!(applications[0].id.to_s)
+      applications[0].reload.to_deputy!(nil)
 
       PositionApplication.all.each do |position_application|
         position_application.deputy.should == nil
@@ -92,9 +92,9 @@ describe PositionApplication do
     it 'resets deputy/member if unselected' do
       applications = FactoryGirl.create_list(:kirjakerho_application, 2)
 
-      applications[0].mark_as_deputy!(nil)
-      applications[1].mark_as_member!(applications[0].id.to_s)
-      applications[0].reload.mark_as_not_selected!
+      applications[0].to_deputy!(nil)
+      applications[1].to_member!(applications[0].id.to_s)
+      applications[0].reload.to_not_selected!
       check_all_self_references_are_nil.call
     end
   end

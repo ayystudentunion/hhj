@@ -36,11 +36,11 @@ class PositionApplicationsController < ApplicationController
     position_application_params = params[:position_application]
 
     if position_application_params[:position] == :position_member.to_s
-      position_application.mark_as_member! position_application_params[:deputy]
+      position_application.to_member! position_application_params[:deputy]
     elsif position_application_params[:position] == :position_deputy.to_s
-      position_application.mark_as_deputy! position_application_params[:member]
+      position_application.to_deputy! position_application_params[:member]
     else
-      position_application.mark_as_not_selected!
+      position_application.to_not_selected!
     end
     respond_to do |format|
       format.json { render :json => position_application }
