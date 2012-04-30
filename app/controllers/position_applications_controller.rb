@@ -34,14 +34,7 @@ class PositionApplicationsController < ApplicationController
   def update
     position_application = PositionApplication.find params[:id]
     position_application_params = params[:position_application]
-
-    if position_application_params[:position] == :position_member.to_s
-      position_application.to_member! position_application_params[:deputy]
-    elsif position_application_params[:position] == :position_deputy.to_s
-      position_application.to_deputy! position_application_params[:member]
-    else
-      position_application.to_not_selected!
-    end
+    position_application.set_position! position_application_params[:position], position_application_params[:deputy]
     respond_to do |format|
       format.json { render :json => position_application }
     end

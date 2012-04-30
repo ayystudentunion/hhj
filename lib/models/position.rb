@@ -22,6 +22,16 @@ module Models
       id.blank? ? nil : self.class.find(id)
     end
 
+    def set_position!(to_position, partner_id)
+      return to_not_selected! if to_position.nil?
+      case to_position.to_sym
+        when :position_member then to_member! partner_id
+        when :position_deputy then to_deputy! partner_id
+      end
+    end
+
+    protected
+
     def with_deputy_and_member_relations_cleared(id)
       position = nil_or_find(id)
       unless position.nil?
