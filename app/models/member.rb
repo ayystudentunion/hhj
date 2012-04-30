@@ -11,11 +11,11 @@ class Member
   validates :position, presence: true, :format => { :with => /(position_member|position_deputy)/ }
 
   field :halloped, type: Boolean, default: true
-  field :position, type: Symbol
   field :current, type: Boolean, default: true
   field :term_start, type: Date
   field :term_end, type: Date
   field :removed_date, type: Date
+  position_field :position
 
   scope :current_members, where(position: :position_member, current: true)
   scope :current_deputies, where(position: :position_deputy, current: true)

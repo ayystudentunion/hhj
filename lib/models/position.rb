@@ -1,12 +1,17 @@
 module Models
   module Position
-
-    def self.included(base)
-      base.belongs_to :member, :class_name => base.name, :inverse_of => :deputy
-      base.has_one :deputy, :class_name => base.name, :inverse_of => :member
+    extend ActiveSupport::Concern
+    included do
+      belongs_to :member, :class_name => name, :inverse_of => :deputy
+      has_one :deputy, :class_name => name, :inverse_of => :member
+      class_eval do
+        def self.position_field(symbol)
+          field symbol, type: Symbol
+        end
+      end
     end
 
-    def nil_or_find(id)
+    def self.nil_or_find(id)
       id.blank? ? nil : self.find(id)
     end
 
