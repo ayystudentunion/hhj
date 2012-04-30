@@ -33,8 +33,8 @@ class PositionApplicationsController < ApplicationController
 
   def update
     position_application = PositionApplication.find params[:id]
-    position_application_params = params[:position_application]
-    position_application.set_position! position_application_params[:position], position_application_params[:deputy]
+    position_params = params[:position_application]
+    position_application.set_position! position_params.merge(position: position_params[:selected_as])
     respond_to do |format|
       format.json { render :json => position_application }
     end

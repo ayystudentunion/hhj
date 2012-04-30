@@ -22,11 +22,11 @@ module Models
       id.blank? ? nil : self.class.find(id)
     end
 
-    def set_position!(to_position, partner_id)
-      return to_not_selected! if to_position.nil?
-      case to_position.to_sym
-        when :position_member then to_member! partner_id
-        when :position_deputy then to_deputy! partner_id
+    def set_position!(params)
+      return to_not_selected! if params[:position].nil?
+      case params[:position].to_sym
+        when :position_member then to_member! params[:deputy]
+        when :position_deputy then to_deputy! params[:member]
       end
     end
 

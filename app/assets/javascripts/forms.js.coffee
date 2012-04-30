@@ -49,15 +49,15 @@ initOrganPage = (delegateFor) ->
 
     saveSelection = (droppable, draggable) ->
       form = draggable.find('form')
-      member = form.find('#position_application_member')
-      deputy = form.find('#position_application_deputy')
+      member = form.find('.value_member')
+      deputy = form.find('.value_deputy')
       member.val ''
       deputy.val ''
       if droppable.hasClass 'deputy'
         member.val droppable.prevAll('.member:first').find('.member-card').data('id')
       else if droppable.hasClass 'member'
         deputy.val droppable.nextAll('.deputy:first').find('.member-card').data('id')
-      form.find('#position_application_position').val droppable.data('name')
+      form.find('.value_position').val droppable.data('name')
       superagent.post(form.attr 'action').
         type('form-data').
         send(form.serialize()).
