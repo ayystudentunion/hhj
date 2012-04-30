@@ -6,8 +6,6 @@ class PositionApplication
 
   belongs_to :call
   belongs_to :user
-  belongs_to :member, :class_name => 'PositionApplication', :inverse_of => :deputy
-  has_one :deputy, :class_name => 'PositionApplication', :inverse_of => :member
 
   validates :position, presence: true, :format => { :with => /(position_member|position_deputy|position_both)/ }
   validates :selected_as, allow_nil: true, inclusion: { in:  SELECTED_AS_VALUES }
@@ -30,7 +28,5 @@ class PositionApplication
   def nil_or_find(id)
     id.blank? ? nil : PositionApplication.find(id)
   end
-
-
 
 end

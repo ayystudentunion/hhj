@@ -1,6 +1,7 @@
 class Member
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Models::Position
 
   belongs_to :organ
   belongs_to :user

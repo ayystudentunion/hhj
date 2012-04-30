@@ -1,5 +1,15 @@
 module Models
   module Position
+
+    def self.included(base)
+      base.belongs_to :member, :class_name => base.name, :inverse_of => :deputy
+      base.has_one :deputy, :class_name => base.name, :inverse_of => :member
+    end
+
+    def nil_or_find(id)
+      id.blank? ? nil : self.find(id)
+    end
+
     def with_deputy_and_member_relations_cleared(id)
       position = nil_or_find(id)
       unless position.nil?
