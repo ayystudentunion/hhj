@@ -1,18 +1,25 @@
 module Models
   module Position
     extend ActiveSupport::Concern
+
+    POSITION_VALUES = [:position_member, :position_deputy]
+
     included do
       belongs_to :member, :class_name => name, :inverse_of => :deputy
       has_one :deputy, :class_name => name, :inverse_of => :member
+
       class_eval do
         def self.position_field(symbol)
+          validates symbol, allow_nil: true, inclusion: { in:  POSITION_VALUES }
           field symbol, type: Symbol
+          scope :current_members, where(symbol => :position_member, current: true)
+          scope :current_deputies, where(symbol => :position_deputy, current: true)
         end
       end
     end
 
-    def self.nil_or_find(id)
-      id.blank? ? nil : self.find(id)
+    def nil_or_find(id)
+      id.blank? ? nil : self.class.find(id)
     end
 
     def with_deputy_and_member_relations_cleared(id)
