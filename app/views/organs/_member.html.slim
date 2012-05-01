@@ -1,11 +1,11 @@
-.member-card
+.member-card(data-id=member._id)
   div.avatar
   - if edit
     = form_for member, url: organ_member_path(organ_id: @organ._id, id: member._id, format: :json), method: :put do |f|
       = f.hidden_field :current
-      = f.hidden_field :position
-      = f.hidden_field :member, value: member[:member_id]
-      = f.hidden_field :deputy, value: member[:deputy_id]
+      = f.hidden_field :position, class: :value_position
+      = f.hidden_field :member, value: member[:member_id], class: :value_member
+      = f.hidden_field :deputy, value: member[:deputy_id], class: :value_deputy
       a.submit.btn.remove-member(href='#')
   p
     a.name(href='#') = member.user.full_name

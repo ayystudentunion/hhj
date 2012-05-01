@@ -4,19 +4,22 @@ module Models
 
     POSITION_VALUES = [:position_member, :position_deputy]
 
+    module ClassMethods
+      def position_field_symbol
+        @symbol
+      end
+      def position_field(symbol)
+        @symbol = symbol
+        validates position_field_symbol, allow_nil: true, inclusion: { in:  POSITION_VALUES }
+        field position_field_symbol, type: Symbol
+        scope :current_members, where(position_field_symbol => :position_member, current: true)
+        scope :current_deputies, where(position_field_symbol => :position_deputy, current: true)
+      end
+    end
+
     included do
       belongs_to :member, :class_name => name, :inverse_of => :deputy
       has_one :deputy, :class_name => name, :inverse_of => :member
-
-      class_eval do
-        def self.position_field(symbol)
-          @@position_field_symbol = symbol
-          validates @@position_field_symbol, allow_nil: true, inclusion: { in:  POSITION_VALUES }
-          field @@position_field_symbol, type: Symbol
-          scope :current_members, where(@@position_field_symbol => :position_member, current: true)
-          scope :current_deputies, where(@@position_field_symbol => :position_deputy, current: true)
-        end
-      end
     end
 
     def nil_or_find(id)
@@ -24,8 +27,8 @@ module Models
     end
 
     def set_position!(params)
-      return to_not_selected! if params[@@position_field_symbol].nil?
-      case params[@@position_field_symbol].to_sym
+      return to_not_selected! if params[self.class.position_field_symbol].blank?
+      case params[self.class.position_field_symbol].to_sym
         when :position_member then to_member! params[:deputy]
         when :position_deputy then to_deputy! params[:member]
       end
@@ -44,21 +47,21 @@ module Models
     end
 
     def to_member!(deputy_id)
-      self[@@position_field_symbol] = :position_member
+      self[self.class.position_field_symbol] = :position_member
       self.member = nil
       self.deputy = with_deputy_and_member_relations_cleared(deputy_id)
       save!
     end
 
     def to_deputy!(member_id)
-      self[@@position_field_symbol] = :position_deputy
+      self[self.class.position_field_symbol] = :position_deputy
       self.deputy = nil
       self.member = with_deputy_and_member_relations_cleared(member_id)
       save!
     end
 
     def to_not_selected!
-      self[@@position_field_symbol] = nil
+      self[self.class.position_field_symbol] = nil
       self.member = nil
       self.deputy = nil
       save!
@@ -68,10 +71,10 @@ module Models
       def has_position(relation, allowed_position)
         other = send(relation)
         return if other.nil?
-        if other[@@position_field_symbol] != allowed_position
+        if other[self.class.position_field_symbol] != allowed_position
           errors.add(
               relation, errors.generate_message(
-                relation, @@position_field_symbol))
+                relation, self.class.position_field_symbol))
         end
       end
       has_position :deputy, :position_deputy
