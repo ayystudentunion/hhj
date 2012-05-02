@@ -73,6 +73,7 @@ class ApplicationController < ActionController::Base
     if Rails.env.development? || Rails.env.test?
       test_user = session[:test_user]
       if test_user == "eija"
+        FactoryGirl.create :eija
         request.env["A_PRINCIPAL_NAME"] = "eizit@sty.fi"
         request.env["A_GIVEN_NAME"] = "Eija"
         request.env["A_SURNAME"] = "Zitting"
@@ -80,6 +81,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MAIL"] = "eija.zitting@sty.fi"
         request.env["A_HOME_ORGANIZATION"] = "sty.fi"
       elsif test_user == "aaro"
+        FactoryGirl.create :aaro
         request.env["A_PRINCIPAL_NAME"] = "aaroha@sty.fi"
         request.env["A_GIVEN_NAME"] = "Aaro"
         request.env["A_SURNAME"] = "Häkkinen"
@@ -87,6 +89,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MAIL"] = "aaro.hakkinen@sty.fi"
         request.env["A_HOME_ORGANIZATION"] = "sty.fi"
       elsif test_user == "martti"
+        FactoryGirl.create :martti
         request.env["A_PRINCIPAL_NAME"] = 'marpul@sty.fi'
         request.env["A_GIVEN_NAME"] = "Martti"
         request.env["A_SURNAME"] = "Pulliainen"
