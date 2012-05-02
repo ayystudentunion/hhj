@@ -4,7 +4,7 @@ class User
 
   validates :first_name, :last_name, :email, allow_blank: false, presence: true
 
-  field :pricipal_name, type: String
+  field :principal_name, type: String
   field :first_name, type: String
   field :last_name, type: String
   field :univesity_domain, type: String
