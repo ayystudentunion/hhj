@@ -26,6 +26,10 @@ module Models
       id.blank? ? nil : self.class.find(id)
     end
 
+    def update_attributes(attributes = {}, options = {})
+      super(attributes.except(:position, :member, :deputy), options)
+    end
+
     def set_position!(params)
       return to_not_selected! if params[self.class.position_field_symbol].blank?
       case params[self.class.position_field_symbol].to_sym
