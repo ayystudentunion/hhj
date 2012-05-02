@@ -15,9 +15,11 @@ class Member
   field :removed_date, type: Date
   position_field :position
 
-  scope :current_hallopeds, members.where(current: true, halloped: true)
-  scope :current_members, members.where(current: true)
-  scope :current_deputies, deputies.where(current: true)
+  scope :currents, where(current: true)
+  scope :hallopeds, where(halloped: true)
+  scope :current_hallopeds, currents.hallopeds
+  scope :current_members, currents.members
+  scope :current_deputies, currents.deputies
 
   def current_deputy
     return nil if deputy.nil?
