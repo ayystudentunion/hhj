@@ -27,7 +27,8 @@ class User
     attrs = env_to_attributes(env)
     pn = attrs[:principal_name]
     if pn
-      user = find_or_create_by principal_name: pn
+      user = User.where(:$or => [{email: attrs[:email]}, {principal_name: pn}]).first
+      user = User.create! attrs[:email] if user.nil?
       user.update_attributes!(attrs)
       user
     end
