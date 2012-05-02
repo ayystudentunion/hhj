@@ -13,8 +13,10 @@ h2
     .member-card-empty.deputy(data-name=:position_deputy)
       .placeholder
         h2 = t 'organs.call_results.dragndrop_deputy_placeholder'
-    .add-applicants.unimplemented
-      input.field(type='text' placeholder='Lisää opiskelijaedustaja sähköpostiosoitteella')
+    .add-member
+      = form_for [@organ, @new_member], url: organ_members_path(organ_id: @organ.id) do |f|
+        input.field(type='text' placeholder=t('.add_member_by_email') name='member[email]')
+        = f.hidden_field :position, value: :position_member
         a.btn.add-row(href='#')
           span.plus-icon
     .button-row

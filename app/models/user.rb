@@ -2,7 +2,7 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  validates :first_name, :last_name, :email, allow_blank: false, presence: true
+  validates :email, :presence => true, :email => true
 
   field :principal_name, type: String
   field :first_name, type: String
@@ -16,7 +16,7 @@ class User
   has_many :members
 
   def full_name
-    first_name + ' ' + last_name
+    [first_name, last_name].reject(&:blank?).join(' ')
   end
 
   def university

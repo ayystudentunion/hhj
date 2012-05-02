@@ -13,6 +13,14 @@ class MembersController < ApplicationController
   end
 
   def create
+    @organ = Organ.find(params[:organ_id])
+    member_params = params[:member]
+    user = User.find_or_create_by(email: member_params[:email])
+    user.save!
+    @member = Member.create! member_params.merge(user: user, organ: @organ)
+    respond_to do |format|
+      format.html { render partial: 'organs/member', locals: {edit: true, member: @member} }
+    end
   end
 
   def update

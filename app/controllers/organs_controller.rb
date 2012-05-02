@@ -40,6 +40,7 @@ class OrgansController < ApplicationController
     @handled_calls = @organ.calls.where(status: :handled).asc(:date_end, :title)
     @archived_calls = @organ.calls.where(status: :archived).asc(:date_end, :title)
     @edit_hallopeds = params.include? :edit_hallopeds
+    @new_member = Member.new
     respond_to do |format|
       format.html
       format.json { render :json => @organ }
@@ -58,12 +59,10 @@ class OrgansController < ApplicationController
 
   def update # modify an existing organ
     organ = Organ.find(params[:id])
-    new_organ = params[:organ]
-    if new_organ
-      selected_organization = new_organ[:organization].unshift(@university).reject(&:blank?).last
-      new_organ = new_organ.merge(organization: selected_organization)
-      organ.update_attributes!(new_organ)
-    end
+    organ_params = params[:organ]
+    selected_organization = organ_params[:organization].unshift(@university).reject(&:blank?).last
+    organ_params = organ_params.merge(organization: selected_organization)
+    organ.update_attributes!(organ_params)
     respond_to do |format|
       format.html { redirect_to action: :show, id: organ._id }
     end

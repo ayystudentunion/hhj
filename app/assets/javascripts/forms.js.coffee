@@ -34,6 +34,22 @@ initOrganPage = (delegateFor) ->
         $(@).remove()
       return false
 
+  initAddMember = () ->
+    $('.add-member .btn').click () ->
+      email = $(@).prev('input').val()
+      form = $(@).parents('form.new_member')
+      hallopeds = $(@).parents('.hallopeds')
+      superagent.post(form.attr 'action').
+        type('form-data').
+        send(form.serialize()).
+        end (response) ->
+          lastMemberSlot = hallopeds.find('.member-card-empty.member:last')
+          placeHolder = lastMemberSlot.html()
+          lastMemberSlot.html(response.text).append placeHolder
+          lastMemberSlot.find('.member-card').draggable
+            revert: 'invalid'
+      return false
+
   initCallSelectionDragNDrops = () ->
     sameContext = (droppable, draggable) ->
       getContextId = (elem) ->
@@ -102,6 +118,7 @@ initOrganPage = (delegateFor) ->
   initToggleArchived()
   initCallSelectionDragNDrops()
   initRemoveMember()
+  initAddMember()
 
 
 initPopups = (delegateFor) ->

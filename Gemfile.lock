@@ -245,6 +245,9 @@ GEM
     uglifier (1.2.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    valid_email (0.0.4)
+      activemodel
+      mail
     wait_for (0.1.1)
     warden (1.1.1)
       rack (>= 1.0)
@@ -280,6 +283,7 @@ DEPENDENCIES
   slim
   stylus
   uglifier (>= 1.0.3)
+  valid_email
   wait_for
   wicked_pdf
   wkhtmltopdf-binary

@@ -8,9 +8,12 @@
       = f.hidden_field :deputy, value: member[:deputy_id], class: :value_deputy
       a.submit.btn.remove-member(href='#')
   p
-    a.name(href='#') = member.user.full_name
-    br
-    span.email = member.user.email
+    - if member.user.full_name.blank?
+      p.email = member.user.email
+    - else
+      a.name(href='#') = member.user.full_name
+      br
+      span.email = member.user.email
   - unless edit
     p.term
       span.term = t(".#{member.position}") + ': '

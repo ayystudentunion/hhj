@@ -122,6 +122,7 @@ fi:
     current_members:
       hallopeds: Istuvat opiskelijaedustajat
       done_edit: Done
+      add_member_by_email: Lisää opiskelijaedustaja sähköpostiosoitteella
     members:
       member_missing_for_deputy: Ei jäsentä
       deputy_missing_for_member: Ei varajäsentä
@@ -228,6 +229,11 @@ fi:
               position: "Merkitse ensin haluttu hakijan varajäsen varajäseneksi"
             member:
               position: "Merkitse ensin haluttu varajäsenen jäsen jäseneksi"
+
+  valid_email:
+    validations:
+      email:
+        invalid: Virheellinen sähköpostiosoite
 
   modals:
     close: Sulje
