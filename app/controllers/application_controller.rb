@@ -89,7 +89,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MAIL"] = "aaro.hakkinen@sty.fi"
         request.env["A_HOME_ORGANIZATION"] = "sty.fi"
       elsif test_user == "martti"
-        FactoryGirl.create :martti
+        FactoryGirl.create :student_martti
         request.env["A_PRINCIPAL_NAME"] = 'marpul@sty.fi'
         request.env["A_GIVEN_NAME"] = "Martti"
         request.env["A_SURNAME"] = "Pulliainen"
