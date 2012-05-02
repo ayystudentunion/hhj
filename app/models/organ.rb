@@ -51,7 +51,7 @@ class Organ
   end
 
   def member_deputy_pairs
-    members_with_deputies = self.members.current_members.map{|a| [a, a.current_deputy]}
+    members_with_deputies = self.members.current_members.map{|a| [a, a.current_deputy]}.sort_by{|m,d| d.nil? ? 1 : 0}
     lone_deputies = self.members.current_deputies.select{|d| d.current_member.nil?}.map{|a| [nil, a]}
     members_with_deputies + lone_deputies
   end
