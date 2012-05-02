@@ -2,14 +2,18 @@
 loadFragment = (locale, university, controller, param, modal) ->
   controller ?= ""
   param      ?= ""
+  getParams  = null
 
   url = "/#{locale}/#{university}"
   if controller
     url += "/#{controller}"
     if param
-      url += "/#{param}"
-
+      rest = param.split('?')
+      getParams = rest[1]
+      url += "/#{rest[0]}"
   url += ".fragment"
+  if getParams
+    url += "?#{getParams}"
 
   contentWrap = $('#page-content')
   cached.getDOM url, (error, dom) ->
@@ -19,7 +23,7 @@ loadFragment = (locale, university, controller, param, modal) ->
 testEnvironment = () -> $('body').attr('data-env') == 'test'
 
 init_routing = () ->
-  return if not History.enabled or testEnvironment()
+  return  if not History.enabled or testEnvironment()
   crossroads.addRoute "/{locale}/{university}/:controller:/:param:", loadFragment
   # crossroads.routed.add(console.log, console);
 
