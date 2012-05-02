@@ -28,7 +28,7 @@ class PagesController < ApplicationController
 
   def dev_login
     session[:test_user] = params[:user] || "eija"
-    redirect_to params[:target]
+    redirect_to(params[:target] || "/")
   end
 
   def dev_logout

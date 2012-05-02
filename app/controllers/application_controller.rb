@@ -46,11 +46,11 @@ class ApplicationController < ActionController::Base
   end
 
   def can_admin_organs?
-    is_employee? or Rails.env.test?
+    is_admin_staff?
   end
 
   def can_admin_calls?
-    is_admin_staff? or Rails.env.test?
+    is_employee?
   end
 
   def authorize_organ_admin
@@ -72,7 +72,7 @@ class ApplicationController < ActionController::Base
     # environment. Add fake Shibboleth variables to request env
     if Rails.env.development? || Rails.env.test?
       test_user = session[:test_user]
-      if test_user == "eija" || Rails.env.test?
+      if test_user == "eija"
         request.env["A_PRINCIPAL_NAME"] = "eizit@sty.fi"
         request.env["A_GIVEN_NAME"] = "Eija"
         request.env["A_SURNAME"] = "Zitting"
@@ -85,6 +85,13 @@ class ApplicationController < ActionController::Base
         request.env["A_SURNAME"] = "Häkkinen"
         request.env["A_MOBILE"] = "+358 40 123 1234"
         request.env["A_MAIL"] = "aaro.hakkinen@sty.fi"
+        request.env["A_HOME_ORGANIZATION"] = "sty.fi"
+      elsif test_user == "martti"
+        request.env["A_PRINCIPAL_NAME"] = 'marpul@sty.fi'
+        request.env["A_GIVEN_NAME"] = "Martti"
+        request.env["A_SURNAME"] = "Pulliainen"
+        request.env["A_MOBILE"] = "+358 40 555 4321"
+        request.env["A_MAIL"] = "martti@sty.fi"
         request.env["A_HOME_ORGANIZATION"] = "sty.fi"
       end
     end

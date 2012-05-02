@@ -46,11 +46,11 @@ div#single-organ
               = @organ.manager_name
           .item-row
             = @organ.description
-        em
-          = t :has_open_positions
         - if can_admin_calls?
-          a.application-call.btn.js-modal(href=new_organ_call_path(organ_id:@organ._id))
-            = t :new_call_for_applications
+          em
+            = t :has_open_positions
+            a.application-call.btn.js-modal(href=new_organ_call_path(organ_id:@organ._id))
+              = t :new_call_for_applications
         .hr
         form.message-for-organ.unimplemented
           textarea.wide(type='textarea' placeholder=t("placeholders.message_for_organ"))

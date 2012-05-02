@@ -21,7 +21,7 @@ Feature: Handling the results of call for applications
 
     Then I should see exactly the following persons in 'Valitut jäsenet':
     | email          |
-    | martti@spu.fi  |
+    | martti@sty.fi  |
 
     Then I should see exactly the following persons in 'Valitut varajäsenet':
     | email          |

@@ -2,10 +2,10 @@ Feature: Creating a new organ
 
   Background:
     Given there exist university organization
-    And I am logged in as a student union employee
+    And I am logged in as a member of university staff
     And I am at front page of 'Spartan Teknillinen Yliopisto'
 
-  Scenario: Student union employee creates new organs
+  Scenario: Staff member creates new organs
     When I press 'Luo uusi toimielin'
     And I fill in form 'Luo uusi toimielin':
       |  label                           | value                                                            |

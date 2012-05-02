@@ -9,11 +9,11 @@ def check_personal_details(container_selector, person_attributes)
 end
 
 Then %r/^I should see my own name, phone number and email\-address in the application form$/ do
-  check_personal_details '.applicant-details', FactoryGirl.attributes_for(:eija)
+  check_personal_details '.applicant-details', FactoryGirl.attributes_for(:student_martti)
 end
 
 Then %r/^I should see my own name, phone number and email\-address in the confirmation dialog$/ do
-  check_personal_details '#application-sent .applicant-details', FactoryGirl.attributes_for(:eija)
+  check_personal_details '#application-sent .applicant-details', FactoryGirl.attributes_for(:student_martti)
 end
 
 Then %r/^I should see (\d+) persons in '([^']*)'$/ do |person_count, title|

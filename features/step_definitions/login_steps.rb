@@ -1,8 +1,17 @@
 
 Given %r/^I am logged in as a student union employee$/ do
+  FactoryGirl.create :eija
+  visit "/dev_login?user=eija"
+end
+
+Given %r/^I am logged in as a member of university staff$/ do
+  FactoryGirl.create :aaro
+  visit "/dev_login?user=aaro"
 end
 
 Given %r/^I am logged in as a student$/ do
+  FactoryGirl.create :student_martti
+  visit "/dev_login?user=martti"
 end
 
 Then %r/^I should see logged in user "([^"]*)" with mail "([^"]*)" and phone "([^"]*)"$/ do |name, email, phone|

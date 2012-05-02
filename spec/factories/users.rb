@@ -25,8 +25,9 @@ FactoryGirl.define do
       _id        '4f7963bf91bc2bc1f6000002'
       first_name 'Martti'
       last_name  'Pulliainen'
-      email      'martti@spu.fi'
+      email      'martti@sty.fi'
       phone      '+358 40 555 4321'
+      principal_name 'marpul@sty.fi'
     end
     factory :student_emma do
       _id        '4f7963bf91bc2bc1f6000003'

@@ -2,6 +2,7 @@ Feature: Login
 
   Background:
     Given there exist university organization
+    And I am logged in as a student union employee
     And I am at front page of 'Spartan Teknillinen Yliopisto'
 
   Scenario: Student union employee logs in
