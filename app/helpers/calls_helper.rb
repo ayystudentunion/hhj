@@ -33,10 +33,15 @@ module CallsHelper
   # deputy without member and one member without deputy. Then we need to order
   # the lone deputy before lone member, otherwise there would not be a place for it in view
   def sort_by_free_positions(selected_applicants, call)
-    if call.deputy_amount < call.member_amount
-      selected_applicants.select{|m,d| m.nil?} + selected_applicants.reject{|m,d| m.nil?}
-    else
-      selected_applicants
-    end
+    more_members_than_deputies = call.member_amount > call.deputy_amount
+    selected_applicants.sort_by{|m,d|
+      if (not m.nil?) and (not d.nil?)
+        0
+      elsif more_members_than_deputies
+        m.nil? ? 1 : 2
+      else
+        m.nil? ? 2 : 1
+      end
+    }
   end
 end
