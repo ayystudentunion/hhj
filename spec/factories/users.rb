@@ -13,7 +13,7 @@ FactoryGirl.define do
       role 'employee'
     end
     factory :aaro do
-      _id        '4f7963bf91bc2bc1f6000001'
+      _id        '4f7963bf91bc2bc1f6000005'
       first_name 'Aaro'
       last_name  'Häkkinen'
       email      'aaro.hakkinen@sty.fi'
