@@ -37,7 +37,7 @@ class PagesController < ApplicationController
   end
 
   def dev_users
-    @users = ["eija"]
+    @users = ["eija", "aaro", "martti"]
     render :dev_users, layout: false
   end
 
