@@ -6,13 +6,14 @@ h2
 - if @edit_hallopeds
   .edit-members
     = render partial: 'edit_members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair
-    .member-card-empty.member(data-name=:position_member)
-      .placeholder
-        h2 = t 'organs.call_results.dragndrop_member_placeholder'
-    .arrow
-    .member-card-empty.deputy(data-name=:position_deputy)
-      .placeholder
-        h2 = t 'organs.call_results.dragndrop_deputy_placeholder'
+    div.empty-row
+      .member-card-empty.member(data-name=:position_member)
+        .placeholder
+          h2 = t 'organs.call_results.dragndrop_member_placeholder'
+      .arrow
+      .member-card-empty.deputy(data-name=:position_deputy)
+        .placeholder
+          h2 = t 'organs.call_results.dragndrop_deputy_placeholder'
     .add-member
       = form_for [@organ, @new_member], url: organ_members_path(organ_id: @organ.id) do |f|
         input.field(type='text' placeholder=t('.add_member_by_email') name='member[email]')

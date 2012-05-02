@@ -43,7 +43,16 @@ initOrganPage = (delegateFor) ->
         type('form-data').
         send(form.serialize()).
         end (response) ->
-          lastMemberSlot = hallopeds.find('.member-card-empty.member:last')
+          findOrCreateSlot = () ->
+            slot = hallopeds.find('.member-card-empty.member:last')
+            if slot.find('.member-card').length == 0
+              slot
+            else
+              newRow = hallopeds.find('.empty-row:last').clone()
+              newRow.find('.member-card').remove()
+              hallopeds.find('.empty-row:last').append newRow
+              newRow.find('.member-card-empty.member')
+          lastMemberSlot = findOrCreateSlot()
           placeHolder = lastMemberSlot.html()
           lastMemberSlot.html(response.text).append placeHolder
           lastMemberSlot.find('.member-card').draggable
