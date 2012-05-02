@@ -27,7 +27,8 @@ module Models
     end
 
     def update_attributes(attributes = {}, options = {})
-      super(attributes.except(:position, :member, :deputy), options)
+      set_position! attributes if attributes.include? self.class.position_field_symbol
+      super(attributes.except(self.class.position_field_symbol, :member, :deputy), options)
     end
 
     def set_position!(params)

@@ -6,12 +6,15 @@ class Member
   belongs_to :organ
   belongs_to :user
 
+  before_save :add_removed_date_if_resigned
+
   field :halloped, type: Boolean, default: true
   field :current, type: Boolean, default: true
   field :term_start, type: Date
   field :term_end, type: Date
   field :removed_date, type: Date
   position_field :position
+
 
   def current_deputy
     return nil if deputy.nil?
@@ -24,4 +27,13 @@ class Member
     return nil unless member.current
     member
   end
+
+  protected
+
+  def add_removed_date_if_resigned
+    if current_changed? and not current
+      self.removed_date = Time.now.utc
+    end
+  end
+
 end
