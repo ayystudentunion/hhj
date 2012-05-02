@@ -12,8 +12,6 @@ module Models
         @symbol = symbol
         validates position_field_symbol, allow_nil: true, inclusion: { in:  POSITION_VALUES }
         field position_field_symbol, type: Symbol
-        scope :current_members, where(position_field_symbol => :position_member, current: true)
-        scope :current_deputies, where(position_field_symbol => :position_deputy, current: true)
       end
     end
 

@@ -15,6 +15,8 @@ class Member
   field :removed_date, type: Date
   position_field :position
 
+  scope :current_members, where(position_field_symbol => :position_member, current: true)
+  scope :current_deputies, where(position_field_symbol => :position_deputy, current: true)
 
   def current_deputy
     return nil if deputy.nil?
