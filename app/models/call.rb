@@ -28,7 +28,7 @@ class Call
   field :description, localize: true
 
   def has_unhandled_applications
-    position_applications.where(selected_as: nil).exists?
+    position_applications.not_selected.exists?
   end
 
   def file_name
@@ -36,19 +36,9 @@ class Call
   end
 
   def selected_with_deputies
-    members = position_applications.
-      where(selected_as: :position_member).
-        map{|a| [a, a.deputy]}
-
-    lone_deputies = position_applications.
-      where(selected_as: :position_deputy, member_id: nil).
-        map{|a| [nil, a]}
-
+    members = position_applications.members.map{|a| [a, a.deputy]}
+    lone_deputies = position_applications.lone_deputies.map{|a| [nil, a]}
     members + lone_deputies
-  end
-
-  def not_selected_applicants
-    position_applications.where(selected_as: nil)
   end
 
 end

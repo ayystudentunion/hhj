@@ -12,6 +12,10 @@ module Models
         @symbol = symbol
         validates position_field_symbol, allow_nil: true, inclusion: { in:  POSITION_VALUES }
         field position_field_symbol, type: Symbol
+        scope :members, where(position_field_symbol => :position_member)
+        scope :deputies, where(position_field_symbol => :position_deputy)
+        scope :not_selected, where(selected_as: nil)
+        scope :lone_deputies, deputies.where(member_id: nil)
       end
     end
 

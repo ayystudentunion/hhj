@@ -34,7 +34,7 @@
   - else
     h3 #{t '.applicants'}:
   div.applicants
-    = render :partial => "applicant", :collection => call.not_selected_applicants, :locals => { call: call }
+    = render :partial => "applicant", :collection => call.position_applications.not_selected, :locals => { call: call }
   = form_for call, url: organ_call_path(organ_id: @organ._id, id: call._id), method: :put do |f|
     .button-row
       - if call.status == :open
