@@ -34,7 +34,7 @@ class PositionApplicationsController < ApplicationController
   def update
     position_application = PositionApplication.find params[:id]
     position_params = params[:position_application]
-    position_application.set_position! position_params
+    position_application.update_attributes! position_params
     respond_to do |format|
       format.json { render :json => position_application }
     end
