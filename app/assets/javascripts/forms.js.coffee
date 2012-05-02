@@ -8,6 +8,60 @@ uniformify = (node) ->
   $("input:checkbox, input:radio, input:file, input:text, textarea, submit", node).uniform()
 
 initOrganPage = (delegateFor) ->
+  sameContext = (droppable, draggable) ->
+    getContextId = (elem) ->
+      call = elem.parents('.call-for-application:first')
+      if call.length > 0
+        call.find('form.edit_call').attr('id')
+      else
+        elem.parents('.organ-members').attr('class')
+    droppableId = getContextId(droppable)
+    draggableId = getContextId(draggable)
+    droppableId? and draggableId? and droppableId == draggableId
+
+  alignApplicants = (droppable) ->
+    applicants = droppable.parents('.call-for-application').find('.applicants')
+    applicants.find('.member-card:even').removeClass('no-margin')
+    applicants.find('.member-card:odd').addClass('no-margin')
+
+  saveSelection = (droppable, draggable) ->
+    form = draggable.find('form')
+    member = form.find('.value_member')
+    deputy = form.find('.value_deputy')
+    member.val ''
+    deputy.val ''
+    if droppable.hasClass 'deputy'
+      member.val droppable.prevAll('.member:first').find('.member-card').data('id')
+    else if droppable.hasClass 'member'
+      deputy.val droppable.nextAll('.deputy:first').find('.member-card').data('id')
+    form.find('.value_position').val droppable.data('name')
+    superagent.post(form.attr 'action').
+      type('form-data').
+      send(form.serialize()).
+      end()
+
+  initDroppableSlot = (elements) ->
+    elements.droppable
+      activeClass: 'highlight-drop-area'
+      accept: (draggable) ->
+        return false unless draggable.hasClass 'member-card'
+        return false if $(@).find('.member-card').length > 0
+        return false if $(@).hasClass('no-deputy')
+        sameContext $(@), draggable
+      drop: (event, ui) ->
+        droppable = $(@)
+        droppable.prepend(ui.draggable)
+        ui.draggable.position
+          my: "top left"
+          at: "top left"
+          of: droppable
+        saveSelection(droppable, ui.draggable)
+        alignApplicants(droppable)
+
+  initDraggableCard = (elements) ->
+    elements.draggable
+      revert: 'invalid'
+
   initToggleArchived = () ->
     toggleArchived = (visible) ->
       $('.archived-call-for-applications').toggle visible
@@ -42,59 +96,27 @@ initOrganPage = (delegateFor) ->
       superagent.post(form.attr 'action').
         type('form-data').
         send(form.serialize()).
-        end (response) ->
-          findOrCreateSlot = () ->
-            slot = hallopeds.find('.member-card-empty.member:last')
-            if slot.find('.member-card').length == 0
-              slot
+        end((response) ->
+          findOrCreateNewRow = () ->
+            lastRow = hallopeds.find('.empty-row:last')
+            if lastRow.find('.member .member-card').length == 0
+              lastRow
             else
-              newRow = hallopeds.find('.empty-row:last').clone()
+              newRow = lastRow.clone()
               newRow.find('.member-card').remove()
-              hallopeds.find('.empty-row:last').append newRow
-              newRow.find('.member-card-empty.member')
-          lastMemberSlot = findOrCreateSlot()
-          placeHolder = lastMemberSlot.html()
-          lastMemberSlot.html(response.text).append placeHolder
-          lastMemberSlot.find('.member-card').draggable
-            revert: 'invalid'
+              lastRow.append newRow
+              newRow
+          newMemberRow = findOrCreateNewRow()
+          newSlot = newMemberRow.find('.member-card-empty.member')
+          placeHolder = newSlot.html()
+          newSlot.html(response.text).append placeHolder
+          initDraggableCard newMemberRow.find('.member-card')
+          initDroppableSlot newMemberRow.find('.member-card-empty')
+        )
       return false
 
   initCallSelectionDragNDrops = () ->
-    sameContext = (droppable, draggable) ->
-      getContextId = (elem) ->
-        call = elem.parents('.call-for-application:first')
-        if call.length > 0
-          call.find('form.edit_call').attr('id')
-        else
-          elem.parents('.organ-members').attr('class')
-      droppableId = getContextId(droppable)
-      draggableId = getContextId(draggable)
-      droppableId? and draggableId? and droppableId == draggableId
-
-
-    saveSelection = (droppable, draggable) ->
-      form = draggable.find('form')
-      member = form.find('.value_member')
-      deputy = form.find('.value_deputy')
-      member.val ''
-      deputy.val ''
-      if droppable.hasClass 'deputy'
-        member.val droppable.prevAll('.member:first').find('.member-card').data('id')
-      else if droppable.hasClass 'member'
-        deputy.val droppable.nextAll('.deputy:first').find('.member-card').data('id')
-      form.find('.value_position').val droppable.data('name')
-      superagent.post(form.attr 'action').
-        type('form-data').
-        send(form.serialize()).
-        end()
-
-    alignApplicants = (droppable) ->
-      applicants = droppable.parents('.call-for-application').find('.applicants')
-      applicants.find('.member-card:even').removeClass('no-margin')
-      applicants.find('.member-card:odd').addClass('no-margin')
-
-    $('.call-for-application.open .member-card, .edit-members .member-card').draggable
-      revert: 'invalid'
+    initDraggableCard $('.call-for-application.open .member-card, .edit-members .member-card')
 
     $('.call-for-application.open .applicants').droppable
       activeClass: 'highlight-return-area'
@@ -107,22 +129,7 @@ initOrganPage = (delegateFor) ->
         return false unless draggable.hasClass 'member-card'
         sameContext $(@), draggable
 
-    $('.call-for-application.open .member-card-empty, .edit-members .member-card-empty').droppable
-      activeClass: 'highlight-drop-area'
-      accept: (draggable) ->
-        return false unless draggable.hasClass 'member-card'
-        return false if $(@).find('.member-card').length > 0
-        return false if $(@).hasClass('no-deputy')
-        sameContext $(@), draggable
-      drop: (event, ui) ->
-        droppable = $(@)
-        droppable.prepend(ui.draggable)
-        ui.draggable.position
-          my: "top left"
-          at: "top left"
-          of: droppable
-        saveSelection(droppable, ui.draggable)
-        alignApplicants(droppable)
+    initDroppableSlot $('.call-for-application.open .member-card-empty, .edit-members .member-card-empty')
 
   initToggleArchived()
   initCallSelectionDragNDrops()
