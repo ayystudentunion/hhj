@@ -38,7 +38,9 @@ initOrganPage = (delegateFor) ->
     superagent.post(form.attr 'action').
       type('form-data').
       send(form.serialize()).
-      end()
+      end( ->
+        cached.clear()
+      )
 
   initDroppableSlot = (elements) ->
     elements.droppable
@@ -83,7 +85,9 @@ initOrganPage = (delegateFor) ->
       superagent.post(form.attr 'action').
         type('form-data').
         send(form.serialize()).
-        end()
+        end( ->
+          cached.clear()
+        )
       $(@).parents('.member-card').fadeOut 'fast', ->
         $(@).remove()
       return false
@@ -112,6 +116,7 @@ initOrganPage = (delegateFor) ->
           newSlot.html(response.text).append placeHolder
           initDraggableCard newMemberRow.find('.member-card')
           initDroppableSlot newMemberRow.find('.member-card-empty')
+          cached.clear()
         )
       return false
 
