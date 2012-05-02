@@ -17,10 +17,26 @@ module CallsHelper
   end
 
   def free_positions_with_selected_applicants(call)
-    free_positions(call).zip(call.selected_with_deputies).map(&:flatten)
+    free_positions(call).zip(
+      sort_by_free_positions(call.selected_with_deputies, call)).
+        map(&:flatten)
   end
 
   def workflow_values_with_names
     Call::WORKFLOW_VALUES.map{|v| [Call.human_attribute_name(v), v]}
+  end
+
+  protected
+
+  # Needed to make sure that lone deputies are always rendered visible.
+  # Example: If there are 2 member positions and 1 deputy and user adds one
+  # deputy without member and one member without deputy. Then we need to order
+  # the lone deputy before lone member, otherwise there would not be a place for it in view
+  def sort_by_free_positions(selected_applicants, call)
+    if call.deputy_amount < call.member_amount
+      selected_applicants.select{|m,d| m.nil?} + selected_applicants.reject{|m,d| m.nil?}
+    else
+      selected_applicants
+    end
   end
 end
