@@ -14,7 +14,7 @@ module Models
         field position_field_symbol, type: Symbol
         scope :members, where(position_field_symbol => :position_member)
         scope :deputies, where(position_field_symbol => :position_deputy)
-        scope :not_selected, where(selected_as: nil)
+        scope :not_selected, where(position_field_symbol => nil)
         scope :lone_deputies, deputies.where(member_id: nil)
       end
     end

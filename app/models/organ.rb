@@ -35,13 +35,13 @@ class Organ
     call.selected_with_deputies.each do | member, deputy |
       member = member.nil? ? nil : Member.create!(
         user: member.user,
-        position: member.selected_as,
+        position: :position_member,
         term_start: call.term_start,
         term_end: call.term_end
       )
       deputy = deputy.nil? ? nil : Member.create!(
         user: deputy.user,
-        position: deputy.selected_as,
+        position: :position_deputy,
         member: member,
         term_start: call.term_start,
         term_end: call.term_end
