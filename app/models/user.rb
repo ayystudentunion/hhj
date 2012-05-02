@@ -28,7 +28,7 @@ class User
     pn = attrs[:principal_name]
     if pn
       user = User.where(:$or => [{email: attrs[:email]}, {principal_name: pn}]).first
-      user = User.create! attrs[:email] if user.nil?
+      user = User.create! attrs if user.nil?
       user.update_attributes!(attrs)
       user
     end
