@@ -19,10 +19,12 @@ initOrganPage = (delegateFor) ->
     draggableId = getContextId(draggable)
     droppableId? and draggableId? and droppableId == draggableId
 
+  alignCards = (container) ->
+    container.find('.member-card:even').removeClass('no-margin')
+    container.find('.member-card:odd').addClass('no-margin')
+
   alignApplicants = (droppable) ->
-    applicants = droppable.parents('.call-for-application').find('.applicants')
-    applicants.find('.member-card:even').removeClass('no-margin')
-    applicants.find('.member-card:odd').addClass('no-margin')
+    alignCards droppable.parents('.call-for-application').find('.applicants')
 
   saveSelection = (droppable, draggable) ->
     form = draggable.find('form')
@@ -89,7 +91,9 @@ initOrganPage = (delegateFor) ->
           cached.clear()
         )
       $(@).parents('.member-card').fadeOut 'fast', ->
+        container = $(@).parents('.staff')
         $(@).remove()
+        alignCards container
       return false
 
   initAddMember = () ->
