@@ -136,11 +136,17 @@ initOrganPage = (delegateFor) ->
 
     initDroppableSlot $('.call-for-application.open .member-card-empty, .edit-members .member-card-empty')
 
+  initToolTips = () ->
+    $('.not_eligible').qtip
+      position:
+        corner:
+          target: 'bottomLeft'
+
   initToggleArchived()
   initCallSelectionDragNDrops()
   initRemoveMember()
   initAddMember()
-
+  initToolTips()
 
 initPopups = (delegateFor) ->
   delegateFor.delegate "a.popup", "click", () ->

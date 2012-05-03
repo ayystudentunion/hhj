@@ -9,4 +9,8 @@
       a.name(href='#') = applicant.user.full_name
       br
       span.email = applicant.user.email
+    - unless applicant.eligible?
+      br
+      span.not_eligible(title=t('.eligibility_rule_not_met', rule: call.eligibility_rule_set.name)) = t('.not_eligible')
+
 

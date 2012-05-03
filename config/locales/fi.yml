@@ -93,6 +93,8 @@ fi:
     applicant:
       position_member: Jäsen
       position_deputy: Varajäsen
+      not_eligible: Ei vaalikelpoinen
+      eligibility_rule_not_met: "Ei täytä ehtoa: %{rule}"
     member:
       position_member: Jäsen
       position_deputy: Varajäsen
