@@ -46,7 +46,7 @@ class ApplicationController < ActionController::Base
   end
 
   def can_admin_organs?
-    is_admin_staff?
+    is_admin_staff? || is_employee?
   end
 
   def can_admin_calls?
