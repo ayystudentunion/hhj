@@ -91,7 +91,7 @@ initOrganPage = (delegateFor) ->
           cached.clear()
         )
       $(@).parents('.member-card').fadeOut 'fast', ->
-        container = $(@).parents('.staff')
+        container = $(@).parents('.staff, .professors')
         $(@).remove()
         alignCards container
       return false
@@ -100,7 +100,7 @@ initOrganPage = (delegateFor) ->
     $('.add-member .btn').click () ->
       email = $(@).prev('input').val()
       form = $(@).parents('form.new_member')
-      members = $(@).parents('.hallopeds, .staff')
+      members = $(@).parents('.hallopeds, .staff, .professors')
       superagent.post(form.attr 'action').
         type('form-data').
         send(form.serialize()).
@@ -114,8 +114,12 @@ initOrganPage = (delegateFor) ->
               newRow.find('.member-card').remove()
               lastRow.append newRow
               newRow
-          if members.hasClass 'staff'
-            $(response.text).insertAfter('.staff .member-card:last')
+          if members.hasClass('staff') or members.hasClass('professors')
+            lastCard = members.find('.member-card:last')
+            if lastCard.length > 0
+              $(response.text).insertAfter(lastCard)
+            else
+              members.find('.edit-members').prepend($(response.text))
             alignCards(members)
           else
             newMemberRow = findOrCreateNewRow()

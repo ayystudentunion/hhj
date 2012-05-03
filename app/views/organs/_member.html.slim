@@ -14,7 +14,7 @@
       a.name(href='#') = member.user.full_name
       br
       span.email = member.user.email
-  - if not edit and member.halloped
+  - if not edit and member.group == :group_hallopeds
     p.term
       span.term = t(".#{member.position}") + ': '
       br

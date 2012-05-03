@@ -84,8 +84,11 @@ div#single-organ
               a.remove(href='#') poista asiaton viesti
 
       .tab
-        .organ-members.staff
-          = render partial: 'current_staff'
+        .organ-members.staff-members
+          .professors
+            = render partial: 'current_staff', locals: {group: :group_professors, collection: @organ.members.current_professors, placeholder: t('.add_professor_by_email'), title: t('.professors')}
+          .staff
+            = render partial: 'current_staff', locals: {group: :group_staff, collection: @organ.members.current_staff, placeholder: t('.add_staff_by_email'), title: t('.staff')}
         .hr
 
         .organ-members.hallopeds

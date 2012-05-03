@@ -153,7 +153,6 @@ RailsAdmin.config do |config|
   #     configure :updated_at, :datetime
   #     configure :organ_id, :bson_object_id         # Hidden
   #     configure :user_id, :bson_object_id         # Hidden
-  #     configure :halloped, :boolean
   #     configure :position, :string
   #     configure :current, :boolean
   #     configure :term_start, :date
