@@ -100,13 +100,13 @@ initOrganPage = (delegateFor) ->
     $('.add-member .btn').click () ->
       email = $(@).prev('input').val()
       form = $(@).parents('form.new_member')
-      hallopeds = $(@).parents('.hallopeds')
+      members = $(@).parents('.hallopeds, .staff')
       superagent.post(form.attr 'action').
         type('form-data').
         send(form.serialize()).
         end((response) ->
           findOrCreateNewRow = () ->
-            lastRow = hallopeds.find('.empty-row:last')
+            lastRow = members.find('.empty-row:last')
             if lastRow.find('.member .member-card').length == 0
               lastRow
             else
@@ -114,12 +114,16 @@ initOrganPage = (delegateFor) ->
               newRow.find('.member-card').remove()
               lastRow.append newRow
               newRow
-          newMemberRow = findOrCreateNewRow()
-          newSlot = newMemberRow.find('.member-card-empty.member')
-          placeHolder = newSlot.html()
-          newSlot.html(response.text).append placeHolder
-          initDraggableCard newMemberRow.find('.member-card')
-          initDroppableSlot newMemberRow.find('.member-card-empty')
+          if members.hasClass 'staff'
+            $(response.text).insertAfter('.staff .member-card:last')
+            alignCards(members)
+          else
+            newMemberRow = findOrCreateNewRow()
+            newSlot = newMemberRow.find('.member-card-empty.member')
+            placeHolder = newSlot.html()
+            newSlot.html(response.text).append placeHolder
+            initDraggableCard newMemberRow.find('.member-card')
+            initDroppableSlot newMemberRow.find('.member-card-empty')
           cached.clear()
         )
       return false
