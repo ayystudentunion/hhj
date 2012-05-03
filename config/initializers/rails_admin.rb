@@ -31,10 +31,10 @@ RailsAdmin.config do |config|
 
   #  ==> Included models
   # Add all excluded models here:
-  # config.excluded_models = [Call, EduPerson, EligibilityRule, EligibilityRuleSet, Member, Organ, Organization, PositionApplication, User]
+  # config.excluded_models = [Call, EligibilityRule, EligibilityRuleSet, Member, Organ, Organization, PositionApplication, User]
 
   # Add models here if you want to go 'whitelist mode':
-  # config.included_models = [Call, EduPerson, EligibilityRule, EligibilityRuleSet, Member, Organ, Organization, PositionApplication, User]
+  # config.included_models = [Call, EligibilityRule, EligibilityRuleSet, Member, Organ, Organization, PositionApplication, User]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -81,43 +81,28 @@ RailsAdmin.config do |config|
 
   # config.model Call do
   #   # Found associations:
-  #     configure :organ, :belongs_to_association 
-  #     configure :eligibility_rule_sets, :has_and_belongs_to_many_association 
+  #     configure :organ, :belongs_to_association
+  #     configure :eligibility_rule_sets, :has_and_belongs_to_many_association
   #     configure :position_applications, :has_many_association   #   # Found columns:
-  #     configure :_type, :text         # Hidden 
-  #     configure :_id, :bson_object_id 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :organ_id, :bson_object_id         # Hidden 
-  #     configure :eligibility_rule_set_ids, :serialized         # Hidden 
-  #     configure :title, :string 
-  #     configure :closed, :boolean 
-  #     configure :archived, :boolean 
-  #     configure :member_amount, :integer 
-  #     configure :deputy_amount, :integer 
-  #     configure :quota_information, :string 
-  #     configure :date_open, :date 
-  #     configure :date_start, :date 
-  #     configure :date_end, :date 
-  #     configure :term_start, :date 
-  #     configure :term_end, :date 
-  #     configure :appointment_place_and_date, :string 
+  #     configure :_type, :text         # Hidden
+  #     configure :_id, :bson_object_id
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
+  #     configure :organ_id, :bson_object_id         # Hidden
+  #     configure :eligibility_rule_set_ids, :serialized         # Hidden
+  #     configure :title, :string
+  #     configure :closed, :boolean
+  #     configure :archived, :boolean
+  #     configure :member_amount, :integer
+  #     configure :deputy_amount, :integer
+  #     configure :quota_information, :string
+  #     configure :date_open, :date
+  #     configure :date_start, :date
+  #     configure :date_end, :date
+  #     configure :term_start, :date
+  #     configure :term_end, :date
+  #     configure :appointment_place_and_date, :string
   #     configure :description, :string   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
-  # config.model EduPerson do
-  #   # Found associations:
-  #     configure :user, :belongs_to_association   #   # Found columns:
-  #     configure :_type, :text         # Hidden 
-  #     configure :_id, :bson_object_id 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :user_id, :bson_object_id         # Hidden   #   # Sections:
   #   list do; end
   #   export do; end
   #   show do; end
@@ -128,12 +113,12 @@ RailsAdmin.config do |config|
   # config.model EligibilityRule do
   #   # Found associations:
   #     configure :eligibility_rule_set, :belongs_to_association   #   # Found columns:
-  #     configure :_type, :text         # Hidden 
-  #     configure :_id, :bson_object_id 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :eligibility_rule_set_id, :bson_object_id         # Hidden 
-  #     configure :edu_field, :text 
+  #     configure :_type, :text         # Hidden
+  #     configure :_id, :bson_object_id
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
+  #     configure :eligibility_rule_set_id, :bson_object_id         # Hidden
+  #     configure :edu_field, :text
   #     configure :valid_values, :serialized   #   # Sections:
   #   list do; end
   #   export do; end
@@ -144,12 +129,12 @@ RailsAdmin.config do |config|
   # end
   # config.model EligibilityRuleSet do
   #   # Found associations:
-  #     configure :calls, :has_and_belongs_to_many_association 
+  #     configure :calls, :has_and_belongs_to_many_association
   #     configure :eligibility_rules, :has_many_association   #   # Found columns:
-  #     configure :_type, :text         # Hidden 
-  #     configure :_id, :bson_object_id 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
+  #     configure :_type, :text         # Hidden
+  #     configure :_id, :bson_object_id
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
   #     configure :call_ids, :serialized         # Hidden   #   # Sections:
   #   list do; end
   #   export do; end
@@ -160,19 +145,19 @@ RailsAdmin.config do |config|
   # end
   # config.model Member do
   #   # Found associations:
-  #     configure :organ, :belongs_to_association 
+  #     configure :organ, :belongs_to_association
   #     configure :user, :belongs_to_association   #   # Found columns:
-  #     configure :_type, :text         # Hidden 
-  #     configure :_id, :bson_object_id 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :organ_id, :bson_object_id         # Hidden 
-  #     configure :user_id, :bson_object_id         # Hidden 
-  #     configure :halloped, :boolean 
-  #     configure :position, :string 
-  #     configure :current, :boolean 
-  #     configure :term_start, :date 
-  #     configure :term_end, :date 
+  #     configure :_type, :text         # Hidden
+  #     configure :_id, :bson_object_id
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
+  #     configure :organ_id, :bson_object_id         # Hidden
+  #     configure :user_id, :bson_object_id         # Hidden
+  #     configure :halloped, :boolean
+  #     configure :position, :string
+  #     configure :current, :boolean
+  #     configure :term_start, :date
+  #     configure :term_end, :date
   #     configure :removed_date, :date   #   # Sections:
   #   list do; end
   #   export do; end
@@ -183,21 +168,21 @@ RailsAdmin.config do |config|
   # end
   # config.model Organ do
   #   # Found associations:
-  #     configure :organization, :belongs_to_association 
-  #     configure :calls, :has_many_association 
+  #     configure :organization, :belongs_to_association
+  #     configure :calls, :has_many_association
   #     configure :members, :has_many_association   #   # Found columns:
-  #     configure :_type, :text         # Hidden 
-  #     configure :_id, :bson_object_id 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :organization_id, :bson_object_id         # Hidden 
-  #     configure :name, :string 
-  #     configure :description, :string 
-  #     configure :term_start, :date 
-  #     configure :term_end, :date 
-  #     configure :manager_name, :text 
-  #     configure :manager_email, :text 
-  #     configure :appointer, :text 
+  #     configure :_type, :text         # Hidden
+  #     configure :_id, :bson_object_id
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
+  #     configure :organization_id, :bson_object_id         # Hidden
+  #     configure :name, :string
+  #     configure :description, :string
+  #     configure :term_start, :date
+  #     configure :term_end, :date
+  #     configure :manager_name, :text
+  #     configure :manager_email, :text
+  #     configure :appointer, :text
   #     configure :official, :boolean   #   # Sections:
   #   list do; end
   #   export do; end
@@ -208,15 +193,15 @@ RailsAdmin.config do |config|
   # end
   # config.model Organization do
   #   # Found associations:
-  #     configure :children, :has_many_association 
+  #     configure :children, :has_many_association
   #     configure :organs, :has_many_association   #   # Found columns:
-  #     configure :_type, :text         # Hidden 
-  #     configure :_id, :bson_object_id 
-  #     configure :parent_id, :bson_object_id         # Hidden 
-  #     configure :parent_ids, :serialized 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :name, :string 
+  #     configure :_type, :text         # Hidden
+  #     configure :_id, :bson_object_id
+  #     configure :parent_id, :bson_object_id         # Hidden
+  #     configure :parent_ids, :serialized
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
+  #     configure :name, :string
   #     configure :key, :text   #   # Sections:
   #   list do; end
   #   export do; end
@@ -227,17 +212,17 @@ RailsAdmin.config do |config|
   # end
   # config.model PositionApplication do
   #   # Found associations:
-  #     configure :call, :belongs_to_association 
+  #     configure :call, :belongs_to_association
   #     configure :user, :belongs_to_association   #   # Found columns:
-  #     configure :_type, :text         # Hidden 
-  #     configure :_id, :bson_object_id 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :position, :string 
-  #     configure :selected_as, :string 
-  #     configure :deputy_of, :text 
-  #     configure :personal_statement, :text 
-  #     configure :call_id, :bson_object_id         # Hidden 
+  #     configure :_type, :text         # Hidden
+  #     configure :_id, :bson_object_id
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
+  #     configure :position, :string
+  #     configure :selected_as, :string
+  #     configure :deputy_of, :text
+  #     configure :personal_statement, :text
+  #     configure :call_id, :bson_object_id         # Hidden
   #     configure :user_id, :bson_object_id         # Hidden   #   # Sections:
   #   list do; end
   #   export do; end
@@ -248,16 +233,15 @@ RailsAdmin.config do |config|
   # end
   # config.model User do
   #   # Found associations:
-  #     configure :position_applications, :has_many_association 
-  #     configure :members, :has_many_association 
-  #     configure :edu_person, :has_one_association   #   # Found columns:
-  #     configure :_type, :text         # Hidden 
-  #     configure :_id, :bson_object_id 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :first_name, :text 
-  #     configure :last_name, :text 
-  #     configure :email, :text 
+  #     configure :position_applications, :has_many_association
+  #     configure :members, :has_many_association
+  #     configure :_type, :text         # Hidden
+  #     configure :_id, :bson_object_id
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
+  #     configure :first_name, :text
+  #     configure :last_name, :text
+  #     configure :email, :text
   #     configure :phone, :text   #   # Sections:
   #   list do; end
   #   export do; end

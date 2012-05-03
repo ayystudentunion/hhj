@@ -14,6 +14,7 @@ class EligibilityRule
 
   def match(position_application)
     return false if position_application.nil?
-    valid_value? position_application.user.edu_person[edu_field]
+    return false if position_application.user.edu_data.nil?
+    valid_value? position_application.user.edu_data[edu_field]
   end
 end

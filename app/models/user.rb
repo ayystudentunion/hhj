@@ -11,6 +11,7 @@ class User
   field :email, type: String
   field :phone, type: String
   field :role, type: String
+  field :edu_data, type: Hash
 
   has_many :position_applications
   has_many :members
@@ -43,7 +44,8 @@ class User
       last_name: env["A_SURNAME"],
       email: env["A_MAIL"],
       phone: env["A_MOBILE"],
-      university_domain: env["A_HOME_ORGANIZATION"]
+      university_domain: env["A_HOME_ORGANIZATION"],
+      edu_data: env.select{|k,v| k.starts_with?("A_")}
     }
   end
 
