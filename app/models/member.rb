@@ -18,8 +18,10 @@ class Member
   scope :currents, where(current: true)
   scope :hallopeds, where(halloped: true)
   scope :current_hallopeds, currents.hallopeds
-  scope :current_members, currents.members
-  scope :current_deputies, currents.deputies
+  scope :current_members, current_hallopeds.members
+  scope :current_deputies, current_hallopeds.deputies
+  scope :staff, where(halloped: false)
+  scope :current_staff, currents.staff
 
   def current_deputy
     return nil if deputy.nil?

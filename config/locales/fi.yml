@@ -123,11 +123,13 @@ fi:
       hide_archived_calls: Piilota arkistoidut haut
     current_members:
       hallopeds: Istuvat opiskelijaedustajat
-      done_edit: Done
       add_member_by_email: Lisää opiskelijaedustaja sähköpostiosoitteella
     members:
       member_missing_for_deputy: Ei jäsentä
       deputy_missing_for_member: Ei varajäsentä
+    current_staff:
+      staff: Yliopiston edustajat
+      add_staff_member_by_email: Lisää edustaja sähköpostiosoitteella
 
   calls:
     new:
@@ -244,6 +246,9 @@ fi:
     save: Tallenna
     send: Lähetä
     time_placeholder: Aseta aika
+
+  buttons:
+    done_edit: Valmis
 
   placeholders:
     search: Hae ...

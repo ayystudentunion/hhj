@@ -84,39 +84,10 @@ div#single-organ
               a.remove(href='#') poista asiaton viesti
 
       .tab
-        .organ-members.unimplemented
-          h2
-            | Yliopiston edustajat
-            a.send-message(href='#') Lähetä ryhmäviesti
-          .member-card
-            div.avatar
-            a.remove-member(href='#')
-            p
-              a.name(href='#') Eija Zitting
-              br
-              span.email eija.zitting@ayy.fi
-              br
-              span.position Jäsenen toimenkuva
-          .member-card.no-margin
-            div.avatar
-            a.remove-member(href='#')
-            p
-              a.name(href='#') Eija Zitting
-              br
-              span.email eija.zitting@ayy.fi
-              br
-              span.position Jäsenen toimenkuva
-          .member-card
-            div.avatar
-            a.remove-member(href='#')
-            p
-              a.name(href='#') Eija Zitting
-              br
-              span.email eija.zitting@ayy.fi
-              br
-              span.position Jäsenen toimenkuva
+        .organ-members.staff
+          = render partial: 'current_staff'
+        .hr
 
-        .hr.unimplemented
         .organ-members.hallopeds
           = render partial: 'current_members'
         .hr

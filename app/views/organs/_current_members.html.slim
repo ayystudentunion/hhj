@@ -21,6 +21,6 @@ h2
         a.btn.add-row(href='#')
           span.plus-icon
     .button-row
-      a.btn(href=organ_path) #{t '.done_edit'}
+      a.btn(href=organ_path) #{t 'buttons.done_edit'}
 - else
   = render partial: 'members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair

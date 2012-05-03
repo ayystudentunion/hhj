@@ -40,6 +40,7 @@ class OrgansController < ApplicationController
     @handled_calls = @organ.calls.where(status: :handled).asc(:date_end, :title)
     @archived_calls = @organ.calls.where(status: :archived).asc(:date_end, :title)
     @edit_hallopeds = params.include? :edit_hallopeds
+    @edit_staff = params.include? :edit_staff
     @new_member = Member.new
     respond_to do |format|
       format.html
