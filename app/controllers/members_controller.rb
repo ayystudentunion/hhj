@@ -19,7 +19,7 @@ class MembersController < ApplicationController
     user.save!
     @member = Member.create! member_params.merge(user: user, organ: @organ)
     respond_to do |format|
-      format.html { render partial: 'organs/member', locals: {edit: true, member: @member} }
+      format.html { render partial: 'organs/member', locals: {edit: true, member: @member, member_counter: 0} }
     end
   end
 
