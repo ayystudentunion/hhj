@@ -20,7 +20,9 @@ class PositionApplication
   end
 
   def eligible?
-    return call.eligibility_rule_sets.all?{rule.match?(self)}
+    rule_set = call.eligibility_rule_set
+    return true if rule_set.nil?
+    rule_set.match? self
   end
 
 end

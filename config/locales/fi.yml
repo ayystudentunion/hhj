@@ -130,6 +130,7 @@ fi:
   calls:
     new:
       title: Avaa uusi paikkahaku toimielimelle
+      no_eligibility_rules: Ei vaalikelpoisuusrajoitteita
     edit:
       title: Muokkaan paikkahakua
     show:

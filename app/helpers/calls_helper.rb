@@ -26,6 +26,10 @@ module CallsHelper
     Call::WORKFLOW_VALUES.map{|v| [Call.human_attribute_name(v), v]}
   end
 
+  def eligibility_rule_sets_with_names
+    @university.eligibility_rule_sets.map{|r| [r.name, r._id] }
+  end
+
   protected
 
   # Needed to make sure that lone deputies are always rendered visible.

@@ -6,10 +6,10 @@
       .language-buttons
         - languages.each do |locale|
           a.lang.btn(href='#' hreflang="#{locale}" class="#{'active' if locale == I18n.locale}") = t "languages.#{locale}"
-    .hr
     = form_for @call, url: @form_path, class: 'new-application' do |f|
-      .inline-block
-        = f.select(:workflow, workflow_values_with_names)
+      = f.select(:workflow, workflow_values_with_names)
+      = f.select(:eligibility_rule_set, eligibility_rule_sets_with_names, {prompt: t('.no_eligibility_rules')})
+      .hr
       - languages.each do |locale|
         = f.text_field :title, placeholder: Call.human_attribute_name(:title, locale: locale), class: "wide field localized #{locale}", name: "call[title[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}"
       = f.label :member_amount, Call.human_attribute_name(:member_amount) + ':', class: "inline-label"

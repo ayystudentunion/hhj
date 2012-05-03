@@ -4,6 +4,7 @@ class Organization
   include Mongoid::Timestamps
 
   has_many  :organs
+  has_many  :eligibility_rule_sets
 
   before_validation :downcase_key
   validate :validate_key_uniqueness_for_root_organizations
