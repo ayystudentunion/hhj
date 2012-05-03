@@ -37,7 +37,16 @@ class PagesController < ApplicationController
   end
 
   def dev_users
-    @users = ["eija", "aaro", "martti"]
+    @users = [ {
+      name: "eija",
+      role: "employee"
+    }, {
+      name: "aaro",
+      role: "admin_staff"
+    }, {
+      name: "martti",
+      role: "student"
+    } ]
     render :dev_users, layout: false
   end
 
