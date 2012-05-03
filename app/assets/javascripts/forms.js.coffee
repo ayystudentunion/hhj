@@ -125,7 +125,7 @@ initOrganPage = (delegateFor) ->
       return false
 
   initCallSelectionDragNDrops = () ->
-    initDraggableCard $('.call-for-application.open .member-card, .edit-members .member-card')
+    initDraggableCard $('.call-for-application.open .member-card,.hallopeds .edit-members .member-card')
 
     $('.call-for-application.open .applicants').droppable
       activeClass: 'highlight-return-area'
