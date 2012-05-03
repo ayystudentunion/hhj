@@ -5,8 +5,7 @@ h2
     a.edit-icon(href=organ_path(id: @organ._id, edit_staff: true))
 - if @edit_staff
   .edit-members
-    - @organ.members.staff.each do |staff_member|
-      = render :partial => 'member', object: staff_member, locals: { edit: true }
+    = render :partial => 'member', collection: @organ.members.staff, locals: { edit: true }
     .add-member
       = form_for [@organ, @new_member], url: organ_members_path(organ_id: @organ.id) do |f|
         input.field(type='text' placeholder=t('.add_staff_member_by_email') name='member[email]')
@@ -17,5 +16,6 @@ h2
     .button-row
       a.btn(href=organ_path) #{t 'buttons.done_edit'}
 - else
-  - @organ.members.staff.each do |staff_member|
-    = render :partial => 'member', object: staff_member
+  .members
+    = render :partial => 'member', collection: @organ.members.staff, locals: { edit: false }
+
