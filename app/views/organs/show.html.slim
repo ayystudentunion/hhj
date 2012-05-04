@@ -43,7 +43,7 @@ div#single-organ
               = t :manager
               | :
             span.text
-              = @organ.manager_name
+              = manager
           .item-row
             = @organ.description
         - if can_admin_calls?
