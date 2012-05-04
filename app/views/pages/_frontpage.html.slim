@@ -3,12 +3,12 @@ div#frontpage
     ul.breadcrumb-list
       li
         a(href='#')
-          | Etusivu
+          = t :front_page
           span.arrow ›
   .tabs-container.unimplemented
     .tabs
       ul.tabs-list
-        li.active: a(href='#') Kaikki
+        li.active: a(href='#') = t 'navi.all'
         li: a(href='#') Uutiset
         li: a(href='#') Tiedotteet
     .tab-content
