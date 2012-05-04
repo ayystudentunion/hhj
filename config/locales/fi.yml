@@ -77,8 +77,6 @@ fi:
     edit:
       title: Muokkaa toimielintä
     applicant:
-      position_member: Jäsen
-      position_deputy: Varajäsen
       not_eligible: Ei vaalikelpoinen
       eligibility_rule_not_met: "Ei täytä ehtoa: %{rule}"
     member:
@@ -128,7 +126,7 @@ fi:
       title: Avaa uusi paikkahaku toimielimelle
       no_eligibility_rules: Ei vaalikelpoisuusrajoitteita
     edit:
-      title: Muokkaan paikkahakua
+      title: Muokkaa paikkahakua
     show:
       details: Haun tiedot
       looking_for: Haetaan
