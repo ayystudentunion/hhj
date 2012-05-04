@@ -700,6 +700,10 @@ a.btn:active, input.btn:active
             margin-right 0
           span.not_eligible
             font-weight bold
+            margin-top 4px
+            display inline-block
+          span.not_eligible:hover
+            color #000
 
       .edit-members
         .member-card
@@ -980,6 +984,10 @@ form.new_application
 form.new_organ, form.edit_organ
   input.wide
     margin 14px 0 10px 0
+  select.organizations
+    margin-top 12px
+  select#organ_organization_
+    margin-top 0
 
 form.send_message
   textarea.wide
@@ -1059,7 +1067,6 @@ form.new_member
     bottom 14px
     right 26px
 
-
 .button-row
   width 100%
   clear both
@@ -1079,4 +1086,13 @@ form.new_member
     padding-left 24px
     background url('../img/print-icon.png') no-repeat center left
 
+/* TOOLTIP STYLES */
 
+.qtip
+  font-family basic-fonts
+  font-size 13px
+  line-height 15px
+  -webkit-box-shadow 1px 2px 5px 0 #818181
+  -moz-box-shadow 1px 2px 5px 0 #818181
+  box-shadow 1px 2px 5px 0 #818181
+  margin-top 4px

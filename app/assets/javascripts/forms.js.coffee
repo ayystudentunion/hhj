@@ -151,8 +151,8 @@ initOrganPage = (delegateFor) ->
   initToolTips = () ->
     $('.not_eligible').qtip
       position:
-        corner:
-          target: 'bottomLeft'
+        at: 'bottom left'
+
 
   initToggleArchived()
   initCallSelectionDragNDrops()
