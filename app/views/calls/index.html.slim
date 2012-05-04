@@ -12,7 +12,7 @@ div#open-calls
   .tabs-container
     .tabs
       ul.tabs-list
-        li.active: a(href='#') Kaikki
+        li.active: a(href='#') = t 'navi.all'
         li.unimplemented(href='#'): a(href='#') Työryhmä
         li.unimplemented(href='#'): a(href='#') Neuvostot
         li.unimplemented(href='#'): a(href='#') Johtoryhmät
@@ -20,4 +20,4 @@ div#open-calls
       .tab
         .open-calls
           = render @calls
-        a.show-more.btn(href='#' style='display:none') Näytä lisää
+        a.show-more.btn.unimplemented(href='#') Näytä lisää

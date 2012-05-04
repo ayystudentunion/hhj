@@ -30,6 +30,7 @@ fi:
     organs: Toimielimet
     open_calls: Avoimet haut
     hallopeds: Hallopedit
+    all: Kaikki
 
   pages:
     index:
