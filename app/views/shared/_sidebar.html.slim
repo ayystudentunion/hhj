@@ -3,7 +3,7 @@ div#sidebar
     .profile-info(href='#' style="#{'display:none;' if @user.nil?}")
       .info-tab
         span.tab-left
-        span.tab-middle = t "sidebar.user_info"
+        span.tab-middle = t '.user_info'
         span.tab-right
       .info-content
         div.avatar
@@ -13,10 +13,10 @@ div#sidebar
           span.email = @user.email
           br
           span.phone = @user.phone
-        a.edit-btn.unimplemented(href='#') = t "sidebar.edit"
+        a.edit-btn.unimplemented(href='#') = t '.edit'
         div.clear
         h4.unimplemented
-          = t "sidebar.my_organs"
+          = t '.my_organs'
           | :
         ul.my-organs.unimplemented
           li: a(href='#') Joku toimielin
@@ -26,8 +26,8 @@ div#sidebar
 
     - if can_admin_organs?
       a.sidebar-button.btn.create-new-organ.js-modal(href=new_organ_path)
-        = t "sidebar.create_organ"
+        = t '.create_organ'
         span.plus-icon
     a.sidebar-button.btn.unimplemented(href='#')
-      = t "sidebar.write_news_post"
+      = t '.write_news_post'
       span.plus-icon

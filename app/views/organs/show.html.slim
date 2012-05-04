@@ -17,7 +17,6 @@ div#single-organ
     .tabs
       ul.tabs-list
         li.active: a(href='#') = t :introduction
-        li.unimplemented: a(href='#') = t :members
     .tab-content
       .tab
         .organ-details
@@ -29,18 +28,18 @@ div#single-organ
               a.edit-icon.js-modal(href=edit_organ_path(id: @organ._id))
           .item-row
             span.label
-              = t :organization
+              = t '.organization'
               | :
             span.text = @organ.organization_full_name
           .item-row
             span.label
-              = t :term
+              = t '.term'
               | :
             span.text
               = formatted_date @organ.term_start, end_date: @organ.term_end
           .item-row
             span.label
-              = t :manager
+              = t '.manager'
               | :
             span.text
               = manager
@@ -49,9 +48,9 @@ div#single-organ
         - if can_admin_calls?
           em
             - if @organ.members.current_hallopeds.empty?
-              = t :has_open_positions
+              = t '.has_open_positions'
             a.application-call.btn.js-modal(href=new_organ_call_path(organ_id:@organ._id))
-              = t :new_call_for_applications
+              = t '.new_call_for_applications'
         .hr
         form.message-for-organ.unimplemented
           textarea.wide(type='textarea' placeholder=t("placeholders.message_for_organ"))

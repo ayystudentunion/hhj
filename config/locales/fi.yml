@@ -4,18 +4,9 @@ fi:
   login_with_haka: Kirjaudu HAKA-tunnuksilla
 
   front_page: Etusivu
-  organs: Toimielimet
-
   introduction: Esittely
-  members: Jäsenet
-  organization: Organisaatioyksikkö
-  term: Toimikausi
-  manager: Vastuuhenkilö
   modified: muokattu
   print: Tulosta
-
-  has_open_positions: Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
-  new_call_for_applications: Avaa uusi paikkahaku
 
   time:
     formats:
@@ -35,19 +26,10 @@ fi:
     sv: SE
     to_sv: På svenska
 
-  sidebar:
-    user_info: Omat tiedot
-    edit: Muokkaa
-    my_organs: Omat toimielimet
-    create_organ: Luo uusi toimielin
-    write_news_post: Kirjoita uusi tiedote tai uutinen
-
   navi:
     organs: Toimielimet
     open_calls: Avoimet haut
     hallopeds: Hallopedit
-    documents: Asiakirjat
-    forms: Lomakkeet
 
   pages:
     index:
@@ -60,8 +42,12 @@ fi:
         Halloped eli hallinnon opiskelijaedustajat ovat ylioppilaskunnan edustajiston jäsenistöstään valitsemia edustajia hallinnon toimielimissä. He edustavat itsensä lisäksi koko opiskelijakuntaa toimitehtävässään. Opiskelijaedustajat ovat hallinnon täysivaltaisia jäseniä - ainoastaan opinnäytetöiden arvosteluun he eivät suoraan voi vaikuttaa. Hallopediksi voi hakeutua avomissa hauissa kuka tahansa ylioppilaskunnan jäsen.
 
         Hallopedit ja ylioppilaskunnan hallitus pyrkivät yhdessä säilyttämään ja parantamaan opiskelijoiden palveluja ja oikeudenmukaisuutta kouluyhteisössämmä. Jokaisen opiskelijan on toivottavaa tarjota heille palautetta antamaan suuntaviivoja vaikutustyölle.
-
-
+    sidebar:
+      user_info: Omat tiedot
+      edit: Muokkaa
+      my_organs: Omat toimielimet
+      create_organ: Luo uusi toimielin
+      write_news_post: Kirjoita uusi tiedote tai uutinen
 
   position_applications:
     new:
@@ -119,12 +105,17 @@ fi:
       not_selected: Valitsematta jääneet
       archive_call: Arkistoi haku
     show:
+      has_open_positions: Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
+      new_call_for_applications: Avaa uusi paikkahaku
+      organization: Organisaatioyksikkö
       show_archived_calls: Näytä arkistoidut haut
       hide_archived_calls: Piilota arkistoidut haut
       staff: Yliopiston edustajat
       add_staff_by_email: Lisää edustaja sähköpostiosoitteella
       professors: Professorit
       add_professor_by_email: Lisää professori sähköpostiosoitteella
+      term: Toimikausi
+      manager: Vastuuhenkilö
     current_members:
       hallopeds: Istuvat opiskelijaedustajat
       add_member_by_email: Lisää opiskelijaedustaja sähköpostiosoitteella
