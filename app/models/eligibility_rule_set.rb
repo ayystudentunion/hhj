@@ -3,7 +3,7 @@ class EligibilityRuleSet
   include Mongoid::Timestamps
 
   belongs_to :organization
-  has_many :eligibility_rules
+  has_and_belongs_to_many :eligibility_rules
   has_many :calls
 
   field :name, localize: true

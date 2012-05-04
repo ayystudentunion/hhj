@@ -2,9 +2,27 @@ require 'spec_helper'
 
 describe PositionApplication do
 
-  context 'eligibility' do
-    it 'is valid for a call if there are no rules set' do
+  context '(when checking eligibility for election)' do
+    it 'is eligible if there are no rules set' do
       application = FactoryGirl.create(:kirjakerho_application)
+      application.eligible?.should == true
+    end
+
+    it 'can check eligibility comparing a edu person field to a list of valid values' do
+      application = FactoryGirl.create(:kirjakerho_application)
+      application.call.eligibility_rule_set = FactoryGirl.create(:accept_only_martti_to_lukurinki)
+      application.user.unset(:edu_data)
+      application.eligible?.should == false
+      application.user.set(:edu_data, {'A_GIVEN_NAME' => 'Emma'})
+      application.eligible?.should == false
+      application.user.set(:edu_data, {'A_OTHER' => 'Martti'})
+      application.eligible?.should == false
+      application.user.set(:edu_data, {})
+      application.eligible?.should == false
+      application.user.set(:edu_data, nil)
+      application.eligible?.should == false
+
+      application.user.set(:edu_data, {'A_GIVEN_NAME' => 'Martti'})
       application.eligible?.should == true
     end
   end

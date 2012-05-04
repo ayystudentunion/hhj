@@ -2,8 +2,9 @@ class EligibilityRule
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  belongs_to :eligibility_rule_set
+  has_and_belongs_to_many :eligibility_rule_sets
 
+  field :name, localized: true
   field :edu_field, type: String
   field :valid_values, type: Array
 
@@ -12,9 +13,10 @@ class EligibilityRule
     valid_values.include? value
   end
 
-  def match(position_application)
+  def match?(position_application)
     return false if position_application.nil?
     return false if position_application.user.edu_data.nil?
+    return false unless position_application.user.edu_data.include? edu_field
     valid_value? position_application.user.edu_data[edu_field]
   end
 end
