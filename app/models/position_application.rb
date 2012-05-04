@@ -25,4 +25,7 @@ class PositionApplication
     rule_set.match? self
   end
 
+  def name
+    user.full_name
+  end
 end
