@@ -3,6 +3,7 @@ require 'factory_girl_rails'
 class CallsController < ApplicationController
 
   before_filter :authorize_call_admin, except: [:index, :show]
+  before_filter :call_belongs_to_current_university
 
   def index
     @calls = Call.where(status: :open)
@@ -79,6 +80,12 @@ class CallsController < ApplicationController
   end
 
   def destroy # delete an call
+  end
+
+  protected
+
+  def call_belongs_to_current_university
+    true
   end
 
 end
