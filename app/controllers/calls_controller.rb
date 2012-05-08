@@ -3,7 +3,7 @@ require 'factory_girl_rails'
 class CallsController < ApplicationController
 
   before_filter :authorize_call_admin, except: [:index, :show]
-  before_filter :call_belongs_to_current_university
+  #before_filter :call_belongs_to_current_university
 
   def index
     @calls = Call.where(status: :open)
@@ -34,7 +34,7 @@ class CallsController < ApplicationController
   end
 
   def show # return a single call for applications
-    @call = Call.find(params[:id])
+    @call = find_call
     respond_to do |format|
       format.html
       format.json { render :json => @call }
@@ -44,7 +44,7 @@ class CallsController < ApplicationController
   end
 
   def edit # form for modifing an existing call
-    @call = Call.find(params[:id])
+    @call = find_call
     @form_path = call_path
     @form_title = t "calls.edit.title"
     respond_to do |format|
@@ -53,7 +53,7 @@ class CallsController < ApplicationController
   end
 
   def update
-    call = Call.find params[:id]
+    call = find_call
     updated_call = params[:call]
     if updated_call
       call.update_attributes!(updated_call)
@@ -67,6 +67,7 @@ class CallsController < ApplicationController
       end
       call.save!
     end
+
     respond_to do |format|
       format.html {
         if updated_call
@@ -79,12 +80,22 @@ class CallsController < ApplicationController
     end
   end
 
-  def destroy # delete an call
+  def find_call
+    Call.find(params[:id])
+  end
+
+  def destroy # delete a call
   end
 
   protected
 
   def call_belongs_to_current_university
+    if call = find_call
+      organization = call.organ.organization
+      call_univ, url_univ = organization.key, params['university']
+      warn [call_univ, url_univ] if call_univ != url_univ
+    end
+
     true
   end
 
