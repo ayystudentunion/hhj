@@ -14,6 +14,7 @@ class PositionApplication
   position_field :selected_as
   field :deputy_of, type: String
   field :personal_statement, type: String
+  field :custom, type: Hash
 
   def reset_deputy_of_for_position_member
     self.deputy_of = "" if position == :position_member

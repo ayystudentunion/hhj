@@ -27,8 +27,7 @@ class PositionApplicationsController < ApplicationController
   def create
     position_application_params = params[:position_application] || {}
     call = Call.find params[:call_id]
-    @position_application = FactoryGirl.create :position_application,
-      position_application_params.merge(call: call)
+    @position_application = PositionApplication.create! position_application_params.merge(call: call)
   end
 
   def update

@@ -21,6 +21,7 @@
               = f.radio_button :position, position_value, checked: selected
               span = PositionApplication.human_attribute_name(position_value)
         = f.text_field :deputy_of, placeholder:  PositionApplication.human_attribute_name(:deputy_of), class: 'field half', style: 'display:none;'
+      = render partial: "custom/#{@university.key}/fields", formats: :html, locals: { f: f }
       = f.text_area :personal_statement, placeholder: PositionApplication.human_attribute_name(:personal_statement), class: 'wide'
       .button-row
         a.cancel.close-modal.btn(href='#') = t 'modals.cancel'

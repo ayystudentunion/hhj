@@ -1,0 +1,10 @@
+.custom
+  h3
+    = t '.available'
+  label
+    = t '.available_true'
+    = radio_button 'position_application', 'custom[available]', 'true',  checked: true
+  label
+    = t '.available_false'
+    = radio_button 'position_application', 'custom[available]', 'false',  checked: false
+
