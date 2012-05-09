@@ -136,4 +136,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def render_404
+    respond_to do |format|
+      format.html { render file: "#{Rails.root}/public/404.html", status: :not_found , layout: false}
+      format.any  { head :not_found }
+    end
+  end
+
 end

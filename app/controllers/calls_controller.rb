@@ -3,7 +3,7 @@ require 'factory_girl_rails'
 class CallsController < ApplicationController
 
   before_filter :authorize_call_admin, except: [:index, :show]
-  #before_filter :call_belongs_to_current_university
+  before_filter :call_belongs_to_current_university, except: [:index, :new, :create]
 
   def index
     @calls = Call.where(status: :open)
@@ -90,13 +90,9 @@ class CallsController < ApplicationController
   protected
 
   def call_belongs_to_current_university
-    if call = find_call
-      organization = call.organ.organization
-      call_univ, url_univ = organization.key, params['university']
-      warn [call_univ, url_univ] if call_univ != url_univ
+    if @university.key != find_call.organ.organization.root.key
+      render_404
     end
-
-    true
   end
 
 end
