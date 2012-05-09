@@ -96,7 +96,16 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = "+358 40 555 4321"
         request.env["A_MAIL"] = "martti@sty.fi"
         request.env["A_HOME_ORGANIZATION"] = "sty.fi"
+      elsif test_user == "xerxes"
+        FactoryGirl.create :xerxes
+        request.env["A_PRINCIPAL_NAME"] = 'xerxes@ay.fi'
+        request.env["A_GIVEN_NAME"] = "Xerxes"
+        request.env["A_SURNAME"] = "I"
+        request.env["A_MOBILE"] = "+358 40 555 7777"
+        request.env["A_MAIL"] = "xerxes@ay.fi"
+        request.env["A_HOME_ORGANIZATION"] = "ay.fi"
       end
+
     end
   end
 

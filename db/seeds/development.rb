@@ -72,7 +72,7 @@ create_organizations([
 
 FactoryGirl.create(:tasa_arvotyoryhma)
 FactoryGirl.create(:kirjakerho)
-FactoryGirl.create(:lukurinki)
+FactoryGirl.create(:akhaimenidien_kirjakerho)
 
 if not Admin.where(email: 'halloped@localhost.fi').exists?
   Admin.create! email:'halloped@localhost.fi', password:'password', password_confirmation:'password'

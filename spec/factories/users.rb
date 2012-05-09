@@ -42,5 +42,13 @@ FactoryGirl.define do
       last_name  'Lapinmaa'
       email      'tlap@spu.fi'
     end
+    factory :xerxes do
+      _id        '4f7963bf91bc2bc1f6000006'
+      first_name 'Xerxes'
+      last_name  'I'
+      email      'xerxes@ay.fi'
+      phone      '+358 40 555 7777'
+      principal_name 'xerxes@ay.fi'
+    end
   end
 end

@@ -15,5 +15,11 @@ FactoryGirl.define do
       _id   "4f6b1edf91bc2b3302010101"
       association :organization, :factory => :kirjasto
     end
+    factory :akhaimenidien_kirjakerho do
+      name  'Akhaimenidien Kirjakerho'
+      _id   "5e5c1edf91bc2b3302000001"
+      association :organization, :factory => :akhaimenidien_kirjasto
+    end
+
   end
 end

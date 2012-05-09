@@ -46,6 +46,9 @@ class PagesController < ApplicationController
     }, {
       name: "martti",
       role: "student"
+    }, {
+      name: "xerxes",
+      role: "employee"
     } ]
     render :dev_users, layout: false
   end

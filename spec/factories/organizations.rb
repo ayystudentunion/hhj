@@ -33,6 +33,19 @@ FactoryGirl.define do
       _id   '4f6b1edf91bc2b33d3010102'
       parent { FactoryGirl.create(:luonnontieteellinen_tiedekunta) }
     end
+
+    factory :akhaimenidien_yliopisto do
+      name  'Akhaimenidien Yliopisto'
+      key   'ay'
+      _id   '5e5c1edf91bc2b3300000000'
+    end
+
+    factory :akhaimenidien_kirjasto do
+      name  'Akhaimenidien Kirjasto'
+      _id   '5e5c1edf91bc2b3302000000'
+      parent { FactoryGirl.create(:akhaimenidien_yliopisto) }
+    end
+
   end
 
 end
