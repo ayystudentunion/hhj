@@ -6,7 +6,7 @@ class CallsController < ApplicationController
   before_filter :find_call_from_current_university, except: [:index, :new, :create]
 
   def index
-    @calls = Call.where(status: :open)
+    @calls = Call.open_by_university @university
     respond_to do |format|
       format.html
       format.fragment { render "index", formats: ['html'], layout: false }
@@ -14,8 +14,8 @@ class CallsController < ApplicationController
   end
 
   def new
-    organ = Organ.find params[:organ_id]
-    @call  = organ.calls.build
+    find_organ_from_current_university :organ_id
+    @call = @organ.calls.build
     @form_path = organ_calls_path
     @form_title = t "calls.new.title"
     respond_to do |format|
@@ -25,7 +25,7 @@ class CallsController < ApplicationController
 
   def create # create a new call for applications
     call_params = params[:call] || {}
-    call = FactoryGirl.create :call, call_params.merge(organ: Organ.find(params[:organ_id]))
+    call = find_organ_from_current_university(:organ_id).calls.create! call_params
 
     respond_to do |format|
       format.json { render json: call.to_json }
@@ -81,13 +81,6 @@ class CallsController < ApplicationController
   end
 
   def destroy # delete a call
-  end
-
-  protected
-
-  def find_call_from_current_university
-    @call = Call.find(params[:id])
-    verify_university @call.organ.organization
   end
 
 end

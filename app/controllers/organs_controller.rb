@@ -24,7 +24,7 @@ class OrgansController < ApplicationController
   end
 
   def create # create a new organ document
-    @organ = FactoryGirl.create(:organ, params[:organ].merge(organization: selected_organization))
+    @organ = selected_organization.organs.create! params[:organ]
 
     respond_to do |format|
       format.json { render json: @organ.to_json }
@@ -73,9 +73,5 @@ class OrgansController < ApplicationController
     Organization.find params[:organ][:organization].unshift(@university._id).reject(&:blank?).last
   end
 
-  def find_organ_from_current_university
-    @organ = Organ.find(params[:id])
-    verify_university @organ.organization
-  end
 
 end
