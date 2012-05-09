@@ -18,6 +18,10 @@ class Organ
   field :appointer, type: String
   field :official, type: Boolean
 
+  def self.by_university(university)
+    all.select{|o| o.organization.descendant_of?(university)}
+  end
+
   def unofficial
     not official
   end

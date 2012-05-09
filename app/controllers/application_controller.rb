@@ -136,6 +136,24 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def verify_university(organization)
+    if @university.key != organization.root.key
+      render_404
+    end
+  end
+
+  def find_organ_from_current_university(symbol=:id)
+    @organ = Organ.find(params[symbol])
+    verify_university @organ.organization
+    @organ
+  end
+
+  def find_call_from_current_university(symbol=:id)
+    @call = Call.find(params[symbol])
+    verify_university @call.organ.organization
+    @call
+  end
+
   def render_404
     respond_to do |format|
       format.html { render file: "#{Rails.root}/public/404.html", status: :not_found , layout: false}

@@ -26,6 +26,11 @@ class Call
   field :term_end, type: Date
   field :appointment_place_and_date, localize: true
   field :description, localize: true
+  scope :open, where(status: :open)
+
+  def self.open_by_university(university)
+    open.select{|c| c.organ.organization.descendant_of?(university)}
+  end
 
   def has_unhandled_applications
     position_applications.not_selected.exists?
