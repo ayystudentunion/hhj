@@ -6,7 +6,9 @@ fi:
         available_true: Kyllä
         available_false: Ei
         degree_programme: Tutkinto-ohjelma (esim. Automaatiotekniikka)
+        experience_in_student_associations: Aiempi kokemus järjestötoiminnasta
       fields_show:
         available: Koko kaudeksi
+        experience_in_student_associations: Aiempi kokemus järjestötoiminnasta
 
 
