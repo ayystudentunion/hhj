@@ -35,20 +35,13 @@ namespace :db do
 
     def create_organizations(organizations, parent=nil)
       organizations.each do |org|
-        case org
-        when String
+        if org.kind_of?(String)
           create!(parent, name: org)
-        when Array
-          if structured_list?(org)
-            head, *tail = org
-            create_organizations(tail, create!(parent, name: head))
-          else
-            create_organizations(org, parent)
-          end
-        when Hash
-          create_organizations(org, parent)
+        elsif structured_list?(org)
+          head, *tail = org
+          create_organizations(tail, create!(parent, name: head))
         else
-          raise "unexpected entry #{org.inspect}"
+          create_organizations(org, parent)
         end
       end
     end
