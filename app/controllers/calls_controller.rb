@@ -4,6 +4,7 @@ class CallsController < ApplicationController
 
   before_filter :authorize_call_admin, except: [:index, :show]
   before_filter :find_call_from_current_university, except: [:index, :new, :create]
+  before_filter(only: [:new, :create]) { |c| c.find_organ_from_current_university :organ_id }
 
   def index
     @calls = Call.open_by_university @university
@@ -14,7 +15,6 @@ class CallsController < ApplicationController
   end
 
   def new
-    find_organ_from_current_university :organ_id
     @call = @organ.calls.build
     @form_path = organ_calls_path
     @form_title = t "calls.new.title"
@@ -24,8 +24,7 @@ class CallsController < ApplicationController
   end
 
   def create # create a new call for applications
-    call_params = params[:call] || {}
-    call = find_organ_from_current_university(:organ_id).calls.create! call_params
+    call = @organ.calls.create! params[:call]
 
     respond_to do |format|
       format.json { render json: call.to_json }
@@ -34,7 +33,6 @@ class CallsController < ApplicationController
   end
 
   def show # return a single call for applications
-    find_call_from_current_university
     respond_to do |format|
       format.html
       format.json { render :json => @call }
@@ -44,7 +42,6 @@ class CallsController < ApplicationController
   end
 
   def edit # form for modifing an existing call
-    find_call_from_current_university
     @form_path = call_path
     @form_title = t "calls.edit.title"
     respond_to do |format|
@@ -53,7 +50,6 @@ class CallsController < ApplicationController
   end
 
   def update
-    find_call_from_current_university
     updated_call = params[:call]
     if updated_call
       @call.update_attributes!(updated_call)
