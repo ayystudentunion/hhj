@@ -5,8 +5,7 @@ class OrgansController < ApplicationController
   before_filter :authorize_organ_admin, except: [:index, :show]
 
   def index # list of all organs
-    @organs = Organ.all
-
+    @organs = Organ.by_university(@university)
     respond_to do |format|
       format.html
       format.fragment { render "index", formats: ['html'], layout: false }
