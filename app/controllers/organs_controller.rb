@@ -3,6 +3,7 @@ require 'factory_girl_rails'
 class OrgansController < ApplicationController
 
   before_filter :authorize_organ_admin, except: [:index, :show]
+  before_filter :find_organ_from_current_university, except: [:index, :new, :create]
 
   def index # list of all organs
     @organs = Organ.by_university(@university)
@@ -14,7 +15,7 @@ class OrgansController < ApplicationController
   end
 
   def new # form for creating a new organ
-    @organ = Organ.new #FactoryGirl.build(:organ)
+    @organ = Organ.new
     @form_path = organs_path
     @form_title = t 'organs.new.title'
     respond_to do |format|
@@ -24,16 +25,15 @@ class OrgansController < ApplicationController
 
   def create # create a new organ document
     selected_organization = params[:organ][:organization].unshift(@university).reject(&:blank?).last
-    organ = FactoryGirl.create(:organ, params[:organ].merge(organization: selected_organization))
+    @organ = FactoryGirl.create(:organ, params[:organ].merge(organization: selected_organization))
 
     respond_to do |format|
-      format.json { render json: organ.to_json }
-      format.html { redirect_to action: :show, id: organ._id }
+      format.json { render json: @organ.to_json }
+      format.html { redirect_to action: :show, id: @organ._id }
     end
   end
 
   def show # return a single organ
-    @organ = Organ.find(params[:id])
     @calls = @organ.calls.where(:status.in => [:open, :closed, :proposed]).asc(:date_end, :title)
     @proposals = @organ.calls.where(status: :proposed).asc(:date_end, :title)
     @handled_calls = @organ.calls.where(status: :handled).asc(:date_end, :title)
@@ -49,7 +49,6 @@ class OrgansController < ApplicationController
   end
 
   def edit # form for modifing an existing organ
-    @organ = Organ.find(params[:id])
     @form_path = organ_path
     @form_title = t 'organs.edit.title'
     respond_to do |format|
@@ -58,17 +57,23 @@ class OrgansController < ApplicationController
   end
 
   def update # modify an existing organ
-    organ = Organ.find(params[:id])
     organ_params = params[:organ]
     selected_organization = organ_params[:organization].unshift(@university).reject(&:blank?).last
     organ_params = organ_params.merge(organization: selected_organization)
-    organ.update_attributes!(organ_params)
+    @organ.update_attributes!(organ_params)
     respond_to do |format|
-      format.html { redirect_to action: :show, id: organ._id }
+      format.html { redirect_to action: :show, id: @organ._id }
     end
   end
 
   def destroy # delete an organ
+  end
+
+  protected
+
+  def find_organ_from_current_university
+    @organ = Organ.find(params[:id])
+    verify_university @organ.organization
   end
 
 end

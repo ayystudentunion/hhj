@@ -3,7 +3,7 @@ require 'factory_girl_rails'
 class CallsController < ApplicationController
 
   before_filter :authorize_call_admin, except: [:index, :show]
-  before_filter :call_belongs_to_current_university, except: [:index, :new, :create]
+  before_filter :find_call_from_current_university, except: [:index, :new, :create]
 
   def index
     @calls = Call.where(status: :open)
@@ -34,7 +34,7 @@ class CallsController < ApplicationController
   end
 
   def show # return a single call for applications
-    @call = find_call
+    find_call_from_current_university
     respond_to do |format|
       format.html
       format.json { render :json => @call }
@@ -44,7 +44,7 @@ class CallsController < ApplicationController
   end
 
   def edit # form for modifing an existing call
-    @call = find_call
+    find_call_from_current_university
     @form_path = call_path
     @form_title = t "calls.edit.title"
     respond_to do |format|
@@ -53,35 +53,31 @@ class CallsController < ApplicationController
   end
 
   def update
-    call = find_call
+    find_call_from_current_university
     updated_call = params[:call]
     if updated_call
-      call.update_attributes!(updated_call)
+      @call.update_attributes!(updated_call)
     else
       unless params[:status].blank?
         status = params[:status].first.first.to_sym
-        if status == :handled and status != call.status
-          call.organ.add_selected_members!(call)
+        if status == :handled and status != @call.status
+          @call.organ.add_selected_members!(@call)
         end
-        call.status = status
+        @call.status = status
       end
-      call.save!
+      @call.save!
     end
 
     respond_to do |format|
       format.html {
         if updated_call
-          redirect_to call_path(id: call._id)
+          redirect_to call_path(id: @call._id)
         else
-          redirect_to organ_path(id: call.organ._id)
+          redirect_to organ_path(id: @call.organ._id)
         end
       }
-      format.json { render :json => call }
+      format.json { render :json => @call }
     end
-  end
-
-  def find_call
-    Call.find(params[:id])
   end
 
   def destroy # delete a call
@@ -89,10 +85,9 @@ class CallsController < ApplicationController
 
   protected
 
-  def call_belongs_to_current_university
-    if @university.key != find_call.organ.organization.root.key
-      render_404
-    end
+  def find_call_from_current_university
+    @call = Call.find(params[:id])
+    verify_university @call.organ.organization
   end
 
 end
