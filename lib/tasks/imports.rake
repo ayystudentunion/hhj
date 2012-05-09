@@ -8,7 +8,7 @@ namespace :db do
 
       if looks_like_we_have_already_imported_organizations?
         univ_name = 'Helsingin yliopisto'
-        root = create!(nil, name: univ_name, key: 'hy')
+        root = create!(nil, name: univ_name, key: 'helsinki')
         create_organizations(h.fetch(univ_name), root)
       end
     end
@@ -53,7 +53,7 @@ namespace :db do
       #parent_name = parent ? parent[:name] : '(nil)'
       #name = h[:name]
       #puts "  #{parent_name} / #{name}"
-      Organization.create!(h.except(:children).merge(parent: parent))
+      Organization.create!(h.merge(parent: parent))
     end
   end
 end
