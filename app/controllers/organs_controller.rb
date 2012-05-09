@@ -24,7 +24,6 @@ class OrgansController < ApplicationController
   end
 
   def create # create a new organ document
-    selected_organization = params[:organ][:organization].unshift(@university).reject(&:blank?).last
     @organ = FactoryGirl.create(:organ, params[:organ].merge(organization: selected_organization))
 
     respond_to do |format|
@@ -58,7 +57,6 @@ class OrgansController < ApplicationController
 
   def update # modify an existing organ
     organ_params = params[:organ]
-    selected_organization = organ_params[:organization].unshift(@university).reject(&:blank?).last
     organ_params = organ_params.merge(organization: selected_organization)
     @organ.update_attributes!(organ_params)
     respond_to do |format|
@@ -70,6 +68,10 @@ class OrgansController < ApplicationController
   end
 
   protected
+
+  def selected_organization
+    Organization.find params[:organ][:organization].unshift(@university._id).reject(&:blank?).last
+  end
 
   def find_organ_from_current_university
     @organ = Organ.find(params[:id])
