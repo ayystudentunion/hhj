@@ -7,8 +7,11 @@ namespace :db do
       raise "Pass env var fpath to task with full pathname to yml file (look under resources/ for files)" unless fpath
 
       h = YAML.load_file(fpath)
-      if looks_like_we_have_not_created_organisations_yet?
-        univ_name = h.keys.first
+      univ_name = h.keys.first
+
+      if looks_like_we_have_created_organisations?(univ_name)
+        puts "#{univ_name} found in db, assuming these organizations exist. Aborting."
+      else
         root = create!(nil, name: univ_name, key: get_key(fpath))
         create_organizations(h.fetch(univ_name), root)
       end
@@ -20,17 +23,8 @@ namespace :db do
       end
     end
 
-    def looks_like_we_have_not_created_organisations_yet?
-      threshold = 100
-      db_count = Organization.count
-
-      if db_count >= threshold
-        puts "looks like we already have organizations in place (found #{db_count} in db)"
-        puts "TODO: actually read the root org from file to better check file is in db already"
-        false
-      else
-        true
-      end
+    def looks_like_we_have_created_organisations?(univ_name)
+      Organization.find_by(name: univ_name) rescue false
     end
 
     def create_organizations(organizations, parent=nil)
@@ -51,9 +45,7 @@ namespace :db do
     end
 
     def create!(parent, h)
-      #parent_name = parent ? parent[:name] : '(nil)'
-      #name = h[:name]
-      #puts "  #{parent_name} / #{name}"
+      puts "Creating #{parent.try(:name) || 'root'} / #{h[:name]}"
       Organization.create!(h.merge(parent: parent))
     end
   end
