@@ -1,8 +1,8 @@
 class PositionApplicationsController < ApplicationController
 
   before_filter :authorize_call_admin, except: [:index, :show, :new, :create]
-  before_filter :find_application_from_current_university, except: [:index, :new, :create]
   before_filter { |c| c.find_call_from_current_university :call_id }
+  before_filter :find_application_from_call, except: [:index, :new, :create]
 
   def index
   end
@@ -39,9 +39,8 @@ class PositionApplicationsController < ApplicationController
 
   protected
 
-  def find_application_from_current_university
-    @position_application = PositionApplication.find(params[:id])
-    verify_university @position_application.call.organ.organization
+  def find_application_from_call
+    @position_application = @call.position_applications.find(params[:id])
   end
 
 end

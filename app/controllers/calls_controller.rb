@@ -3,8 +3,8 @@ require 'factory_girl_rails'
 class CallsController < ApplicationController
 
   before_filter :authorize_call_admin, except: [:index, :show]
-  before_filter :find_call_from_current_university, except: [:index, :new, :create]
   before_filter(only: [:new, :create]) { |c| c.find_organ_from_current_university :organ_id }
+  before_filter :find_call_from_organ_or_university, except: [:index, :new, :create]
 
   def index
     @calls = Call.open_by_university @university
@@ -77,6 +77,17 @@ class CallsController < ApplicationController
   end
 
   def destroy # delete a call
+  end
+
+  protected
+
+  def find_call_from_organ_or_university
+    @organ = find_organ_from_current_university :organ_id if params.include? :organ_id
+    unless @organ.nil?
+      @call = @organ.calls.find(params[:id])
+    else
+      find_call_from_current_university
+    end
   end
 
 end
