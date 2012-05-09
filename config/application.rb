@@ -34,7 +34,7 @@ module Halloped
     config.time_zone = 'Helsinki'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', 'custom', '*.{yml}').to_s]
     config.i18n.default_locale = :fi
 
     # Fallbacks are configured to work only for dynamic values stored in database

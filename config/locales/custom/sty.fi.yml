@@ -1,0 +1,12 @@
+fi:
+  custom:
+    sty:
+      fields:
+        available: Oletko käytettävissä tehtävään koko toimikauden ajan?
+        available_true: Kyllä
+        available_false: Ei
+        degree_programme: Tutkinto-ohjelma (esim. Automaatiotekniikka)
+      fields_show:
+        available: Koko kaudeksi
+
+
