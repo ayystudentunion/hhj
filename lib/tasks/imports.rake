@@ -2,23 +2,31 @@ namespace :db do
   namespace :import do
 
     desc "import Helsinki University organization chart from YAML file"
-    task :hu_org_chart => :environment do
-      org_fpath = File.join(Rails.root, 'resources', 'hu_organisaatiokaavio.yml')
-      h = YAML.load_file(org_fpath)
+    task :org_chart => :environment do
+      fpath = ENV['fpath']
+      raise "Pass env var fpath to task with full pathname to yml file (look under resources/ for files)" unless fpath
 
-      if looks_like_we_have_already_imported_organizations?
-        univ_name = 'Helsingin yliopisto'
-        root = create!(nil, name: univ_name, key: 'helsinki')
+      h = YAML.load_file(fpath)
+      if looks_like_we_have_not_created_organisations_yet?
+        univ_name = h.keys.first
+        root = create!(nil, name: univ_name, key: get_key(fpath))
         create_organizations(h.fetch(univ_name), root)
       end
     end
 
-    def looks_like_we_have_already_imported_organizations?
+    def get_key(fpath)
+      File.basename(fpath).sub(/\..+/, '').tap do |k|
+        puts "Extracted key #{k} from filename"
+      end
+    end
+
+    def looks_like_we_have_not_created_organisations_yet?
       threshold = 100
       db_count = Organization.count
 
       if db_count >= threshold
         puts "looks like we already have organizations in place (found #{db_count} in db)"
+        puts "TODO: actually read the root org from file to better check file is in db already"
         false
       else
         true
