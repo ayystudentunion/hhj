@@ -14,7 +14,7 @@ namespace :db do
     end
 
     def looks_like_we_have_already_imported_organizations?
-      threshold = 13
+      threshold = 100
       db_count = Organization.count
 
       if db_count >= threshold
