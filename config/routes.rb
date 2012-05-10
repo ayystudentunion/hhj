@@ -23,7 +23,6 @@ Halloped::Application.routes.draw do
     end
 
     resources :organizations
-    resources :users
   end
 
 
