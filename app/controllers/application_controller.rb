@@ -4,12 +4,15 @@ require 'factory_girl_rails'
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  CUSTOM_ROOT = Rails.root.join('public/universities')
+
   before_filter :set_fake_env_for_development
   before_filter :set_user
   before_filter :change_language
   before_filter :set_locale
   before_filter :set_university
   before_filter :set_fixed_locale_for_admin_login
+  before_filter :append_custom_view_paths
 
   helper_method :is_student?
   helper_method :is_employee?
@@ -169,5 +172,10 @@ class ApplicationController < ActionController::Base
       format.any  { head :not_found }
     end
   end
+
+  def append_custom_view_paths
+    append_view_path CUSTOM_ROOT
+  end
+
 
 end

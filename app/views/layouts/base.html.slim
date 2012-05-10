@@ -4,7 +4,7 @@ html
     title Halloped
     = stylesheet_link_tag "application"
     - if custom_css_exists?
-      = stylesheet_link_tag '', href: "/#{custom_css}"
+      = stylesheet_link_tag '', href: "#{custom_css}"
     = javascript_include_tag "application"
     = csrf_meta_tags
     meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
