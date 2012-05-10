@@ -45,6 +45,18 @@ module ApplicationHelper
     end
   end
 
+  def custom_path()
+    File.join 'custom', @university.key
+  end
+
+  def custom_template(name)
+    File.join custom_path, name
+  end
+
+  def custom_template_exists?(name)
+    lookup_context.find_all(File.join(custom_path, "_#{name}.html")).any?
+  end
+
   protected
 
   def format_date(date, options)
@@ -54,4 +66,5 @@ module ApplicationHelper
       I18n.l(date, format: options[:format])
     end
   end
+
 end
