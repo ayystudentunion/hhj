@@ -19,7 +19,7 @@
         | :
       p.text = @position_application.call.title + ', ' + t(".#{@position_application.position}", count: @position_application.deputy_of.length, name: @position_application.deputy_of)
     - if custom_template_exists?('fields_show')
-      = render partial: custom_template('fields_show'), formats: :html
+      = render partial: custom_file('fields_show'), formats: :html
     .item-block
       p.label
         = t '.personal_statement'

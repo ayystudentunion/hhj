@@ -8,6 +8,8 @@ fi:
       experience_in_student_associations: Aiempi kokemus järjestötoiminnasta
     fields_show:
       available: Koko kaudeksi
+      available_true: Kyllä
+      available_false: Ei
       degree_programme: Tutkinto-ohjelma
       experience_in_student_associations: Aiempi kokemus järjestötoiminnasta
 

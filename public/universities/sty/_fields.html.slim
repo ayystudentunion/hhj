@@ -1,15 +1,28 @@
 .custom
-  .item-row
-    h3
-      = t '.available'
-    label
-      = t '.available_true'
-      = radio_button 'position_application', 'custom[available]', 'true',  checked: true
-    label
-      = t '.available_false'
-      = radio_button 'position_application', 'custom[available]', 'false',  checked: false
-  .item-row
-    = text_field_tag 'position_application[custom[degree_programme]]', '', placeholder: t('.degree_programme'), class: 'field wide'
-  .item-row
-    = text_area_tag 'position_application[custom[experience_in_student_associations]]', '', placeholder: t('.experience_in_student_associations'), class: 'wide'
-
+  - if f.nil?
+    - if @position_application.custom.include? 'available'
+      h3
+        = t ".available"
+      p.text = t(".available_#{@position_application.custom['available']}")
+    - if @position_application.custom.include? 'degree_programme'
+      h3
+        = t ".degree_programme"
+      p.text = @position_application.custom['degree_programme']
+    - if @position_application.custom.include? 'experience_in_student_associations'
+      h3
+        = t '.experience_in_student_associations'
+      textarea.wide-text(readonly="readonly") = @position_application.custom['experience_in_student_associations']
+  - else
+    .item-row
+      h3
+        = t '.available'
+      label
+        = t '.available_true'
+        = radio_button 'position_application', 'custom[available]', 'true',  checked: true
+      label
+        = t '.available_false'
+        = radio_button 'position_application', 'custom[available]', 'false',  checked: false
+    .item-row
+      = text_field_tag 'position_application[custom[degree_programme]]', '', placeholder: t('.degree_programme'), class: 'field wide'
+    .item-row
+      = text_area_tag 'position_application[custom[experience_in_student_associations]]', '', placeholder: t('.experience_in_student_associations'), class: 'wide'
