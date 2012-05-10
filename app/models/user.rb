@@ -7,7 +7,7 @@ class User
   field :principal_name, type: String
   field :first_name, type: String
   field :last_name, type: String
-  field :univesity_domain, type: String
+  field :university_domain, type: String
   field :email, type: String
   field :phone, type: String
   field :role, type: String
