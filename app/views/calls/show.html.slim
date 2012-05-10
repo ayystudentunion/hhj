@@ -24,7 +24,7 @@ div#single-call
             a(href=call_path(id:@call._id)) = @call.title
             span.date = t(:modified) + " " + l(@call.updated_at)
             - if can_admin_calls?
-              a.edit-icon.js-modal(href=edit_call_path(id: @call.id))    
+              a.edit-icon.js-modal(href=edit_call_path(id: @call.id))
           .item-row
             span.label #{Organ.model_name.human}:
             a(href=organ_path(id:@call.organ._id)) = @call.organ.name
@@ -48,7 +48,7 @@ div#single-call
         .hr
         .button-row
           a.print.popup(href=call_path(format: :pdf)) = t :print
-          - if is_student?
+          - if can_apply?
             a.send-application.btn.js-modal(href=new_call_position_application_path(call_id:@call._id))
               = t(".send_application")
   div.clear

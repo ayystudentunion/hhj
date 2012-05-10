@@ -12,29 +12,21 @@ class ApplicationController < ActionController::Base
   before_filter :set_fixed_locale_for_admin_login
   before_filter :init_custom_view_paths
 
-  helper_method :is_student?
-  helper_method :is_employee?
-  helper_method :is_admin_staff?
+  helper_method :user_role?
   helper_method :is_in_current_university?
-
   helper_method :can_admin_calls?
   helper_method :can_admin_organs?
+  helper_method :can_apply?
   helper_method :not_supported_user
 
   layout :layout_by_context
 
   protected
 
-  def is_student?
-    is_in_current_university? # TODO: how to determine student status
-  end
-
-  def is_employee?
-    is_in_current_university? and has_role?("employee")
-  end
-
-  def is_admin_staff?
-    is_in_current_university? and has_role?("admin_staff")
+  def user_role?(role)
+    return false if not @user
+    return false unless is_in_current_university?
+    @user.role == role
   end
 
   def is_in_current_university?
@@ -42,17 +34,16 @@ class ApplicationController < ActionController::Base
     @user.university.key == @university.key
   end
 
-  def has_role?(role)
-    return false if not @user
-    @user.role == role
-  end
-
   def can_admin_organs?
-    is_admin_staff? || is_employee?
+    user_role?(:role_university_staff) || user_role?(:role_union_employee)
   end
 
   def can_admin_calls?
-    is_employee?
+    user_role?(:role_union_employee)
+  end
+
+  def can_apply?
+    is_in_current_university?
   end
 
   def authorize_organ_admin

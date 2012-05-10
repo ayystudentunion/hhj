@@ -2,11 +2,14 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  ROLE_VALUES = [:role_student, :role_union_employee, :role_university_staff]
+
   has_many :position_applications
   has_many :members
   belongs_to :university, class_name: 'Organization'
 
   validates :email, :presence => true, :email => true
+  validates :role, presence: true, allow_blank: false, inclusion: { in:  ROLE_VALUES }
 
   field :principal_name, type: String
   field :first_name, type: String
@@ -14,7 +17,7 @@ class User
   field :university_domain, type: String
   field :email, type: String
   field :phone, type: String
-  field :role, type: String
+  field :role, type: Symbol, default: :role_student
   field :edu_data, type: Hash
 
   def full_name

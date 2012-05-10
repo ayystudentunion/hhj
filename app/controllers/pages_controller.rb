@@ -39,11 +39,11 @@ class PagesController < ApplicationController
   def dev_users
     @users = [ {
       name: "eija",
-      role: "employee",
+      role: "union employee",
       desc: "Spartan Teknillinen Yliopisto"
     }, {
       name: "aaro",
-      role: "admin_staff",
+      role: "university staff",
       desc: "Spartan Teknillinen Yliopisto"
     }, {
       name: "martti",
@@ -51,7 +51,7 @@ class PagesController < ApplicationController
       desc: "Spartan Teknillinen Yliopisto"
     }, {
       name: "xerxes",
-      role: "employee",
+      role: "union employee",
       desc: "Akhaimenidien Yliopisto"
     }, {
       name: "reija",

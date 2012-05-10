@@ -11,7 +11,7 @@ FactoryGirl.define do
       email      'eija.zitting@sty.fi'
       phone      '+358 40 123 1234'
       principal_name 'eizit@sty.fi'
-      role       'employee'
+      role       :role_union_employee
     end
     factory :aaro do
       _id        '4f7963bf91bc2bc1f6000005'
@@ -20,7 +20,7 @@ FactoryGirl.define do
       email      'aaro.hakkinen@sty.fi'
       phone      '+358 40 123 1234'
       principal_name 'aaroha@sty.fi'
-      role       'admin_staff'
+      role       :role_university_staff
     end
     factory :student_martti do
       _id        '4f7963bf91bc2bc1f6000002'
@@ -51,7 +51,7 @@ FactoryGirl.define do
       email      'xerxes@ay.fi'
       phone      '+358 40 555 7777'
       principal_name 'xerxes@ay.fi'
-      role       'employee'
+      role       :role_union_employee
     end
   end
 end
