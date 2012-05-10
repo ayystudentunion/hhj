@@ -2,4 +2,4 @@ ul
   - @users.each do |u|
     li
       a.js-reload(href=dev_login_path(user:u[:name], target:params[:target]))
-        = u[:name] + ' (' + u[:role] + ')'
+        = u[:name] + ' (' + u[:role] + ', ' + u[:desc] + ')'

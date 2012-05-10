@@ -39,16 +39,25 @@ class PagesController < ApplicationController
   def dev_users
     @users = [ {
       name: "eija",
-      role: "employee"
+      role: "employee",
+      desc: "Spartan Teknillinen Yliopisto"
     }, {
       name: "aaro",
-      role: "admin_staff"
+      role: "admin_staff",
+      desc: "Spartan Teknillinen Yliopisto"
     }, {
       name: "martti",
-      role: "student"
+      role: "student",
+      desc: "Spartan Teknillinen Yliopisto"
     }, {
       name: "xerxes",
-      role: "employee"
+      role: "employee",
+      desc: "Akhaimenidien Yliopisto"
+    }, {
+      name: "reija",
+      role: "student",
+      desc: "from unknown university"
+
     } ]
     render :dev_users, layout: false
   end

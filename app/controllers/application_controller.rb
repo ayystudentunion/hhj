@@ -105,6 +105,13 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = "+358 40 555 7777"
         request.env["A_MAIL"] = "xerxes@ay.fi"
         request.env["A_HOME_ORGANIZATION"] = "ay.fi"
+      elsif test_user == "reija"
+        request.env["A_PRINCIPAL_NAME"] = 'reija@xx.fi'
+        request.env["A_GIVEN_NAME"] = "Reija"
+        request.env["A_SURNAME"] = "Rento"
+        request.env["A_MOBILE"] = "+358 40 555 8888"
+        request.env["A_MAIL"] = "reija@xx.fi"
+        request.env["A_HOME_ORGANIZATION"] = "xx.fi"
       end
 
     end
