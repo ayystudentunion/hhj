@@ -17,6 +17,10 @@ class Organization
     serializable_hash.merge(children: children.map(&:serializable_hash))
   end
 
+  def self.university_by_key(key)
+    roots.where(key: key).first
+  end
+
   protected
 
   def downcase_key

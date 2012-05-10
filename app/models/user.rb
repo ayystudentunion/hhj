@@ -23,14 +23,18 @@ class User
 
   def self.update_or_create_from_env(env)
     attrs = env_to_attributes(env)
-    pn = attrs[:principal_name]
-    if pn
-      university = Organization.roots.where(key: attrs[:university_domain].split(".").first).first
-      user = university.users.where(:$or => [{email: attrs[:email]}, {principal_name: pn}]).first
-      user = university.users.create! attrs if user.nil?
+    principal_name = attrs[:principal_name]
+    domain = attrs[:university_domain]
+    return nil unless principal_name and domain
+    university = Organization.university_by_key domain.split(".").first
+    return nil unless university
+    user = university.users.where(:$or => [{email: attrs[:email]}, {principal_name: principal_name}]).first
+    if user.nil?
+      user = university.users.create! attrs
+    else
       user.update_attributes!(attrs)
-      user
     end
+    user
   end
 
   def self.env_to_attributes(env)
