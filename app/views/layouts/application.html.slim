@@ -12,15 +12,5 @@
   - else
     = render "shared/sidebar"
 
-- content_for :login do
-  .language-sel
-    - languages.reject{|l| l == I18n.locale}.each do |locale|
-      a(href='#' hreflang=locale) = t("languages.to_#{locale}") + ' • '
-  - if user_university_not_supported?
-    = render "shared/not_supported_user"
-  - elsif @user.nil?
-    = render "shared/login"
-  - else
-    = render "shared/logged_in_user"
 
 = render :template => 'layouts/base'

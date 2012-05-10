@@ -16,7 +16,15 @@ html
           .logo
           a.headline.js-reload(href=root_path)
             | Halloped.fi
-          = yield(:login)
+          .language-sel
+            - languages.reject{|l| l == I18n.locale}.each do |locale|
+              a(href='#' hreflang=locale) = t("languages.to_#{locale}") + ' • '
+          - if user_university_not_supported?
+            = render "shared/not_supported_user"
+          - elsif @user.nil?
+            = render "shared/login"
+          - else
+            = render "shared/logged_in_user"
       div#navi
         #navi-content
           = yield(:navigation)
