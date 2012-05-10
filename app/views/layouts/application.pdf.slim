@@ -3,6 +3,8 @@ html
   head
     title Halloped
     = wicked_pdf_stylesheet_link_tag "application"
+    - if custom_css_exists?
+      = stylesheet_link_tag custom_css_file_path
     = wicked_pdf_javascript_include_tag "application"
     = wicked_pdf_javascript_include_tag "/i18n/jquery.ui.datepicker-#{locale}"
     = csrf_meta_tags

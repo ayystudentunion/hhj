@@ -37,25 +37,33 @@ module ApplicationHelper
     end
   end
 
-  def relative_custom_path()
-    Pathname.new @university.key
+  def custom_file(name)
+    Pathname.new(@university.key).join(name).to_s
   end
 
-  def custom_template(name)
-    relative_custom_path.join(name).to_s
+  def custom_file_exists?(name)
+    lookup_context.find_all(custom_file(name)).any?
   end
 
   def custom_template_exists?(name)
-    lookup_context.find_all(relative_custom_path.join("_#{name}.html")).any?
+    custom_file_exists?("_#{name}.html")
   end
 
-  def custom_css_exists?()
+  def custom_css_file_name
+    "#{@university.key}.css"
+  end
+
+  def custom_css_file_path
+    @custom_path.join custom_css_file_name
+  end
+
+  def custom_css_exists?
     return false if @university.nil?
-    Rails.root.join(custom_css('public')).exist?
+    custom_file_exists?(custom_css_file_name)
   end
 
-  def custom_css(prefix='/')
-    Pathname.new(prefix).join 'universities', relative_custom_path, "#{@university.key}.css"
+  def custom_css_href
+    @custom_public_path.join custom_css_file_name
   end
 
   protected

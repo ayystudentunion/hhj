@@ -3,8 +3,9 @@
     .tab-content
       .tab
         .call-details
+          .logo This is Sparta!
           h2
-            a(href=call_path(id:@call._id)) = @call.title
+            a(href=call_path(id:@call._id))
             a.edit-icon.unimplemented(href='#')
           .item-row
             span.label #{t ".looking_for"}:
