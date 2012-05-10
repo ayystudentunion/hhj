@@ -5,6 +5,7 @@ class Organization
 
   has_many  :organs
   has_many  :eligibility_rule_sets
+  has_many  :users, inverse_of: :university
 
   before_validation :downcase_key
   validate :validate_key_uniqueness_for_root_organizations

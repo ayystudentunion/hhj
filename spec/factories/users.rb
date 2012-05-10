@@ -3,6 +3,7 @@
 
 FactoryGirl.define do
   factory :user do
+    association :university, :factory => :spartan_teknillinen_yliopisto
     factory :eija do
       _id        '4f7963bf91bc2bc1f6000001'
       first_name 'Eija'
@@ -43,6 +44,7 @@ FactoryGirl.define do
       email      'tlap@spu.fi'
     end
     factory :xerxes do
+      association :university, :factory => :akhaimenidien_yliopisto
       _id        '4f7963bf91bc2bc1f6000006'
       first_name 'Xerxes'
       last_name  'I'

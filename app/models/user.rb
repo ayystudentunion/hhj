@@ -2,6 +2,10 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  has_many :position_applications
+  has_many :members
+  belongs_to :university, class_name: 'Organization'
+
   validates :email, :presence => true, :email => true
 
   field :principal_name, type: String
@@ -13,27 +17,17 @@ class User
   field :role, type: String
   field :edu_data, type: Hash
 
-  has_many :position_applications
-  has_many :members
-
   def full_name
     [first_name, last_name].reject(&:blank?).join(' ')
-  end
-
-  def university
-    university_domain.split(".").first if university_domain
-  end
-
-  def university_name
-    Organization.find_by(key: university).name
   end
 
   def self.update_or_create_from_env(env)
     attrs = env_to_attributes(env)
     pn = attrs[:principal_name]
     if pn
-      user = User.where(:$or => [{email: attrs[:email]}, {principal_name: pn}]).first
-      user = User.create! attrs if user.nil?
+      university = Organization.roots.where(key: attrs[:university_domain].split(".").first).first
+      user = university.users.where(:$or => [{email: attrs[:email]}, {principal_name: pn}]).first
+      user = university.users.create! attrs if user.nil?
       user.update_attributes!(attrs)
       user
     end

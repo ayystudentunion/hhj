@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 
   def is_in_current_university?
     return false if not @user
-    @user.university == @university.key
+    @user.university.key == @university.key
   end
 
   def has_role?(role)
