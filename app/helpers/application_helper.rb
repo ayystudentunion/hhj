@@ -66,6 +66,18 @@ module ApplicationHelper
     @custom_public_path.join custom_css_file_name
   end
 
+  def user_university_not_supported?
+    not_supported_user and not not_supported_user[:university_domain].blank?
+  end
+
+  def not_supported_user_full_name
+    [not_supported_user[:first_name], not_supported_user[:last_name]].reject(&:blank?).join(' ')
+  end
+
+  def not_supported_user_university_domain
+    not_supported_user[:university_domain]
+  end
+
   protected
 
   def format_date(date, options)

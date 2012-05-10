@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :can_admin_calls?
   helper_method :can_admin_organs?
+  helper_method :not_supported_user
 
   layout :layout_by_context
 
@@ -66,6 +67,11 @@ class ApplicationController < ActionController::Base
       render text: "Unauthorized", status: :unauthorized
       return false
     end
+  end
+
+  def not_supported_user
+    return nil if @user
+    User.env_to_attributes(request.env).select{|k,v| [:first_name, :last_name, :university_domain].include? k}
   end
 
   def set_fake_env_for_development
