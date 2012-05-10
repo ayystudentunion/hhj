@@ -21,14 +21,6 @@ module ApplicationHelper
     }.join(' - ')
   end
 
-  def login_info_style
-    "display:none" if not @user
-  end
-
-  def login_request_style
-    "display:none" if @user
-  end
-
   def login_link
     current = request.fullpath
     if Rails.env.development?
@@ -55,6 +47,15 @@ module ApplicationHelper
 
   def custom_template_exists?(name)
     lookup_context.find_all(File.join(custom_path, "_#{name}.html")).any?
+  end
+
+  def custom_css_exists?()
+    return false if @university.nil?
+    Rails.root.join('public', custom_css).exist?
+  end
+
+  def custom_css()
+    Pathname.new "universities/#{@university.key}/#{@university.key}.css"
   end
 
   protected

@@ -24,6 +24,10 @@ class User
     university_domain.split(".").first if university_domain
   end
 
+  def university_name
+    Organization.find_by(key: university).name
+  end
+
   def self.update_or_create_from_env(env)
     attrs = env_to_attributes(env)
     pn = attrs[:principal_name]
