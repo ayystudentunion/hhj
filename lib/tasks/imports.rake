@@ -1,24 +1,34 @@
 namespace :db do
   namespace :import do
 
-    desc "import Helsinki University organization chart from YAML file"
-    task :org_chart => :environment do
-      fpath = ENV['fpath']
-      raise "Pass env var fpath to task with full pathname to yml file (look under resources/ for files)" unless fpath
+    desc "import university organization chart from YAML file"
+    task :university => :environment do
+      file = ENV['file']
+      raise "file parameter missing!\n\n" +
+      "Usage:\n" +
+      "RAILS_ENV=[env name] rake db:import:university file=[path to yaml file]\n\n" +
+      "e.g. 'RAILS_ENV=production rake db:import:university ./resources/helsinki.yaml'\n\n" +
+      "The name of the yaml file will be the identifier of the university. " +
+      "E.g. helsinki.yaml will result organization found under www.halloped.fi/fi/helsinki\n" +
+      "The identifier will also be used when mapping haka credentials so it must be \n" +
+      "(the yaml file name must be) the same as first part of university domain name.\n\n" +
+      "RAILS_ENV is development by default. If you want to import university to production server\n" +
+      "you must use RAILS_ENV=production\n\n" +
+      "Tips: look under resources/ for example files" unless file
 
-      h = YAML.load_file(fpath)
+      h = YAML.load_file(file)
       univ_name = h.keys.first
 
       if looks_like_we_have_created_organisations?(univ_name)
         puts "#{univ_name} found in db, assuming these organizations exist. Aborting."
       else
-        root = create!(nil, name: univ_name, key: get_key(fpath))
+        root = create!(nil, name: univ_name, key: get_key(file))
         create_organizations(h.fetch(univ_name), root)
       end
     end
 
-    def get_key(fpath)
-      File.basename(fpath).sub(/\..+/, '').tap do |k|
+    def get_key(file)
+      File.basename(file).sub(/\..+/, '').tap do |k|
         puts "Extracted key #{k} from filename"
       end
     end
