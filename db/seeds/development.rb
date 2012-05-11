@@ -12,7 +12,7 @@ require 'factory_girl_rails'
 ENV['file'] = Rails.root.join('public/universities/helsinki/helsinki.yml').to_s
 Rake::Task["db:import:university"].invoke
 ENV['file'] = Rails.root.join('public/universities/aalto/aalto.yml').to_s
-Rake::Task["db:import:university"].invoke
+Rake::Task["db:import:university"].execute
 
 helsinki = Organization.university_by_key('helsinki')
 hallitus = helsinki.organs.create!(name: "Hallitus", official: true)
