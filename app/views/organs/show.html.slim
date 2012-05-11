@@ -103,11 +103,10 @@ div#single-organ
         .button-row
           a.hide-archived.btn(href='#' style='display:none;') = t '.hide_archived_calls'
 
-        .archived-call-for-applications(style='display:none;')
-          = render partial: 'handled_call_results', collection: @archived_calls, as: :call
-        .hr.unimplemented
-
-        .button-row
-          a.show-archived.btn(href='#') = t '.show_archived_calls'
-          a.hide-archived.btn(href='#' style='display:none;') = t '.hide_archived_calls'
+        - if can_admin_calls?
+          .archived-call-for-applications(style='display:none;')
+            = render partial: 'handled_call_results', collection: @archived_calls, as: :call
+          .button-row
+            a.show-archived.btn(href='#') = t '.show_archived_calls'
+            a.hide-archived.btn(href='#' style='display:none;') = t '.hide_archived_calls'
   div.clear
