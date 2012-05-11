@@ -1,5 +1,5 @@
 fi:
-  sty:
+  helsinki:
     fields:
       available: Oletko käytettävissä tehtävään koko toimikauden ajan?
       available_true: Kyllä
