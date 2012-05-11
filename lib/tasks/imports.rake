@@ -7,7 +7,7 @@ namespace :db do
       raise "file parameter missing!\n\n" +
       "Usage:\n" +
       "RAILS_ENV=[env name] rake db:import:university file=[path to yaml file]\n\n" +
-      "e.g. 'RAILS_ENV=production rake db:import:university ./resources/helsinki.yaml'\n\n" +
+      "e.g. 'RAILS_ENV=production rake db:import:university ./public/universities/helsinki/helsinki.yml'\n\n" +
       "The name of the yaml file will be the identifier of the university. " +
       "E.g. helsinki.yaml will result organization found under www.halloped.fi/fi/helsinki\n" +
       "The identifier will also be used when mapping haka credentials so it must be \n" +
