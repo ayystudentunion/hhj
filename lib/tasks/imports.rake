@@ -14,7 +14,7 @@ namespace :db do
       "(the yaml file name must be) the same as first part of university domain name.\n\n" +
       "RAILS_ENV is development by default. If you want to import university to production server\n" +
       "you must use RAILS_ENV=production\n\n" +
-      "Tips: look under resources/ for example files" unless file
+      "Tips: look under public/universities/helsinki for example file" unless file
 
       h = YAML.load_file(file)
       univ_name = h.keys.first
