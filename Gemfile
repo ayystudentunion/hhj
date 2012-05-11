@@ -38,12 +38,12 @@ end
 
 # gem 'jquery-rails'
 
-group :test do
+group :development, :test do
   gem 'rspec-rails', '>= 2.6'
-  gem 'rspec_multi_matchers'
 end
 
 group :test do
+  gem 'rspec_multi_matchers'
   gem 'cucumber-rails', require: false
   gem 'capybara'
   gem 'capybara-webkit'
