@@ -121,6 +121,7 @@ class ApplicationController < ActionController::Base
   def change_language(to_locale=nil)
     to_locale ||= request.query_parameters[:locale]
     return if to_locale.nil?
+    return if request.fullpath =~ /\/admin\//
     current_path = Rails.application.routes.recognize_path request.fullpath
     redirect_to current_path.merge(locale: to_locale)
   end
