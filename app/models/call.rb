@@ -29,7 +29,7 @@ class Call
   scope :open, where(status: :open)
 
   def self.open_by_university(university)
-    open.select{|c| c.organ.organization.descendant_of?(university)}
+    open.select{|c| c.organ.belongs_to?(university)}
   end
 
   def has_unhandled_applications

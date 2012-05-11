@@ -21,18 +21,9 @@ module ApplicationHelper
     }.join(' - ')
   end
 
-  def login_info_style
-    "display:none" if not @user
-  end
-
-  def login_request_style
-    "display:none" if @user
-  end
-
   def login_link
     current = request.fullpath
     if Rails.env.development?
-      #dev_login_path(target: current)
       dev_users_path(target: current)
     else
       "/Shibboleth.sso/Login?target=#{CGI.escape current}"
@@ -45,6 +36,47 @@ module ApplicationHelper
     end
   end
 
+  def custom_file(name)
+    Pathname.new(@university.key).join(name).to_s
+  end
+
+  def custom_file_exists?(name)
+    lookup_context.find_all(custom_file(name)).any?
+  end
+
+  def custom_template_exists?(name)
+    custom_file_exists?("_#{name}.html")
+  end
+
+  def custom_css_file_name
+    "#{@university.key}.css"
+  end
+
+  def custom_css_file_path
+    @custom_path.join custom_css_file_name
+  end
+
+  def custom_css_exists?
+    return false if @university.nil?
+    custom_file_exists?(custom_css_file_name)
+  end
+
+  def custom_css_href
+    @custom_public_path.join custom_css_file_name
+  end
+
+  def user_university_not_supported?
+    not_supported_user and not not_supported_user[:university_domain].blank?
+  end
+
+  def not_supported_user_full_name
+    [not_supported_user[:first_name], not_supported_user[:last_name]].reject(&:blank?).join(' ')
+  end
+
+  def not_supported_user_university_domain
+    not_supported_user[:university_domain]
+  end
+
   protected
 
   def format_date(date, options)
@@ -54,4 +86,5 @@ module ApplicationHelper
       I18n.l(date, format: options[:format])
     end
   end
+
 end

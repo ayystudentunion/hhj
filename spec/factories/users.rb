@@ -3,6 +3,7 @@
 
 FactoryGirl.define do
   factory :user do
+    association :university, :factory => :spartan_teknillinen_yliopisto
     factory :eija do
       _id        '4f7963bf91bc2bc1f6000001'
       first_name 'Eija'
@@ -10,7 +11,7 @@ FactoryGirl.define do
       email      'eija.zitting@sty.fi'
       phone      '+358 40 123 1234'
       principal_name 'eizit@sty.fi'
-      role 'employee'
+      role       :role_union_employee
     end
     factory :aaro do
       _id        '4f7963bf91bc2bc1f6000005'
@@ -19,7 +20,7 @@ FactoryGirl.define do
       email      'aaro.hakkinen@sty.fi'
       phone      '+358 40 123 1234'
       principal_name 'aaroha@sty.fi'
-      role 'admin_staff'
+      role       :role_university_staff
     end
     factory :student_martti do
       _id        '4f7963bf91bc2bc1f6000002'
@@ -43,12 +44,14 @@ FactoryGirl.define do
       email      'tlap@spu.fi'
     end
     factory :xerxes do
+      association :university, :factory => :akhaimenidien_yliopisto
       _id        '4f7963bf91bc2bc1f6000006'
       first_name 'Xerxes'
       last_name  'I'
       email      'xerxes@ay.fi'
       phone      '+358 40 555 7777'
       principal_name 'xerxes@ay.fi'
+      role       :role_union_employee
     end
   end
 end

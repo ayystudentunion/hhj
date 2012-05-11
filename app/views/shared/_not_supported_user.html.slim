@@ -1,0 +1,10 @@
+.login-info(href='#')
+  .login-name
+    span.label
+      = t :university_not_supported
+      | :
+    br
+    span.name = not_supported_user_full_name
+    br
+    span.university.not_supported = not_supported_user_university_domain
+  a.login-btn.js-reload(href=logout_link)

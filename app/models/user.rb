@@ -2,37 +2,42 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  ROLE_VALUES = [:role_student, :role_union_employee, :role_university_staff]
+
+  has_many :position_applications
+  has_many :members
+  belongs_to :university, class_name: 'Organization'
+
   validates :email, :presence => true, :email => true
+  validates :role, presence: true, allow_blank: false, inclusion: { in:  ROLE_VALUES }
 
   field :principal_name, type: String
   field :first_name, type: String
   field :last_name, type: String
-  field :univesity_domain, type: String
+  field :university_domain, type: String
   field :email, type: String
   field :phone, type: String
-  field :role, type: String
+  field :role, type: Symbol, default: :role_student
   field :edu_data, type: Hash
-
-  has_many :position_applications
-  has_many :members
 
   def full_name
     [first_name, last_name].reject(&:blank?).join(' ')
   end
 
-  def university
-    university_domain.split(".").first if university_domain
-  end
-
   def self.update_or_create_from_env(env)
     attrs = env_to_attributes(env)
-    pn = attrs[:principal_name]
-    if pn
-      user = User.where(:$or => [{email: attrs[:email]}, {principal_name: pn}]).first
-      user = User.create! attrs if user.nil?
+    principal_name = attrs[:principal_name]
+    domain = attrs[:university_domain]
+    return nil unless principal_name and domain
+    university = Organization.university_by_key domain.split(".").first
+    return nil unless university
+    user = university.users.where(:$or => [{email: attrs[:email]}, {principal_name: principal_name}]).first
+    if user.nil?
+      user = university.users.create! attrs
+    else
       user.update_attributes!(attrs)
-      user
     end
+    user
   end
 
   def self.env_to_attributes(env)

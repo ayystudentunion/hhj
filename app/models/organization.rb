@@ -5,6 +5,7 @@ class Organization
 
   has_many  :organs
   has_many  :eligibility_rule_sets
+  has_many  :users, inverse_of: :university
 
   before_validation :downcase_key
   validate :validate_key_uniqueness_for_root_organizations
@@ -14,6 +15,10 @@ class Organization
 
   def tree_hash
     serializable_hash.merge(children: children.map(&:serializable_hash))
+  end
+
+  def self.university_by_key(key)
+    roots.where(key: key).first
   end
 
   protected

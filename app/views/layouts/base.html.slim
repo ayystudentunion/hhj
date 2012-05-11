@@ -3,6 +3,8 @@ html
   head
     title Halloped
     = stylesheet_link_tag "application"
+    - if custom_css_exists?
+      = stylesheet_link_tag custom_css_href
     = javascript_include_tag "application"
     = csrf_meta_tags
     meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
@@ -14,7 +16,15 @@ html
           .logo
           a.headline.js-reload(href=root_path)
             | Halloped.fi
-          = yield(:login)
+          .language-sel
+            - languages.reject{|l| l == I18n.locale}.each do |locale|
+              a(href='#' hreflang=locale) = t("languages.to_#{locale}") + ' • '
+          - if user_university_not_supported?
+            = render "shared/not_supported_user"
+          - elsif @user.nil?
+            = render "shared/login"
+          - else
+            = render "shared/logged_in_user"
       div#navi
         #navi-content
           = yield(:navigation)

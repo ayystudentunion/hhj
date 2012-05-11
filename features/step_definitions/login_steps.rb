@@ -11,7 +11,7 @@ end
 
 Given %r/^I am logged in as a student$/ do
   FactoryGirl.create :student_martti
-  visit "/dev_login?user=martti"
+  visit "/dev_login?user=student_martti"
 end
 
 Then %r/^I should see logged in user "([^"]*)" with mail "([^"]*)" and phone "([^"]*)"$/ do |name, email, phone|

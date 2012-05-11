@@ -5,31 +5,12 @@
     li: a(href=calls_path) = t('navi.open_calls')
   form.search.unimplemented(href='#')
     input.field.search-field(type='text' placeholder="#{t 'placeholders.search'}")
+
 - content_for :sidebar do
   - if @user.nil?
     = render "shared/not_logged_in_side_bar"
   - else
     = render "shared/sidebar"
-- content_for :login do
-  / Visible when user has logged in
-  .language-sel
-    - languages.reject{|l| l == I18n.locale}.each do |locale|
-      a(href='#' hreflang=locale) = t("languages.to_#{locale}") + ' • '
-  .login-info(href='#' style=login_info_style)
-    .login-name
-      span.label
-        = t :logged_in_as
-        | :
-      br
-      span.name = @user.full_name if @user
-    a.login-btn.js-reload(href=logout_link)
-  / Visible when user has not been logged in, hidden by default in CSS
-  .login-request(href='#' style=login_request_style)
-    .login-name
-      span.label
-        = t :login_with_haka
-        | :
-      br
-    a.login-btn.js-reload(href=login_link)
+
 
 = render :template => 'layouts/base'

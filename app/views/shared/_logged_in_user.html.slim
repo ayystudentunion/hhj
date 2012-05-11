@@ -1,0 +1,10 @@
+.login-info(href='#')
+  .login-name
+    span.label
+      = t :logged_in_as
+      | :
+    br
+    span.name = @user.full_name
+    br
+    span.university = @user.university.name
+  a.login-btn.js-reload(href=logout_link)

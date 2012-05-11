@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   end
 
   def index
-    @universities = Organization.roots
+    @universities = Organization.roots.asc(:name)
     respond_to do |format|
       format.html { render "pages/index", layout: 'index' }
       format.fragment { render "pages/index", formats: ['html'], layout: false }
@@ -38,17 +38,26 @@ class PagesController < ApplicationController
 
   def dev_users
     @users = [ {
-      name: "eija",
-      role: "employee"
+      name: "teija",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
     }, {
-      name: "aaro",
-      role: "admin_staff"
+      name: "aapo",
+      role: "university staff",
+      desc: "Helsingin Yliopisto"
     }, {
-      name: "martti",
-      role: "student"
+      name: "maltti",
+      role: "student",
+      desc: "Helsingin Yliopisto"
     }, {
-      name: "xerxes",
-      role: "employee"
+      name: "anna",
+      role: "union employee",
+      desc: "Aalto-yliopisto"
+    }, {
+      name: "reima",
+      role: "student",
+      desc: "from unknown university"
+
     } ]
     render :dev_users, layout: false
   end

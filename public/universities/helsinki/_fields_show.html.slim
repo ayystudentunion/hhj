@@ -4,7 +4,7 @@
       p.label
         = t ".available"
         | :
-        p.text = t("custom.sty.fields.available_#{@position_application.custom['available']}")
+        p.text = t("helsinki.fields.available_#{@position_application.custom['available']}")
   - if @position_application.custom.include? 'degree_programme'
     .item-block
       p.label
