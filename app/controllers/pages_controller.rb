@@ -38,23 +38,23 @@ class PagesController < ApplicationController
 
   def dev_users
     @users = [ {
-      name: "eija",
+      name: "teija",
       role: "union employee",
-      desc: "Spartan Teknillinen Yliopisto"
+      desc: "Helsingin Yliopisto"
     }, {
-      name: "aaro",
+      name: "aapo",
       role: "university staff",
-      desc: "Spartan Teknillinen Yliopisto"
+      desc: "Helsingin Yliopisto"
     }, {
-      name: "martti",
+      name: "maltti",
       role: "student",
-      desc: "Spartan Teknillinen Yliopisto"
+      desc: "Helsingin Yliopisto"
     }, {
-      name: "xerxes",
+      name: "anna",
       role: "union employee",
-      desc: "Akhaimenidien Yliopisto"
+      desc: "Aalto-yliopisto"
     }, {
-      name: "reija",
+      name: "reima",
       role: "student",
       desc: "from unknown university"
 

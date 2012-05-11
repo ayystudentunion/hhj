@@ -81,48 +81,58 @@ class ApplicationController < ActionController::Base
       request.env["A_HOME_ORGANIZATION"] = attributes[:principal_name].split('@')[1]
     elsif Rails.env.development?
       test_user = session[:test_user]
-      if test_user == "eija"
-        request.env["A_PRINCIPAL_NAME"] = "eizit@helsinki.fi"
-        request.env["A_GIVEN_NAME"] = "Eija"
+      role = nil
+      if test_user == "teija"
+        request.env["A_PRINCIPAL_NAME"] = "teizit@helsinki.fi"
+        request.env["A_GIVEN_NAME"] = "Teija"
         request.env["A_SURNAME"] = "Zitting"
         request.env["A_MOBILE"] = "+358 40 123 1234"
-        request.env["A_MAIL"] = "eija.zitting@helsinki.fi"
+        request.env["A_MAIL"] = "teija.zitting@helsinki.fi"
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-      elsif test_user == "aaro"
-        request.env["A_PRINCIPAL_NAME"] = "aaroha@helsinki.fi"
-        request.env["A_GIVEN_NAME"] = "Aaro"
+        role = :role_union_employee
+      elsif test_user == "aapo"
+        request.env["A_PRINCIPAL_NAME"] = "aapoha@helsinki.fi"
+        request.env["A_GIVEN_NAME"] = "Aapo"
         request.env["A_SURNAME"] = "Häkkinen"
         request.env["A_MOBILE"] = "+358 40 123 1234"
-        request.env["A_MAIL"] = "aaro.hakkinen@helsinki.fi"
+        request.env["A_MAIL"] = "aapo.hakkinen@helsinki.fi"
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-      elsif test_user == "martti"
-        request.env["A_PRINCIPAL_NAME"] = 'marpul@helsinki.fi'
-        request.env["A_GIVEN_NAME"] = "Martti"
+        role = :role_university_staff
+      elsif test_user == "maltti"
+        request.env["A_PRINCIPAL_NAME"] = 'malpul@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Maltti"
         request.env["A_SURNAME"] = "Pulliainen"
         request.env["A_MOBILE"] = "+358 40 555 4321"
-        request.env["A_MAIL"] = "martti@helsinki.fi"
+        request.env["A_MAIL"] = "maltti@helsinki.fi"
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-      elsif test_user == "xerxes"
-        request.env["A_PRINCIPAL_NAME"] = 'xerxes@aalto.fi'
-        request.env["A_GIVEN_NAME"] = "Xerxes"
-        request.env["A_SURNAME"] = "I"
+        role = :role_student
+      elsif test_user == "anna"
+        request.env["A_PRINCIPAL_NAME"] = 'anna@aalto.fi'
+        request.env["A_GIVEN_NAME"] = "Anna"
+        request.env["A_SURNAME"] = "Kukka"
         request.env["A_MOBILE"] = "+358 40 555 7777"
-        request.env["A_MAIL"] = "xerxes@aalto.fi"
+        request.env["A_MAIL"] = "annakukka@aalto.fi"
         request.env["A_HOME_ORGANIZATION"] = "aalto.fi"
-      elsif test_user == "reija"
-        request.env["A_PRINCIPAL_NAME"] = 'reija@xx.fi'
-        request.env["A_GIVEN_NAME"] = "Reija"
+        role = :role_union_employee
+      elsif test_user == "reima"
+        request.env["A_PRINCIPAL_NAME"] = 'reima@xx.fi'
+        request.env["A_GIVEN_NAME"] = "Reima"
         request.env["A_SURNAME"] = "Rento"
         request.env["A_MOBILE"] = "+358 40 555 8888"
-        request.env["A_MAIL"] = "reija@xx.fi"
+        request.env["A_MAIL"] = "reima@xx.fi"
         request.env["A_HOME_ORGANIZATION"] = "xx.fi"
+      end
+
+      if role
+        user = User.update_or_create_from_env(request.env)
+        user.update_attributes!(role: role) if user
       end
 
     end
   end
 
   def set_user
-    @user = User.update_or_create_from_env(request.env) # FactoryGirl.create(:eija)
+    @user = User.update_or_create_from_env(request.env)
   end
 
   def change_language(to_locale=nil)
