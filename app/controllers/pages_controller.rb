@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   end
 
   def index
-    @universities = Organization.roots
+    @universities = Organization.roots.asc(:name)
     respond_to do |format|
       format.html { render "pages/index", layout: 'index' }
       format.fragment { render "pages/index", formats: ['html'], layout: false }
