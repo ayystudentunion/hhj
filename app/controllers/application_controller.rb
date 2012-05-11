@@ -65,43 +65,50 @@ class ApplicationController < ActionController::Base
     User.env_to_attributes(request.env).select{|k,v| [:first_name, :last_name, :university_domain].include? k}
   end
 
+  # In order to run and test authentication in development
+  # environment. Add fake Shibboleth variables to request env
   def set_fake_env_for_development
-    # In order to run and test authentication in development
-    # environment. Add fake Shibboleth variables to request env
-    if Rails.env.development? || Rails.env.test?
+    return unless session.include? :test_user
+    test_user = session[:test_user]
+
+    if Rails.env.test?
+      attributes = FactoryGirl.attributes_for test_user
+      request.env["A_PRINCIPAL_NAME"] = attributes[:principal_name]
+      request.env["A_GIVEN_NAME"] = attributes[:first_name]
+      request.env["A_SURNAME"] = attributes[:last_name]
+      request.env["A_MOBILE"] = attributes[:phone]
+      request.env["A_MAIL"] = attributes[:email]
+      request.env["A_HOME_ORGANIZATION"] = attributes[:principal_name].split('@')[1]
+    elsif Rails.env.development?
       test_user = session[:test_user]
       if test_user == "eija"
-        FactoryGirl.create :eija
-        request.env["A_PRINCIPAL_NAME"] = "eizit@sty.fi"
+        request.env["A_PRINCIPAL_NAME"] = "eizit@helsinki.fi"
         request.env["A_GIVEN_NAME"] = "Eija"
         request.env["A_SURNAME"] = "Zitting"
         request.env["A_MOBILE"] = "+358 40 123 1234"
-        request.env["A_MAIL"] = "eija.zitting@sty.fi"
-        request.env["A_HOME_ORGANIZATION"] = "sty.fi"
+        request.env["A_MAIL"] = "eija.zitting@helsinki.fi"
+        request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
       elsif test_user == "aaro"
-        FactoryGirl.create :aaro
-        request.env["A_PRINCIPAL_NAME"] = "aaroha@sty.fi"
+        request.env["A_PRINCIPAL_NAME"] = "aaroha@helsinki.fi"
         request.env["A_GIVEN_NAME"] = "Aaro"
         request.env["A_SURNAME"] = "Häkkinen"
         request.env["A_MOBILE"] = "+358 40 123 1234"
-        request.env["A_MAIL"] = "aaro.hakkinen@sty.fi"
-        request.env["A_HOME_ORGANIZATION"] = "sty.fi"
+        request.env["A_MAIL"] = "aaro.hakkinen@helsinki.fi"
+        request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
       elsif test_user == "martti"
-        FactoryGirl.create :student_martti
-        request.env["A_PRINCIPAL_NAME"] = 'marpul@sty.fi'
+        request.env["A_PRINCIPAL_NAME"] = 'marpul@helsinki.fi'
         request.env["A_GIVEN_NAME"] = "Martti"
         request.env["A_SURNAME"] = "Pulliainen"
         request.env["A_MOBILE"] = "+358 40 555 4321"
-        request.env["A_MAIL"] = "martti@sty.fi"
-        request.env["A_HOME_ORGANIZATION"] = "sty.fi"
+        request.env["A_MAIL"] = "martti@helsinki.fi"
+        request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
       elsif test_user == "xerxes"
-        FactoryGirl.create :xerxes
-        request.env["A_PRINCIPAL_NAME"] = 'xerxes@ay.fi'
+        request.env["A_PRINCIPAL_NAME"] = 'xerxes@aalto.fi'
         request.env["A_GIVEN_NAME"] = "Xerxes"
         request.env["A_SURNAME"] = "I"
         request.env["A_MOBILE"] = "+358 40 555 7777"
-        request.env["A_MAIL"] = "xerxes@ay.fi"
-        request.env["A_HOME_ORGANIZATION"] = "ay.fi"
+        request.env["A_MAIL"] = "xerxes@aalto.fi"
+        request.env["A_HOME_ORGANIZATION"] = "aalto.fi"
       elsif test_user == "reija"
         request.env["A_PRINCIPAL_NAME"] = 'reija@xx.fi'
         request.env["A_GIVEN_NAME"] = "Reija"

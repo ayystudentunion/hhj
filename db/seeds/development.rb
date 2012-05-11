@@ -12,10 +12,6 @@ require 'factory_girl_rails'
 ENV['file'] = Rails.root.join('public/universities/helsinki/helsinki.yml').to_s
 Rake::Task["db:import:university"].invoke
 
-FactoryGirl.create(:tasa_arvotyoryhma)
-FactoryGirl.create(:kirjakerho)
-FactoryGirl.create(:akhaimenidien_kirjakerho)
-
 if not Admin.where(email: 'halloped@localhost.fi').exists?
   Admin.create! email:'halloped@localhost.fi', password:'password', password_confirmation:'password'
 end
