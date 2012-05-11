@@ -19,7 +19,7 @@ class Organ
   field :official, type: Boolean
 
   def self.by_university(university)
-    all.select{|o| o.organization.descendant_of?(university)}
+    all.select{|o| o.organization._id == university._id or o.organization.descendant_of?(university)}
   end
 
   def unofficial
