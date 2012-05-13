@@ -165,11 +165,19 @@ initPopups = (delegateFor) ->
     window.open $(this).prop 'href'
     return false
 
+initNavi = () ->
+  isActive = (a) ->
+    ( window.location.pathname == a.attr 'href' ) or
+    ( window.location.pathname.indexOf(a.attr 'href') == 0 and not a.hasClass('home') )
+  for li in $('.navi-links li')
+    $(li).toggleClass('active', isActive($(li).find('a')))
+
 window.initDom = (selector) ->
   node = $(selector)
   uniformify node
   initRadioButtons node
   initOrganPage node
   initPopups node
+  initNavi node
   return node
 
