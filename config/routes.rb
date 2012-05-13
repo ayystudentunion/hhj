@@ -79,7 +79,12 @@ Halloped::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  match ':locale/:university' => 'pages#university', :as => :university
+
+  # News are not implemented yet so route university frontpage to open calls until
+  # we have some content for the university frontpage
+  #match ':locale/:university' => 'pages#university', :as => :university
+  match ':locale/:university' => 'calls#index', :as => :university
+
   match ':locale' => 'pages#index', :as => :index
 
 
