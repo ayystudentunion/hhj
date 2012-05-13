@@ -60,6 +60,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def authorize_applicant
+    if not can_apply?
+      render text: "Unauthorized", status: :unauthorized
+      return false
+    end
+  end
+
   def not_supported_user
     return nil if @user
     User.env_to_attributes(request.env).select{|k,v| [:first_name, :last_name, :university_domain].include? k}
