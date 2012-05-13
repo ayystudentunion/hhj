@@ -4,8 +4,8 @@ class PagesController < ApplicationController
 
   def university
     respond_to do |format|
-      format.html { render "pages/_frontpage" }
-      format.fragment { render "pages/_frontpage", formats: ['html'], layout: false }
+      format.html { render "pages/_university" }
+      format.fragment { render "pages/_university", formats: ['html'], layout: false }
     end
   end
 
