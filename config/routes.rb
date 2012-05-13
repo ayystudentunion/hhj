@@ -1,9 +1,11 @@
 Halloped::Application.routes.draw do
 
-  match "/env" => "pages#environment"
-  match "/dev_login" => "pages#dev_login"
-  match "/dev_logout" => "pages#dev_logout"
-  match "/dev_users" => "pages#dev_users"
+  unless Rails.env.production?
+    match "/env" => "pages#environment"
+    match "/dev_login" => "pages#dev_login"
+    match "/dev_logout" => "pages#dev_logout"
+    match "/dev_users" => "pages#dev_users"
+  end
 
   devise_for :admins
   match "/admin" => redirect("/en/admin")
