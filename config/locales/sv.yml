@@ -1,25 +1,229 @@
-sv:
-  languages:
-    fi: FI
-    to_fi: Suomeksi
-    en: EN
-    to_en: In English
-    sv: SE
-    to_sv: På svenska
-
+fi:
+  logged_in_as: "Du är inloggad som"
+  login_with_haka: "Logga in med HAKA-användarnamn"
+  front_page: "Framsida"
+  introduction: "Presentation"
+  modified: "redigerad"
+  print: "Skriv ut"
   time:
     formats:
-      default: "%d.%m.%Y %H:%M"
+      default: "%d.%m.%Y kl. %H:%M"
       date: "%d.%m.%Y"
       file: "%Y_%m_%d"
-
   date:
     formats:
       default: "%d.%m.%Y"
-
+  languages:
+    fi: "FI"
+    to_fi: "På finska"
+    en: "EN"
+    to_en: "På engelska"
+    sv: "SE"
+    to_sv: "På svenska"
+  navi:
+    organs: "Organ"
+    open_calls: "Öppna ansökningar"
+    hallopeds: "Hallopederna"
+    all: "Alla"
+    active: "De aktiva"
+  pages:
+    index:
+      choose_university: "Välj ditt universitet"
+  shared:
+    not_logged_in_side_bar:
+      title: "Vad är hallopedverksamhet?"
+      description_paragraph_1: "Hallopeder m.a.o. förvaltningens studentrepresentanter är representanter, som är valda bland medlemmarna av fullmäktige, i förvaltningsorgan. De representerar förutom sig själva även hela studentkåren i sin tjänsteuppgift. Studentrepresentanter är auktoriserade medlemmar i förvaltningen - endast utvärderingen av examensarbeten kan de inte direkt påverka. Vem som helst som är medlem i studentkåren kan ansöka till halloped genom de öppna ansökningarna."
+      description_paragraph_2: "Hallopeder och studentkårens styrelse strävar tillsammans efter att förvara och förbättra tjänster och rättvisa för studerande i vårt skolsamfund. Det är önskvärt att varje studerande ger dem respons för att ge riktlinjer för påverkningsarbetet."
+    sidebar:
+      user_info: "Egna uppgifter"
+      edit: "Redigera"
+      my_organs: "Egna organ"
+      create_organ: "Skapa ett nytt organ"
+      write_news_post: "Skriv ett nytt meddelande eller en ny nyhet"
+  position_applications:
+    new:
+      title: "Skicka ansökan"
+      apply_to: "Jag ansöker:'"
+    create:
+      title: "Ansökan skickad"
+      apply_to: "Jag ansöker:'"
+    show:
+      title: "Ansökan"
+      apply_date: "Ansökan inlämnad"
+      apply_position: "Den ansökta platsen"
+      position_member: "Medlem"
+      position_deputy:
+        zero: "Suppleant"
+        other: "Suppleant för medlem %{name}"
+      position_both:
+        zero: "Medlem eller suppleant"
+        other: "Medlem eller suppleant för medlem %{name}"
+      deputy_of: "Som suppleant för medlemmen"
+      personal_statement: "Motiveringar"
+  organs:
+    new:
+      title: "Skapa ett nytt organ"
+      select_organization: "Välj organisationsenhet"
+    edit:
+      title: "Redigera organ"
+    applicant:
+      not_eligible: "Ej valbar"
+      eligibility_rule_not_met: "Uppfyller ej villkoret  %{rule}"
+    member:
+      position_member: "Medlem"
+      position_deputy: "Suppleant"
+      open_ended: "Tills vidare"
+      term: "Period"
+    call_results:
+      dragndrop_deputy_placeholder: "Dra och släpp suppleant här"
+      dragndrop_member_placeholder: "Dra och släpp medlem här"
+      no_member_placeholder: "Ej medlemmar"
+      no_deputy_placeholder: "Ej suppleanter"
+      not_proposed_applicants: "Andra ansökanden"
+      applicants: "Studeranden som skickat en ansökan"
+      close_call: "Stäng sökning"
+      accept_proposal: "Godkänn de föreslagna som valda"
+      save_applicants: "Godkänn valen"
+      propose_applicants: "Föreslå att bli vald"
+    proposal_call_results:
+      proposed_to_be_selected: "Föreslås att bli vald"
+    handled_call_results:
+      position_member: "De valda medlemmarna"
+      position_deputy: "De valda suppleanterna"
+      not_selected: "De som inte valdes"
+      archive_call: "Arkivera sökningen"
+    show:
+      has_open_positions: "Representantplatserna till organet är ännu ofyllda. Öppna en ny platssökning nu?"
+      new_call_for_applications: "Öppna en ny platssökning"
+      organization: "Organisationsenhet"
+      show_archived_calls: "Visa de arkiverade sökningarna"
+      hide_archived_calls: "Dölj de arkiverade sökningarna"
+      staff: "Universitetets representanter"
+      add_staff_by_email: "Lägg till en representant genom e-postadressen"
+      professors: "Professorerna"
+      add_professor_by_email: "Lägg till en professor genom e-postadressen"
+      term: "Verksamhetsperiod"
+      manager: "Ansvarsperson"
+    current_members:
+      hallopeds: "De sittande studentrepresentanterna"
+      add_member_by_email: "Lägg till en studentrepresentant genom e-postadressen"
+    members:
+      member_missing_for_deputy: "Ej medlemmar"
+      deputy_missing_for_member: "Ej suppleanter"
+  calls:
+    new:
+      title: "Öppna en ny platssökning för organet"
+      no_eligibility_rules: "Inga hinder för valbarhet"
+    edit:
+      title: "Redigera platssökningen"
+    show:
+      details: "Ansökningens uppgifter"
+      looking_for: "Sökes"
+      members:
+        zero: "inga ordinarie medlem"
+        one: "en ordinarie medlem"
+        other: "%{count} ordinarie medlemmar'"
+      deputies:
+        zero: "inga suppleanter"
+        one: "en suppleant"
+        other: "%{count} suppleanter'"
+      submission_dates: "Ansökningstid"
+      description: "Beskrivning"
+      term: "Verksamhetsperiod"
+      send_application: "Skicka ansökan"
+  mongoid:
+    models:
+      organ: "Organ"
+    attributes:
+      organ:
+        name: "Namnet på organet"
+        description: "Beskrivning av organets verksamhet"
+        term_start: "Verksamhetsperioden började"
+        term_end: "Verksamhetsperioden slutade"
+        manager_name: "Namnet på ansvarspersonen"
+        manager_email: "Ansvarspersonens e-postadress"
+        appointer: "Personen som utnämner"
+        official: "Lagstadgad"
+        unofficial: "Inofficiell"
+      call:
+        title: "Platssökningens rubrik"
+        workflow: "Arbetsförlopp"
+        workflow_normal: "Normalt förfarande"
+        workflow_administration_election: "Förvaltningsvalsförfarande"
+        workflow_proposal_available: "Förslaget framlagt -förfarande"
+        member_amount: "Ordinarie medlemmar"
+        deputy_amount: "Suppleanter"
+        quota_information: "Tilläggsinformation för  behandlare (antalet kvotplatser o.s.v.)"
+        date_open: "Datum då ansökningen öppnas"
+        date_start: "Datum då ansökningen börjar"
+        date_end: "Datum då ansökningen går ut"
+        term_start: "Datum då verksamhetsperioden börjar"
+        term_end: "Datum då verksamhetsperioden slutar"
+        appointment_place_and_date: "Plats och tidpunkt för beslutsfattandet"
+        description: "Beskrivning av hallopedens arbetsbeskrivning"
+      user:
+        first_name: "Förnamn"
+        last_name: "Efternamn"
+        email: "E-postadress"
+      position_application:
+        position: "Jag söker"
+        position_member: "som medlem"
+        position_deputy: "som suppleant"
+        position_both: "bägge"
+        deputy_of: "Vem vill du bli suppleant för"
+        personal_statement: "Motiveringar"
+    errors:
+      models:
+        organization:
+          attributes:
+            key:
+              blank: "Förkortning (key) för en organisation '%{name}' på den högsta nivån saknar"
+              taken: "Organisationens '%{name}' förkortning '%{key}' används redan av organisationen '%{other}'"
+        organ:
+          attributes:
+            name:
+              blank: "Namnet på organet saknas"
+            organization:
+              blank: "Organisationsenhet saknas"
+        call:
+          attributes:
+            title:
+              blank: "Sökningens rubrik saknas"
+            member_amount:
+              blank: "Antalet ordinarie medlemmar saknas"
+            deputy_amount:
+              blank: "Antalet suppleanter saknas"
+        user:
+          attributes:
+            first_name:
+              blank: "Förnamnet saknas"
+            last_name:
+              blank: "Efternamnet saknas"
+            email:
+              blank: "E-postadressen saknas"
+        position_application:
+          attributes:
+            position:
+              blank: "Platsen som söks har inte valts"
+              invalid: "Den sökta platsen kan vara: Medlem, Suppleant eller Bägge"
+            deputy:
+              position: "Markera den förstahandsvalda sökandes suppleant som suppleant"
+            member:
+              position: "Markera den förstahandsvalda suppleantens medlem som medlem"
+  valid_email:
+    validations:
+      email:
+        invalid: "E-postadressen är felaktig"
   modals:
-    close: Close
-    cancel: Cancel
-    save: Save
-    send: Send
-    time_placeholder: Time placeholder
+    close: "Stäng"
+    cancel: "Avbryt"
+    save: "Spara"
+    send: "Skicka"
+    time_placeholder: "Ställ in tid"
+  buttons:
+    done_edit: "Färdig"
+  placeholders:
+    search: "Sök..."
+    limit_results: "Begränsa träffar med sökning"
+    message_for_organ: "Skriv ett meddelande till organet"
+  send: "Skicka"
