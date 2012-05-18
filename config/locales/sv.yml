@@ -14,12 +14,12 @@ sv:
     formats:
       default: "%d.%m.%Y"
   languages:
-    fi: "FI"
-    to_fi: "På finska"
-    en: "EN"
-    to_en: "På engelska"
-    sv: "SE"
-    to_sv: "På svenska"
+    fi: FI
+    to_fi: Suomeksi
+    en: EN
+    to_en: In English
+    sv: SE
+    to_sv: På svenska
   navi:
     organs: "Organ"
     open_calls: "Öppna ansökningar"
