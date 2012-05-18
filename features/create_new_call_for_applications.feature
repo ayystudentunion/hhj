@@ -24,10 +24,10 @@ Feature: Creating new call for applications for organ
 
     And I press 'EN'
     And I fill in form 'Avaa uusi paikkahaku toimielimelle':
-      |  label                              | value                                                            |
-      |  Title of call for applications     | Call for new representatives for Equality organ in term 2013     |
-      |  Halloped job description           | Lobbying the interests of students in equality                   |
-      |  Additional information for handler | At least one woman and one man                                   |
+      |  label                                   | value                                                            |
+      |  Title for the call for applications     | Call for new representatives for Equality organ in term 2013     |
+      |  Halloped's job description              | Lobbying the interests of students in equality                   |
+      |  Additional information for the receiver | At least one woman and one man                                   |
 
     And I press 'Tallenna'
 

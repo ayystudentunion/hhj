@@ -20,9 +20,9 @@ Feature: Creating a new organ
 
     And I press 'EN'
     And I fill in form 'Luo uusi toimielin':
-      |  label                           | value                                                            |
-      |  Name of organ                   | Equality organ                                                   |
-      |  Description of organ            | Organ assures fulfilling of equality                             |
+      |  label                             | value                                                            |
+      |  Organ name                        | Equality organ                                                   |
+      |  Description on organ's operations | Organ assures fulfilling of equality                             |
 
     And I press 'Tallenna'
 
@@ -36,5 +36,5 @@ Feature: Creating a new organ
     Then I should see introduction of organ 'Equality organ' with description 'Organ assures fulfilling of equality':
       |  label                           | value                                                            |
       |  Term                            | 2012-01-01 - 2012-07-01                                          |
-      |  Manager                         | Saima Salminen                                                   |
+      |  Person in charge                | Saima Salminen                                                   |
 

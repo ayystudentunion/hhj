@@ -21,7 +21,7 @@ Feature: Editing an existing organ
     And I press 'EN'
     And I fill in form 'Muokkaa toimielintä':
       |  label                           | value                                                            |
-      |  Name of organ                   | Organ of Equality                                                |
+      |  Organ name                      | Organ of Equality                                                |
 
     And I press 'Tallenna'
 
@@ -35,5 +35,5 @@ Feature: Editing an existing organ
     Then I should see introduction of organ 'Organ of Equality' with description 'Organ assures fulfilling of equality':
       |  label                           | value                                                            |
       |  Term                            | 2012-03-02 - 2012-08-04                                          |
-      |  Manager                         | Soini Salminen                                                   |
+      |  Person in charge                | Soini Salminen                                                   |
 

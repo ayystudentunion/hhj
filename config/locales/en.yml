@@ -73,7 +73,7 @@ en:
       position_member: "Member"
       position_deputy: "Deputy "
       open_ended: "Open-ended"
-      term: "term"
+      term: "Term"
     call_results:
       dragndrop_deputy_placeholder: "Drag and drop the debuty here"
       dragndrop_member_placeholder: "Drag and drop the member here"
@@ -102,7 +102,7 @@ en:
       add_staff_by_email: "Add representative by email"
       professors: "Professors"
       add_professor_by_email: "Add professor by email"
-      term: "term"
+      term: "Term"
       manager: "Person in charge"
     current_members:
       hallopeds: "Current student representatives"
@@ -129,7 +129,7 @@ en:
         other: "deputies"
       submission_dates: "Application period"
       description: "Description"
-      term: "term"
+      term: "Term"
       send_application: "Send application"
   mongoid:
     models:
@@ -146,7 +146,7 @@ en:
         official: "Statutory"
         unofficial: "Unofficial"
       call:
-        title: "Title for the call for applications "
+        title: "Title for the call for applications"
         workflow: "Workflow"
         workflow_normal: "Standard procedure"
         workflow_administration_election: "Administrative election procedure"
