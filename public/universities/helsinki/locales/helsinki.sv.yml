@@ -1,7 +1,7 @@
 sv:
   helsinki:
     fields:
-      available: Kan du fylla posten för hela mandatperiodet?
+      available: Kan du fylla posten för hela mandatperiodet
       available_true: Ja
       available_false: Nej
       degree_programme: Utbildningsprogram (t. ex. Automation Teknik)

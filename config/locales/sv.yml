@@ -43,10 +43,10 @@ sv:
   position_applications:
     new:
       title: "Skicka ansökan"
-      apply_to: "Jag ansöker:'"
+      apply_to: "Jag ansöker:"
     create:
       title: "Ansökan skickad"
-      apply_to: "Jag ansöker:'"
+      apply_to: "Jag ansöker:"
     show:
       title: "Ansökan"
       apply_date: "Ansökan inlämnad"
@@ -122,11 +122,11 @@ sv:
       members:
         zero: "inga ordinarie medlem"
         one: "en ordinarie medlem"
-        other: "%{count} ordinarie medlemmar'"
+        other: "%{count} ordinarie medlemmar"
       deputies:
         zero: "inga suppleanter"
         one: "en suppleant"
-        other: "%{count} suppleanter'"
+        other: "%{count} suppleanter"
       submission_dates: "Ansökningstid"
       description: "Beskrivning"
       term: "Verksamhetsperiod"

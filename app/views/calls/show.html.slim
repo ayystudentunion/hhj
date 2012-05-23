@@ -41,7 +41,7 @@ div#single-call
             span.label #{t ".term"}:
             span.text = formatted_date @call.term_start, end_date: @call.term_end
           .item-row
-            span.label #{t "mongoid.attributes.call.appointment_place_and_date"}::
+            span.label #{t "mongoid.attributes.call.appointment_place_and_date"}:
             span.text = @call.appointment_place_and_date
           p.description
             = @call.description
