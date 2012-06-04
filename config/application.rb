@@ -63,9 +63,9 @@ module Halloped
 
     # Enable the asset pipeline
     config.assets.enabled = true
-
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config.assets.paths << Rails.root.join("public", "universities").to_s
 
     config.generators do |g|
       g.test_framework :rspec, :fixture => true, :views => false, :fixture_replacement => :factory_girl, :view_specs => false

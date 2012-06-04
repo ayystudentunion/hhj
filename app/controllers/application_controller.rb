@@ -204,7 +204,6 @@ class ApplicationController < ActionController::Base
     return unless @university
     @custom_root = Rails.root.join('public/universities')
     @custom_path = @custom_root.join(@university.key)
-    @custom_public_path = Pathname.new('/').join(@custom_path.relative_path_from(Rails.root.join('public')))
     prepend_view_path @custom_path
     prepend_view_path @custom_root
   end

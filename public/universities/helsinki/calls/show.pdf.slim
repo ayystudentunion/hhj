@@ -3,7 +3,8 @@
     .tab-content
       .tab
         .call-details
-          .logo This is Sparta!
+          = custom_pdf_image_tag('logo.png')
+          span.header This is Sparta!
           h2
             a(href=call_path(id:@call._id))
             a.edit-icon.unimplemented(href='#')
@@ -24,4 +25,7 @@
             span.text = @call.appointment_place_and_date
           p.description
             = @call.description
+          .logo(style="background: url('#{custom_path_in_pdf('logo.png')}');")
+      span
       .hr
+

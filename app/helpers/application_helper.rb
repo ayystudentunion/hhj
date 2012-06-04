@@ -48,12 +48,12 @@ module ApplicationHelper
     custom_file_exists?("_#{name}.html")
   end
 
-  def custom_css_file_name
-    "#{@university.key}.css"
+  def custom_css_file_plain_name
+    "stylesheet/#{@university.key}"
   end
 
-  def custom_css_file_path
-    @custom_path.join custom_css_file_name
+  def custom_css_file_name
+    custom_css_file_plain_name + ".css.styl"
   end
 
   def custom_css_exists?
@@ -62,7 +62,16 @@ module ApplicationHelper
   end
 
   def custom_css_href
-    @custom_public_path.join custom_css_file_name
+    custom_file(custom_css_file_plain_name)
+  end
+
+  def custom_pdf_image_tag(filename)
+    custom_file_exists?(filename) ?
+      wicked_pdf_image_tag("#{@university.key}/#{filename}") : ""
+  end
+
+  def custom_path_in_pdf(filename)
+    "file://#{@custom_path.join(filename).to_s}"
   end
 
   def user_university_not_supported?
