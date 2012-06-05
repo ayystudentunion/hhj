@@ -1,3 +1,10 @@
+- content_for :header do
+  .logo-index H
+  a.headline.js-reload(href=root_path)
+    | Halloped.fi
+    br
+    span.service
+      = t :header_title
 - content_for :navi do
   =
 - content_for :sidebar do

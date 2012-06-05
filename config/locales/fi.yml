@@ -3,6 +3,7 @@ fi:
   logged_in_as: Olet kirjautuneena nimellä
   login_with_haka: Kirjaudu HAKA-tunnuksilla
   university_not_supported: Yliopistoasi ei ole vielä järjestelmässä
+  header_title: Halloped-hakujärjestelmä
 
   front_page: Etusivu
   introduction: Esittely

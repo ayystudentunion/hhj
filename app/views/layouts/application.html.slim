@@ -1,3 +1,11 @@
+- content_for :header do
+  .logo
+  a.headline.js-reload(href=root_path)
+    = @university.name
+    br
+    span.service
+      = t :header_title
+
 - content_for :navigation do
   ul.navi-links
     li: a.home(href=university_path)

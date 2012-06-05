@@ -13,18 +13,19 @@ html
     #wrapper
       div#header
         #header-content
-          .logo
-          a.headline.js-reload(href=root_path)
-            | Halloped.fi
+          = yield(:header)
           .language-sel
             - languages.reject{|l| l == I18n.locale}.each do |locale|
               a(href='#' hreflang=locale) = t("languages.to_#{locale}") + ' • '
-          - if user_university_not_supported?
-            = render "shared/not_supported_user"
-          - elsif @user.nil?
-            = render "shared/login"
+          - if @user or user_university_not_supported?
+            .login-info(href='#')
+              - if user_university_not_supported?
+                = render "shared/not_supported_user"
+              - else
+                = render "shared/logged_in_user"
+              a.logout-btn.js-reload(href=logout_link) Kirjaudu ulos ›
           - else
-            = render "shared/logged_in_user"
+            = render "shared/login"
       div#navi
         #navi-content
           = yield(:navigation)
@@ -36,6 +37,7 @@ html
         .clear
 
     div#footer
-      p Copyright 2012 Halloped.fi
+      .footer-content
+        p Copyright 2012 Halloped.fi
 
   div#modal-wrap
