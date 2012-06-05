@@ -1,8 +1,8 @@
 - content_for :header do
   .logo
-  a.headline.js-reload(href=root_path)
+  a.headline.js-reload(href=university_path)
     = @university.name
-    br
+  a.root.js-reload(href=root_path)
     span.service
       = t :header_title
 
