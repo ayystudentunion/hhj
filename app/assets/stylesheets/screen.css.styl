@@ -12,7 +12,8 @@ color-1-dark = #dcdcdc
 color-1-light = #f0f0f0
 color-2-dark = #f0f0f0
 color-2-light = #ffffff
-
+color-3-dark = #f0f0f0
+color-3-light = #ffffff
 
 /* FUNCTIONS */
 
@@ -114,6 +115,16 @@ body:before
     height 120px
     margin 0 auto
     position relative
+    .logo-index
+      width 94px
+      position absolute
+      top 28px
+      left 0
+      font-size 72px
+      font-weight bold
+      text-shadow 4px 4px 0px #f0f0f0
+      color #ffffff
+      text-align center
     .logo
       width 140px
       height 90px
@@ -122,24 +133,34 @@ body:before
       top 14px
       left 0
     .headline
-      height 36px
       display inline-block
       position absolute
-      top 40px
-      left 164px
-      font-size 36px
+      top 36px
+      left 118px
+      font-size 20px
+      font-weight bold
       text-shadow 0 1px 0 #FFF
       color #333
+      span.service
+        font-size 16px
+        color #666
     .headline:hover
       color #000
     .language-sel
-      width 240px
       height 20px
+      padding 3px 10px 0px 10px
+      border-radius 0 0 4px 4px
+      -moz-border-radius 0 0 4px 4px
+      -webkit-border-radius 0 0 4px 4px
+      -khtml-border-radius 0 0 4px 4px
       position absolute
-      top 14px
+      top 0
       right 0
       text-align right
       text-shadow 0 1px 0 #FFF
+      background #dcdcdc
+      a
+        color #333
       .fi
         display none
     .login-info, .login-request
@@ -148,12 +169,12 @@ body:before
       position absolute
       top 34px
       right 0
+      text-align right
       .login-name
         width 210px
         display inline-block
         text-shadow 0 1px 0 #FFF
         line-height 17px
-        margin-top 8px
         .name, .link
           font-weight bold
       .university.not_supported
@@ -161,23 +182,24 @@ body:before
         margin-top 4px
       a.login-btn
         display inline-block
-        width 30px
-        height 31px
-        margin-bottom -3px
-        background url('../img/login-btn.png') no-repeat left top
-      a.login-btn:hover
-        background url('../img/login-btn.png') no-repeat left bottom
+        width 80px
+        height 25px
+        margin-top 8px
+        background url('../img/haka-login.png') no-repeat left top
+      a.logout-btn
+        display inline-block
+        margin-top 8px
 
 #navi
   width 100%
   height 40px
-  background #eaeaea
   margin-top 1px
   #navi-content
     width 960px
     height 40px
     margin 0 auto
     position relative
+    gradient(color-1-light, color-1-dark)
     ul.navi-links
       position absolute
       left 0
@@ -192,8 +214,6 @@ body:before
           padding 10px 20px
           line-height 40px
           color #333
-        a:hover
-          color #000
         a.home
           display block
           padding 0
@@ -202,6 +222,7 @@ body:before
           background url('../img/navi-home.png') no-repeat center center
       li:hover
         background #CCC
+
     form.search
       width 240px
       height 40px
@@ -305,9 +326,13 @@ body:before
   clear both
   width 100%
   height 40px
-  background #dadada
   text-align center
   text-shadow 0 1px 0 #FFF
+  .footer-content
+    width 960px
+    height 40px
+    margin 0 auto
+    gradient(color-1-light, color-1-dark)
   p
     line-height 38px
     margin 0
@@ -326,7 +351,7 @@ body:before
 /* GENERAL BUTTON STYLES */
 a.btn, input.btn, label.btn
   display inline-block
-  gradient(color-2-light, color-2-dark)
+  gradient(color-3-light, color-3-dark)
   padding 0 16px
   border 1px solid #cacaca
   text-align center
@@ -337,7 +362,7 @@ a.btn:hover, input.btn:hover, label.btn:hover
   gradient(color-2-dark, color-2-light)
   color #333
 a.btn:active, input.btn:active
-  gradient(color-1-dark, color-1-light)
+  background #f0f0f0
 
 /* CONTENT STYLES */
 
@@ -1041,6 +1066,8 @@ form.new_position_application, .member-card, form.edit_call
     margin-right -1px
   input#position_application_deputy_of
     margin 12px 0 0 41px
+  input.wide
+    margin-bottom 12px
 
 form.new_member
   input.field
