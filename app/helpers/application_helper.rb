@@ -67,11 +67,17 @@ module ApplicationHelper
 
   def custom_pdf_image_tag(filename)
     custom_file_exists?(filename) ?
-      wicked_pdf_image_tag("#{@university.key}/#{filename}") : ""
+      case params[:format]
+        when 'pdf' then wicked_pdf_image_tag("#{@university.key}/#{filename}")
+        when 'print' then image_tag("#{@university.key}/#{filename}")
+      end : ""
   end
 
   def custom_path_in_pdf(filename)
-    "file://#{@custom_path.join(filename).to_s}"
+    case params[:format]
+      when 'pdf' then "file://#{@custom_path.join(filename).to_s}"
+      when 'print' then "/assets/#{@university.key}/#{filename}"
+    end
   end
 
   def user_university_not_supported?

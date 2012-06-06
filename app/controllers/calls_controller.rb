@@ -38,6 +38,7 @@ class CallsController < ApplicationController
       format.json { render :json => @call }
       format.fragment { render "show", formats: ['html'], layout: false }
       format.pdf { render pdf: @call.file_name, encoding: 'utf-8', layout: true }
+      format.print { render "show", formats: ['pdf'], encoding: 'utf-8' }
     end
   end
 
