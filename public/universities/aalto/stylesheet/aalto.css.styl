@@ -50,7 +50,7 @@ a:hover
     gradient(color-1-light, color-1-dark)
     ul.navi-links
       li:hover, li.active
-        background #ed2939
+        background #666
         a
           color #FFF
 
@@ -79,6 +79,7 @@ a:hover
 
 a.btn, input.btn, label.btn
   gradient(color-3-light, color-3-dark)
+  text-shadow none
 a.btn:hover, input.btn:hover, label.btn:hover
   gradient(color-3-dark, color-3-light)
 a.btn:active, input.btn:active
@@ -105,4 +106,5 @@ label.btn.checked
 
 /* Note: images to pdfs must be added in the slim files, not in this file. */
 .print
-  none none
+  #navi
+    display none
