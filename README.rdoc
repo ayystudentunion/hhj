@@ -130,5 +130,19 @@ Install Qt (PDF printing has qt dependency)
 You might also need to install wkhtmltopdf binary manually. At least Redhat could not use the wkhtmltopdf binary that comes with the gems.
 Install working wkhtmltopdf binary to ~/bin folder (app is configured to use it from there)
 
+=== Technology stack and documentation
+
+Application is built with the Rails conventions and using lot of existing gems. If you need documentation of application, then this is good place to start http://guides.rubyonrails.org/
+
+Same applies also to many other parts of applicaiton that uses existing gems. Check the gem, google for its documentation and read it.
+
+Just to mention some technologies used:
+Rails 3
+MongoDB using mongoid and mongoid-tree
+CoffeeScript
+Cucumber
+FactoryGirl
+
+See more from the Gemfile (and google them for documentation if you need any)
 
 
