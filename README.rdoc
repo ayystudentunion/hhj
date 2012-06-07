@@ -12,13 +12,21 @@ Install RVM and Ruby
 
 Clone the Halloped Project Repository
 
-  git clone git@github.com:leonidas/halloped.git
+  git clone git@github.com:ayy/hhj.git
 
 Install Gem Dependencies
 
   cd halloped
   gem install bundler
   bundle install
+
+Initialize development database
+
+  rake db:seed
+
+Re-initialize development database
+
+  rake db:drop db:seed
 
 === Production environment Setup ===
 
