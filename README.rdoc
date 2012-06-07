@@ -24,9 +24,22 @@ Initialize development database
 
   rake db:seed
 
+Run tests
+
+  rake test
+
+Run only unit tests
+
+  rake spec
+
+Run only system tests
+
+  rake cucumber
+
 Re-initialize development database later when needed
 
   rake db:drop db:seed
+
 
 === Universities
 
