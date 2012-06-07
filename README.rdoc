@@ -30,28 +30,28 @@ Re-initialize development database later when needed
 
 === Universities
 
---- University custom folder
+==== University custom folder
 
   All customization files of universities are in single place, under public/universities. See public/universities/helsinki for an example.
 
---- Adding a new university
+==== Adding a new university
 
   Create yaml file that has university organisation. See public/universities/helsinki/helsinki.yml for an example
 
   Execute the rake task:
     RAILS_ENV=production rake db:import:university ./public/universities/myuniversity/myuniversity.yml
 
---- Stylesheet
+==== Stylesheet
 
   Custom stylesheet for university is public/universities/myuniversity/stylesheet/myuniversity.css.styl
 
---- Custom prints
+==== Custom prints
 
   Custom pdf prints are e.g. for calls in public/universities/myuniversity/calls/show.pdf.slim
 
   See template overriding below for more info
 
---- Custom fields for position applications
+==== Custom fields for position applications
 
   University can have its own custom fields in position applications for applicants.
   See example from
@@ -60,14 +60,14 @@ Re-initialize development database later when needed
     _fields.html.slim (used to render extra applicaiton fields and showing the preview of them to the applicant)
     _fields_show.html.slim  (used for showing the data for call admin)
 
---- Localization
+==== Localization
 
   Localizations needed for the custom fields in position applications are in public/universities/myuniversity/locales.
   See public/universities/helsinki/locales for example
 
   You should also be able to override any localization in config/locales for current university using the university specific locale file.
 
---- Template overriding
+==== Template overriding
 
   Basicly all ui templates can be overriden for university. The current university custom folder has top priority when Rails searches
   for ui templates. For example, if helsinki is current university, then the open calls page calls/index.html.slim is first searched under
@@ -76,11 +76,22 @@ Re-initialize development database later when needed
   Even though it is possible to override other than pdf print templates also, be aware that it should not be done just because you can and
   will probably lead to maintenance problems and other dark places.
 
---- Security concerns
+==== Security concerns
   Keep in mind that all university specific files are under pubic folder, so they can be directly accessed freely if you know the resource path.
   This should not be a problem since there is no sensitive data by default there. And this whole repo is open anyway.
 
+=== Admin view
 
+  Database can be administrated using rails_admin plugin (https://github.com/sferik/rails_admin)
+
+  Admin url is https://halloped.fi/en/admin/
+
+  You can basicly add Organ, Organization, User, more Admins or whatever with it. You can edit names etc.
+
+  If you need to edit localized string that is stored in database (like organ name) you can change the language of
+  admin view to edit the string for that language. E.g. https://halloped.fi/fi/admin/
+
+  Remember to use very strong passwords for all the admins!!!
 
 === Production environment Setup
 
