@@ -93,6 +93,21 @@ Re-initialize development database later when needed
 
   Remember to use very strong passwords for all the admins!!!
 
+=== Eligibility rules
+
+  You can define eligibility rules for applicants using the Admin view.
+
+    First add new Eligibility rule. Currently only rules that compare a known haka edu person field to a list of valid values is supported.
+
+    Then add a rule set to hold the rule you created. You need to add the rule set also to a root level organization (university).
+
+    You can of course define multiple rules for rulesets. And rulesets can share rules, even between universities. But rulesets are university
+    specific. They will show up in the new call form, where you can select any rule set you have defined for university.
+
+    If eligibility rules are not met by applicant then applicant is marked as not eligible. Call admin can then decide whether to
+    reject or select the applicant. Eligibility rules do not technically prevent selecting applicant, that decision is always made by
+    human.
+
 === Production environment Setup
 
 Install Qt (PDF printing has qt dependency)
