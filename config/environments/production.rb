@@ -20,6 +20,9 @@ Halloped::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # precompile univerity stylsheets
+  config.assets.precompile += Dir[Rails.root.join('public/universities/*/stylesheet/*.styl')]
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
