@@ -55,6 +55,10 @@ Re-initialize development database later when needed
 
   Create yaml file that has university organisation. See public/universities/helsinki/helsinki.yml for an example
 
+  Note! The file name and folder name must be the same as the first part of university domain name. E.g. for helsinki.fi => helsinki/helsinki.yml or for TTY tty/tty.yml.
+  Application will internally use that part or domain name as a key for university. It will also show in the url, e.g. halloped.fi/fi/helsinki.
+  So if you name your folder wrong way or import organization from file with wrong name, then your organization will not work.
+
   Execute the rake task:
     RAILS_ENV=production rake db:import:university ./public/universities/myuniversity/myuniversity.yml
 
