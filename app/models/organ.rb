@@ -7,7 +7,8 @@ class Organ
   has_many :calls
   has_many :members
 
-  validates :name, :organization, :official, allow_blank: false, presence: true
+  validates :name, :organization, { presence: { allow_blank: false } }
+  validates :official, inclusion: { :in => [true, false] }
 
   field :name, localize: true
   field :description, localize: true
