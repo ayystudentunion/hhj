@@ -16,7 +16,7 @@ Clone the Halloped Project Repository
 
 Install Gem Dependencies
 
-  cd halloped
+  cd hhj
   gem install bundler
   bundle install
 
@@ -27,6 +27,10 @@ Initialize development database
 Run tests
 
   rake test
+
+Run application
+
+  rails server
 
 Run only unit tests
 
