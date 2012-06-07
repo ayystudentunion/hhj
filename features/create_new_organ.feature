@@ -5,7 +5,7 @@ Feature: Creating a new organ
     And I am logged in as a member of university staff
     And I am at front page of 'Spartan Teknillinen Yliopisto'
 
-  Scenario: Staff member creates new organs
+  Scenario: Staff member creates new organ
     When I press 'Luo uusi toimielin'
     And I fill in form 'Luo uusi toimielin':
       |  label                           | value                                                            |
@@ -38,3 +38,16 @@ Feature: Creating a new organ
       |  Term                            | 2012-01-01 - 2012-07-01                                          |
       |  Person in charge                | Saima Salminen                                                   |
 
+
+Scenario: Staff member creates new unofficial organ directly under university
+    When I press 'Luo uusi toimielin'
+    And I fill in form 'Luo uusi toimielin':
+      |  label                           | value                                                            |
+      |  Toimielimen nimi                | Opintoneuvonta                                                   |
+      |  Valitse organisaatioyksikkö     | +Epävirallinen                                                   |
+
+    And I press 'Tallenna'
+
+    Then I should see introduction of organ 'Opintoneuvonta' with description '':
+      |  label                           | value                                                            |
+      |  Organisaatioyksikkö             |                                                                  |
