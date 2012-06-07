@@ -6,7 +6,7 @@ set :rvm_type, :user
 require "bundler/capistrano"
 
 set :application, "halloped"
-set :repository,  "git@github.com:leonidas/halloped.git"
+set :repository,  "git@github.com:ayy/hhj.git"
 set :user, "leonidas"
 
 set :deploy_to, "/home/#{user}/#{application}"
