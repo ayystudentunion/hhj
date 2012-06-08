@@ -20,8 +20,10 @@ Halloped::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
-  # precompile univerity stylsheets
-  config.assets.precompile += Dir[Rails.root.join('public/universities/*/stylesheet/*.styl')]
+  # precompile university stylsheets
+  config.assets.precompile += Dir[Rails.root.join('public/universities/*/stylesheet/*.styl')].map{
+    |f| Pathname(f).relative_path_from(Rails.root.join('public/universities')).to_s.chomp(File.extname(f))
+  }
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
