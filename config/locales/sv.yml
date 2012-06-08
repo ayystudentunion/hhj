@@ -31,9 +31,9 @@ sv:
       choose_university: "Välj ditt universitet"
   shared:
     not_logged_in_side_bar:
-      title: "Vad är hallopedverksamhet?"
-      description_paragraph_1: "Hallopeder m.a.o. förvaltningens studentrepresentanter är representanter, som är valda bland medlemmarna av fullmäktige, i förvaltningsorgan. De representerar förutom sig själva även hela studentkåren i sin tjänsteuppgift. Studentrepresentanter är auktoriserade medlemmar i förvaltningen - endast utvärderingen av examensarbeten kan de inte direkt påverka. Vem som helst som är medlem i studentkåren kan ansöka till halloped genom de öppna ansökningarna."
-      description_paragraph_2: "Hallopeder och studentkårens styrelse strävar tillsammans efter att förvara och förbättra tjänster och rättvisa för studerande i vårt skolsamfund. Det är önskvärt att varje studerande ger dem respons för att ge riktlinjer för påverkningsarbetet."
+      title: "Vad är studentrepresentantverksamhet?"
+      description_paragraph_1: "Enligt universitetslagen ska en tredjedel av medlemmarna i de beslutsfattande förvaltningsorganen vid de finländska universiteten bestå av studeranden. Alla närvaroanmälda examensstuderanden kan söka för att bli studentrepresentanter i dessa organ. Studentrepresentanterna (på finska: halloped, hallinnon opiskelijaedustaja) utses av studentkårerna."
+      description_paragraph_2: "De förtroendevalda studentrepresentanterna är fullvärdiga medlemmar i universitetsförvaltningen, och deltar i beslut om bl.a. undervisningen, anställningar, ekonomiärenden och strategier. Att vara en studentrepresentant innebär att man deltar i beslutsfattandet på möten och fungerar som språkrör mellan universitetets förvaltning och de studerande. Den viktigaste uppgiften är att göra studenternas röst hörd i de frågor som rör universitetet."
     sidebar:
       user_info: "Egna uppgifter"
       edit: "Redigera"
