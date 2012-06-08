@@ -1,6 +1,6 @@
 sv:
   logged_in_as: "Du är inloggad som"
-  login_with_haka: "Logga in med HAKA-användarnamn"
+  login_with_haka: "Logga in med universitetets användarnamn"
   front_page: "Framsida"
   introduction: "Presentation"
   modified: "redigerad"
