@@ -1,20 +1,21 @@
 .custom
-  - if @position_application.custom.include? 'available'
-    .item-block
-      p.label
-        = t ".available"
-        | :
-        p.text = t("helsinki.fields.available_#{@position_application.custom['available']}")
-  - if @position_application.custom.include? 'degree_programme'
-    .item-block
-      p.label
-        = t ".degree_programme"
-        | :
-        p.text = @position_application.custom['degree_programme']
-  - if @position_application.custom.include? 'experience_in_student_associations'
-    .item-block
-      p.label
-        = t '.experience_in_student_associations'
-        | :
-      textarea.wide-text(readonly="readonly") = @position_application.custom['experience_in_student_associations']
+  - if @position_application.custom
+    - if @position_application.custom.include? 'available'
+      .item-block
+        p.label
+          = t ".available"
+          | :
+          p.text = t("helsinki.fields.available_#{@position_application.custom['available']}")
+    - if @position_application.custom.include? 'degree_programme'
+      .item-block
+        p.label
+          = t ".degree_programme"
+          | :
+          p.text = @position_application.custom['degree_programme']
+    - if @position_application.custom.include? 'experience_in_student_associations'
+      .item-block
+        p.label
+          = t '.experience_in_student_associations'
+          | :
+        textarea.wide-text(readonly="readonly") = @position_application.custom['experience_in_student_associations']
 

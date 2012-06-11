@@ -29,4 +29,8 @@ class PositionApplication
   def name
     user.full_name
   end
+
+  def deputy_of_safe_length
+    deputy_of.nil? ? 0 : deputy_of.length
+  end
 end
