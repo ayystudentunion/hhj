@@ -26,7 +26,7 @@ module ApplicationHelper
     if Rails.env.development?
       dev_users_path(target: current)
     else
-      "/Shibboleth.sso/Login?target=#{CGI.escape current}"
+      "/Shibboleth.sso/DS?target=#{CGI.escape current}"
     end
   end
 
