@@ -1,48 +1,3 @@
-<<<<<<< HEAD
-﻿doctype html
-html
-  head
-    title halloped.fi
-    = stylesheet_link_tag "application"
-    - if custom_css_exists?
-      = stylesheet_link_tag custom_css_href
-    = javascript_include_tag "application"
-    = csrf_meta_tags
-    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
-    script(src="/i18n/jquery.ui.datepicker-#{locale}.js" type="text/javascript")
-  body(data-env=Rails.env)
-    #wrapper
-      div#header
-        #header-content
-          = yield(:header)
-          .language-sel
-            - languages.reject{|l| l == I18n.locale}.each do |locale|
-              a(href='#' hreflang=locale) = t("languages.to_#{locale}") + ' • '
-          - if @user or user_university_not_supported?
-            .login-info(href='#')
-              - if user_university_not_supported?
-                = render "shared/not_supported_user"
-              - else
-                = render "shared/logged_in_user"
-              a.logout-btn.js-reload(href=logout_link) Kirjaudu ulos ›
-          - else
-            = render "shared/login"
-      div#navi
-        #navi-content
-          = yield(:navigation)
-      div#content
-        div#page-content
-          = yield
-
-        = yield(:sidebar)
-        .clear
-
-    div#footer
-      .footer-content
-        p HHJ
-
-  div#modal-wrap
-=======
 doctype html
 html
   head
@@ -86,4 +41,3 @@ html
         p Copyright 2012 Halloped.fi
 
   div#modal-wrap
->>>>>>> parent of 2df025f... Edited page title and footer
