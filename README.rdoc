@@ -21,6 +21,8 @@ Install Gem Dependencies
   rvm pkg install zlib openssl libxml2 libxslt
   rvm reinstall 1.9.3
 
+  sudo apt-get install libqt4-dev # For qmake
+
 If you're getting trouble from nokogiri, do
   rm -rf $rvm_path/usr
   rvm requirements # Copy the apt-get [...] part and sudo it
