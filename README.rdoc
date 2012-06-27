@@ -17,6 +17,17 @@ Clone the Halloped Project Repository
 Install Gem Dependencies
 
   cd hhj
+
+  rvm pkg install zlib openssl libxml2 libxslt
+  rvm reinstall 1.9.3
+
+If you're getting trouble from nokogiri, do
+  rm -rf $rvm_path/usr
+  rvm requirements # Copy the apt-get [...] part and sudo it
+  rvm reinstall 1.9.3
+
+Then install bundled dependencies
+
   gem install bundler
   bundle install
 
