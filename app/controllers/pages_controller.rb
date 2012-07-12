@@ -1,6 +1,13 @@
 require 'factory_girl_rails'
 
 class PagesController < ApplicationController
+  def logout
+    for c in cookies
+      cookies.delete c[0]
+    end
+
+    redirect_to index_path(locale: I18n.default_locale)
+  end
 
   def university
     respond_to do |format|

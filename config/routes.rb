@@ -1,7 +1,8 @@
 Halloped::Application.routes.draw do
 
-  unless Rails.env.production?
+  match "/logout" => "pages#logout"
     match "/env" => "pages#environment"
+  unless Rails.env.production?
     match "/dev_login" => "pages#dev_login"
     match "/dev_logout" => "pages#dev_logout"
     match "/dev_users" => "pages#dev_users"

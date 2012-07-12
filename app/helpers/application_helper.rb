@@ -33,6 +33,8 @@ module ApplicationHelper
   def logout_link
     if Rails.env.development?
       dev_logout_path
+    else
+      "/logout"
     end
   end
 
