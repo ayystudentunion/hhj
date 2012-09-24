@@ -69,7 +69,7 @@ sv:
       title: "Redigera organ"
     applicant:
       not_eligible: "Ej valbar"
-      eligibility_rule_not_met: "Uppfyller ej villkoret  %{rule}"
+      eligibility_rule_not_met: "Uppfyller ej villkoret %{rule}"
     member:
       position_member: "Medlem"
       position_deputy: "Suppleant"
