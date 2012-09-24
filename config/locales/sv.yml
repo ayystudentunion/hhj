@@ -1,4 +1,5 @@
 sv:
+  header_title: "Halloped-ansökningssystem"
   logged_in_as: "Du är inloggad som"
   login_with_haka: "Logga in med universitetets användarnamn"
   front_page: "Framsida"
