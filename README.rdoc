@@ -9,6 +9,11 @@ Install RVM and Ruby
 
   rvm install 1.9.3
   rvm use 1.9.3
+  
+Install node.js
+
+  sudo apt-get install node 
+  brew install node
 
 Clone the Halloped Project Repository
 
@@ -21,7 +26,8 @@ Install Gem Dependencies
   rvm pkg install zlib openssl libxml2 libxslt
   rvm reinstall 1.9.3
 
-  sudo apt-get install libqt4-dev # For qmake
+  sudo apt-get install libqt4-dev # For qmake on Linux
+  brew install Qt # For qmake on OS X
 
 If you're getting trouble from nokogiri, do
   rm -rf $rvm_path/usr

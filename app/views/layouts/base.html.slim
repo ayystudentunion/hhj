@@ -17,6 +17,7 @@ html
           .language-sel
             - languages.reject{|l| l == I18n.locale}.each do |locale|
               a(href='#' hreflang=locale) = t("languages.to_#{locale}") + ' • '
+            - 
           - if @user or user_university_not_supported?
             .login-info(href='#')
               - if user_university_not_supported?
@@ -38,6 +39,10 @@ html
 
     div#footer
       .footer-content
-        p Copyright 2012 Halloped.fi
+        p
+        a href='http://github.com/ayy/hhj' Lähdekoodi
+        |  • Hallinnon opiskelijaedustajien tietojärjestelmä. • 
+        a href='http://http://rekisterit.ayy.fi/tietosuojaselosteet/hhj.pdf' Tietosuojaseloste
+        
 
   div#modal-wrap
