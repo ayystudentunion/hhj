@@ -3,7 +3,7 @@ class Organization
   include Mongoid::Tree
   include Mongoid::Timestamps
 
-  has_many  :organs
+  has_many  :organs, dependent: :delete
   has_many  :eligibility_rule_sets
   has_many  :users, inverse_of: :university
 

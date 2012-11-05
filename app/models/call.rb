@@ -5,7 +5,7 @@ class Call
 
   WORKFLOW_VALUES = [:workflow_normal, :workflow_administration_election, :workflow_proposal_available]
 
-  belongs_to :organ
+  belongs_to :organ, dependent: :nullify
   has_many :position_applications
   belongs_to :eligibility_rule_set
 

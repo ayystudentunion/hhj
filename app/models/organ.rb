@@ -4,8 +4,8 @@ class Organ
   include Mongoid::Timestamps
 
   belongs_to :organization
-  has_many :calls
-  has_many :members
+  has_many :calls, dependent: :delete
+  has_many :members, dependent: :nullify
 
   validates :name, :organization, { presence: { allow_blank: false } }
   validates :official, inclusion: { :in => [true, false] }
