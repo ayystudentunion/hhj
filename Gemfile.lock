@@ -213,6 +213,8 @@ GEM
       rspec (~> 2.10.0)
     rspec_multi_matchers (1.2.1)
     rubyzip (0.9.6.1)
+    rvm-capistrano (1.2.7)
+      capistrano (>= 2.0.0)
     sass (3.1.15)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -279,6 +281,7 @@ DEPENDENCIES
   rails_admin
   rspec-rails (>= 2.6)
   rspec_multi_matchers
+  rvm-capistrano
   sass-rails (>= 3.2.3)
   slim
   stylus
