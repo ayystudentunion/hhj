@@ -119,6 +119,7 @@ en:
     show:
       details: "Application details"
       looking_for: "Searching for"
+      found: "Applications"
       members:
         zero: "no members"
         one: "one member"

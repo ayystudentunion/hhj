@@ -120,6 +120,7 @@ sv:
     show:
       details: "Ansökningens uppgifter"
       looking_for: "Sökes"
+      found: "Ansökande"
       members:
         zero: "inga ordinarie medlem"
         one: "en ordinarie medlem"
