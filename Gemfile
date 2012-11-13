@@ -19,6 +19,7 @@ gem 'wicked_pdf'
 gem 'rails_admin'
 gem 'devise'
 gem 'valid_email'
+gem 'redcarpet'
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'

@@ -44,7 +44,7 @@ div#single-organ
             span.text
               = manager
           .item-row
-            = @organ.description
+            == @organ.rendered_description
         - if can_admin_calls?
           em
             - if @organ.members.current_hallopeds.empty?

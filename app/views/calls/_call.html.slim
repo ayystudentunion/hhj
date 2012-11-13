@@ -12,4 +12,4 @@
     .text = formatted_date(call.date_start, end_date: call.date_end)
   .item-block
     .label #{t "calls.show.description"}:
-    .text = call.description
+    .text == call.rendered_description

@@ -44,7 +44,7 @@ div#single-call
             span.label #{t "mongoid.attributes.call.appointment_place_and_date"}:
             span.text = @call.appointment_place_and_date
           p.description
-            = @call.description
+            == @call.rendered_description
         .hr
         .button-row
           a.print.popup(href=call_path(format: :pdf)) = t :print
