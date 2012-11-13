@@ -8,6 +8,7 @@ class Organ
   has_many :members, dependent: :nullify
   
   before_save :render_description
+  before_update :render_description
 
   validates :name, :organization, { presence: { allow_blank: false } }
   validates :official, inclusion: { :in => [true, false] }
@@ -23,10 +24,14 @@ class Organ
   field :official, type: Boolean
 
   def render_description
-    renderer = Redcarpet::Render::HTML.new
-    extensions = {}
-    redcarpet = Redcarpet::Markdown.new(renderer, extensions)
-    self.rendered_description = redcarpet.render self.description
+    if self.description.nil?
+      self.rendered_description = nil
+    else
+      renderer = Redcarpet::Render::HTML.new
+      extensions = {}
+      redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+      self.rendered_description = redcarpet.render self.description
+    end
   end
 
   def self.by_university(university)

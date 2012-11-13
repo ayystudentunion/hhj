@@ -8,7 +8,9 @@ class Call
   belongs_to :organ, dependent: :nullify
   has_many :position_applications
   belongs_to :eligibility_rule_set
+  
   before_save :render_description
+  before_update :render_description
 
   validates :title, :member_amount, :deputy_amount, allow_blank: false, presence: true
   validates :status, presence: true, allow_blank: false, :format => { :with => /(open|closed|handled|archived|proposed)/ }
@@ -31,10 +33,14 @@ class Call
   scope :open, where(status: :open)
   
   def render_description
-    renderer = Redcarpet::Render::HTML.new
-    extensions = {}
-    redcarpet = Redcarpet::Markdown.new(renderer, extensions)
-    self.rendered_description = redcarpet.render self.description
+    if self.description.nil?
+      self.rendered_description = nil
+    else
+      renderer = Redcarpet::Render::HTML.new
+      extensions = {}
+      redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+      self.rendered_description = redcarpet.render self.description
+    end
   end
   
   def self.open_by_university(university)
