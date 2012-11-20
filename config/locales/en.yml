@@ -228,3 +228,7 @@ en:
     limit_results: "Search to limit results"
     message_for_organ: "Write a message to organ"
   send: "Send"
+  email:
+    application_received: Your application to a student representative position has been received.
+    thanks_for_application: Thank you. We will be in touch shortly.
+    your_application: Your application

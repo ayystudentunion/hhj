@@ -250,4 +250,9 @@ fi:
     message_for_organ: Kirjoita viesti toimielimelle
 
   send: Lähetä
+  
+  email:
+    application_received: Hakemuksesi hallinnon opiskelijaedustajaksi on vastaanotettu.
+    thanks_for_application: Kiitos. Sinulle vastataan pian.
+    your_application: Hakemuksesi
 
