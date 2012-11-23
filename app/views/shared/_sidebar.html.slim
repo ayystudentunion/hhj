@@ -8,7 +8,7 @@ div#sidebar
       .info-content
         div.avatar
         p
-          span.name = @user.full_name
+          span.name = @user.full_name.force_encoding('UTF-8')
           br
           span.email = @user.email
           br
