@@ -37,7 +37,7 @@ fi:
 
   pages:
     index:
-      choose_university: Valitse oma yliopistosi
+      choose_university: Valitse oma yliopistosi/ylioppilaskuntasi
 
   shared:
     not_logged_in_side_bar:

@@ -28,7 +28,7 @@ en:
     active: "Active"
   pages:
     index:
-      choose_university: "Select your own university"
+      choose_university: "Select your own university/student union"
   shared:
     not_logged_in_side_bar:
       title: "What are Student Representatives?"
