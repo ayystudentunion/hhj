@@ -37,7 +37,7 @@ fi:
 
   pages:
     index:
-      choose_university: Valitse oma yliopistosi
+      choose_university: Valitse oma yliopistosi/ylioppilaskuntasi
 
   shared:
     not_logged_in_side_bar:
@@ -132,6 +132,7 @@ fi:
     show:
       details: Haun tiedot
       looking_for: Haetaan
+      found: Hakeneita
       members:
         zero: ei yhtäkään varsinaista jäsentä
         one: yhtä varsinaista jäsentä
@@ -140,6 +141,7 @@ fi:
         zero: ei yhtäkään varajäsentä
         one: yhtä varajäsentä
         other: '%{count} varajäsentä'
+        description: Varajäseniä
       submission_dates: Hakuaika
       description: Kuvaus
       term: Toimikausi
@@ -248,4 +250,9 @@ fi:
     message_for_organ: Kirjoita viesti toimielimelle
 
   send: Lähetä
+  
+  email:
+    application_received: Hakemuksesi hallinnon opiskelijaedustajaksi on vastaanotettu.
+    thanks_for_application: Kiitos. Sinulle vastataan pian.
+    your_application: Hakemuksesi
 

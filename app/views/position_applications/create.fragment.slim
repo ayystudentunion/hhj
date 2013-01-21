@@ -4,7 +4,7 @@
       = t '.title'
     .item-block
       .applicant-details
-        p.name = @user.full_name
+        p.name = @user.full_name.force_encoding('UTF-8')
         p.email = @user.email
         p.phone = @user.phone
     .hr

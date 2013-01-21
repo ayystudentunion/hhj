@@ -1,0 +1,24 @@
+# coding: utf-8
+doctype html
+html
+  head
+    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+  body
+    h1 = t 'email.application_received'
+    
+    p = t 'email.thanks_for_application'
+    
+    h1 = 
+    
+    table
+      th = t 'email.your_application'
+      tr
+        td = t 'mongoid.attributes.organ.name'
+        td = @application.call.organ.name
+        td = t 'mongoid.attributes.position_application.position'
+        td = t 'mongoid.attributes.position_application.' + @application.position.to_s
+        td = t 'mongoid.attributes.position_application.personal_statement'
+        td = @application.personal_statement
+        /- @application.custom.each do |k,v|
+        /  td = k
+        /  td = v

@@ -29,7 +29,7 @@ sv:
     active: "De aktiva"
   pages:
     index:
-      choose_university: "Välj ditt universitet"
+      choose_university: "Välj ditt universitet/studentkår"
   shared:
     not_logged_in_side_bar:
       title: "Vad är studentrepresentantverksamhet?"
@@ -120,6 +120,7 @@ sv:
     show:
       details: "Ansökningens uppgifter"
       looking_for: "Sökes"
+      found: "Ansökande"
       members:
         zero: "inga ordinarie medlem"
         one: "en ordinarie medlem"
@@ -228,3 +229,7 @@ sv:
     limit_results: "Begränsa träffar med sökning"
     message_for_organ: "Skriv ett meddelande till organet"
   send: "Skicka"
+  email:
+    application_received: Din ansökan till förvaltningens studentrepresentant har mottagits.
+    thanks_for_application: Tack. Du får svaren genast.
+    your_application: Din ansökan

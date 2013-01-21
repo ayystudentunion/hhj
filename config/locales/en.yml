@@ -28,7 +28,7 @@ en:
     active: "Active"
   pages:
     index:
-      choose_university: "Select your own university"
+      choose_university: "Select your own university/student union"
   shared:
     not_logged_in_side_bar:
       title: "What are Student Representatives?"
@@ -119,6 +119,7 @@ en:
     show:
       details: "Application details"
       looking_for: "Searching for"
+      found: "Applications"
       members:
         zero: "no members"
         one: "one member"
@@ -227,3 +228,7 @@ en:
     limit_results: "Search to limit results"
     message_for_organ: "Write a message to organ"
   send: "Send"
+  email:
+    application_received: Your application to a student representative position has been received.
+    thanks_for_application: Thank you. We will be in touch shortly.
+    your_application: Your application

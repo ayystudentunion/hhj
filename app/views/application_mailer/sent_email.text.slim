@@ -1,0 +1,22 @@
+# coding: utf-8
+
+= t 'email.application_received'
+|    
+= t 'email.thanks_for_application'
+
+= t 'email.your_application'
+
+= t 'mongoid.attributes.organ.name'
+
+= @application.call.organ.name
+
+= t 'mongoid.attributes.position_application.position'
+
+= t 'mongoid.attributes.position_application.' + @application.position.to_s
+
+= t 'mongoid.attributes.position_application.personal_statement'
+
+= @application.personal_statement
+    /- @application.custom.each do |k,v|
+    /  td = k
+    /  td = v

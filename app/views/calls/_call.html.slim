@@ -3,9 +3,16 @@
     a(href=call_path(id:call._id)) = call.title
     - if can_admin_calls?
       a.edit-icon.js-modal(href=edit_call_path(id: call.id))    
+  - if can_admin_calls?
+	.item-block
+	  .label #{t "calls.show.found"}:
+	  .text = call.position_applications.length	
   .item-block
     .label #{t "calls.show.submission_dates"}:
     .text = formatted_date(call.date_start, end_date: call.date_end)
   .item-block
     .label #{t "calls.show.description"}:
-    .text = call.description
+    -if call.rendered_description.nil?
+      .text = call.description
+    -else
+      .text == call.rendered_description
