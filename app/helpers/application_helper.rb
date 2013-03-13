@@ -94,6 +94,10 @@ module ApplicationHelper
     not_supported_user[:university_domain]
   end
 
+  def localized translations, locale
+    ((translations || {})[locale.to_s]).tap{|v| p v}
+  end
+
   protected
 
   def format_date(date, options)
