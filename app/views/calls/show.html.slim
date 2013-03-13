@@ -43,12 +43,8 @@ div#single-call
           .item-row
             span.label #{t "mongoid.attributes.call.appointment_place_and_date"}:
             span.text = @call.appointment_place_and_date
-          - if @call.rendered_description.nil?
-            p.description
-              == @call.description
-          - else
-            p.description
-              == @call.rendered_description
+          p.description
+            == rendered_markdown @call.description
         .hr
         .button-row
           a.print.popup(href=call_path(format: :pdf)) = t :print
