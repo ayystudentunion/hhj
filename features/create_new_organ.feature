@@ -15,7 +15,7 @@ Feature: Creating a new organ
       |  Toimikauden päättymisaika:      | 2012-07-01                                                       |
       |  Vastuuhenkilön nimi             | Saima Salminen                                                   |
       |  Vastuuhenkilön sähköpostiosoite | saima@halloped.fi                                                |
-      |  Nimityksen tekevä henkilö       | Dekaani                                                          |
+      |  Nimityksen tekevä taho          | Dekaani                                                          |
       |  Valitse organisaatioyksikkö     | Luonnontieteellinen tiedekunta/Fysiikan laitos+Lakisääteinen     |
 
     And I press 'EN'
