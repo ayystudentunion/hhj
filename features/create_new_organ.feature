@@ -44,7 +44,7 @@ Scenario: Staff member creates new unofficial organ directly under university
     And I fill in form 'Luo uusi toimielin':
       |  label                           | value                                                            |
       |  Toimielimen nimi                | Opintoneuvonta                                                   |
-      |  Valitse organisaatioyksikkö     | +Epävirallinen                                                   |
+      |  Valitse organisaatioyksikkö     | +Ei lakisääteinen                                                |
 
     And I press 'Tallenna'
 
