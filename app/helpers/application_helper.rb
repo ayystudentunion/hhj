@@ -103,7 +103,7 @@ module ApplicationHelper
   end
 
   def localized translations, locale
-    (translations || {})[locale.to_s]
+    (translations || {})[locale.to_s] || ''
   end
 
   protected
