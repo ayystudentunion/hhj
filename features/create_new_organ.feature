@@ -51,3 +51,15 @@ Scenario: Staff member creates new unofficial organ directly under university
     Then I should see introduction of organ 'Opintoneuvonta' with description '':
       |  label                           | value                                                            |
       |  Organisaatioyksikkö             |                                                                  |
+
+Scenario: Description supports markdown
+    When I press 'Luo uusi toimielin'
+    And I fill in form 'Luo uusi toimielin':
+      |  label                           | value                                                            |
+      |  Toimielimen nimi                | Merkkialas elin                                                  |
+      |  Kuvaus toimielimen toiminnasta  | ### Markdown Otsikko                                             |
+
+    And I press 'Tallenna'
+
+    Then I should see level 3 header "Markdown Otsikko"
+

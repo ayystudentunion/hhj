@@ -29,3 +29,7 @@ Then %r/^I should see dialog '([^']*)'(?: with text '([^']*)')?:$/ do |*args|
   content.find("textarea:contains('#{text}')") unless text.nil?
   check_view_values content, table
 end
+
+Then %r/^I should see level 3 header "([^"]*)"$/ do |text|
+  find("h3:contains('#{text}')")
+end
