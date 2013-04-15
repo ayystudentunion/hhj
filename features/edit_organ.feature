@@ -15,8 +15,8 @@ Feature: Editing an existing organ
       |  Toimikauden päättymisaika:      | 2012-08-04                                                       |
       |  Vastuuhenkilön nimi             | Soini Salminen                                                   |
       |  Vastuuhenkilön sähköpostiosoite | soini@halloped.fi                                                |
-      |  Nimityksen tekevä henkilö       | Dekaani                                                          |
-      |  Valitse organisaatioyksikkö     | Luonnontieteellinen tiedekunta/Kemian laitos+Lakisääteinen     |
+      |  Nimityksen tekevä taho          | Dekaani                                                          |
+      |  Valitse organisaatioyksikkö     | Luonnontieteellinen tiedekunta/Kemian laitos+Lakisääteinen       |
 
     And I press 'EN'
     And I fill in form 'Muokkaa toimielintä':

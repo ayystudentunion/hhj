@@ -5,8 +5,5 @@
     - if can_admin_organs?
       a.edit-icon.js-modal(href=edit_organ_path(id: organ.id))
     span.date = formatted_date(organ.updated_at, format: :date)
-  -if organ.rendered_description.nil?
-    p.description = organ.description
-  -else
-    p.description == organ.rendered_description
-  
+  p.description == rendered_markdown organ.description
+

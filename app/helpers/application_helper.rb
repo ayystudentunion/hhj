@@ -94,6 +94,18 @@ module ApplicationHelper
     not_supported_user[:university_domain]
   end
 
+  def rendered_markdown markdown
+    return '' if markdown.nil?
+    @html_renderer ||= Redcarpet::Render::HTML.new
+    extensions = {}
+    @redcarpet ||= Redcarpet::Markdown.new(@html_renderer, extensions)
+    @redcarpet.render markdown
+  end
+
+  def localized translations, locale
+    (translations || {})[locale.to_s] || ''
+  end
+
   protected
 
   def format_date(date, options)
