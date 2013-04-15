@@ -15,7 +15,7 @@ Feature: Creating a new organ
       |  Toimikauden päättymisaika:      | 2012-07-01                                                       |
       |  Vastuuhenkilön nimi             | Saima Salminen                                                   |
       |  Vastuuhenkilön sähköpostiosoite | saima@halloped.fi                                                |
-      |  Nimityksen tekevä henkilö       | Dekaani                                                          |
+      |  Nimityksen tekevä taho          | Dekaani                                                          |
       |  Valitse organisaatioyksikkö     | Luonnontieteellinen tiedekunta/Fysiikan laitos+Lakisääteinen     |
 
     And I press 'EN'
@@ -44,10 +44,22 @@ Scenario: Staff member creates new unofficial organ directly under university
     And I fill in form 'Luo uusi toimielin':
       |  label                           | value                                                            |
       |  Toimielimen nimi                | Opintoneuvonta                                                   |
-      |  Valitse organisaatioyksikkö     | +Epävirallinen                                                   |
+      |  Valitse organisaatioyksikkö     | +Ei lakisääteinen                                                |
 
     And I press 'Tallenna'
 
     Then I should see introduction of organ 'Opintoneuvonta' with description '':
       |  label                           | value                                                            |
       |  Organisaatioyksikkö             |                                                                  |
+
+Scenario: Description supports markdown
+    When I press 'Luo uusi toimielin'
+    And I fill in form 'Luo uusi toimielin':
+      |  label                           | value                                                            |
+      |  Toimielimen nimi                | Merkkialas elin                                                  |
+      |  Kuvaus toimielimen toiminnasta  | ### Markdown Otsikko                                             |
+
+    And I press 'Tallenna'
+
+    Then I should see level 3 header "Markdown Otsikko"
+
