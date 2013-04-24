@@ -46,7 +46,8 @@ end
 group :test do
   gem 'rspec_multi_matchers'
   gem 'cucumber-rails', require: false
-  gem 'capybara'
+  # restricting until capybara-webkit releases a version compatible with 2.1
+  gem 'capybara', '~>2.0.0'
   gem 'capybara-webkit'
   gem 'capybara-screenshot'
   # database_cleaner is not required, but highly recommended
