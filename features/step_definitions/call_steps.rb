@@ -1,3 +1,5 @@
+# -*- encoding : utf-8 -*-
+
 Then %r/^I should see call for application '([^']*)'(?: with description '([^']*)':)?$/ do |*args|
   name, description, table = args
   check_details '.call-details', name, description, table
@@ -25,6 +27,14 @@ def applicant(name)
 end
 
 Then %r/^I set applicant '([^']*)' as '([^']*)'$/ do |name, position|
-  member_slot = find ".member-card-empty:contains('#{position.downcase}')"
+  case position
+  when 'Jäsen'
+    css_class = 'member'
+  when 'Varajäsen'
+    css_class = 'deputy'
+  else
+    raise "Unknown position: #{position}"
+  end
+  member_slot = all(".member-card-empty.#{css_class}").first
   applicant(name).drag_to member_slot
 end

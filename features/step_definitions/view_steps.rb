@@ -6,11 +6,7 @@ def check_view_values(container, table)
 end
 
 def check_details(details_selector, title, description, table)
-  details = nil
-  page.wait_until(5) do
-    details = page.find details_selector
-    details.visible? # CI tests fail randomly if we won't wait here for the node to be attached
-  end
+  details = page.find details_selector, :visible => true
   details.find("h2").should have_content title
   if not description.nil? and not table.nil?
     details.should have_content description
