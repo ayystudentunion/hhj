@@ -8,6 +8,12 @@ When %r/^I press '([^']*)'$/ do |text|
   click_on text
 end
 
+When %r/^I press '([^']*)' within dialog$/ do |text|
+  within '#modal-wrap' do
+    click_on text
+  end
+end
+
 When %r/^I follow the link '([^']*)'$/ do |link_title|
   click_link link_title
 end
@@ -22,7 +28,9 @@ Given %r/^I navigate to home page of organ '([^']*)'$/ do |organ_name|
 end
 
 Given %r/^I navigate to home page of call '([^']*)'$/ do |call_name|
-  click_link 'Avoimet haut'
+  within '#navi-content' do
+    click_link 'Avoimet haut'
+  end
   click_link call_name
 end
 

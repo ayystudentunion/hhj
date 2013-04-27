@@ -7,7 +7,7 @@ Feature: Editing an existing organ
     And I navigate to home page of organ 'Tasa-arvotyöryhmä'
 
   Scenario: Staff member edits an existing organ
-    When I press the edit icon
+    When I press the edit icon within organ details
     And I fill in form 'Muokkaa toimielintä':
       |  label                           | value                                                            |
       |  Toimielimen nimi                | Tasa-arvon työryhmä                                              |

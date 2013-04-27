@@ -16,7 +16,7 @@ end
 
 def clickRadio(div, value)
   return false if value.nil? or div.nil?
-  div.find("*:contains('#{value}')").click
+  div.find("label:contains('#{value}')").click
 end
 
 def fillRadio(form, label, value)
@@ -28,7 +28,7 @@ def fillSelectsWithRadio(form, label, value)
   selectsDiv = form.first(".inline-block:contains('#{label}')")
   return false if selectsDiv.nil?
   fillSelects selectsDiv, selectValue.split('/')
-  clickRadio selectsDiv.find(:xpath, './following-sibling::div'), radioValue
+  clickRadio selectsDiv.find(:xpath, './following-sibling::div[1]'), radioValue
   not selectsDiv.nil?
 end
 
