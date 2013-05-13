@@ -5,6 +5,7 @@ gem 'rails'
 # Bundle edge Rails instead:
 # gem 'rails', git: 'git://github.com/rails/rails.git'
 
+gem 'execjs'
 gem 'mongoid', git: 'git://github.com/mongoid/mongoid'
 gem 'bson_ext', '>= 1.5'
 gem 'mongoid_rails_migrations', '>= 0.0.13'
