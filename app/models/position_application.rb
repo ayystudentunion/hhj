@@ -6,6 +6,8 @@ class PositionApplication
   belongs_to :call
   belongs_to :user
 
+  has_many :recommendations
+
   validates :position, presence: true, inclusion: { in: POSITION_VALUES + [:position_both]}
   validate :validate_member_and_deputy_positions
   before_save :reset_deputy_of_for_position_member

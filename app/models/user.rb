@@ -6,6 +6,8 @@ class User
 
   has_many :position_applications
   has_many :members
+  has_many :recommendations
+
   belongs_to :university, class_name: 'Organization'
 
   validates :email, :presence => true, :email => true
