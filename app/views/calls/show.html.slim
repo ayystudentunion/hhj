@@ -55,7 +55,7 @@ div#single-call
 
         .hr
         .button-row
-          h2= "Applications"
+          h2 #{t "position_applications.plural"}
           ul
             -@call.position_applications.each do |application|
               = render "position_applications/recommend_link", application: application

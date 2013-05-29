@@ -52,6 +52,7 @@ fi:
       write_news_post: Kirjoita uusi tiedote tai uutinen
 
   position_applications:
+    plural: "Hakemukset"
     new:
       title: Lähetä hakemus
       apply_to: 'Haen:'
@@ -146,7 +147,9 @@ fi:
       description: Kuvaus
       term: Toimikausi
       send_application: Lähetä hakemus
-
+  recommendations:
+    verb: 'Suosittele'
+    reverse_verb: 'Peru suosittelu'
   mongoid:
     models:
       organ: Toimielin

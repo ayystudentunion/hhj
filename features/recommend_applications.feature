@@ -8,13 +8,13 @@ Feature: Recommending a position application
     Given I am logged in as a student union employee
     And I am at front page of 'Spartan Teknillinen Yliopisto'
     And I navigate to home page of call 'Kirjakerhon lukurinki'
-    Then I should see 1 button with text "Recommend"
-    Then I press 'Recommend'
-    Then I press 'Cancel recommendation'
-    Then I press 'Recommend'
+    Then I should see 1 button with text "Suosittele"
+    Then I press 'Suosittele'
+    Then I press 'Peru suosittelu'
+    Then I press 'Suosittele'
 
    Scenario: Not seeing a recommend link to your own application
      Given I am logged in as a student
      And I am at front page of 'Spartan Teknillinen Yliopisto'
      And I navigate to home page of call 'Kirjakerhon lukurinki'
-     Then I should see 0 buttons with text "Recommend"
+     Then I should see 0 buttons with text "Suosittele"
