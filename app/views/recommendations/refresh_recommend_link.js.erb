@@ -1,0 +1,2 @@
+<% id = "position_application_" + @position_application._id.to_s %>
+$('#<%=id%>').replaceWith('<%=escape_javascript(render(partial: "position_applications/recommend_link", locals: {application: @position_application}).html_safe) %>');

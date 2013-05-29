@@ -33,3 +33,7 @@ end
 Then %r/^I should see level 3 header "([^"]*)"$/ do |text|
   find("h3:contains('#{text}')")
 end
+
+Then /^I should see (\d*) buttons{0,1} with text "([^"]*)"$/ do |number, text|
+  page.all("input[value=#{text}]").count.should == number.to_i
+end

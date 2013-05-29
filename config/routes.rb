@@ -20,6 +20,8 @@ Halloped::Application.routes.draw do
       resources :position_applications
     end
 
+    resources :recommendations, only: [:create, :destroy]
+
     resources :organs do
       resources :calls
       resources :members

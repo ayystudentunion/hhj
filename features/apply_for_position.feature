@@ -26,5 +26,3 @@ Feature: Applying for a position
     And I press 'Ok'
 
     Then I should see call for application 'Kirjakerhon lukurinki'
-
-

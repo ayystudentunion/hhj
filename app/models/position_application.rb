@@ -35,4 +35,8 @@ class PositionApplication
   def deputy_of_safe_length
     deputy_of.nil? ? 0 : deputy_of.length
   end
+
+  def recommendation_by(user)
+    Recommendation.where(user_id: user._id, position_application_id: self._id).first
+  end
 end
