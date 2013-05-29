@@ -26,10 +26,15 @@ class Call
   field :term_end, type: Date
   field :appointment_place_and_date, localize: true
   field :description, localize: true
+
   scope :open, where(status: :open)
 
   def self.open_by_university(university)
     open.select{|c| c.organ.belongs_to?(university)}
+  end
+
+  def recommendations_threshold
+    self.organ.organization.recommendations_threshold || self.organ.organization.root.recommendations_threshold || 0
   end
 
   def has_unhandled_applications
@@ -44,6 +49,10 @@ class Call
     members = position_applications.members.map{|a| [a, a.deputy]}
     lone_deputies = position_applications.lone_deputies.map{|a| [nil, a]}
     members + lone_deputies
+  end
+
+  def admissible_applications
+    self.position_applications.find_all{|application| application.admissible?}
   end
 
 end
