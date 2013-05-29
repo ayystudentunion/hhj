@@ -42,6 +42,7 @@ en:
       write_news_post: "Write a new announcement or news"
   position_applications:
     plural: "Applications"
+    admissible_plural: "Recommended"
     new:
       title: "Send application"
       apply_to: "Apply"

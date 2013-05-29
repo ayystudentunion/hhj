@@ -53,6 +53,7 @@ fi:
 
   position_applications:
     plural: "Hakemukset"
+    admissible_plural: "Suositellut"
     new:
       title: Lähetä hakemus
       apply_to: 'Haen:'

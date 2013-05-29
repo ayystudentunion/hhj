@@ -39,4 +39,8 @@ class PositionApplication
   def recommendation_by(user)
     Recommendation.where(user_id: user._id, position_application_id: self._id).first
   end
+
+  def admissible?
+    self.recommendations.count >= call.recommendations_threshold
+  end
 end
