@@ -4,7 +4,7 @@ class EligibilityRule
 
   has_and_belongs_to_many :eligibility_rule_sets
 
-  field :name, localized: true
+  field :name, localize: true
   field :edu_field, type: String
   field :valid_values, type: Array
 

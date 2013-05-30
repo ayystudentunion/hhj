@@ -6,10 +6,12 @@ gem 'rails'
 # gem 'rails', git: 'git://github.com/rails/rails.git'
 
 gem 'execjs'
-gem 'mongoid', git: 'git://github.com/mongoid/mongoid'
+
+# was a git dependency before, locked down only to avoid upgrading a big leap for now
+gem 'mongoid', '~> 3.0.23'
 gem 'bson_ext', '>= 1.5'
 gem 'mongoid_rails_migrations', '>= 0.0.13'
-gem 'mongoid-tree', git: 'git://github.com/benedikt/mongoid-tree', branch: 'mongoid-3.0', require: 'mongoid/tree'
+gem 'mongoid-tree', '>= 0.7'
 # gem 'therubyracer'
 gem 'slim'
 # gem 'sprockets'
@@ -17,7 +19,7 @@ gem 'slim'
 gem 'factory_girl_rails', require: false
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
-gem 'rails_admin'
+gem 'rails_admin', '> 0.4.3'
 gem 'devise'
 gem 'valid_email'
 gem 'redcarpet'
@@ -31,7 +33,8 @@ end
 group :assets do
   gem 'sass-rails',   '>= 3.2.3'
   gem 'stylus'
-  gem 'coffee-rails', '>= 3.2.1'
+  # locked down to resolve conflicts for bundle update rails_admin
+  gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 
@@ -52,7 +55,7 @@ group :test do
   gem 'capybara-webkit'
   gem 'capybara-screenshot'
   # database_cleaner is not required, but highly recommended
-  gem 'database_cleaner'
+  gem 'database_cleaner', '>= 1.0.0'
   gem 'launchy'
   gem 'wait_for'
 end
