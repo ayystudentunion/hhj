@@ -33,3 +33,16 @@ end
 Then %r/^I should see level 3 header "([^"]*)"$/ do |text|
   find("h3:contains('#{text}')")
 end
+
+Then /^(?:|I )should see "([^"]*)"$/ do |text|
+  if page.respond_to? :should
+    page.should have_content(text)
+  else
+    assert page.has_content?(text)
+  end
+end
+
+When /^(?:|I )follow "([^"]*)"$/ do |link|
+  click_link(link)
+end
+

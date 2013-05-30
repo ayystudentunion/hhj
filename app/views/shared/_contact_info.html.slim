@@ -1,0 +1,7 @@
+-if @university
+    -contacts = User.where(university_id: @university._id, contactable: true)
+    -unless contacts.empty?
+      .contact-info
+        h2 = t("shared.contacts_title")
+        ul
+          = contacts.map{|contact| content_tag :li, "#{contact.full_name}: #{contact.email}"}.join.html_safe

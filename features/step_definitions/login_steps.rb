@@ -19,4 +19,7 @@ Then %r/^I should see logged in user "([^"]*)" with mail "([^"]*)" and phone "([
   check_that_contains_values '.login-info', name
 end
 
-
+Given /^there is a student union employee marked as contactable$/ do
+  employee = User.where(role: :role_union_employee).first
+  employee.update_attributes!(contactable: true)
+end
