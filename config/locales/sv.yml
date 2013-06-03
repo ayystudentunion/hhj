@@ -42,6 +42,8 @@ sv:
       create_organ: "Skapa ett nytt organ"
       write_news_post: "Skriv ett nytt meddelande eller en ny nyhet"
   position_applications:
+    plural: "Ansökningar"
+    admissible_plural: "Rekommenderade"
     new:
       title: "Skicka ansökan"
       apply_to: "Jag ansöker:"
@@ -133,6 +135,9 @@ sv:
       description: "Beskrivning"
       term: "Verksamhetsperiod"
       send_application: "Skicka ansökan"
+  recommendations:
+    verb: 'Rekommendera'
+    reverse_verb: 'Avbryt rekommendationen'
   mongoid:
     models:
       organ: "Organ"

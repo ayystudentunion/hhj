@@ -12,6 +12,7 @@ class Organization
 
   field     :name, localize: true
   field     :key, type: String
+  field     :recommendations_threshold, type: Integer #inclusive minimal number of recommendations required for PositionApplication to be approved
 
   def tree_hash
     serializable_hash.merge(children: children.map(&:serializable_hash))

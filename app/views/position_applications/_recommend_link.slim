@@ -1,0 +1,9 @@
+- id = "position_application_" + application._id.to_s
+li(id=id)
+  = application.name
+  -unless @user.nil? || @user._id == application.user._id
+    - recommendation = application.recommendation_by(@user)
+    -if recommendation.present?
+      = button_to t("recommendations.reverse_verb"), recommendation_path(id:recommendation._id), method: :delete, class: :btn, remote: true
+    -else
+      = button_to t("recommendations.verb"), recommendations_path(position_application_id:application._id), class: :btn, remote: true

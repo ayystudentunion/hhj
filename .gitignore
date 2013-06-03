@@ -17,3 +17,7 @@
 /public/assets
 .DS_Store
 *.orig
+
+# Ignore IDE files
+#RubyMine:
+.idea

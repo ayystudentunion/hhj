@@ -115,4 +115,28 @@ describe PositionApplication do
       check_all_self_references_are_nil.call
     end
   end
+
+  describe "#admissible?" do
+
+    before(:each) do
+      @application = FactoryGirl.create :kirjakerho_application, user: FactoryGirl.create(:student_martti)
+      @top_organization = @application.call.organ.organization.root
+    end
+
+    it "is true for applications with a sufficient number of recommendations" do
+      @top_organization.recommendations_threshold = 1
+      @top_organization.save
+      @application.should_not be_admissible
+      2.times {FactoryGirl.create(:recommendation, position_application: @application)}
+      @application.should be_admissible
+    end
+
+    it "is falsefor applications with a insufficient number of recommendations" do
+      @application.should be_admissible
+      @top_organization.recommendations_threshold = 1
+      @top_organization.save
+      @application.should_not be_admissible
+    end
+
+  end
 end

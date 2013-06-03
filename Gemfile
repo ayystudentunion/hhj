@@ -55,6 +55,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'wait_for'
+  gem 'debugger'
 end
 
 # To use ActiveModel has_secure_password
