@@ -16,7 +16,6 @@ When %r/^I press the edit icon$/ do
   page.find(".edit-icon").click
 end
 
-
 Then %r/^I should see (:?exactly )?the following persons in '([^']*)':$/ do |exactly, title, table|
   members = find(:xpath, "//div[(h2|h3)[contains(text(),'#{title}')]]")
   table.hashes.each do |row|
@@ -28,3 +27,7 @@ Then %r/^I should see (:?exactly )?the following persons in '([^']*)':$/ do |exa
   members.all('.member-card, .member-list-item').count.should == table.hashes.count unless exactly.nil?
 end
 
+Given /^"([^"]*)" has enabled recommendations with threshold of (\d+)$/ do |uni_name, threshold|
+  university = Organization.roots.where(name: uni_name).first
+  university.update_attributes(recommendations_threshold: threshold)
+end

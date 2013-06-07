@@ -6,6 +6,7 @@ Feature: Recommending a position application
 
   Scenario: Recommending another application
     Given I am logged in as a student union employee
+    And "Spartan Teknillinen Yliopisto" has enabled recommendations with threshold of 1
     And I am at front page of 'Spartan Teknillinen Yliopisto'
     And I navigate to home page of call 'Kirjakerhon lukurinki'
     Then I should see 1 button with text "Suosittele"
@@ -18,3 +19,9 @@ Feature: Recommending a position application
      And I am at front page of 'Spartan Teknillinen Yliopisto'
      And I navigate to home page of call 'Kirjakerhon lukurinki'
      Then I should see 0 buttons with text "Suosittele"
+
+  Scenario: Not seeing a recommend link if the university hasn't enabled recommendations
+    Given I am logged in as a student union employee
+    And I am at front page of 'Spartan Teknillinen Yliopisto'
+    And I navigate to home page of call 'Kirjakerhon lukurinki'
+    Then I should see 0 buttons with text "Suosittele"
