@@ -208,5 +208,9 @@ class ApplicationController < ActionController::Base
     prepend_view_path @custom_root
   end
 
+  def recommendation_allowed_for?(position_application)
+    position_application.user._id != @user._id && position_application.user.university == @user.university
+  end
 
+  helper_method :recommendation_allowed_for?
 end

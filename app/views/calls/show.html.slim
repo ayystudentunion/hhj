@@ -53,11 +53,12 @@ div#single-call
               = t(".send_application")
         div.clear
 
-        .hr
-        .button-row
-          h2 #{t "position_applications.plural"}
-          ul
-            -@call.position_applications.each do |application|
-              = render "position_applications/recommend_link", application: application
+        -if @user
+          .hr
+          .button-row
+            h2 #{t "position_applications.plural"}
+            ul
+              -@call.position_applications.each do |application|
+               = render "position_applications/recommend_link", application: application
 
-  div.clear
+          div.clear
