@@ -61,6 +61,10 @@ class PagesController < ApplicationController
       role: "union employee",
       desc: "Aalto-yliopisto"
     }, {
+        name: "stu",
+        role: "student",
+        desc: "Aalto-yliopisto"
+    }, {
       name: "reima",
       role: "student",
       desc: "from unknown university"

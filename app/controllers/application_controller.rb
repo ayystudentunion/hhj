@@ -121,6 +121,14 @@ class ApplicationController < ActionController::Base
         request.env["A_MAIL"] = "annakukka@aalto.fi"
         request.env["A_HOME_ORGANIZATION"] = "aalto.fi"
         role = :role_union_employee
+      elsif test_user == "stu"
+        request.env["A_PRINCIPAL_NAME"] = 'stu.dent@aalto.fi'
+        request.env["A_GIVEN_NAME"] = "Stu "
+        request.env["A_SURNAME"] = "Dent"
+        request.env["A_MOBILE"] = "0"
+        request.env["A_MAIL"] = "stu.dent@aalto.fi"
+        request.env["A_HOME_ORGANIZATION"] = "aalto.fi"
+        role = :role_student
       elsif test_user == "reima"
         request.env["A_PRINCIPAL_NAME"] = 'reima@xx.fi'
         request.env["A_GIVEN_NAME"] = "Reima"

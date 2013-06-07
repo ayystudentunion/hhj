@@ -52,7 +52,6 @@ div#single-call
             a.send-application.btn.js-modal(href=new_call_position_application_path(call_id:@call._id))
               = t(".send_application")
         div.clear
-
         -if @user
           .hr
           .button-row
@@ -60,5 +59,4 @@ div#single-call
             ul
               -@call.position_applications.each do |application|
                = render "position_applications/recommend_link", application: application
-
           div.clear
