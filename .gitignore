@@ -21,3 +21,9 @@
 # Ignore IDE files
 #RubyMine:
 .idea
+
+halloped_development*
+halloped_test*
+local*
+journal/*
+mongod.lock
