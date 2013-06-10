@@ -141,6 +141,8 @@ sv:
   mongoid:
     models:
       organ: "Organ"
+      plurals:
+        recommendation: "Rekommendationer"
     attributes:
       organ:
         name: "Namnet på organet"

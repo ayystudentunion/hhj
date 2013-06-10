@@ -13,6 +13,8 @@ Feature: Recommending a position application
     Then I press 'Suosittele'
     Then I press 'Peru suosittelu'
     Then I press 'Suosittele'
+    And I navigate to home page of organ 'Kirjakerho'
+    Then I should see "Suosittelut: 1/1"
 
    Scenario: Not seeing a recommend link to your own application
      Given I am logged in as a student

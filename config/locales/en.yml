@@ -140,6 +140,8 @@ en:
   mongoid:
     models:
       organ: "Organ"
+      plurals:
+        recommendation: "Recommendation"
     attributes:
       organ:
         name: "Organ name"

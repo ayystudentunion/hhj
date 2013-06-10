@@ -154,7 +154,8 @@ fi:
   mongoid:
     models:
       organ: Toimielin
-
+      plurals:
+        recommendation: "Suosittelut"
     attributes:
       organ:
         name: Toimielimen nimi
