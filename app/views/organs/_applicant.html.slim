@@ -15,7 +15,12 @@
       span.not_eligible(title=t('.eligibility_rule_not_met', rule: call.eligibility_rule_set.name)) = t('.not_eligible')
     - if @university.recommendations_threshold.present?
       br
-      = t('mongoid.models.plurals.recommendation')
-      = ": #{applicant.recommendations.count}/#{@university.recommendations_threshold}"
+      .tooltip
+        a href="#" class="handle"
+          = t('mongoid.models.plurals.recommendation')
+          = ": #{applicant.recommendations.count}/#{@university.recommendations_threshold}"
+        .content
+          = applicant.recommendations.map{|recommendation| content_tag :li, recommendation.user.full_name}.join.html_safe
+
 
 
