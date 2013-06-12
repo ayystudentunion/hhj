@@ -27,3 +27,5 @@ halloped_test*
 local*
 journal/*
 mongod.lock
+
+*.rdb
