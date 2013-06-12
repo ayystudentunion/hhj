@@ -9,6 +9,7 @@ class User
   has_many :recommendations
 
   belongs_to :university, class_name: 'Organization'
+  belongs_to :alliance
 
   validates :email, :presence => true, :email => true
   validates :role, presence: true, allow_blank: false, inclusion: { in:  ROLE_VALUES }
