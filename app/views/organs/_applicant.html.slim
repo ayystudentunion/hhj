@@ -7,7 +7,7 @@
     a.show-application.js-modal(href=call_position_application_path(call_id:call._id, id:applicant._id))
     div.avatar
     p
-      a.name(href='#') = applicant.user.full_name
+      a.name.show-application.js-modal(href=call_position_application_path(call_id:call._id, id:applicant._id)) = applicant.user.full_name
       br
       span.email = applicant.user.email
     - unless applicant.eligible?
