@@ -7,9 +7,9 @@ class User
   has_many :position_applications
   has_many :members
   has_many :recommendations
+  has_many :alliances, inverse_of: :creator
 
   belongs_to :university, class_name: 'Organization'
-  belongs_to :alliance
 
   validates :email, :presence => true, :email => true
   validates :role, presence: true, allow_blank: false, inclusion: { in:  ROLE_VALUES }

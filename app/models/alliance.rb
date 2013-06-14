@@ -3,8 +3,14 @@ class Alliance
 
   field :name, type: String
 
-  belongs_to :creator, class_name: "User"
   belongs_to :call
-  has_many :members, class_name: "User"
+  belongs_to :creator, class_name: "User", inverse_of: :alliances
+  has_many :position_applications
+
+  validates_presence_of :creator
+
+  def members
+    self.position_applications.map{|application| application.user}
+  end
 
 end
