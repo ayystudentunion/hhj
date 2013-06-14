@@ -7,6 +7,7 @@ class PositionApplication
   belongs_to :user
 
   has_many :recommendations
+  belongs_to :alliance
 
   validates :position, presence: true, inclusion: { in: POSITION_VALUES + [:position_both]}
   validate :validate_member_and_deputy_positions
