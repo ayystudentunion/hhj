@@ -22,6 +22,8 @@ Halloped::Application.routes.draw do
 
     resources :recommendations, only: [:create, :destroy]
 
+    resources :alliances, only: [:index, :new, :create, :show]
+
     resources :organs do
       resources :calls
       resources :members

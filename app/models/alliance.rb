@@ -5,7 +5,7 @@ class Alliance
 
   belongs_to :call
   belongs_to :creator, class_name: "User", inverse_of: :alliances
-  has_many :position_applications
+  has_many :position_applications, :autosave => true
 
   validates_presence_of :creator
 

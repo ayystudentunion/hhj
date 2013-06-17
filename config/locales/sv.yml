@@ -63,6 +63,11 @@ sv:
         other: "Medlem eller suppleant för medlem %{name}"
       deputy_of: "Som suppleant för medlemmen"
       personal_statement: "Motiveringar"
+  alliances:
+    members: "Medlemmar"
+    create_alliance: "Svenska placeholder text"
+    create:
+      title: "Svenska placeholder text"
   organs:
     new:
       title: "Skapa ett nytt organ"
@@ -140,10 +145,14 @@ sv:
     reverse_verb: 'Avbryt rekommendationen'
   mongoid:
     models:
+      call: "Platssökning"
       organ: "Organ"
+      alliance: "Valförbund"
       plurals:
         recommendation: "Rekommendationer"
     attributes:
+      alliance:
+        name: "Namnet"
       organ:
         name: "Namnet på organet"
         description: "Beskrivning av organets verksamhet"

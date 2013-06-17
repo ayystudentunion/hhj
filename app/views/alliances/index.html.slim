@@ -1,0 +1,23 @@
+-if @user
+  div
+    .breadcrumb
+      ul.breadcrumb-list
+        li
+          a(href=index_path)
+            = t :front_page
+            span.arrow ›
+        li
+          a(href=alliances_path)
+            = 'Vaaliliitot'
+            span.arrow ›
+    .tabs-container
+      .tabs
+        ul.tabs-list
+          li.active: a(href='#') = t 'navi.all'
+      .tab-content
+        .tab
+          .open-calls
+            = render @alliances
+          .button-row
+            a.btn.js-modal(href=new_alliance_path)
+              = t('alliances.create_alliance')

@@ -1,0 +1,34 @@
+.modal#new-alliance
+  .content
+
+    h2 = t 'alliances.create_alliance'
+
+    = form_for @alliance, url: alliances_path(format: :fragment) do |f|
+
+      .inline-block
+        h3
+          =f.label :name, Alliance.human_attribute_name(:name)
+        = f.text_field :name
+
+      .inline-block
+        h3
+          =f.label :call_id, Call.model_name.human
+        -calls = Call.all
+        -selected_call = calls.first
+        div.call = f.collection_select :call_id, Call.all, "_id", "title", :selected => selected_call._id
+
+      .inline-block
+        h3= t "alliances.members"
+        div.applications_lists
+          - Call.all.each do |call|
+            - style = call == selected_call ? "" :  "display:none"
+            ul(id="applications-for-call-#{call._id}" style=style)
+              -call.position_applications.each do |application|
+                li
+                  label
+                    =application.user.full_name
+                    =check_box_tag("alliance[position_application_ids][]", application._id)
+
+      .button-row
+        a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
+        input.submit.js-submit.btn(type='submit' value="#{t 'modals.send'}")
