@@ -73,7 +73,11 @@ fi:
         other: "Jäsen tai varajäsen jäsenelle %{name}"
       deputy_of: Varajäseneksi jäsenelle
       personal_statement: Perustelut
-
+  alliances:
+    members: "Jäsenet"
+    create_alliance: "Luo uusi vaaliliitto"
+    create:
+      title: "Vaaliliitto luotu."
   organs:
     new:
       title: Luo uusi toimielin
@@ -153,6 +157,7 @@ fi:
     reverse_verb: 'Peru suosittelu'
   mongoid:
     models:
+      call: "Haku"
       organ: Toimielin
       plurals:
         recommendation: "Suosittelut"
@@ -167,6 +172,8 @@ fi:
         appointer: Nimityksen tekevä taho
         official: Lakisääteinen
         unofficial: Ei lakisääteinen
+      alliance:
+        name: Nimi
       call:
         title: Paikkahaun otsikko
         workflow: Työnkulku

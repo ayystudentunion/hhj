@@ -62,6 +62,11 @@ en:
         other: "Member or deputy to a member"
       deputy_of: "Deputy to a member"
       personal_statement: "Arguments"
+  alliances:
+    members: "Members"
+    create_alliance: "Create an electoral alliance"
+    create:
+      title: "Alliance created"
   organs:
     new:
       title: "Create a new organ"
@@ -139,6 +144,8 @@ en:
       reverse_verb: 'Cancel recommendation'
   mongoid:
     models:
+      alliance: "Electoral alliance"
+      call: "Call"
       organ: "Organ"
       plurals:
         recommendation: "Recommendation"
@@ -153,6 +160,8 @@ en:
         appointer: "Appointer"
         official: "Statutory"
         unofficial: "Unofficial"
+      alliance:
+        name: "Name"
       call:
         title: "Title for the call for applications"
         workflow: "Workflow"

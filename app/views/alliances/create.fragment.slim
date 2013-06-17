@@ -1,0 +1,21 @@
+.modal#application-sent
+  .content
+    h2
+      = t '.title'
+
+    .item-row
+      h3 = Alliance.human_attribute_name(:name)
+      p= @alliance.name
+
+    .item-row
+      h3= Call.model_name.human
+      p=@alliance.call.title
+
+    .item-row
+      h3 =  t "alliances.members"
+      ul.members
+        = @alliance.members.map{|user|content_tag :li, user.full_name}.join.html_safe
+
+    .button-row-bottom
+      .button-row
+        a.ok.close-modal.btn(href='#{alliances_path}') = t 'modals.ok'
