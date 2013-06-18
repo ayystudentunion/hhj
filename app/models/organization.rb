@@ -13,6 +13,7 @@ class Organization
   field     :name, localize: true
   field     :key, type: String
   field     :recommendations_threshold, type: Integer #inclusive minimal number of recommendations required for PositionApplication to be approved
+  field     :alliances_enabled, type: Boolean #Determines if the candidates can form electoral alliances. Time of this writing only used by Helsingin yliopisto.
 
   def tree_hash
     serializable_hash.merge(children: children.map(&:serializable_hash))
