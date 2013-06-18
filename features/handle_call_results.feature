@@ -2,7 +2,7 @@ Feature: Handling the results of call for applications
 
   Background:
     Given there is open call for applications called 'Kirjakerhon lukurinki'
-    And there are 3 applications for 'Kirjakerhon lukurinki'
+    And there are 3 applications for "Kirjakerhon lukurinki"
     And I am logged in as a student union employee
     And I am at front page of 'Spartan Teknillinen Yliopisto'
     And I navigate to home page of organ 'Kirjakerho'

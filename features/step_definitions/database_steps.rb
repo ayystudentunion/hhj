@@ -19,8 +19,14 @@ Given %r/^there is open call for applications called 'Kirjakerhon lukurinki'$/ d
   FactoryGirl.create :lukurinki
 end
 
-Given %r/^there are 3 applications for 'Kirjakerhon lukurinki'$/ do
-  FactoryGirl.create :kirjakerho_application, user: FactoryGirl.create(:student_martti)
-  FactoryGirl.create :kirjakerho_application, user: FactoryGirl.create(:student_emma)
-  FactoryGirl.create :kirjakerho_application, user: FactoryGirl.create(:student_topias)
+Given %r/^there is open call for applications called 'Kirjakerhon uimarinki'$/ do
+  FactoryGirl.create :uimarinki
+end
+
+Given /^there are 3 applications for "([^"]*)"$/ do |title|
+  call= Call.where(title: title).first
+  call.should be_present
+  FactoryGirl.create :position_application, user: FactoryGirl.create(:student_martti), call: call
+  FactoryGirl.create :position_application, user: FactoryGirl.create(:student_emma), call: call
+  FactoryGirl.create :position_application, user: FactoryGirl.create(:student_topias), call: call
 end
