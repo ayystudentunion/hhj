@@ -11,6 +11,9 @@
     li: a.home(href=university_path)
     li: a(href=organs_path) = t('navi.organs')
     li: a(href=calls_path) = t('navi.open_calls')
+    -if @university && @university.alliances_enabled?
+      li: a(href=alliances_path) = t('mongoid.models.plurals.alliance')
+
   form.search.unimplemented(href='#')
     input.field.search-field(type='text' placeholder="#{t 'placeholders.search'}")
 

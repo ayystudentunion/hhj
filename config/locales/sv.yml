@@ -149,6 +149,7 @@ sv:
       organ: "Organ"
       alliance: "Valförbund"
       plurals:
+        alliance: "Valförbund"
         recommendation: "Rekommendationer"
     attributes:
       alliance:

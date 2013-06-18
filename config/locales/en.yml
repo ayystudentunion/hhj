@@ -148,6 +148,7 @@ en:
       call: "Call"
       organ: "Organ"
       plurals:
+        alliance: "Electroral alliances"
         recommendation: "Recommendation"
     attributes:
       organ:

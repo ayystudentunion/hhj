@@ -161,6 +161,7 @@ fi:
       organ: Toimielin
       plurals:
         recommendation: "Suosittelut"
+        alliance: "Vaaliliitot"
     attributes:
       organ:
         name: Toimielimen nimi
