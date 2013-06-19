@@ -250,3 +250,5 @@ sv:
     application_received: Din ansökan till förvaltningens studentrepresentant har mottagits.
     thanks_for_application: Tack. Du får svaren genast.
     your_application: Din ansökan
+  gritter:
+    title: "Obs"

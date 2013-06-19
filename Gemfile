@@ -20,6 +20,7 @@ gem 'rails_admin'
 gem 'devise'
 gem 'valid_email'
 gem 'redcarpet'
+gem "gritter", "1.0.3"
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'
