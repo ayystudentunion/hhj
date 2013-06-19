@@ -31,6 +31,8 @@ html
         #navi-content
           = yield(:navigation)
       div#content
+        javascript:
+          #{ add_gritter(flash[:success], class_name: "success", title: t("gritter.title"), time: 8000, fadeout_speed: :slow)}
         div#page-content
           = yield
 

@@ -269,3 +269,5 @@ fi:
     thanks_for_application: Kiitos. Sinulle vastataan pian.
     your_application: Hakemuksesi
 
+  gritter:
+      title: "Huomio"

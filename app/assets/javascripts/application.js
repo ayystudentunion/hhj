@@ -13,3 +13,4 @@
 //= require "signals.min.js"
 //= require_tree .
 //= require jquery_ujs
+//= require gritter

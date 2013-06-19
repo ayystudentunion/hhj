@@ -119,6 +119,7 @@ GEM
     gem_plugin (0.2.3)
     gherkin (2.9.3)
       json (>= 1.4.6)
+    gritter (1.0.3)
     haml (3.1.4)
     highline (1.6.11)
     hike (1.2.1)
@@ -285,6 +286,7 @@ DEPENDENCIES
   debugger
   devise
   factory_girl_rails
+  gritter (= 1.0.3)
   launchy
   letter_opener
   mongoid!

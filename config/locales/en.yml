@@ -249,3 +249,5 @@ en:
     application_received: Your application to a student representative position has been received.
     thanks_for_application: Thank you. We will be in touch shortly.
     your_application: Your application
+  gritter:
+    title: "Please note"
