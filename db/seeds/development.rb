@@ -15,6 +15,8 @@ ENV['file'] = Rails.root.join('public/universities/aalto/aalto.yml').to_s
 Rake::Task["db:import:university"].execute
 
 helsinki = Organization.university_by_key('helsinki')
+helsinki.update_attributes(alliances_enabled: true)
+helsinki.update_attributes(recommendations_threshold: 4)
 hallitus = helsinki.organs.create!(name: "Hallitus", official: true)
 professori = helsinki.users.create!(first_name: "Toimi", last_name: "Sumelius", email: "toimi@helsinki.fi")
 hallitus.members.create!(user: professori, group: :group_professors)
