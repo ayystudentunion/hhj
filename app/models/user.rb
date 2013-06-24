@@ -60,4 +60,8 @@ class User
   def can_edit_call_results?
     true
   end
+
+  def applications_with_unconfirmed_alliances
+    self.position_applications.find_all{|application| application.alliance && !application.alliance_confirmed? }
+  end
 end

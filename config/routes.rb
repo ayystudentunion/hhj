@@ -1,7 +1,7 @@
 Halloped::Application.routes.draw do
 
   match "/logout" => "pages#logout"
-    match "/env" => "pages#environment"
+  match "/env" => "pages#environment"
   unless Rails.env.production?
     match "/dev_login" => "pages#dev_login"
     match "/dev_logout" => "pages#dev_logout"
@@ -18,6 +18,10 @@ Halloped::Application.routes.draw do
   scope "/:locale/:university" do
     resources :calls do
       resources :position_applications
+    end
+
+    resources :position_applications, only: [] do
+      get 'alliance_confirmation'
     end
 
     resources :recommendations, only: [:create, :destroy]

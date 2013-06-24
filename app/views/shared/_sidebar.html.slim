@@ -13,6 +13,11 @@ div#sidebar
           span.email = @user.email
           br
           span.phone = @user.phone
+          -if @user.applications_with_unconfirmed_alliances.any?
+            .unconfirmed_alliances
+              h3= "Sinulla on vahvistamattomia vaaliliittoja:"
+              =@user.applications_with_unconfirmed_alliances.map{|application|  application.alliance.name + ": " + link_to("Vahvista", position_application_alliance_confirmation_url(position_application_id: application._id), class: :btn)}.join.html_safe
+
         a.edit-btn.unimplemented(href='#') = t '.edit'
         div.clear
         h4.unimplemented

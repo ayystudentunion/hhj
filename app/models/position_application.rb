@@ -18,6 +18,7 @@ class PositionApplication
   field :deputy_of, type: String
   field :personal_statement, type: String
   field :custom, type: Hash
+  field :alliance_confirmed, type: Boolean, default: false
 
   def reset_deputy_of_for_position_member
     self.deputy_of = "" if position == :position_member
