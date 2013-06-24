@@ -43,9 +43,9 @@ class PositionApplicationsController < ApplicationController
     @university = @position_application.call.organ.organization.root
     if @user && @user == @position_application.user
       @position_application.update_attributes(alliance_confirmed: true)
-      flash[:success] = "Vaaliliittoon kuuluminen vahvistettu."
+      flash[:success] = I18n.t('alliances.confirmed_notification')
     else
-      flash[:error] = "Ei voitu vahvistaa"
+      flash[:error] = "Could not proceed with the confirmation."
     end
     respond_to do |format|
       format.html { redirect_to university_path(university: @university.key) }

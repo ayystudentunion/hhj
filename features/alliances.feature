@@ -28,7 +28,7 @@ Feature: Handling electoral alliances
     Given I am logged in as a student
     Given someone has added my application to an electoral alliance
     And I follow "Spartan Teknillinen Yliopisto"
-    Then I should see "Sinulla on vahvistamattomia vaaliliittoja"
+    Then I should see "Sinulla on vahvistamattomia vaaliliittokutsuja"
     When I follow "Vahvista"
     Then I should not see "Sinulla on vahvistamattomia vaaliliittoja" in the sidebar
-    Then I should see "Vaaliliittoon kuuluminen vahvistettu."
+    Then I should see "Vaaliliittoon kuuluminen vahvistettiin."

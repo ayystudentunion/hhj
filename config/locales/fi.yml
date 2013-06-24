@@ -50,7 +50,7 @@ fi:
       my_organs: Omat toimielimet
       create_organ: Luo uusi toimielin
       write_news_post: Kirjoita uusi tiedote tai uutinen
-
+      alliance_title: "Sinulla on vahvistamattomia vaaliliittokutsuja:"
   position_applications:
     plural: "Hakemukset"
     admissible_plural: "Suositellut"
@@ -74,6 +74,8 @@ fi:
       deputy_of: Varajäseneksi jäsenelle
       personal_statement: Perustelut
   alliances:
+    confirm: "Vahvista"
+    confirmed_notification: "Vaaliliittoon kuuluminen vahvistettiin."
     members: "Jäsenet"
     create_alliance: "Luo uusi vaaliliitto"
     create:

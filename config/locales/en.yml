@@ -40,6 +40,7 @@ en:
       my_organs: "My organs"
       create_organ: "Create a new organ"
       write_news_post: "Write a new announcement or news"
+      alliance_title: "You have been invited to the following alliances:"
   position_applications:
     plural: "Applications"
     admissible_plural: "Recommended"
@@ -63,6 +64,8 @@ en:
       deputy_of: "Deputy to a member"
       personal_statement: "Arguments"
   alliances:
+    confirm: "Confirm"
+    confirmed_notification: "Alliance membership was confirmed"
     members: "Members"
     create_alliance: "Create an electoral alliance"
     create:

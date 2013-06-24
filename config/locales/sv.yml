@@ -41,6 +41,7 @@ sv:
       my_organs: "Egna organ"
       create_organ: "Skapa ett nytt organ"
       write_news_post: "Skriv ett nytt meddelande eller en ny nyhet"
+      alliance_title: "Du har inbjudor till valförbund som skulle bekräftas:"
   position_applications:
     plural: "Ansökningar"
     admissible_plural: "Rekommenderade"
@@ -64,6 +65,8 @@ sv:
       deputy_of: "Som suppleant för medlemmen"
       personal_statement: "Motiveringar"
   alliances:
+    confirm: "Bekräfta"
+    confirmed_notification: "Swedish placeholder text"
     members: "Medlemmar"
     create_alliance: "Svenska placeholder text"
     create:
