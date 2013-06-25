@@ -77,9 +77,13 @@ fi:
     confirm: "Vahvista"
     confirmed_notification: "Vaaliliittoon kuuluminen vahvistettiin."
     members: "Jäsenet"
+    unconfirmed_members: "Vahvistamattomat jäsenet"
+    confirmed_members: "Vahvistetut jäsenet"
     create_alliance: "Luo uusi vaaliliitto"
     create:
       title: "Vaaliliitto luotu."
+    show:
+      title: "Vaaliliiton tiedot"
   organs:
     new:
       title: Luo uusi toimielin

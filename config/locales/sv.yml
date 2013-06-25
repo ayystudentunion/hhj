@@ -68,9 +68,13 @@ sv:
     confirm: "Bekräfta"
     confirmed_notification: "Swedish placeholder text"
     members: "Medlemmar"
+    unconfirmed_members: "Obekräftade medlemmar"
+    confirmed_members: "Bekräftade medlemmar"
     create_alliance: "Svenska placeholder text"
     create:
       title: "Svenska placeholder text"
+    show:
+      title: "Valförbundens uppgifter"
   organs:
     new:
       title: "Skapa ett nytt organ"

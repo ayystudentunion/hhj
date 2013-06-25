@@ -67,9 +67,13 @@ en:
     confirm: "Confirm"
     confirmed_notification: "Alliance membership was confirmed"
     members: "Members"
+    unconfirmed_members: "Unconfirmed members"
+    confirmed_members: "Confirmed members"
     create_alliance: "Create an electoral alliance"
     create:
       title: "Alliance created"
+    show:
+      title: "Electoral alliance details"
   organs:
     new:
       title: "Create a new organ"

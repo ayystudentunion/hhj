@@ -9,6 +9,7 @@ class AlliancesController < ApplicationController
   end
 
   def show
+    @alliance = Alliance.find(params[:id])
     respond_to do |format|
       format.fragment
     end

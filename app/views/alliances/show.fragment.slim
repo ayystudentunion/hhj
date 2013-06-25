@@ -1,0 +1,30 @@
+.modal#alliance
+  .content
+    h2
+      = t ".title"
+      a.close-modal(href='#')
+    .item-block
+      p.label
+        = Alliance.human_attribute_name(:name)
+        | :
+      p.text = @alliance.name
+    .item-block
+      p.label
+        = Call.model_name.human
+        | :
+      p.text = @alliance.call.title
+    .item-block
+      p.label
+        = t('alliances.unconfirmed_members')
+        | :
+      p.list
+        ul
+          =@alliance.alliance_memberships.where(confirmed:false).map{|ap| content_tag :li, ap.position_application.user.full_name}.join.html_safe
+    .item-block
+      p.label
+        = t('alliances.confirmed_members')
+        | :
+      p.list
+        ul
+          =@alliance.alliance_memberships.where(confirmed:true).map{|ap| ap.position_application.user.full_name}.join.html_safe
+
