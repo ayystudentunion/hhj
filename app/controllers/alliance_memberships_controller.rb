@@ -18,7 +18,6 @@ class AllianceMembershipsController < ApplicationController
       end
       format.js { flash.now[notification.keys.first] = notification.values.first }
     end
-
   end
 
 end
