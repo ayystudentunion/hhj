@@ -13,10 +13,10 @@ div#sidebar
           span.email = @user.email
           br
           span.phone = @user.phone
-          -if @user.applications_with_unconfirmed_alliances.any?
+          -if @user.unconfirmed_memberships.any?
             .unconfirmed_alliances
               h3= t '.alliance_title'
-              =@user.applications_with_unconfirmed_alliances.map{|application|  application.alliance.name + ": " + link_to(t('alliances.confirm'), position_application_alliance_confirmation_url(position_application_id: application._id), class: :btn)}.join.html_safe
+              =@user.unconfirmed_memberships.map{|membership|  membership.alliance.name + ": " + button_to(t('alliances.confirm'), alliance_membership_confirm_path(alliance_membership_id: membership._id), class: :btn, remote: true)}.join.html_safe
 
         a.edit-btn.unimplemented(href='#') = t '.edit'
         div.clear

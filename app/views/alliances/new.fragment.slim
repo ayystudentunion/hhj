@@ -27,7 +27,7 @@
                 li
                   label
                     =application.user.full_name
-                    =check_box_tag("alliance[position_application_ids][]", application._id)
+                    =check_box_tag("alliance[alliance_memberships_attributes][]position_application_id", application._id)
 
       .button-row
         a.cancel.close-modal.btn(href='#') = t 'modals.cancel'

@@ -61,7 +61,7 @@ class User
     true
   end
 
-  def applications_with_unconfirmed_alliances
-    self.position_applications.find_all{|application| application.alliance && !application.alliance_confirmed? }
+  def unconfirmed_memberships
+    self.position_applications.inject([]) {|aggregate, application| aggregate | application.alliance_memberships.where(confirmed: false)}
   end
 end

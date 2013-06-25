@@ -1,9 +1,9 @@
 class PositionApplicationsController < ApplicationController
 
-  before_filter :authorize_call_admin, except: [:new, :create, :alliance_confirmation]
+  before_filter :authorize_call_admin, except: [:new, :create]
   before_filter :authorize_applicant, only: [:new, :create]
-  before_filter(except: :alliance_confirmation) { |c| c.find_call_from_current_university :call_id }
-  before_filter :find_application_from_call, except: [:index, :new, :create, :alliance_confirmation]
+  before_filter { |c| c.find_call_from_current_university :call_id }
+  before_filter :find_application_from_call, except: [:index, :new, :create]
 
   def index
   end
@@ -36,22 +36,6 @@ class PositionApplicationsController < ApplicationController
   end
 
   def destroy
-  end
-
-  def alliance_confirmation
-    @position_application = PositionApplication.find(params[:position_application_id])
-    @university = @position_application.call.organ.organization.root
-    if @user && @user == @position_application.user
-      @position_application.update_attributes(alliance_confirmed: true)
-      flash[:success] = I18n.t('alliances.confirmed_notification')
-    else
-      flash[:error] = "Could not proceed with the confirmation."
-    end
-    respond_to do |format|
-      format.html { redirect_to university_path(university: @university.key) }
-      format.js {  }
-    end
-
   end
 
   protected

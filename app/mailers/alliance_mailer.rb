@@ -2,10 +2,11 @@
 class AllianceMailer < ActionMailer::Base
   default from: "admin@halloped.fi"
   
-  def confirmation_email(application, university, url)
-    @application = application
+  def confirmation_email(membership, university, url)
+    @call_title = membership.position_application.call.title
+    @alliance_name = membership.alliance.name
     @university = university
     @url = url
-    mail(:to => application.user.email, :subject => "Sinut on lisätty vaaliliittoon. Samma på svenska. You have been added to an electoral alliance.")
+    mail(:to => membership.position_application.user.email, :subject => "Sinut on lisätty vaaliliittoon. Samma på svenska. You have been added to an electoral alliance.")
   end
 end

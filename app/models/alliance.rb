@@ -5,20 +5,28 @@ class Alliance
 
   belongs_to :call
   belongs_to :creator, class_name: "User", inverse_of: :alliances
-  has_many :position_applications, :autosave => true
+
+  has_many :alliance_memberships, :autosave => true
 
   validates_presence_of :creator
-
   validate :applications_must_belong_to_the_call
 
+  accepts_nested_attributes_for :alliance_memberships
+
   def members
-    self.position_applications.map{|application| application.user}
+    self.alliance_memberships.map{|am| am.position_application.user}
+  end
+
+  def member_applications
+    self.alliance_memberships.map{|am| am.position_application}
   end
 
   def applications_must_belong_to_the_call
-    self.position_applications.each do |application|
-       errors.add(:call, :does_not_match_applications) unless application.call == self.call
+    self.alliance_memberships.each do |mp|
+       errors.add(:call, :does_not_match_applications) unless mp.position_application.call == self.call
     end
   end
+
+
 
 end

@@ -4,10 +4,10 @@ class PositionApplication
   include Models::Position
 
   belongs_to :call
-  belongs_to :user
+  belongs_to :user, inverse_of: :position_applications
 
   has_many :recommendations
-  belongs_to :alliance
+  has_many :alliance_memberships, inverse_of: :position_application
 
   validates :position, presence: true, inclusion: { in: POSITION_VALUES + [:position_both]}
   validate :validate_member_and_deputy_positions
@@ -18,7 +18,6 @@ class PositionApplication
   field :deputy_of, type: String
   field :personal_statement, type: String
   field :custom, type: Hash
-  field :alliance_confirmed, type: Boolean, default: false
 
   def reset_deputy_of_for_position_member
     self.deputy_of = "" if position == :position_member
@@ -44,5 +43,9 @@ class PositionApplication
 
   def admissible?
     self.recommendations.count >= call.recommendations_threshold
+  end
+
+  def alliance
+    self.alliance_membership.alliance
   end
 end

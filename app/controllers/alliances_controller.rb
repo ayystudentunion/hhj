@@ -23,7 +23,7 @@ class AlliancesController < ApplicationController
 
   def create
     @alliance = @user.alliances.create! params[:alliance]
-    @alliance.position_applications.each{|application| AllianceMailer.confirmation_email(application, @university, university_path(university: @university.key))}
+    @alliance.alliance_memberships.each{|membership| AllianceMailer.confirmation_email(membership, @university, university_path(university: @university.key))}
   end
 
 end
