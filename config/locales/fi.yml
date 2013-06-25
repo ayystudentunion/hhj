@@ -75,6 +75,7 @@ fi:
       personal_statement: Perustelut
   alliances:
     confirm: "Vahvista"
+    join: "Liity"
     confirmed_notification: "Vaaliliittoon kuuluminen vahvistettiin."
     members: "Jäsenet"
     unconfirmed_members: "Vahvistamattomat jäsenet"

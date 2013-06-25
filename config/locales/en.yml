@@ -65,6 +65,7 @@ en:
       personal_statement: "Arguments"
   alliances:
     confirm: "Confirm"
+    join: "Join"
     confirmed_notification: "Alliance membership was confirmed"
     members: "Members"
     unconfirmed_members: "Unconfirmed members"
