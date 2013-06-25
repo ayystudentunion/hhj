@@ -42,3 +42,7 @@ Given /^I refresh the page$/ do
   visit current_url
 end
 
+When /^take a screenshot$/ do
+  screenshot_and_open_image
+end
+
