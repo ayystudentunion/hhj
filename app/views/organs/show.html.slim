@@ -45,7 +45,7 @@ div#single-organ
               = manager
           .item-row
             == rendered_markdown @organ.description
-        - if can_admin_calls?
+        - if student_union_employee?
           em
             - if @organ.members.current_hallopeds.empty?
               = t '.has_open_positions'
@@ -88,7 +88,7 @@ div#single-organ
           = render partial: 'current_members'
         .hr
 
-        - if can_admin_calls?
+        - if student_union_employee?
           = render partial: 'call_results', collection: @calls, as: :call
         - else
           = render partial: 'proposal_call_results', collection: @proposals, as: :call
@@ -100,13 +100,13 @@ div#single-organ
             = render partial: 'current_staff', locals: {group: :group_staff, collection: @organ.members.current_staff, placeholder: t('.add_staff_by_email'), title: t('.staff')}
         .hr
 
-        - if can_admin_calls?
+        - if student_union_employee?
           = render partial: 'handled_call_results', collection: @handled_calls, as: :call
 
         .button-row
           a.hide-archived.btn(href='#' style='display:none;') = t '.hide_archived_calls'
 
-        - if can_admin_calls?
+        - if student_union_employee?
           .archived-call-for-applications(style='display:none;')
             = render partial: 'handled_call_results', collection: @archived_calls, as: :call
           .button-row

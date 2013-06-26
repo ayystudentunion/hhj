@@ -23,7 +23,7 @@ div#single-call
           h2
             a(href=call_path(id:@call._id)) = @call.title
             span.date = t(:modified) + " " + l(@call.updated_at)
-            - if can_admin_calls?
+            - if student_union_employee?
               a.edit-icon.js-modal(href=edit_call_path(id: @call.id))
           .item-row
             span.label #{Organ.model_name.human}:

@@ -1,7 +1,7 @@
 h2
   | #{t '.hallopeds'}
   a.send-message.unimplemented(href='#') Lähetä ryhmäviesti
-  - if can_admin_calls? and not @edit_hallopeds
+  - if student_union_employee? and not @edit_hallopeds
     a.edit-icon(href=organ_path(id: @organ._id, edit_hallopeds: true))
 - if @edit_hallopeds
   .edit-members

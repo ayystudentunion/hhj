@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :user_role?
   helper_method :is_in_current_university?
-  helper_method :can_admin_calls?
+  helper_method :student_union_employee?
   helper_method :can_admin_organs?
   helper_method :can_apply?
   helper_method :not_supported_user
@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
     user_role?(:role_university_staff) || user_role?(:role_union_employee)
   end
 
-  def can_admin_calls?
+  def student_union_employee?
     user_role?(:role_union_employee)
   end
 
@@ -54,7 +54,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_call_admin
-    if not can_admin_calls?
+    if not student_union_employee?
       render text: "Unauthorized", status: :unauthorized
       return false
     end
