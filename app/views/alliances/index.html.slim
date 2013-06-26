@@ -16,8 +16,9 @@
           li.active: a(href='#') = t 'navi.all'
       .tab-content
         .tab
-          .open-calls
-            = render @alliances
+          = render @alliances
+          .hr
           .button-row
-            a.btn.js-modal(href=new_alliance_path)
-              = t('alliances.create_alliance')
+            - if can_admin_calls?
+              a.btn.js-modal(href=new_alliance_path)
+                = t('alliances.create_alliance')
