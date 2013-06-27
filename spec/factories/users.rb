@@ -30,6 +30,14 @@ FactoryGirl.define do
       phone      '+358 40 555 4321'
       principal_name 'marpul@sty.fi'
     end
+    factory :student_tiina do
+      _id        '4f7963bf91bc2bc1f6000007'
+      first_name 'Tiina'
+      last_name  'Kumpulainen'
+      email      'tiina@sty.fi'
+      phone      '+358 40 555 4999'
+      principal_name 'tiina@sty.fi'
+    end
     factory :student_emma do
       _id        '4f7963bf91bc2bc1f6000003'
       first_name 'Emma'

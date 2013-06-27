@@ -1,4 +1,3 @@
-
 Given %r/^I am logged in as a student union employee$/ do
   FactoryGirl.create :eija
   visit "/dev_login?user=eija"
@@ -17,6 +16,12 @@ end
 Then %r/^I should see logged in user "([^"]*)" with mail "([^"]*)" and phone "([^"]*)"$/ do |name, email, phone|
   check_that_contains_values '.profile-info', name, phone, email
   check_that_contains_values '.login-info', name
+end
+
+Given /^I am logged in as user ([^"]*)$/ do |user|
+  factory = user.underscore.gsub(" ", "_")
+  FactoryGirl.create factory
+  visit "/dev_login?user=#{factory}"
 end
 
 
