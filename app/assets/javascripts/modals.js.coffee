@@ -77,7 +77,7 @@ init_modals = () ->
     return false
 
   $("#modal-wrap").delegate "#send-application .radio input", "change", () ->
-    $(this).parents('.item-row:first').find("#position_application_deputy_of").toggle($(this).val() != 'position_member')
+    $(this).parents('.item-row:first').find("#position_application_deputy_of").toggle($(this).val() == 'position_deputy')
 
   $(".modal#new-alliance .call select").live "change", () ->
     $('.applications_lists ul').hide()
