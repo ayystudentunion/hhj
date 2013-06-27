@@ -24,6 +24,8 @@ gem "gritter", "1.0.3"
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'
+  gem 'better_errors'
+  gem 'meta_request'
 end
 
 # Gems used only for assets and not required
