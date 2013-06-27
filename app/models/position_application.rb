@@ -48,11 +48,21 @@ class PositionApplication
   end
 
   def admissible?
-    self.recommendations.count >= call.recommendations_threshold
+    self.recommendations_for_pair.count >= call.recommendations_threshold
   end
 
   def alliance
     self.alliance_membership.alliance
+  end
+
+  #recommendations are given to a pair. The implementation is that you can only recommend the primary application,
+  #and these recommendations are considered to belong to the deputy as well
+  def recommendations_for_pair
+    if self.position == :position_deputy && self.member
+      self.member.recommendations
+    else
+      self.recommendations
+    end
   end
 
 end

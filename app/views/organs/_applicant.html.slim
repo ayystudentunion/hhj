@@ -18,9 +18,9 @@
       .tooltip
         a href="#" class="handle"
           = t('mongoid.models.plurals.recommendation')
-          = ": #{applicant.recommendations.count}/#{@university.recommendations_threshold}"
+          = ": #{applicant.recommendations_for_pair.count}/#{@university.recommendations_threshold}"
         .content
-          = applicant.recommendations.map{|recommendation| content_tag :li, recommendation.user.full_name}.join.html_safe
+          = applicant.recommendations_for_pair.map{|recommendation| content_tag :li, recommendation.user.full_name}.join.html_safe
 
 
 
