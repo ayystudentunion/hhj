@@ -58,7 +58,7 @@ div#single-call
             #recommendations
               h2.label #{t "position_applications.plural"}
               ul
-                -@call.position_applications.each do |application|
+                -PositionApplication.recommendable.where(call_id: @call.id).each do |application|
                  = render "position_applications/recommend_link", application: application
 
           div.clear
