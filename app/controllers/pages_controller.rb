@@ -57,6 +57,14 @@ class PagesController < ApplicationController
       role: "student",
       desc: "Helsingin Yliopisto"
     }, {
+      name: "tiina",
+      role: "student",
+      desc: "Helsingin Yliopisto"
+    }, {
+      name: "liisa",
+      role: "student",
+      desc: "Helsingin Yliopisto"
+    }, {
       name: "anna",
       role: "union employee",
       desc: "Aalto-yliopisto"
