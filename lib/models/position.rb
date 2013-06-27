@@ -78,7 +78,9 @@ module Models
       def has_position(relation, allowed_position)
         other = send(relation)
         return if other.nil?
-        if other[self.class.position_field_symbol] != allowed_position
+        selected_for_position = other[self.class.position_field_symbol]
+        return if selected_for_position.nil?
+        if selected_for_position != allowed_position
           errors.add(
               relation, errors.generate_message(
                 relation, self.class.position_field_symbol))

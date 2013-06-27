@@ -12,6 +12,7 @@ class PositionApplication
   validates :position, presence: true, inclusion: { in: POSITION_VALUES + [:position_both]}
   validate :validate_member_and_deputy_positions
   before_save :reset_deputy_of_for_position_member
+  before_save :reset_member_for_position_member
 
   field :position, type: Symbol
   position_field :selected_as
@@ -21,6 +22,10 @@ class PositionApplication
 
   def reset_deputy_of_for_position_member
     self.deputy_of = "" if position == :position_member
+  end
+
+  def reset_member_for_position_member
+    self.member = nil if position == :position_member && selected_as == nil
   end
 
   def eligible?
@@ -48,4 +53,5 @@ class PositionApplication
   def alliance
     self.alliance_membership.alliance
   end
+
 end
