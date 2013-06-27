@@ -1,7 +1,8 @@
 - id = "position_application_" + application._id.to_s
 li(id=id)
-  = application.name
-  = " (#{t('position_applications.show.position_deputy.zero').downcase}: #{application.deputy.name})" if application.deputy?
+  span
+    = application.name
+    = " (#{t('position_applications.show.position_deputy.zero').downcase}: #{application.deputy.name})" if application.deputy?
   - if recommendation_allowed_for?(application)
     - recommendation = application.recommendation_by(@user)
     -if recommendation.present?
