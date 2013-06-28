@@ -13,9 +13,14 @@
     - unless applicant.eligible?
       br
       span.not_eligible(title=t('.eligibility_rule_not_met', rule: call.eligibility_rule_set.name)) = t('.not_eligible')
-    - if @university.recommendations_threshold.present?
+    - if applicant.pair.present?
       br
-      .tooltip
+        .tooltip
+          span
+            = t('organs.member.' + applicant.pair.position.to_s)
+            = ": "
+            = applicant.pair.name
+        br
         a href="#" class="handle"
           = t('mongoid.models.plurals.recommendation')
           = ": #{applicant.recommendations_for_pair.count}/#{@university.recommendations_threshold}"

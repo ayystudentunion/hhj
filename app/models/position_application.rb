@@ -55,6 +55,14 @@ class PositionApplication
     self.alliance_membership.alliance
   end
 
+  def pair
+    if self.position == :position_deputy
+      self.member
+    else
+      self.deputy
+    end
+  end
+
   #recommendations are given to a pair. The implementation is that you can only recommend the primary application,
   #and these recommendations are considered to belong to the deputy as well
   def recommendations_for_pair
