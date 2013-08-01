@@ -21,7 +21,7 @@
               = f.radio_button :position, position_value, checked: selected
               span = PositionApplication.human_attribute_name(position_value)
         - if custom_template_exists?('member_fields')
-          = render partial: custom_file('member_fields'), formats: :html, locals: { f: f }, rescue: nil
+          = render partial: custom_file('member_fields'), formats: :html, locals: { f: f, call: @position_application.call }, rescue: nil
         -else
           = f.text_field :deputy_of, placeholder:  PositionApplication.human_attribute_name(:deputy_of), class: 'field half', style: 'display:none;'
       - if custom_template_exists?('fields')

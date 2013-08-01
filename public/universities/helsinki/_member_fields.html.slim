@@ -2,6 +2,5 @@
   div(style="display:none" id="position_application_deputy_of")
     span.label
       = PositionApplication.human_attribute_name(:deputy_of)
-    //TODO remove selected
-    - other_applications = PositionApplication.where(position: :position_member).all - @user.position_applications
-    = f.collection_select(:member_id, other_applications, :id, :name)
+    - deputyless_applications_by_others = PositionApplication.where(position: :position_member, call_id: call.id).not_in(user_id: [@user._id]).find_all{|application|application.deputy.nil?}
+    = f.collection_select(:member_id, deputyless_applications_by_others, :id, :name)
