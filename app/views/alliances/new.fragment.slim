@@ -20,7 +20,7 @@
       .inline-block
         h3= t "alliances.members"
         div.applications_lists
-          - Call.all.each do |call|
+          - Call.all.find_all{|call| call.organ.organization.root == @university}.each do |call|
             - style = call == selected_call ? "" :  "display:none"
             ul(id="applications-for-call-#{call._id}" style=style)
               -call.position_applications.each do |application|
