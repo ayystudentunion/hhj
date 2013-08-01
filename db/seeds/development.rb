@@ -28,8 +28,8 @@ deputy = hallitus.members.create!(user: deputy_user, group: :group_hallopeds, po
 hallitus_call = hallitus.calls.create!(title: "Opiskelijaedustajia hallitukseen!", member_amount: 2, deputy_amount: 1, workflow: :workflow_proposal_available)
 student_pekka = helsinki.users.create!(first_name: "Pekka", last_name: "Lemminkäinen", email: "pekka.lemminkainen@helsinki.fi")
 student_paula = helsinki.users.create!(first_name: "Paula", last_name: "Rimminki", email: "paula.rimminki@helsinki.fi")
-hallitus_call.position_applications.create(user: student_pekka, position: :position_both, personal_statement: "Olisin hyvä halloped!")
-hallitus_call.position_applications.create(user: student_paula, position: :position_deputy, deputy_of: "Pekka Lemminkäinen", personal_statement: "Haluaisin vain varajäseneksi siis.")
+pekka_application = hallitus_call.position_applications.create(user: student_pekka, position: :position_member, personal_statement: "Olisin hyvä halloped!")
+hallitus_call.position_applications.create(user: student_paula, position: :position_deputy, member: pekka_application, personal_statement: "Haluaisin vain varajäseneksi siis.")
 
 
 kansanterveystiede = helsinki.descendants.where(name: "Kansanterveystiede").first
