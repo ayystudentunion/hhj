@@ -8,6 +8,12 @@
         p.name = @position_application.user.full_name.force_encoding('UTF-8')
         p.email = @position_application.user.email
         p.phone = @position_application.user.phone
+    - if @university.recommendations_threshold.present?
+      .item-block
+        p.label
+          = t('mongoid.models.plurals.recommendation')
+          | :
+        p.text = @position_application.recommendations_for_pair.map{|recommendation| recommendation.user.full_name}.join(', ').html_safe
     .item-block
       p.label
         = t ".apply_date"
