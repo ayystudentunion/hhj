@@ -44,7 +44,7 @@ sv:
       alliance_title: "Du har inbjudor till valförbund:"
   position_applications:
     plural: "Ansökningar"
-    admissible_plural: "Rekommenderade"
+    admissible_plural: "Lämpliga"
     new:
       title: "Skicka ansökan"
       apply_to: "Jag ansöker:"

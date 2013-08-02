@@ -43,7 +43,7 @@ en:
       alliance_title: "You have been invited to the following alliances:"
   position_applications:
     plural: "Applications"
-    admissible_plural: "Recommended"
+    admissible_plural: "Admissible"
     new:
       title: "Send application"
       apply_to: "Apply"

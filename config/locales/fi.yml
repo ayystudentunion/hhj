@@ -53,7 +53,7 @@ fi:
       alliance_title: "Sinulla on vahvistamattomia vaaliliittokutsuja:"
   position_applications:
     plural: "Hakemukset"
-    admissible_plural: "Suositellut"
+    admissible_plural: "Soveltuvat"
     new:
       title: Lähetä hakemus
       apply_to: 'Haen:'
