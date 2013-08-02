@@ -5,6 +5,7 @@ Feature: Handling electoral alliances
     Given there is open call for applications called 'Kirjakerhon uimarinki'
     And 'Spartan Teknillinen Yliopisto' has enabled alliances
 
+  @javascript
   Scenario: Creating an alliance
     Given I am logged in as a student union employee
     And there are 3 applications for "Kirjakerhon lukurinki"
@@ -13,12 +14,12 @@ Feature: Handling electoral alliances
     And I follow "Vaaliliitot"
     When I follow "Luo uusi vaaliliitto"
     And I fill in "MyAlliance" for "Nimi"
-    And I check "Martti Pulliainen"
-    And I check "Topias Lapinmaa"
-    #By selecting another call we're checking that earlier selections are not submitted along the form - alliance with applications from different calls would not be valid and thus could not be created.
+    And I select "Kirjakerhon lukurinki" from "Haku"
+    And I check "Martti Pulliainen" for call "Kirjakerhon lukurinki"
+    #By selecting another call we're checking that earlier application selections are not submitted along the form - alliance with applications from different calls would not be valid and thus could not be created.
     And I select "Kirjakerhon uimarinki" from "Haku"
-    And I check "Martti Pulliainen"
-    And I check "Topias Lapinmaa"
+    And I check "Martti Pulliainen" for call "Kirjakerhon uimarinki"
+    And I check "Topias Lapinmaa" for call "Kirjakerhon uimarinki"
     And I press "Lähetä"
     Then I should see "Vaaliliitto luotu"
     Then I should see "Martti Pulliainen" listed as member

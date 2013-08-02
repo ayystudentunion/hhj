@@ -24,3 +24,10 @@ Then /^I should not see my name among the ([^"]*) members$/ do |group|
   list = page.find("#alliance ##{group}_members")
   list.should_not have_content('Martti Pulliainen')
 end
+
+Then /^I check "([^"]*)" for call "([^"]*)"$/ do |field, title|
+  call = Call.where(title: title).first
+  within "#applications-for-call-#{call._id}" do
+    check(field)
+  end
+end

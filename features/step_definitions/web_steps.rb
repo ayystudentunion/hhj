@@ -31,11 +31,6 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-# Single-line step scoper
-When /^(.*) within (.*[^:])$/ do |nested_step, parent|
-  with_scope(parent) { step nested_step }
-end
-
 # Multi-line step scoper
 When /^(.*) within (.*[^:]):$/ do |nested_step, parent, table_or_string|
   with_scope(parent) { step "#{nested_step}:", table_or_string }
