@@ -15,7 +15,7 @@ Feature: Applying for a position
       |  Kenen varajäseneksi haluat         | Tenho Taipale                             |
       |  Perustelut                         | 3 vuoden kokemus Hallopedina toimimisesta |
 
-    And I press 'Lähetä'
+    And I press 'Lähetä' within dialog
 
     Then I should see my own name, phone number and email-address in the confirmation dialog
     Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':

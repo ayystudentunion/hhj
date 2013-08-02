@@ -12,16 +12,18 @@ Then %r/^I should see introduction of organ '([^']*)' with description '([^']*)'
   check_details '.organ-details', organ_name, description, table
 end
 
-When %r/^I press the edit icon$/ do
-  page.find(".edit-icon").click
+When %r/^I press the edit icon within organ details$/ do
+  within '.organ-details' do
+    find(".edit-icon").click
+  end
 end
 
 Then %r/^I should see (:?exactly )?the following persons in '([^']*)':$/ do |exactly, title, table|
   members = find(:xpath, "//div[(h2|h3)[contains(text(),'#{title}')]]")
   table.hashes.each do |row|
     member = members.find(".member-card:contains('#{row[:name]}'), .member-list-item:contains('#{row[:email]}')")
-    member.find("*:contains('#{row[:term]}')")
-    member.find("*:contains('#{row[:position]}')")
+    member.should have_css("*:contains('#{row[:term]}')")
+    member.should have_css("*:contains('#{row[:position]}')")
   end
 
   members.all('.member-card, .member-list-item').count.should == table.hashes.count unless exactly.nil?

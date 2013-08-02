@@ -86,7 +86,11 @@ html, body, #wrapper
 
 body > #wrapper
   height auto
-  min-height 100%
+  min-height 800px
+
+@media (min-height: 800px)
+  body > #wrapper
+    min-height 100%
 
 #content
   width 960px
@@ -859,7 +863,7 @@ a.btn:active, input.btn:active
   min-height 100%
   height auto !important
   height 100%
-  position fixed
+  position absolute
   top 0
   left 0
   background transparent
