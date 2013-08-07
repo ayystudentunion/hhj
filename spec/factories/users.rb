@@ -62,4 +62,36 @@ FactoryGirl.define do
       role       :role_union_employee
     end
   end
+  factory :helsinki_uni_user, class: User do
+    factory :helsinki_uni_student_anna do
+      association :university, :factory => :helsinki_uni
+      _id        '4f7963bf91bc2bc1f6000077'
+      first_name 'Anna'
+      last_name  'Kainulainen'
+      email      'anna.kainulainen@helsinki.fi'
+      phone      '+358 40 123 1234'
+      principal_name 'anna@helsinki.fi'
+      role       :role_student
+    end
+    factory :helsinki_uni_student_tiina do
+      association :university, :factory => :helsinki_uni
+      _id        '4f7963bf91bc2bc1f6000078'
+      first_name 'Tiina'
+      last_name  'Miettinen'
+      email      'tiina.miettinen@helsinki.fi'
+      phone      '+358 40 123 1234'
+      principal_name 'tiina@helsinki.fi'
+      role       :role_student
+    end
+    factory :helsinki_uni_student_pekka do
+      association :university, :factory => :helsinki_uni
+      _id        '4f7963bf91bc2bc1f6000078'
+      first_name 'Pekka'
+      last_name  'Jantunen'
+      email      'pekka@helsinki.fi'
+      phone      '+358 40 123 1234'
+      principal_name 'pekka@helsinki.fi'
+      role       :role_student
+    end
+  end
 end

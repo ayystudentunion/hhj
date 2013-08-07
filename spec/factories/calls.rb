@@ -14,4 +14,13 @@ FactoryGirl.define do
       _id "4f6b1edf91bc2b4403020203"
     end
   end
+  factory :helsinki_uni_call, class: Call do
+    association :organ, :factory => :helsinki_uni_student_council
+    member_amount 2
+    deputy_amount 1
+    factory :call_for_student_council_board do
+      title "Student council board members"
+      _id "4f6b1edf91bc2b4403020209"
+    end
+  end
 end

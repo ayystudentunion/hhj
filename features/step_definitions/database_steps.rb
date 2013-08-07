@@ -30,3 +30,12 @@ Given /^there are 3 applications for "([^"]*)"$/ do |title|
   FactoryGirl.create :position_application, user: FactoryGirl.create(:student_emma), call: call
   FactoryGirl.create :position_application, user: FactoryGirl.create(:student_topias), call: call
 end
+
+Given /^there is open call for applications called 'Student council board members' in Helsingin yliopisto$/ do
+  FactoryGirl.create :call_for_student_council_board
+end
+
+Given /^there is an primary application for call 'Student council board members' by ([^"]*) of Helsingin yliopisto$/ do |student|
+  user = FactoryGirl.create"helsinki_uni_#{student.sub(" ", "_").downcase}"
+  FactoryGirl.create(:position_application, user: user, position: "position_member", call: Call.where(title: "Student council board members").first)
+end

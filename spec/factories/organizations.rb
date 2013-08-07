@@ -4,6 +4,13 @@
 FactoryGirl.define do
 
   factory :organization do
+
+    factory :helsinki_uni do
+      name  'Helsingin yliopisto'
+      key   'helsinki'
+      _id   '4f6b1edf91bc2b33d3010300'
+    end
+
     factory :spartan_teknillinen_yliopisto do
       name  'Spartan Teknillinen Yliopisto'
       key   'sty'

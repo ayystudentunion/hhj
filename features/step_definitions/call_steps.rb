@@ -10,8 +10,8 @@ def check_personal_details(container_selector, person_attributes)
     person_attributes[:phone], person_attributes[:email]
 end
 
-Then %r/^I should see my own name, phone number and email\-address in the application form$/ do
-  check_personal_details '.applicant-details', FactoryGirl.attributes_for(:student_martti)
+Then /^I should see ([^"]*)'s name, phone number and email\-address in the application form$/ do |student|
+   check_personal_details '.applicant-details', FactoryGirl.attributes_for(student.gsub(" ", "_").downcase.to_sym)
 end
 
 Then %r/^I should see my own name, phone number and email\-address in the confirmation dialog$/ do

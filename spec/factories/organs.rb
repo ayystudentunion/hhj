@@ -20,6 +20,11 @@ FactoryGirl.define do
       _id   "5e5c1edf91bc2b3302000001"
       association :organization, :factory => :akhaimenidien_kirjasto
     end
+    factory :helsinki_uni_student_council do
+      name 'Helsingin yliopiston opiskelijoiden ryhmä'
+      _id "5e5c1edf91bc2b3302000003"
+      association :organization, :factory => :helsinki_uni
+    end
 
   end
 end
