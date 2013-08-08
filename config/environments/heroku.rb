@@ -53,12 +53,18 @@ Halloped::Application.configure do
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
 
-  # Disable delivery errors, bad email addresses will be ignored
-  config.action_mailer.default_url_options = { :host => 'halloped.fi' }
+  config.action_mailer.default_url_options = { :host => ENV['EMAIL_HOST'] }
   
-  config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.smtp_settings = {
+    :user_name => ENV['MAILTRAP_USER_NAME'],
+    :password => ENV['MAILTRAP_PASSWORD'],
+    :address => ENV['MAILTRAP_HOST'],
+    :port => ENV['MAILTRAP_PORT'],
+    :authentication => :plain
+  }
 
   # Enable threaded mode
   # config.threadsafe!
