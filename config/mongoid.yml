@@ -85,3 +85,11 @@ production:
       hosts:
         - localhost:27017
       options:
+
+heroku:
+  sessions:
+    default:
+      uri: <%= ENV['MONGOLAB_URI'] %>
+      options:
+        safe: true
+        skip_version_check: true
