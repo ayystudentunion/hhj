@@ -3,13 +3,17 @@
     h2
       = t '.title'
       a.close-modal(href='#')
+    -if @call.position_applications.where(user_id: @user).exists?
+      .item-block
+        .item-row
+          .notice.warning
+            = t('position_applications.application_to_be_deleted_notice')
     .item-block
       .applicant-details
         p.name = @user.full_name.force_encoding('UTF-8')
         p.email = @user.email
         p.phone = @user.phone
     .hr
-
     = form_for @position_application, url: call_position_applications_path(format: :fragment), class: 'send-application' do |f|
       = f.hidden_field :user_id
       .item-row

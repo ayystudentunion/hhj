@@ -55,6 +55,8 @@ fi:
   position_applications:
     plural: "Hakemukset"
     admissible_plural: "Soveltuvat"
+    edit_by_creating_new_notice: "Jos haluat muokata hakemustasi, voit jättää uuden hakemuksen samaan hakuun. Uusi hakemus korvaa aiemman."
+    application_to_be_deleted_notice: "Sinulla on jo yksi hakemus tähän hakuun. Jos jätät uuden hakemuksen, aiempi poistetaan. Toimintoa ei voi peruuttaa."
     new:
       title: Lähetä hakemus
       apply_to: 'Haen:'

@@ -44,6 +44,8 @@ sv:
       write_news_post: "Skriv ett nytt meddelande eller en ny nyhet"
       alliance_title: "Du har inbjudor till valförbund:"
   position_applications:
+    edit_by_creating_new_notice: "Jos haluat muokata hakemustasi, voit jättää uuden hakemuksen samaan hakuun. Uusi hakemus korvaa aiemman."
+    application_to_be_deleted_notice: "Sinulla on jo yksi hakemus tähän hakuun. Jos jätät uuden hakemuksen, aiempi poistetaan. Toimintoa ei voi peruuttaa."
     plural: "Ansökningar"
     admissible_plural: "Lämpliga"
     new:

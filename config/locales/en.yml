@@ -45,6 +45,9 @@ en:
   position_applications:
     plural: "Applications"
     admissible_plural: "Admissible"
+    edit_by_creating_new_notice: "If you want to edit your application, just leave a new application for the same call. The newer application will replace the older one."
+    application_to_be_deleted_notice: "You have already submitted an application for this call. If you create another application for this call, the older application wil be removed. This action can't be reversed."
+
     new:
       title: "Send application"
       apply_to: "Apply"

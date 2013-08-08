@@ -3,6 +3,10 @@
     h2
       = t '.title'
     .item-block
+      .item-row
+        .notice.success
+          = t('position_applications.edit_by_creating_new_notice')
+    .item-block
       .applicant-details
         p.name = @user.full_name.force_encoding('UTF-8')
         p.email = @user.email

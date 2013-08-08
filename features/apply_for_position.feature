@@ -25,10 +25,39 @@ Feature: Applying for a position
 
     Then I should see call for application 'Kirjakerhon lukurinki'
 
+  Scenario: Submitting application twice so that the new one replaces the old one
+    Given I am logged in as a student
+    And there is open call for applications called 'Kirjakerhon lukurinki'
+    And I am at front page of 'Spartan Teknillinen Yliopisto'
+    And I navigate to home page of call 'Kirjakerhon lukurinki'
+    When I press 'Lähetä hakemus'
+    Then I should not see "Sinulla on jo yksi hakemus tähän hakuun"
+    Then I should see student martti's name, phone number and email-address in the application form
+    Then I fill in form 'Lähetä hakemus':
+      | label                      | value                    |
+      | Haen                       | Jäseneksi                |
+      | Kenen varajäseneksi haluat | Tenho Taipale            |
+      | Perustelut                 | This should be destroyed |
+    And I press 'Lähetä' within dialog
+    And I press 'Ok'
+    Then I should see call for application 'Kirjakerhon lukurinki'
+    When I press 'Lähetä hakemus'
+    Then I should not see "Sinulla on jo yksi hakemus tähän hakuun"
+    Then I fill in form 'Lähetä hakemus':
+      | label                      | value              |
+      | Haen                       | Jäseneksi          |
+      | Kenen varajäseneksi haluat | Tenho Taipale      |
+      | Perustelut                 | This should remain |
+    And I press 'Lähetä' within dialog
+    And I press 'Ok'
+    Then I should see call for application 'Kirjakerhon lukurinki'
+    Then only there should exist only one application with "This should remain" as personal statement
+
 #These tests test the Helsinki university application process which is more complicated then other universities.
 #Helsinki university has deputy candidates, a recommendation process and electoral alliances.
 #This requires that a association between and deputy and member is formed whilst applying because recommendation and alliance features depend on this.
 #You will find a template to generate the form fields for this association in public/universities/helsinki/_member_fields.
+
   @javascript
   Scenario: Submitting a member application in Helsinki university
     Given there is open call for applications called 'Student council board members' in Helsingin yliopisto
@@ -43,8 +72,8 @@ Feature: Applying for a position
       | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
     And I press 'Lähetä' within dialog
     Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
-      | label      | value                                     |
-      | Haen       | Jäseneksi                                 |
+      | label | value     |
+      | Haen  | Jäseneksi |
     And I press 'Ok'
     And I should see call for application 'Student council board members'
 
@@ -67,5 +96,5 @@ Feature: Applying for a position
     And I press 'Ok'
     And I refresh the page
     Then I should see "Anna Kainulainen (varajäsen: Tiina Miettinen)" among the applications listing
-    #you cannot recommend your own applications and applications without a deputy. Thus:
+  #you cannot recommend your own applications and applications without a deputy. Thus:
     Then I should see 0 buttons with text "Suosittele"

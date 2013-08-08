@@ -39,3 +39,8 @@ Given /^there is an primary application for call 'Student council board members'
   user = FactoryGirl.create"helsinki_uni_#{student.sub(" ", "_").downcase}"
   FactoryGirl.create(:position_application, user: user, position: "position_member", call: Call.where(title: "Student council board members").first)
 end
+
+Then /^only there should exist only one application with "([^"]*)" as personal statement$/ do |text|
+  PositionApplication.count.should == 1
+  PositionApplication.first.personal_statement.should == text
+end
