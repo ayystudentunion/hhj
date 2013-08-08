@@ -29,8 +29,3 @@ Given /^I am logged in as a helsinki university student ([^"]*)$/ do |name|
   FactoryGirl.create user
   visit "/dev_login?user=#{user}"
 end
-
-Given /^there is a student union employee marked as contactable$/ do
-  employee = User.where(role: :role_union_employee).first
-  employee.update_attributes!(contactable: true)
-end

@@ -31,7 +31,7 @@ sv:
     index:
       choose_university: "Välj ditt universitet/studentkår"
   shared:
-    contacts_title: "Mer information"
+    contacts_title: "Problem? Kontakta: "
     not_logged_in_side_bar:
       title: "Vad är studentrepresentantverksamhet?"
       description_paragraph_1: "Enligt universitetslagen ska en tredjedel av medlemmarna i de beslutsfattande förvaltningsorganen vid de finländska universiteten bestå av studeranden. Alla närvaroanmälda examensstuderanden kan söka för att bli studentrepresentanter i dessa organ. Studentrepresentanterna (på finska: halloped, hallinnon opiskelijaedustaja) utses av studentkårerna."

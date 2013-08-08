@@ -23,6 +23,7 @@ class User
   field :role, type: Symbol, default: :role_student
   field :edu_data, type: Hash
   field :contactable, type: Boolean, default: false #determines if user's information is shown as contact for more information on Hallopeds
+  field :contactable_by_phone, type: Boolean, default: false #determines if user's phone number is shown along with contact details if there's an ongoing call
 
   def full_name
     [first_name, last_name].reject(&:blank?).join(' ')

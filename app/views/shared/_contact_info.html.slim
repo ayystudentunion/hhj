@@ -4,4 +4,12 @@
       .contact-info
         h2 = t("shared.contacts_title")
         ul
-          = contacts.map{|contact| content_tag :li, "#{contact.full_name}: #{contact.email}"}.join.html_safe
+          -contacts.each do |contact|
+            li
+              span
+                strong
+                  = contact.full_name
+              span
+                = contact.email
+              span
+                = contact.phone if contact.contactable_by_phone? && Call.ongoing_calls_exist?

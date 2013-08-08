@@ -56,4 +56,9 @@ class Call
     self.position_applications.find_all{|application| application.admissible?}
   end
 
+  def self.ongoing_calls_exist?
+    today =  Time.zone.now.to_date
+    Call.lte(date_start: today).gte(date_end: today).exists?
+  end
+
 end
