@@ -19,7 +19,7 @@ gem 'slim'
 # gem 'railties'
 gem 'factory_girl_rails', require: false
 gem 'wkhtmltopdf-binary'
-gem 'wicked_pdf'
+gem 'wicked_pdf', '>=0.9.6'
 gem 'rails_admin', '> 0.4.3'
 gem 'devise'
 gem 'valid_email'
