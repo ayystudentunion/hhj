@@ -40,6 +40,7 @@ fi:
       choose_university: Valitse oma yliopistosi/ylioppilaskuntasi
 
   shared:
+    contacts_title: "Lisätietoa"
     not_logged_in_side_bar:
       title: Mitä ovat hallopedit?
       description_paragraph_1: Hallopedit eli hallinnon opiskelijaedustajat ovat ylioppilaskunnan valitsemia edustajia yliopiston toimielimiin. He edustavat itsensä lisäksi koko opiskelijakuntaa. Hallopediksi voi hakeutua avoimessa haussa kuka tahansa yliopiston opiskelija.

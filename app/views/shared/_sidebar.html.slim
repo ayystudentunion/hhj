@@ -29,10 +29,11 @@ div#sidebar
           li: a(href='#') Joku toimielin
           li: a(href='#') Joku toimielin
 
-    - if can_admin_organs?
-      a.sidebar-button.btn.create-new-organ.js-modal(href=new_organ_path)
-        = t '.create_organ'
+      - if can_admin_organs?
+        a.sidebar-button.btn.create-new-organ.js-modal(href=new_organ_path)
+          = t '.create_organ'
+          span.plus-icon
+      a.sidebar-button.btn.unimplemented(href='#')
+        = t '.write_news_post'
         span.plus-icon
-    a.sidebar-button.btn.unimplemented(href='#')
-      = t '.write_news_post'
-      span.plus-icon
+  = render('shared/contact_info') if controller_name = "calls"

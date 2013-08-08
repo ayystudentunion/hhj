@@ -49,3 +49,4 @@ end
 Then /^I should see "([^"]*)" among the applications listing$/ do |text|
   page.find('#recommendations').should have_content(text)
 end
+
