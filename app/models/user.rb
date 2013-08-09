@@ -31,6 +31,7 @@ class User
 
   def self.update_or_create_from_env(env)
     attrs = env_to_attributes(env)
+    attrs.delete(:phone) unless PhoneNumberChecker.is_ok?(attrs[:phone])
     principal_name = attrs[:principal_name]
     domain = attrs[:university_domain]
     return nil unless principal_name and domain
@@ -66,4 +67,5 @@ class User
   def unconfirmed_memberships
     self.position_applications.inject([]) {|aggregate, application| aggregate | application.alliance_memberships.where(confirmed: false)}
   end
+
 end

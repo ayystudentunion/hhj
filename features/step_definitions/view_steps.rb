@@ -50,3 +50,6 @@ Then /^I should see "([^"]*)" among the applications listing$/ do |text|
   page.find('#recommendations').should have_content(text)
 end
 
+Then /^should see "([^"]*)" within the applicant details$/ do |text|
+  page.find('.applicant-details').should have_content(text)
+end

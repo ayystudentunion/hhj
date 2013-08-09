@@ -93,5 +93,15 @@ FactoryGirl.define do
       principal_name 'pekka@helsinki.fi'
       role       :role_student
     end
+    factory :helsinki_uni_student_with_no_phone do
+      association :university, :factory => :helsinki_uni
+      _id        '4f7963bf91bc2bc1f6000078'
+      first_name 'Markku'
+      last_name  'Nophone'
+      email      'nophone@helsinki.fi'
+      phone      ''
+      principal_name 'nophone@helsinki.fi'
+      role       :role_student
+    end
   end
 end

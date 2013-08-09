@@ -16,6 +16,9 @@ Halloped::Application.routes.draw do
   end
 
   scope "/:locale/:university" do
+
+    resources :users, only: [:edit, :update]
+
     resources :calls do
       resources :position_applications
     end
