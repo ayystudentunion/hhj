@@ -80,7 +80,58 @@ class PagesController < ApplicationController
       name: "reima",
       role: "student",
       desc: "from unknown university"
-
+    } , {
+      name: "ted",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "anni",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "outi",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "harmo",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "erno",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "miiro",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "katri",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "janne",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "reima_l",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "rami",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "esa",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "antti",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "jenni",
+      role: "union employee",
+      desc: "Helsingin Yliopisto"
     } ]
     render :dev_users, layout: false
   end
