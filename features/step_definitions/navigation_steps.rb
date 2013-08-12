@@ -34,10 +34,6 @@ Given %r/^I navigate to home page of call '([^']*)'$/ do |call_name|
   click_link call_name
 end
 
-Then %r/^show me the page$/ do
-  save_and_open_page
-end
-
 And %r/^I change language to '([^']*)'$/ do |locale|
   lang_selector = find ".language-sel a[hreflang=#{locale}]"
   lang_selector.click

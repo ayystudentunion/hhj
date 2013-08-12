@@ -61,4 +61,8 @@ class Call
     Call.lte(date_start: today).gte(date_end: today).exists?
   end
 
+  def administration_election_workflow?
+    self.workflow == :workflow_administration_election
+  end
+
 end

@@ -61,7 +61,7 @@ Feature: Applying for a position
   @javascript
   Scenario: Submitting a member application in Helsinki university
     Given there is open call for applications called 'Student council board members' in Helsingin yliopisto
-    And I am logged in as a helsinki university student Anna
+    And I am logged in as helsinki university student Anna
     And I am at front page of 'Helsingin yliopisto'
     And I navigate to home page of call 'Student council board members'
     When I press 'Lähetä hakemus'
@@ -83,7 +83,7 @@ Feature: Applying for a position
     And "Helsingin yliopisto" has enabled recommendations with threshold of 3
     And there is an primary application for call 'Student council board members' by student Pekka of Helsingin yliopisto
     And there is an primary application for call 'Student council board members' by student Anna of Helsingin yliopisto
-    And I am logged in as a helsinki university student Tiina
+    And I am logged in as helsinki university student Tiina
     And I am at front page of 'Helsingin yliopisto'
     When I navigate to home page of call 'Student council board members'
     And I press 'Lähetä hakemus'
@@ -101,7 +101,7 @@ Feature: Applying for a position
 
   Scenario: Submitting an application when my phone number is not stored in the system in Helsinki university
     Given there is open call for applications called 'Student council board members' in Helsingin yliopisto
-    And I am logged in as a helsinki university student with no phone
+    And I am logged in as helsinki university student with no phone
     And I am at front page of 'Helsingin yliopisto'
     When I navigate to home page of call 'Student council board members'
     When I press 'Lähetä hakemus'

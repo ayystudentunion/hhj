@@ -55,7 +55,7 @@ div#single-call
               a.send-application.btn.js-modal(href=new_call_position_application_path(call_id:@call._id))
                 = t(".send_application")
         div.clear
-        -if @user && @user.university.recommendations_threshold.present?
+        -if @user && @user.university.recommendations_threshold.present? && @call.administration_election_workflow?
           .hr
           .item-row
             #recommendations

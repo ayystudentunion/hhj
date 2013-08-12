@@ -75,7 +75,7 @@ FactoryGirl.define do
     end
     factory :helsinki_uni_student_tiina do
       association :university, :factory => :helsinki_uni
-      _id        '4f7963bf91bc2bc1f6000078'
+      _id        '4f7963bf91bc2bc1f6000074'
       first_name 'Tiina'
       last_name  'Miettinen'
       email      'tiina.miettinen@helsinki.fi'
@@ -95,13 +95,23 @@ FactoryGirl.define do
     end
     factory :helsinki_uni_student_with_no_phone do
       association :university, :factory => :helsinki_uni
-      _id        '4f7963bf91bc2bc1f6000078'
+      _id        '4f7963bf91bc2bc1f6000075'
       first_name 'Markku'
       last_name  'Nophone'
       email      'nophone@helsinki.fi'
       phone      ''
       principal_name 'nophone@helsinki.fi'
       role       :role_student
+    end
+    factory :helsinki_uni_student_union_employee do
+      association :university, :factory => :helsinki_uni
+      _id        '4f7963bf91bc2bc1f6000073'
+      first_name 'Maija'
+      last_name  'Hyyemployee'
+      email      'maija.hyyemployee@helsinki.fi'
+      phone      '+358 40 123 1234'
+      principal_name 'maija.hyyemployee@helsinki.fi'
+      role       :role_union_employee
     end
   end
 end

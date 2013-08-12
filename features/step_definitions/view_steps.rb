@@ -38,10 +38,6 @@ Given /^I refresh the page$/ do
   visit current_url
 end
 
-When /^take a screenshot$/ do
-  screenshot_and_open_image
-end
-
 Then /^I select "([^"]*)" as the member I want to be deputy of$/ do |value|
   select(value, :from => "position_application_member_id")
 end
@@ -53,3 +49,4 @@ end
 Then /^should see "([^"]*)" within the applicant details$/ do |text|
   page.find('.applicant-details').should have_content(text)
 end
+

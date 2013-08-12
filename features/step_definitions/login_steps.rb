@@ -24,8 +24,13 @@ Given /^I am logged in as user ([^"]*)$/ do |user|
   visit "/dev_login?user=#{factory}"
 end
 
-Given /^I am logged in as a helsinki university student ([^"]*)$/ do |name|
+Given /^I am logged in as helsinki university student ([^"]*)$/ do |name|
   user = "helsinki_uni_student_" + name.gsub(" ", "_").downcase
   FactoryGirl.create user
   visit "/dev_login?user=#{user}"
+end
+
+Given /^I am logged in as a Helsinki university students' union employee$/ do
+  user = FactoryGirl.create :helsinki_uni_student_union_employee
+  visit "/dev_login?user=helsinki_uni_student_union_employee"
 end

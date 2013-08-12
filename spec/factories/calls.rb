@@ -21,6 +21,7 @@ FactoryGirl.define do
     factory :call_for_student_council_board do
       title "Student council board members"
       _id "4f6b1edf91bc2b4403020209"
+      workflow :workflow_administration_election
     end
   end
 end
