@@ -174,6 +174,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = ""
         request.env["A_MAIL"] = 'anni.haapalainen@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_union_employee
       elsif test_user == "outi"
         request.env["A_PRINCIPAL_NAME"] = 'outi.hakala@helsinki.fi'
         request.env["A_GIVEN_NAME"] = "Outi"
@@ -181,6 +182,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = ""
         request.env["A_MAIL"] = 'outi.hakola@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_union_employee
       elsif test_user == "harmo"
         request.env["A_PRINCIPAL_NAME"] = 'ahto.harmo@gmail.com'
         request.env["A_GIVEN_NAME"] = "Harmo"
@@ -188,6 +190,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = ""
         request.env["A_MAIL"] = 'ahto.harmo@gmail.com'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_union_employee
       elsif test_user == "erno"
         request.env["A_PRINCIPAL_NAME"] = 'erno.helki@helsinki.fi'
         request.env["A_GIVEN_NAME"] = "Erno"
@@ -195,6 +198,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = ""
         request.env["A_MAIL"] = 'erno.helki@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_union_employee
       elsif test_user == "miiro"
         request.env["A_PRINCIPAL_NAME"] = 'miiro.jaaskelainen@helsinki.fi'
         request.env["A_GIVEN_NAME"] = "Miiro"
@@ -202,6 +206,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = ""
         request.env["A_MAIL"] = 'miiro.jaaskelainen@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_union_employee
       elsif test_user == "katri"
         request.env["A_PRINCIPAL_NAME"] = 'paasihteeri@helsinki.fi'
         request.env["A_GIVEN_NAME"] = "Katri"
@@ -209,6 +214,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = ""
         request.env["A_MAIL"] = 'paasihteeri@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_union_employee
       elsif test_user == "janne"
         request.env["A_PRINCIPAL_NAME"] = 'janne.lardot@hyy.fi'
         request.env["A_GIVEN_NAME"] = "Janne"
@@ -216,6 +222,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = ""
         request.env["A_MAIL"] = 'janne.lardot@hyy.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_union_employee
       elsif test_user == "reima_l"
         request.env["A_PRINCIPAL_NAME"] = 'reima.launonen@helsinki.fi'
         request.env["A_GIVEN_NAME"] = "Reima"
@@ -223,6 +230,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = ""
         request.env["A_MAIL"] = 'reima.launonen@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_union_employee
       elsif test_user == "rami"
         request.env["A_PRINCIPAL_NAME"] = 'rami.lindstrom@helsinki.fi'
         request.env["A_GIVEN_NAME"] = "Rami"
@@ -230,6 +238,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = ""
         request.env["A_MAIL"] = 'rami.lindstrom@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_union_employee
       elsif test_user == "esa"
         request.env["A_PRINCIPAL_NAME"] = 'esa.perkio@helsinki.fi'
         request.env["A_GIVEN_NAME"] = "Esa"
@@ -237,6 +246,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = ""
         request.env["A_MAIL"] = 'esa.perkio@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_union_employee
       elsif test_user == "antti"
         request.env["A_PRINCIPAL_NAME"] = 'antti.seitamaa@helsinki.fi'
         request.env["A_GIVEN_NAME"] = "Antti"
@@ -244,6 +254,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = ""
         request.env["A_MAIL"] = 'antti.seitamaa@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_union_employee
       elsif test_user == "jenni"
         request.env["A_PRINCIPAL_NAME"] = 'jenni.sepponen@helsinki.fi'
         request.env["A_GIVEN_NAME"] = "Jenni"
@@ -251,6 +262,7 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = ""
         request.env["A_MAIL"] = 'jenni.sepponen@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_union_employee
       end
 
       if role
