@@ -1,0 +1,3 @@
+ul
+  -PositionApplication.recommendable.where(call_id: @call.id).each do |application|
+    = render "position_applications/recommend_link", application: application

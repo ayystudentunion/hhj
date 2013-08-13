@@ -55,13 +55,10 @@ div#single-call
               a.send-application.btn.js-modal(href=new_call_position_application_path(call_id:@call._id))
                 = t(".send_application")
         div.clear
-        -if @user && @user.university.recommendations_threshold.present? && @call.administration_election_workflow?
+        -if show_recommendations?
           .hr
           .item-row
             #recommendations
               h2.label #{t "position_applications.plural"}
-              ul
-                -PositionApplication.recommendable.where(call_id: @call.id).each do |application|
-                 = render "position_applications/recommend_link", application: application
-
+              = render("calls/applications_list")
           div.clear

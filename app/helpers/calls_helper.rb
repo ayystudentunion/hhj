@@ -30,6 +30,10 @@ module CallsHelper
     @university.eligibility_rule_sets.map{|r| [r.name, r._id] }
   end
 
+  def show_recommendations?
+     @user && @user.university.recommendations_threshold.present? && @call.administration_election_workflow?
+  end
+
   protected
 
   # Needed to make sure that lone deputies are always rendered visible.

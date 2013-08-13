@@ -29,3 +29,9 @@
       .button-row
         a.ok.close-modal.btn(href='#') = t 'modals.ok'
 
+-if show_recommendations?
+  javascript:
+    $('#application-sent a.ok').click(function(){
+      $('#recommendations ul').replaceWith("#{escape_javascript(render :file => "/calls/_applications_list.html.slim")}");
+    });
+
