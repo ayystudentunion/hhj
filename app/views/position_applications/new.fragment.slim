@@ -24,7 +24,7 @@
             label.btn(class="#{'checked' if selected}")
               = f.radio_button :position, position_value, checked: selected
               span = PositionApplication.human_attribute_name(position_value)
-        - if custom_template_exists?('member_fields') && @call.administration_election_workflow?
+        - if custom_template_exists?('member_fields') && @call.administrational?
           = render partial: custom_file('member_fields'), formats: :html, locals: { f: f, call: @position_application.call }, rescue: nil
         -else
           = f.text_field :deputy_of, placeholder:  PositionApplication.human_attribute_name(:deputy_of), class: 'field half', style: 'display:none;'
