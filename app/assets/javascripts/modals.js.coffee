@@ -41,12 +41,8 @@ init_modals = () ->
     form = $(this).parents('form')
     $.post form.attr('action'), form.serialize(), (data) ->
       wrap = $('#modal-wrap')
-      height = wrap.find('.content').height()
-      width = wrap.find('.content').width()
       $(data).appendTo wrap.empty()
       initDom wrap
-      wrap.find('.content').height(height)
-      wrap.find('.content').width(width)
     return false
 
   $("#modal-wrap").delegate ".lang.btn", "click", () ->
