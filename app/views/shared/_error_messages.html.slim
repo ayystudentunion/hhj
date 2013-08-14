@@ -1,0 +1,11 @@
+-if object.errors.any?
+  .hr
+  item-block
+    item-row
+      .notice.warning
+        h2.title
+          = t('shared.error_messages.title', class: object.class.model_name.human.downcase)
+        ul
+          -object.errors.full_messages.each do |msg|
+            li= msg
+  .hr

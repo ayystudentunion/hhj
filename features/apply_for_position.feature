@@ -14,7 +14,6 @@ Feature: Applying for a position
       | Perustelut                 | 3 vuoden kokemus Hallopedina toimimisesta |
 
     And I press 'Lähetä' within dialog
-
     Then I should see my own name, phone number and email-address in the confirmation dialog
     Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
       | label                      | value         |
@@ -70,10 +69,14 @@ Feature: Applying for a position
       | label      | value                                     |
       | Haen       | Jäseneksi                                 |
       | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
+      | Oppiarvo   | VTT                                       |
+
     And I press 'Lähetä' within dialog
     Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
-      | label | value     |
-      | Haen  | Jäseneksi |
+      | label    | value     |
+      | Haen     | Jäseneksi |
+      | Oppiarvo | VTT       |
+
     And I press 'Ok'
     And I should see call for application 'Student council board members'
 
@@ -91,6 +94,8 @@ Feature: Applying for a position
       | label      | value                                     |
       | Haen       | Varajäseneksi                             |
       | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
+      | Oppiarvo   | VTT                                       |
+
     And I select "Anna Kainulainen" as the member I want to be deputy of
     And I press 'Lähetä' within dialog
     And I press 'Ok'
@@ -105,7 +110,7 @@ Feature: Applying for a position
     When I navigate to home page of call 'Student council board members'
     When I press 'Lähetä hakemus'
     Then I fill in form 'Omat tiedot':
-      | label          | value    |
+      | label          | value     |
       | Puhelinnumero: | 192837654 |
     And I press 'Jatka'
     Then I should see Helsinki uni student with no phone's name, phone number and email-address in the application form
@@ -113,9 +118,33 @@ Feature: Applying for a position
       | label      | value                                     |
       | Haen       | Jäseneksi                                 |
       | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
+      | Oppiarvo   | VTT                                       |
+
     And I press 'Lähetä' within dialog
     Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
       | label | value     |
       | Haen  | Jäseneksi |
     Then should see "192837654" within the applicant details
 
+  @javascript
+  Scenario: Submitting an invalid application in Helsinki university
+    Given there is open call for applications called 'Student council board members' in Helsingin yliopisto
+    And I am logged in as helsinki university student Anna
+    And I am at front page of 'Helsingin yliopisto'
+    And I navigate to home page of call 'Student council board members'
+    When I press 'Lähetä hakemus'
+    Then I should see Helsinki uni student Anna's name, phone number and email-address in the application form
+    When I fill in form 'Lähetä hakemus':
+      | label      | value                                     |
+      | Haen       | Jäseneksi                                 |
+      | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
+    And I press 'Lähetä' within dialog
+    Then I should see "Puutteellinen hakemus Oppiarvo vaaditaan"
+    When I fill in form 'Lähetä hakemus':
+      | label                            | value |
+      | Oppiarvo (esim. VTK tai fil. yo) | VTT   |
+    And I press 'Lähetä' within dialog
+    Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
+      | label    | value     |
+      | Haen     | Jäseneksi |
+      | Oppiarvo | VTT       |

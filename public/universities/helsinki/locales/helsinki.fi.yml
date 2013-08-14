@@ -5,6 +5,7 @@ fi:
       available_true: Kyllä
       available_false: Ei
       degree_programme: Tutkinto-ohjelma (esim. Automaatiotekniikka)
+      degree: Oppiarvo (esim. VTK tai fil. yo)
       experience_in_student_associations: Aiempi kokemus järjestötoiminnasta
     fields_show:
       available: Koko kaudeksi
@@ -12,5 +13,3 @@ fi:
       available_false: Ei
       degree_programme: Tutkinto-ohjelma
       experience_in_student_associations: Aiempi kokemus järjestötoiminnasta
-
-

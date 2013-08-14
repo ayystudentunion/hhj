@@ -4,6 +4,10 @@
       .item-row
         span.label = t('.available') + ':'
         span.value = t(".available_#{@position_application.custom['available']}")
+    - if @position_application.custom.include? 'degree'
+      .item-row
+        span.label = t('.degree') + ':'
+        span.value = @position_application.custom['degree']
     - if @position_application.custom.include? 'degree_programme'
       h3
         = t ".degree_programme"
@@ -24,5 +28,8 @@
           = radio_button 'position_application', 'custom[available]', 'false',  checked: false
     .item-row
       = text_field_tag 'position_application[custom[degree_programme]]', '', placeholder: t('.degree_programme'), class: 'field wide'
+    -if @call.administrational?
+      .item-row
+        = text_field_tag 'position_application[custom[degree]]', '', placeholder: t('.degree'), class: 'field wide'
     .item-row
       = text_area_tag 'position_application[custom[experience_in_student_associations]]', '', placeholder: t('.experience_in_student_associations'), class: 'wide'

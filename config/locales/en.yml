@@ -42,6 +42,8 @@ en:
       create_organ: "Create a new organ"
       write_news_post: "Write a new announcement or news"
       alliance_title: "You have been invited to the following alliances:"
+    error_messages:
+      title: "Invalid %{class}"
   position_applications:
     plural: "Applications"
     admissible_plural: "Admissible"
@@ -156,6 +158,7 @@ en:
       reverse_verb: 'Cancel recommendation'
   mongoid:
     models:
+      position_application: "Application"
       alliance: "Electoral alliance"
       call: "Call"
       organ: "Organ"
@@ -232,6 +235,7 @@ en:
             email:
               blank: "Email is missing"
         position_application:
+          degree_must_be_present: "Degree is missing"
           attributes:
             position:
               blank: "Applied position is not selected"

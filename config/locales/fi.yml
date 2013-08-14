@@ -52,6 +52,8 @@ fi:
       create_organ: Luo uusi toimielin
       write_news_post: Kirjoita uusi tiedote tai uutinen
       alliance_title: "Sinulla on vahvistamattomia vaaliliittokutsuja:"
+    error_messages:
+     title: "Puutteellinen %{class}"
   position_applications:
     plural: "Hakemukset"
     admissible_plural: "Soveltuvat"
@@ -169,6 +171,8 @@ fi:
     models:
       call: "Haku"
       organ: Toimielin
+      position_application: Hakemus
+
       plurals:
         recommendation: "Suosittelut"
         alliance: "Vaaliliitot"
@@ -243,6 +247,7 @@ fi:
             email:
               blank: Sähköpostiosoite puuttuu
         position_application:
+          degree_must_be_present: "Oppiarvo vaaditaan"
           attributes:
             position:
               blank: Haettavaa paikkaa ei ole valittu

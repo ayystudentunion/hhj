@@ -11,6 +11,7 @@ class PositionApplication
 
   validates :position, presence: true, inclusion: { in: POSITION_VALUES + [:position_both]}
   validate :validate_member_and_deputy_positions
+  validate :degree_present_for_administrational_call
   before_save :reset_deputy_of_for_position_member
   before_save :reset_member_for_position_member
 
@@ -27,6 +28,10 @@ class PositionApplication
 
   def reset_member_for_position_member
     self.member = nil if position == :position_member && selected_as == nil
+  end
+
+  def degree_present_for_administrational_call
+    errors[:base] << I18n.translate('mongoid.errors.models.position_application.degree_must_be_present') if self.call.university.try(:key) == "helsinki" && self.call.administrational? && (custom.nil? || custom['degree'].blank?)
   end
 
   def eligible?

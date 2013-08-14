@@ -3,6 +3,7 @@
     h2
       = t '.title'
       a.close-modal(href='#')
+    = render file: "/shared/_error_messages.html", locals: { object: @position_application }, :handlers => [:slim], formats: [:html]
     -if @call.position_applications.where(user_id: @user).exists?
       .item-block
         .item-row

@@ -35,7 +35,11 @@ class Call
   end
 
   def recommendations_threshold
-    self.organ.organization.recommendations_threshold || self.organ.organization.root.recommendations_threshold || 0
+    self.organ.organization.recommendations_threshold || self.university.recommendations_threshold || 0
+  end
+
+  def university
+    self.organ.organization.root
   end
 
   def has_unhandled_applications

@@ -43,6 +43,8 @@ sv:
       create_organ: "Skapa ett nytt organ"
       write_news_post: "Skriv ett nytt meddelande eller en ny nyhet"
       alliance_title: "Du har inbjudor till valförbund:"
+    error_messages:
+       title: "Puutteellinen %{class}"
   position_applications:
     edit_by_creating_new_notice: "Jos haluat muokata hakemustasi, voit jättää uuden hakemuksen samaan hakuun. Uusi hakemus korvaa aiemman."
     application_to_be_deleted_notice: "Sinulla on jo yksi hakemus tähän hakuun. Jos jätät uuden hakemuksen, aiempi poistetaan. Toimintoa ei voi peruuttaa."
@@ -156,6 +158,7 @@ sv:
     reverse_verb: 'Avbryt rekommendationen'
   mongoid:
     models:
+      position_application: "Hakemus"
       call: "Platssökning"
       organ: "Organ"
       alliance: "Valförbund"
@@ -232,6 +235,7 @@ sv:
             email:
               blank: "E-postadressen saknas"
         position_application:
+          degree_must_be_present: "Oppiarvo vaaditaan"
           attributes:
             position:
               blank: "Platsen som söks har inte valts"
