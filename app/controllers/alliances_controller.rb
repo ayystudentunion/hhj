@@ -17,6 +17,7 @@ class AlliancesController < ApplicationController
 
   def new
     @alliance = @user.alliances.build
+    @calls = Call.all.find_all{|call| call.administrational? }
     respond_to do |format|
       format.fragment
     end
