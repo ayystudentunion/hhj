@@ -86,6 +86,8 @@ fi:
     unconfirmed_members: "Vahvistamattomat jäsenet"
     confirmed_members: "Vahvistetut jäsenet"
     create_alliance: "Luo uusi vaaliliitto"
+    new:
+      maximum_members_selected_notice: "Olet valinnut vaaliliittoon maksimimäärän henkilöitä. Et voi valita enempää, koska haussa on vain %{number} paikkaa tarjolla."
     create:
       title: "Vaaliliitto luotu."
     show:

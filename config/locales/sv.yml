@@ -77,6 +77,8 @@ sv:
     unconfirmed_members: "Obekräftade medlemmar"
     confirmed_members: "Bekräftade medlemmar"
     create_alliance: "Skapa en allians"
+    new:
+      maximum_members_selected_notice: "Olet valinnut vaaliliittoon maksimimäärän henkilöitä. Et voi valita enempää, koska haussa on vain %{number} paikkaa tarjolla."
     create:
       title: "En allians var skapad"
     show:

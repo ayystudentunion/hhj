@@ -10,7 +10,9 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require jquery
+//= require jquery_ujs
+//= require jquery-ui
+//= require gritter
 //= require "signals.min.js"
 //= require_tree .
-//= require jquery_ujs
-//= require gritter

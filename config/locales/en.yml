@@ -77,6 +77,8 @@ en:
     unconfirmed_members: "Unconfirmed members"
     confirmed_members: "Confirmed members"
     create_alliance: "Create an electoral alliance"
+    new:
+      maximum_members_selected_notice: "You have selected the maximum number of members. You cannot select more because the call has only %{number} open seats."
     create:
       title: "Alliance created"
     show:
