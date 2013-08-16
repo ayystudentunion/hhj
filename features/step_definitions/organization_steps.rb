@@ -1,4 +1,4 @@
-Given /^'Spartan Teknillinen Yliopisto' has enabled alliances$/ do
-  university = Organization.where(name: "Spartan Teknillinen Yliopisto").first
+Given /^'Helsingin yliopisto' has enabled alliances$/ do
+  university = Organization.where(name: "Helsingin yliopisto").first
   university.update_attributes!(alliances_enabled: true)
 end

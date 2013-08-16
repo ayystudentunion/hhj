@@ -25,6 +25,11 @@ FactoryGirl.define do
       _id "5e5c1edf91bc2b3302000003"
       association :organization, :factory => :helsinki_uni
     end
+    factory :helsinki_uni_alumni_council do
+      name 'Helsingin yliopiston alumnien yhteistyöelin'
+      _id "5e5c1edf91bc2b3302000005"
+      association :organization, :factory => :helsinki_uni
+    end
 
   end
 end

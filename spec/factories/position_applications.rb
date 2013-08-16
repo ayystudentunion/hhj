@@ -10,8 +10,8 @@ FactoryGirl.define do
     factory :helsinki_uni_board_application do
       association :user, :factory => :helsinki_uni_student_union_employee
       association :call, :factory => :call_for_student_council_board
-      custom Hash[*['degree','VTT']]
     end
+    custom Hash[*['degree','VTT']]
   end
 end
 

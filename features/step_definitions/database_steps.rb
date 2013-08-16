@@ -19,10 +19,6 @@ Given %r/^there is open call for applications called 'Kirjakerhon lukurinki'$/ d
   FactoryGirl.create :lukurinki
 end
 
-Given %r/^there is open call for applications called 'Kirjakerhon uimarinki'$/ do
-  FactoryGirl.create :uimarinki
-end
-
 Given /^there are 3 applications for "([^"]*)"$/ do |title|
   call= Call.where(title: title).first
   call.should be_present
@@ -31,8 +27,21 @@ Given /^there are 3 applications for "([^"]*)"$/ do |title|
   FactoryGirl.create :position_application, user: FactoryGirl.create(:student_topias), call: call
 end
 
+Given /^there are applications for "([^"]*)" by Helsinki uni students:$/ do |title, students|
+  call = Call.where(title: title).first
+  call.should be_present
+  students.raw.flatten.each do |student|
+    user = FactoryGirl.create "helsinki_uni_student_" + student.gsub(" ", "_").downcase
+    FactoryGirl.create(:position_application, user: user, call: call)
+  end
+end
+
 Given /^there is open call for applications called 'Student council board members' in Helsingin yliopisto$/ do
   FactoryGirl.create :call_for_student_council_board
+end
+
+Given /^there is open call for applications called 'Alumni council board members call' in Helsingin yliopisto$/ do
+  FactoryGirl.create(:call_for_uni_alumni_council)
 end
 
 Given /^there is an primary application for call 'Student council board members' by ([^"]*) of Helsingin yliopisto$/ do |student|

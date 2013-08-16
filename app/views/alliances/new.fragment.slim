@@ -15,14 +15,15 @@
           =f.label :call_id, Call.model_name.human
         -calls = Call.all
         -selected_call = calls.first
-        div.call = f.collection_select :call_id, Call.all, "_id", "title", :selected => selected_call._id
+        div.call = f.collection_select :call_id, calls, "_id", "title", :selected => selected_call._id
 
       .inline-block
         h3= t "alliances.members"
-        div.applications_lists
+        div(class="applications_lists" )
           - Call.all.find_all{|call| call.organ.organization.root == @university}.each do |call|
             - style = call == selected_call ? "" :  "display:none"
-            ul(id="applications-for-call-#{call._id}" style=style)
+            - max_members = call.total_number_of_selected.to_s
+            ul(id="applications-for-call-#{call._id}" class="checkboxes_with_limited_selectable" style=style data-error-message=t('alliances.new.maximum_members_selected_notice', number: max_members) data-max-limit=max_members)
               -call.position_applications.each do |application|
                 li
                   label

@@ -3,7 +3,7 @@ Then /^I should see "([^"]*)" listed as member$/ do |arg|
 end
 
 Given /^someone has added my application to an electoral alliance called "([^"]*)"$/ do |name|
-  user = User.find('4f7963bf91bc2bc1f6000002')
+  user = User.find('4f7963bf91bc2bc1f6000077')
   call = Call.first
   application = FactoryGirl.create :position_application, user: user, call: call
   alliance = FactoryGirl.create(:alliance, name: name)
@@ -17,12 +17,12 @@ end
 
 Then /^I should see my name among the ([^"]*) members$/ do |group|
   list = page.find("#alliance ##{group}_members")
-  list.should have_content('Martti Pulliainen')
+  list.should have_content('Anna Kainulainen')
 end
 
 Then /^I should not see my name among the ([^"]*) members$/ do |group|
   list = page.find("#alliance ##{group}_members")
-  list.should_not have_content('Martti Pulliainen')
+  list.should_not have_content('Anna Kainulainen')
 end
 
 Then /^I check "([^"]*)" for call "([^"]*)"$/ do |field, title|

@@ -69,4 +69,8 @@ class Call
     self.workflow == :workflow_administration_election
   end
 
+  def total_number_of_selected
+    member_amount + deputy_amount if member_amount && deputy_amount
+  end
+
 end

@@ -1,34 +1,38 @@
 Feature: Handling electoral alliances
 
   Background:
-    Given there is open call for applications called 'Kirjakerhon lukurinki'
-    Given there is open call for applications called 'Kirjakerhon uimarinki'
-    And 'Spartan Teknillinen Yliopisto' has enabled alliances
+    Given there is open call for applications called 'Student council board members' in Helsingin yliopisto
+    And there is open call for applications called 'Alumni council board members call' in Helsingin yliopisto
+    And 'Helsingin yliopisto' has enabled alliances
 
   @javascript
   Scenario: Creating an alliance
-    Given I am logged in as a student union employee
-    And there are 3 applications for "Kirjakerhon lukurinki"
-    And there are 3 applications for "Kirjakerhon uimarinki"
-    And I am at front page of 'Spartan Teknillinen Yliopisto'
+    When I am logged in as a Helsinki university students' union employee
+    And there are applications for "Student council board members" by Helsinki uni students:
+      | anna | pekka |
+    And there are applications for "Alumni council board members call" by Helsinki uni students:
+      | tiina | with_no_phone |
+    And I am at front page of 'Helsingin yliopisto'
     And I follow "Vaaliliitot"
-    When I follow "Luo uusi vaaliliitto"
+    And I follow "Luo uusi vaaliliitto"
     And I fill in "MyAlliance" for "Nimi"
-    And I select "Kirjakerhon lukurinki" from "Haku"
-    And I check "Martti Pulliainen" for call "Kirjakerhon lukurinki"
-    #By selecting another call we're checking that earlier application selections are not submitted along the form - alliance with applications from different calls would not be valid and thus could not be created.
-    And I select "Kirjakerhon uimarinki" from "Haku"
-    And I check "Martti Pulliainen" for call "Kirjakerhon uimarinki"
-    And I check "Topias Lapinmaa" for call "Kirjakerhon uimarinki"
+    And I select "Student council board members" from "Haku"
+    And I check "Pekka Jantunen" for call "Student council board members"
+    Then I should see "Olet valinnut vaaliliittoon maksimimäärän henkilöitä. Et voi valita enempää, koska haussa on vain 1 paikkaa tarjolla."
+  #By selecting another call we're checking that earlier application selections are not submitted along the form - alliance with applications from different calls would not be valid and thus could not be created.
+    When I select "Alumni council board members call" from "Haku"
+    And I check "Markku Nophone" for call "Alumni council board members call"
+    And I check "Tiina Miettinen" for call "Alumni council board members call"
+    Then I should see "Olet valinnut vaaliliittoon maksimimäärän henkilöitä. Et voi valita enempää, koska haussa on vain 2 paikkaa tarjolla."
     And I press "Lähetä"
     Then I should see "Vaaliliitto luotu"
-    Then I should see "Martti Pulliainen" listed as member
-    Then I should see "Topias Lapinmaa" listed as member
+    Then I should see "Markku Nophone" listed as member
+    Then I should see "Tiina Miettinen" listed as member
 
   Scenario: Confirming an alliance membership
-    Given I am logged in as a student
+    And I am logged in as helsinki university student Anna
     Given someone has added my application to an electoral alliance called "Alliance1"
-    And I follow "Spartan Teknillinen Yliopisto"
+    And I follow "Helsingin yliopisto"
     When I follow "Vaaliliitot"
     And I follow "Alliance1"
     Then I should see my name among the unconfirmed members
