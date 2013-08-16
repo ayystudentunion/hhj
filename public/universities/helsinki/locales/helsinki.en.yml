@@ -1,0 +1,15 @@
+en:
+  helsinki:
+    fields:
+      available: I'm available throughout the whole term
+      available_true: Yes
+      available_false: No
+      degree_programme: Degree programme
+      degree: Academic degree
+      experience_in_student_associations: Previous experience
+    fields_show:
+      available: Throughout the whole term
+      available_true: Yes
+      available_false: No
+      degree_programme: Degree programme
+      experience_in_student_associations: Previous experience in student organizations
