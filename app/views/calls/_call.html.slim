@@ -7,7 +7,7 @@
 	.item-block
 	  .label #{t "calls.show.found"}:
 	  .text = call.position_applications.length
-	- if @user && @user.university.recommendations_threshold.present?
+	- if @user && show_recommendations?(call)
       .item-block
         .label #{t "position_applications.admissible_plural"}:
         .text == call.admissible_applications.count.to_s

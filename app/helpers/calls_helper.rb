@@ -30,8 +30,8 @@ module CallsHelper
     @university.eligibility_rule_sets.map{|r| [r.name, r._id] }
   end
 
-  def show_recommendations?
-     @user && @user.university.recommendations_threshold.present? && @call.administrational?
+  def show_recommendations?(call)
+     @user && @user.university.recommendations_threshold.present? && call.administrational?
   end
 
   protected

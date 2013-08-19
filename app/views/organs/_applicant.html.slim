@@ -1,4 +1,4 @@
--status = applicant.admissible? &&  applicant.eligible? ? "valid" : "invalid"
+-status = status_class_for(applicant)
 .member-card(class="#{'no-margin' if applicant_counter%2 == 1} #{status}" data-id=applicant._id)
   = form_for [call, applicant], url: call_position_application_path(call_id: call._id, id: applicant._id, format: :json) do |f|
     = f.hidden_field :member, value: applicant[:member_id], class: :value_member
