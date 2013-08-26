@@ -9,4 +9,8 @@ class AllianceMembership
   validates_presence_of :alliance
   validates_presence_of :position_application
 
+  def user_name
+    self.position_application.user.full_name
+  end
+
 end

@@ -14,6 +14,18 @@ RailsAdmin.config do |config|
   # RailsAdmin may need a way to know who the current user is]
   config.current_user_method { current_admin } # auto-generated
 
+  config.model 'AllianceMembership' do
+    object_label_method do
+      :user_name
+    end
+  end
+
+  config.model 'User' do
+    object_label_method do
+      :full_name
+    end
+  end
+
   # If you want to track changes on your models:
   # config.audit_with :history, 'Admin'
 
