@@ -23,11 +23,11 @@ class PositionApplication
   scope :recommendable, where(selected_as:nil, position: :position_member)
 
   def reset_deputy_of_for_position_member
-    self.deputy_of = "" if position == :position_member
+    self.deputy_of = "" if self.applying_for_member?
   end
 
   def reset_member_for_position_member
-    self.member = nil if position == :position_member && selected_as == nil
+    self.member = nil if self.applying_for_member? && selected_as == nil
   end
 
   def degree_present_for_administrational_call
@@ -76,6 +76,10 @@ class PositionApplication
     else
       self.recommendations
     end
+  end
+
+  def applying_for_member?
+    self.position == :position_member
   end
 
 end
