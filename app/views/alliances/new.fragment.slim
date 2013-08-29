@@ -24,7 +24,7 @@
             - style = call == selected_call ? "" :  "display:none"
             - max_members = call.total_number_of_selected.to_s
             ul(id="applications-for-call-#{call._id}" class="checkboxes_with_limited_selectable" style=style data-error-message=t('alliances.new.maximum_members_selected_notice', number: max_members) data-max-limit=max_members)
-              -call.position_applications.each do |application|
+              -rearrange_pairs_adjancently(call.position_applications).each do |application|
                 li
                   label
                     = applicant_name_with_coapplicant_for(application)
