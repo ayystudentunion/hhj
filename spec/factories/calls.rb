@@ -14,14 +14,14 @@ FactoryGirl.define do
     factory :call_for_student_council_board do
       association :organ, :factory => :helsinki_uni_student_council
       member_amount 1
-      deputy_amount 0
+      deputy_amount 1
       title "Student council board members"
       _id "4f6b1edf91bc2b4403020209"
       workflow :workflow_administration_election
     end
     factory :call_for_uni_alumni_council do
       member_amount 1
-      deputy_amount 1
+      deputy_amount 0
       association :organ, :factory => :helsinki_uni_alumni_council
       title "Alumni council board members call"
       _id "4f6b1edf91bc2b4403020208"
