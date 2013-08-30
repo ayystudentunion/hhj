@@ -20,7 +20,6 @@ class PositionApplication
   field :deputy_of, type: String
   field :personal_statement, type: String
   field :custom, type: Hash
-  scope :recommendable, where(selected_as:nil, position: :position_member)
 
   def reset_deputy_of_for_position_member
     self.deputy_of = "" if self.applying_for_member?

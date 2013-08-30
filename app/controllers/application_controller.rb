@@ -344,7 +344,7 @@ class ApplicationController < ActionController::Base
   end
 
   def recommendation_allowed_for?(position_application)
-    position_application.user._id != @user._id && position_application.user.university == @user.university && !position_application.deputy.nil? && position_application.deputy.user._id != @user._id
+    position_application.user._id != @user._id && position_application.user.university == @user.university && position_application.applying_for_member? && position_application.deputy.present? && position_application.deputy.user._id != @user._id
   end
 
   helper_method :recommendation_allowed_for?
