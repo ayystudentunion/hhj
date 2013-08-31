@@ -75,6 +75,11 @@ init_modals = () ->
   $("#modal-wrap").delegate "#send-application .radio input", "change", () ->
     $(this).parents('.item-row:first').find("#position_application_deputy_of").toggle($(this).val() == 'position_deputy')
 
+  $("#modal-wrap").delegate "#send-application-for-administrational-call .radio input", "change", () ->
+    pair_selects = $(this).parents('.item-row:first').find(".pair-select")
+    shown_id = "show_when_#{$(this).val()}_selected"
+    $(pair_select).toggle(shown_id == $(pair_select).attr('id')) for pair_select in pair_selects
+
   $("#modal-wrap").delegate "#new-alliance .call select", "change", () ->
     $('.applications_lists ul').hide()
     $('.applications_lists ul input:checkbox').prop('checked', false)

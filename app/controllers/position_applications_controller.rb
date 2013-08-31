@@ -27,6 +27,7 @@ class PositionApplicationsController < ApplicationController
   def create
     @call.position_applications.where(user_id: @user.id).destroy_all if @call.position_applications.where(user: @user).exists?
     @position_application = @call.position_applications.build params[:position_application]
+    @position_application.deputy =  PositionApplication.find(params[:deputy_id]) if params[:deputy_id].present?
     if @position_application.save
       render "create"
     else

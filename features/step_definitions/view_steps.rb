@@ -42,6 +42,10 @@ Then /^I select "([^"]*)" as the member I want to be deputy of$/ do |value|
   select(value, :from => "position_application_member_id")
 end
 
+When /^I select "([^"]*)" as the deputy I want to be member of$/ do |value|
+  select(value, :from => "deputy_id")
+end
+
 Then /^I should see "([^"]*)" among the applications listing$/ do |text|
   page.find('#recommendations').should have_content(text)
 end

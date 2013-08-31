@@ -1,4 +1,5 @@
-.modal#send-application
+-id =  @call.administrational? ? "send-application-for-administrational-call" : "send-application"
+.modal{id=id}
   .content
     h2
       = t '.title'

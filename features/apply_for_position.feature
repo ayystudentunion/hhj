@@ -81,11 +81,31 @@ Feature: Applying for a position
     And I should see call for application 'Student council board members'
 
   @javascript
-  Scenario: Submitting a deputy application in Helsinki university
+  Scenario: Submitting a deputy application and not selecting a running partner in Helsinki university
     Given there is open call for applications called 'Student council board members' in Helsingin yliopisto
     And "Helsingin yliopisto" has enabled recommendations with threshold of 3
-    And there is an primary application for call 'Student council board members' by student Pekka of Helsingin yliopisto
-    And there is an primary application for call 'Student council board members' by student Anna of Helsingin yliopisto
+    And I am logged in as helsinki university student Tiina
+    And I am at front page of 'Helsingin yliopisto'
+    When I navigate to home page of call 'Student council board members'
+    And I press 'Lähetä hakemus'
+    When I fill in form 'Lähetä hakemus':
+      | label      | value                                     |
+      | Haen       | Varajäseneksi                             |
+      | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
+      | Oppiarvo   | VTT                                       |
+    And I press 'Lähetä' within dialog
+    Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
+      | label | value         |
+      | Haen  | Varajäseneksi |
+    And I press 'Ok'
+    Then I should see "Tiina Miettinen" among the applications listing
+
+  @javascript
+  Scenario: Submitting a deputy application and selecting a member as running partner in Helsinki university
+    Given there is open call for applications called 'Student council board members' in Helsingin yliopisto
+    And "Helsingin yliopisto" has enabled recommendations with threshold of 3
+    And there is a member application for call 'Student council board members' by student Pekka of Helsingin yliopisto
+    And there is a member application for call 'Student council board members' by student Anna of Helsingin yliopisto
     And I am logged in as helsinki university student Tiina
     And I am at front page of 'Helsingin yliopisto'
     When I navigate to home page of call 'Student council board members'
@@ -100,6 +120,28 @@ Feature: Applying for a position
     And I press 'Lähetä' within dialog
     And I press 'Ok'
     Then I should see "Anna Kainulainen (varajäsen: Tiina Miettinen)" among the applications listing
+  #you cannot recommend your own applications and applications without a deputy. Thus:
+    Then I should see 0 buttons with text "Suosittele"
+
+  @javascript
+  Scenario: Submitting a member application and selecting a deputy as running partner in Helsinki university
+    Given there is open call for applications called 'Student council board members' in Helsingin yliopisto
+    And "Helsingin yliopisto" has enabled recommendations with threshold of 3
+    And there is a deputy application for call 'Student council board members' by student Anna of Helsingin yliopisto
+    And I am logged in as helsinki university student Tiina
+    And I am at front page of 'Helsingin yliopisto'
+    When I navigate to home page of call 'Student council board members'
+    And I press 'Lähetä hakemus'
+    When I fill in form 'Lähetä hakemus':
+      | label      | value                                     |
+      | Haen       | Jäseneksi                             |
+      | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
+      | Oppiarvo   | VTT                                       |
+
+    And I select "Anna Kainulainen" as the deputy I want to be member of
+    And I press 'Lähetä' within dialog
+    And I press 'Ok'
+    Then I should see "Tiina Miettinen (varajäsen: Anna Kainulainen)" among the applications listing
   #you cannot recommend your own applications and applications without a deputy. Thus:
     Then I should see 0 buttons with text "Suosittele"
 

@@ -21,7 +21,7 @@ module Models
 
     included do
       belongs_to :member, :class_name => name, :inverse_of => :deputy
-      has_one :deputy, :class_name => name, :inverse_of => :member
+      has_one :deputy, class_name: name, inverse_of: :member, autosave: true
     end
 
     def nil_or_find(id)
