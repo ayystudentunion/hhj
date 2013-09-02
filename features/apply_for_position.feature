@@ -81,7 +81,7 @@ Feature: Applying for a position
     And I should see call for application 'Student council board members'
 
   @javascript
-  Scenario: Submitting a deputy application and not selecting a running partner in Helsinki university
+  Scenario: Submitting a deputy application and sending an email reminder a running partner in Helsinki university
     Given there is open call for applications called 'Student council board members' in Helsingin yliopisto
     And "Helsingin yliopisto" has enabled recommendations with threshold of 3
     And I am logged in as helsinki university student Tiina
@@ -93,10 +93,12 @@ Feature: Applying for a position
       | Haen       | Varajäseneksi                             |
       | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
       | Oppiarvo   | VTT                                       |
+    And I choose to send an email reminder to "test@test.com"
     And I press 'Lähetä' within dialog
     Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
       | label | value         |
       | Haen  | Varajäseneksi |
+    Then "test@test.com" should receive an email
     And I press 'Ok'
     Then I should see "Tiina Miettinen" among the applications listing
 

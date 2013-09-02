@@ -6,5 +6,6 @@ sv:
       available_false: Nej
       degree_programme: Utbildningsprogram (t. ex. Automation Teknik)
       degree: Oppiarvo (esim. VTK tai fil. yo)
+      send_email_reminder: "Lähetä hakukumppanillesi muistutus hausta"
     fields_show:
       available: För hela periodet

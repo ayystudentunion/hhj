@@ -80,6 +80,9 @@ init_modals = () ->
     shown_id = "show_when_#{$(this).val()}_selected"
     $(pair_select).toggle(shown_id == $(pair_select).attr('id')) for pair_select in pair_selects
 
+  $("#modal-wrap").delegate "#send-application-for-administrational-call  .email-reminder-fields input[type=checkbox]", "change", () ->
+    $(this).parents('.email-reminder-fields').find('input[type=text]').toggle()
+
   $("#modal-wrap").delegate "#new-alliance .call select", "change", () ->
     $('.applications_lists ul').hide()
     $('.applications_lists ul input:checkbox').prop('checked', false)

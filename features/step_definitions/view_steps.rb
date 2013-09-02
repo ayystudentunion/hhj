@@ -54,3 +54,7 @@ Then /^should see "([^"]*)" within the applicant details$/ do |text|
   page.find('.applicant-details').should have_content(text)
 end
 
+When /^I choose to send an email reminder to "([^"]*)"$/ do |value|
+  check "send_reminder_switch"
+  step %{I fill in "reminder_email" with "#{value}"}
+end

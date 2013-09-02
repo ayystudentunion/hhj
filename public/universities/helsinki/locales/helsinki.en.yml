@@ -7,6 +7,8 @@ en:
       degree_programme: Degree programme
       degree: Academic degree
       experience_in_student_associations: Previous experience
+      send_email_reminder: "Send an email reminder to your running partner of this call"
+
     fields_show:
       available: Throughout the whole term
       available_true: Yes
