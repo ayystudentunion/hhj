@@ -51,6 +51,7 @@ gem 'jquery-rails', '2.1'
 group :development, :test do
   gem 'rspec-rails', '>= 2.6'
   gem "letter_opener"
+  gem 'email_spec'
 end
 
 group :test do
