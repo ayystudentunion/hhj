@@ -6,7 +6,7 @@ Feature: Handling electoral alliances
     And 'Helsingin yliopisto' has enabled alliances
 
   @javascript
-  Scenario: Creating an alliance
+  Scenario: Creating an alliance and sending confirmation emails
     When I am logged in as a Helsinki university students' union employee
     And there is an application with deputy for "Student council board members"
     And there are applications for "Alumni council board members call" by Helsinki uni students:
@@ -26,6 +26,7 @@ Feature: Handling electoral alliances
     And I press "Lähetä"
     Then I should see "Vaaliliitto luotu"
     Then I should see "Markku Nophone" listed as member
+    Then "nophone@helsinki.fi" should receive an email
 
   Scenario: Confirming an alliance membership
     And I am logged in as helsinki university student Anna
