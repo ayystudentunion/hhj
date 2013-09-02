@@ -33,6 +33,7 @@ class CallsController < ApplicationController
   end
 
   def show # return a single call for applications
+    @position_applications = @call.position_applications
     respond_to do |format|
       format.html
       format.json { render :json => @call }
