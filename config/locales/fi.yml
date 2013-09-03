@@ -229,9 +229,9 @@ fi:
         organ:
           attributes:
             name:
-              blank: Toimielimen nimi puuttuu
+              blank: puuttuu
             organization:
-              blank: Organisaatioyksikkö puuttuu
+              blank: puuttuu
         call:
           attributes:
             title:
