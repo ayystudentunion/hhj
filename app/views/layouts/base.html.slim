@@ -33,7 +33,10 @@ html
       div#content
         javascript:
           #{ add_gritter(flash[:success], title: t("gritter.title"), class_name: "success", time: 8000, fadeout_speed: :slow)}
-
+        -if flash[:errors]
+          -flash[:errors].each do |msg|
+            javascript:
+              #{ add_gritter(msg, title: flash[:errors_title], class_name: "error", time: 8000, fadeout_speed: :slow) }
         div#page-content
           = yield
 

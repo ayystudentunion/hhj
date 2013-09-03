@@ -217,13 +217,13 @@ sv:
         organ:
           attributes:
             name:
-              blank: "Namnet på organet saknas"
+              blank: "saknas"
             organization:
-              blank: "Organisationsenhet saknas"
+              blank: "saknas"
         call:
           attributes:
             title:
-              blank: "Sökningens rubrik saknas"
+              blank: " saknas"
             member_amount:
               blank: "Antalet ordinarie medlemmar saknas"
             deputy_amount:

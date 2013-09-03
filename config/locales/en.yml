@@ -217,13 +217,13 @@ en:
         organ:
           attributes:
             name:
-              blank: "Organ name missing"
+              blank: "is missing"
             organization:
-              blank: "Organisation unit missing"
+              blank: "is missing"
         call:
           attributes:
             title:
-              blank: "Call title missing"
+              blank: "is missing"
             member_amount:
               blank: "Number of members is missing"
             deputy_amount:

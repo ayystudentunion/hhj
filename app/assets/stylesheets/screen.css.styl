@@ -1175,16 +1175,22 @@ form.new_member
   box-shadow 1px 2px 5px 0 #818181
   margin-top 4px
 
-/* GRITTER OVERRIDE STYLES */
+/* GRITTER OVERRIDES */
 #gritter-notice-wrapper
+  .gritter-item.gritter-css3
+    color:black
+    .gritter-title
+      text-shadow:none
+      font-size: 16px
   .success
-      .gritter-item.gritter-css3
-        .gritter-title
-          font-size: 16px
-          text-shadow:none
-        border 1px solid darken(#B4EEB4, 22%)
-        gradient(darken(#B4EEB4, 7%), #B4EEB4)
-        color:black
+    .gritter-item.gritter-css3
+      border 1px solid darken(#B4EEB4, 22%)
+      gradient(darken(#B4EEB4, 7%), #B4EEB4)
+  .error
+    .gritter-item.gritter-css3
+      border 1px solid darken(#EB9D9E, 15%)
+      gradient(#EB9D9E, lighten(#EB9D9E, 7%))
+
 .notice
   .title
     font-size 14px

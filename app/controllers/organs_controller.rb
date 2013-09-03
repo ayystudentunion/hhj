@@ -24,11 +24,19 @@ class OrgansController < ApplicationController
   end
 
   def create # create a new organ document
-    @organ = selected_organization.organs.create! params[:organ]
+    @organ = selected_organization.organs.build params[:organ]
 
     respond_to do |format|
       format.json { render json: @organ.to_json }
-      format.html { redirect_to action: :show, id: @organ._id }
+      format.html do
+        if @organ.save
+          redirect_to action: :show, id: @organ._id
+        else
+          flash[:errors_title]= I18n.t('shared.error_messages.title', class: @organ.model_name.human.downcase)
+          flash[:errors] = @organ.errors.full_messages
+          redirect_to request.referer
+        end
+      end
     end
   end
 
@@ -58,9 +66,16 @@ class OrgansController < ApplicationController
   def update # modify an existing organ
     organ_params = params[:organ]
     organ_params = organ_params.merge(organization: selected_organization)
-    @organ.update_attributes!(organ_params)
     respond_to do |format|
-      format.html { redirect_to action: :show, id: @organ._id }
+      format.html do
+        if @organ.update_attributes(organ_params)
+          redirect_to action: :show, id: @organ._id
+        else
+          flash[:errors_title]= I18n.t('shared.error_messages.title', class: @organ.model_name.human.downcase)
+          flash[:errors] = @organ.errors.full_messages
+          redirect_to request.referer
+        end
+      end
     end
   end
 
