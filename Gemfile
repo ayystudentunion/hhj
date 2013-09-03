@@ -18,7 +18,7 @@ gem 'slim'
 # gem 'sprockets'
 # gem 'railties'
 gem 'factory_girl_rails', require: false
-gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary', '>=0.9.9.1'
 gem 'wicked_pdf', '>=0.9.6'
 gem 'rails_admin', '> 0.4.3'
 gem 'devise'
