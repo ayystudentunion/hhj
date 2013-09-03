@@ -24,11 +24,19 @@ class CallsController < ApplicationController
   end
 
   def create # create a new call for applications
-    call = @organ.calls.create! params[:call]
+    call = @organ.calls.new params[:call]
 
     respond_to do |format|
       format.json { render json: call.to_json }
-      format.html { redirect_to action: :show, id: call._id }
+      format.html do
+        if call.save
+          redirect_to action: :show, id: call._id
+        else
+          flash[:errors_title]= I18n.t('shared.error_messages.title', class: call.model_name.human.downcase)
+          flash[:errors] = call.errors.full_messages
+          redirect_to organ_path(id: @organ._id)
+        end
+      end
     end
   end
 

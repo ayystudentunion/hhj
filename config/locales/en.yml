@@ -223,7 +223,7 @@ en:
         call:
           attributes:
             title:
-              blank: "Call title missing"
+              blank: "is missing"
             member_amount:
               blank: "Number of members is missing"
             deputy_amount:

@@ -235,7 +235,7 @@ fi:
         call:
           attributes:
             title:
-              blank: Haun otsikko puuttuu
+              blank: puuttuu
             member_amount:
               blank: Varsinaisten jäsenten määrä puuttuu
             deputy_amount:
@@ -288,3 +288,4 @@ fi:
 
   gritter:
       title: "Huomio"
+      errors_title: "Puuttellinen %{class}, ei voitu tallentaa"

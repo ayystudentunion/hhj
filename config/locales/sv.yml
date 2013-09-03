@@ -223,7 +223,7 @@ sv:
         call:
           attributes:
             title:
-              blank: "Sökningens rubrik saknas"
+              blank: " saknas"
             member_amount:
               blank: "Antalet ordinarie medlemmar saknas"
             deputy_amount:
