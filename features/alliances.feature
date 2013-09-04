@@ -16,8 +16,8 @@ Feature: Handling electoral alliances
     And I follow "Luo uusi vaaliliitto"
     And I fill in "MyAlliance" for "Nimi"
     And I select "Student council board members" from "Haku"
-    And I check "Pekka Jantunen (varajäsen: Anna Kainulainen)" for call "Student council board members"
-    And I check "Anna Kainulainen (jäsen: Pekka Jantunen)" for call "Student council board members"
+    And I check "Pekka Jantunen (jäsen, varajäsen: Anna Kainulainen)" for call "Student council board members"
+    And I check "Anna Kainulainen (varajäsen, jäsen: Pekka Jantunen)" for call "Student council board members"
     Then I should see "Olet valinnut vaaliliittoon maksimimäärän henkilöitä. Et voi valita enempää, koska haussa on vain 2 paikkaa tarjolla."
   #By selecting another call we're checking that earlier application selections are not submitted along the form - alliance with applications from different calls would not be valid and thus could not be created.
     When I select "Alumni council board members call" from "Haku"

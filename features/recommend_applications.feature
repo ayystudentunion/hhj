@@ -21,7 +21,7 @@ Feature: Recommending a position application
     And I am logged in as helsinki university student Pekka
     And I am at front page of 'Helsingin yliopisto'
     And I navigate to home page of call 'Student council board members'
-    Then I should see "Pekka Jantunen (varajäsen: Anna Kainulainen)"
+    Then I should see "Pekka Jantunen (jäsen, varajäsen: Anna Kainulainen)"
     And I should see 0 buttons with text "Suosittele"
 
   Scenario: Not seeing a recommend link to for the application a user is deputy of
@@ -29,7 +29,7 @@ Feature: Recommending a position application
     And I am logged in as helsinki university student Anna
     And I am at front page of 'Helsingin yliopisto'
     And I navigate to home page of call 'Student council board members'
-    Then I should see "Pekka Jantunen (varajäsen: Anna Kainulainen)"
+    Then I should see "Pekka Jantunen (jäsen, varajäsen: Anna Kainulainen)"
     And I should see 0 buttons with text "Suosittele"
 
   Scenario: Not seeing a recommend link if the university hasn't enabled recommendations

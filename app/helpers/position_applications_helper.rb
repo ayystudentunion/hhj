@@ -1,13 +1,15 @@
 module PositionApplicationsHelper
 
   def applicant_name_with_coapplicant_for(application)
+    translated_position = t("position_applications.show.#{application.position.to_s}.zero")
     text = content_tag :strong, application.name
-    if application.applying_for_member?
-      text = text + " (#{t('position_applications.show.position_deputy.zero').downcase}: #{application.deputy.name}) " if application.deputy?
-    else
-      text = text + " (#{t('position_applications.show.position_member').downcase}: #{application.member.name}) " if application.member?
+    text = text + " (" + translated_position.downcase
+    if application.deputy?
+      text = text + ", #{t('position_applications.show.position_deputy.zero').downcase}: #{application.deputy.name}"
+    elsif application.member?
+      text = text + ", #{t('position_applications.show.position_member.zero').downcase}: #{application.member.name}"
     end
-    text
+    text + ")"
   end
 
   def rearrange_pairs_adjancently(position_applications)

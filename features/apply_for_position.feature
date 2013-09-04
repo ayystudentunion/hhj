@@ -121,7 +121,7 @@ Feature: Applying for a position
     And I select "Anna Kainulainen" as the member I want to be deputy of
     And I press 'Lähetä' within dialog
     And I press 'Ok'
-    Then I should see "Anna Kainulainen (varajäsen: Tiina Miettinen)" among the applications listing
+    Then I should see "Anna Kainulainen (jäsen, varajäsen: Tiina Miettinen)" among the applications listing
   #you cannot recommend your own applications and applications without a deputy. Thus:
     Then I should see 0 buttons with text "Suosittele"
 
@@ -143,7 +143,7 @@ Feature: Applying for a position
     And I select "Anna Kainulainen" as the deputy I want to be member of
     And I press 'Lähetä' within dialog
     And I press 'Ok'
-    Then I should see "Tiina Miettinen (varajäsen: Anna Kainulainen)" among the applications listing
+    Then I should see "Tiina Miettinen (jäsen, varajäsen: Anna Kainulainen)" among the applications listing
   #you cannot recommend your own applications and applications without a deputy. Thus:
     Then I should see 0 buttons with text "Suosittele"
 
@@ -196,6 +196,6 @@ Feature: Applying for a position
       | Haen     | Varajäseneksi |
       | Oppiarvo | VTT       |
     When I press 'Ok'
-    Then I should see "Tiina Miettinen (varajäsen: Anna Kainulainen)" among the applications listing
+    Then I should see "Tiina Miettinen (jäsen, varajäsen: Anna Kainulainen)" among the applications listing
 
 

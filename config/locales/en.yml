@@ -60,7 +60,8 @@ en:
       title: "Application"
       apply_date: "Application date"
       apply_position: "Applied position "
-      position_member: "Member"
+      position_member:
+        zero: "Member"
       position_deputy:
         zero: "Deputy "
         other: "Deputy to a member"

@@ -60,7 +60,8 @@ sv:
       title: "Ansökan"
       apply_date: "Ansökan inlämnad"
       apply_position: "Den ansökta platsen"
-      position_member: "Medlem"
+      position_member:
+        zero: "Medlem"
       position_deputy:
         zero: "Suppleant"
         other: "Suppleant för medlem %{name}"
