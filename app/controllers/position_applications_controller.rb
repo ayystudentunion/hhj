@@ -15,7 +15,7 @@ class PositionApplicationsController < ApplicationController
   end
 
   def new
-    @position_application = @call.position_applications.build(user_id: @user._id)
+    @position_application = @call.position_applications.build(user_id: @user._id, custom: {})
     respond_to do |format|
       format.fragment
     end

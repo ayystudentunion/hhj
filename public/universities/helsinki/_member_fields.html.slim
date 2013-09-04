@@ -1,15 +1,15 @@
 .item-row
-  div(style="display:none" id="show_when_position_deputy_selected" class="pair-select")
+  div(id="show_when_position_deputy_selected" style="#{'display:none' if @preseselected_position == :position_member}" class="pair-select")
     span.label
       = t('position_applications.show.position_member')
     - deputyless_applications_by_others = PositionApplication.where(position: :position_member, call_id: call.id).not_in(user_id: [@user._id]).find_all{|application|application.deputy.nil?}
-    = f.collection_select(:member_id, deputyless_applications_by_others, :id, :name, include_blank: true)
+    = f.collection_select(:member_id, deputyless_applications_by_others, :id, :name, include_blank: true, selected: @position_application.member_id)
 
-  div(id="show_when_position_member_selected" class="pair-select")
+  div(id="show_when_position_member_selected" style="#{'display:none' if @preseselected_position == :position_deputy}" class="pair-select")
     span.label
       = t('position_applications.show.position_deputy.zero')
     - memberless_applications_by_others = PositionApplication.where(position: :position_deputy, call_id: call.id).not_in(user_id: [@user._id]).find_all{|application|application.member.nil?}
-    = select_tag(:deputy_id, options_from_collection_for_select(memberless_applications_by_others, :id, :name), include_blank: true)
+    = select_tag(:deputy_id, options_from_collection_for_select(memberless_applications_by_others, :id, :name, selected: @position_application.deputy.try(:_id)), include_blank: true)
 
 .item-row
   .email-reminder-fields
