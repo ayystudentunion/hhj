@@ -13,7 +13,7 @@ jQuery ->
       $.gritter.add
         title: " "
         text: message
-        time: 2000
+        time: 5000
         class_name: "success"
 
 
