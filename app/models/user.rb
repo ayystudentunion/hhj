@@ -64,8 +64,8 @@ class User
     true
   end
 
-  def unconfirmed_memberships
-    self.position_applications.inject([]) {|aggregate, application| aggregate | application.alliance_memberships.where(confirmed: false)}
+  def alliance_memberships
+    self.position_applications.inject([]) {|aggregate, application| aggregate | application.alliance_memberships}
   end
 
 end

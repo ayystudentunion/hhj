@@ -51,7 +51,7 @@ fi:
       my_organs: Omat toimielimet
       create_organ: Luo uusi toimielin
       write_news_post: Kirjoita uusi tiedote tai uutinen
-      alliance_title: "Sinulla on vahvistamattomia vaaliliittokutsuja:"
+      alliance_invite_title: "Sinulla on vahvistamattomia vaaliliittokutsuja:"
     error_messages:
      title: "Puutteellinen %{class}"
   position_applications:

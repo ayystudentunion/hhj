@@ -33,14 +33,13 @@ Feature: Handling electoral alliances
     Given someone has added my application to an electoral alliance called "Alliance1"
     And I follow "Helsingin yliopisto"
     When I follow "Vaaliliitot"
-    And I follow "Alliance1"
+    And I follow "Alliance1" in the sidebar
     Then I should see my name among the unconfirmed members
     Then I should not see my name among the confirmed members
     And I should see "Sinulla on vahvistamattomia vaaliliittokutsuja"
     When I press "Liity"
     Then I should not see "Sinulla on vahvistamattomia vaaliliittoja" in the sidebar
     And I should see "Vaaliliittoon kuuluminen vahvistettiin."
-    When I refresh the page
-    And I follow "Alliance1"
+    And I follow "Alliance1" in the sidebar
     Then I should see my name among the confirmed members
     Then I should not see my name among the unconfirmed members

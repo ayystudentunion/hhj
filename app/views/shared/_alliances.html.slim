@@ -1,0 +1,22 @@
+- alliance_memberships = @user.alliance_memberships
+- if alliance_memberships.any?
+  -confirmed, unconfirmed = alliance_memberships.partition{|membership| membership.confirmed == true}
+  - if confirmed.any?
+    #confirmed_alliances
+      h3= "Vaaliliitot"
+      ul
+        -confirmed.each do |membership|
+          li
+            strong
+              = membership.alliance.creator.full_name + ": "
+            a.name.js-modal(href=alliance_path(id: membership.alliance.id)) = membership.alliance.name
+  -if unconfirmed.any?
+    #unconfirmed_alliances
+      h3= t 'shared.sidebar.alliance_invite_title'
+      ul
+        - unconfirmed.each do |membership|
+          li
+            strong
+              = membership.alliance.creator.full_name + ": "
+            a.name.js-modal(href=alliance_path(id: membership.alliance.id)) = membership.alliance.name
+            = button_to(t('alliances.join'), alliance_membership_confirm_path(alliance_membership_id: membership._id), class: :btn, remote: true)

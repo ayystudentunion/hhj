@@ -239,16 +239,27 @@ body:before
   width 240px
   float right
   padding-top 15px
-  #unconfirmed_alliances
-    border 1px solid #EB9D9E
+  #confirmed_alliances
+    border 1px solid #cacaca
+
+  #confirmed_alliances, #unconfirmed_alliances
     background #f2f2f2
     padding: 5px 8px 8px 8px
     h3
-      color:red
+      font-size: 13px
       text-align: center
-      margin-bottom: 10px
+      margin-bottom: 14px
+    li
+      margin-bottom: 5px
+  #unconfirmed_alliances
+    border 1px solid #EB9D9E
+    h3
+      color:red
     form
-      display:inline-block
+      margin-top: 5px
+    li
+      text-align: center
+      margin-bottom: 12px
   .contact-info
     span
       display:block

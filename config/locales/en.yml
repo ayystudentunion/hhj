@@ -41,7 +41,7 @@ en:
       my_organs: "My organs"
       create_organ: "Create a new organ"
       write_news_post: "Write a new announcement or news"
-      alliance_title: "You have been invited to the following alliances:"
+      alliance_invite_title: "You have been invited to the following alliances:"
     error_messages:
       title: "Invalid %{class}"
   position_applications:
