@@ -171,6 +171,7 @@ sv:
     attributes:
       alliance:
         name: "Namnet"
+        creator: ""
       organ:
         name: "Namnet på organet"
         description: "Beskrivning av organets verksamhet"

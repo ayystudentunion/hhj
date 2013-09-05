@@ -181,6 +181,7 @@ en:
         unofficial: "Unofficial"
       alliance:
         name: "Name"
+        creator: "Creator"
       call:
         title: "Title for the call for applications"
         workflow: "Workflow"

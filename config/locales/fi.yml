@@ -192,6 +192,7 @@ fi:
         unofficial: Ei lakisääteinen
       alliance:
         name: Nimi
+        creator: Perustaja
       call:
         title: Paikkahaun otsikko
         workflow: Työnkulku

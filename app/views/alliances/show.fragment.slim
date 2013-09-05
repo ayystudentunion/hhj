@@ -10,6 +10,11 @@
       p.text = @alliance.name
     .item-block
       p.label
+        = Alliance.human_attribute_name(:creator)
+        | :
+      p.text = @alliance.creator.full_name
+    .item-block
+      p.label
         = Call.model_name.human
         | :
       p.text = @alliance.call.title
