@@ -1,7 +1,7 @@
 .item-row
   div(id="show_when_position_deputy_selected" style="#{'display:none' if @preseselected_position == :position_member}" class="pair-select")
     span.label
-      = t('position_applications.show.position_member')
+      = t('position_applications.show.position_member.zero')
     - deputyless_applications_by_others = PositionApplication.where(position: :position_member, call_id: call.id).not_in(user_id: [@user._id]).find_all{|application|application.deputy.nil?}
     = f.collection_select(:member_id, deputyless_applications_by_others, :id, :name, include_blank: true, selected: @position_application.member_id)
 
