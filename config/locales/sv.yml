@@ -6,6 +6,8 @@ sv:
   introduction: "Presentation"
   modified: "redigerad"
   print: "Skriv ut"
+  possessive_prefix: "Mina"
+
   time:
     formats:
       default: "%d.%m.%Y kl. %H:%M"

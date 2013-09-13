@@ -5,6 +5,8 @@ en:
   introduction: "Introduction"
   modified: "Modified"
   print: "Print"
+  possessive_prefix: "My"
+
   time:
     formats:
       default: "%Y-%m-%d %H:%M"

@@ -9,6 +9,7 @@ fi:
   introduction: Esittely
   modified: muokattu
   print: Tulosta
+  possessive_prefix: "Omat"
 
   time:
     formats:

@@ -3,7 +3,9 @@
   -confirmed, unconfirmed = alliance_memberships.partition{|membership| membership.confirmed == true}
   - if confirmed.any?
     #confirmed_alliances
-      h3= t "mongoid.models.plurals.alliance"
+      h3
+        = I18n.t("possessive_prefix") + " "
+        = t("mongoid.models.plurals.alliance").downcase
       ul
         -confirmed.each do |membership|
           = content_tag :li, render("alliance_memberships/toggle_confirmation_link", membership: membership)
