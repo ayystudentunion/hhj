@@ -82,7 +82,9 @@ fi:
   alliances:
     confirm: "Vahvista"
     join: "Liity"
+    resign: "Eroa"
     confirmed_notification: "Vaaliliittoon kuuluminen vahvistettiin."
+    resigned_notification: "Olet eronnut vaaliliitosta."
     members: "Jäsenet"
     unconfirmed_members: "Vahvistamattomat jäsenet"
     confirmed_members: "Vahvistetut jäsenet"
@@ -175,7 +177,6 @@ fi:
       call: "Haku"
       organ: Toimielin
       position_application: Hakemus
-
       plurals:
         recommendation: "Suosittelut"
         alliance: "Vaaliliitot"

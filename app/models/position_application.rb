@@ -7,7 +7,7 @@ class PositionApplication
   belongs_to :user, inverse_of: :position_applications
 
   has_many :recommendations
-  has_many :alliance_memberships, inverse_of: :position_application
+  has_many :alliance_memberships, inverse_of: :position_application,  dependent: :destroy
 
   validates :position, presence: true, inclusion: { in: POSITION_VALUES + [:position_both]}
   validate :validate_member_and_deputy_positions

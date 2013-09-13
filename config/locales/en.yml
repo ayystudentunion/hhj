@@ -73,7 +73,9 @@ en:
   alliances:
     confirm: "Confirm"
     join: "Join"
+    resign: "Resign"
     confirmed_notification: "Alliance membership was confirmed"
+    resigned_notification: "You have resigned from the electoral union."
     members: "Members"
     unconfirmed_members: "Unconfirmed members"
     confirmed_members: "Confirmed members"

@@ -23,8 +23,7 @@ Halloped::Application.routes.draw do
       resources :position_applications
     end
 
-    resources :alliance_memberships, only: [] do
-      post 'confirm'
+    resources :alliance_memberships, only: [:update] do
     end
 
     resources :recommendations, only: [:create, :destroy]

@@ -28,7 +28,7 @@ Feature: Handling electoral alliances
     Then I should see "Markku Nophone" listed as member
     Then "nophone@helsinki.fi" should receive an email
 
-  Scenario: Confirming an alliance membership
+  Scenario: Confirming an alliance membership and resigned from an alliance
     And I am logged in as helsinki university student Anna
     Given someone has added my application to an electoral alliance called "Alliance1"
     And I follow "Helsingin yliopisto"
@@ -43,3 +43,10 @@ Feature: Handling electoral alliances
     And I follow "Alliance1" in the sidebar
     Then I should see my name among the confirmed members
     Then I should not see my name among the unconfirmed members
+    When I press "Eroa"
+    And I should see "Olet eronnut vaaliliitosta."
+    Then I should see "Sinulla on vahvistamattomia vaaliliittokutsuja"
+    And I follow "Alliance1" in the sidebar
+    Then I should see my name among the unconfirmed members
+    Then I should not see my name among the confirmed members
+

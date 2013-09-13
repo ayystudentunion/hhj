@@ -73,7 +73,9 @@ sv:
   alliances:
     confirm: "Bekräfta"
     join: "Gå med"
+    resign: "Erota"
     confirmed_notification: "Du blev medlem i valförbundet."
+    resigned_notification: "Olet eronnut vaaliliitosta."
     members: "Medlemmar"
     unconfirmed_members: "Obekräftade medlemmar"
     confirmed_members: "Bekräftade medlemmar"
