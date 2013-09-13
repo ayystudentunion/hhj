@@ -24,10 +24,8 @@ class AlliancesController < ApplicationController
   end
 
   def create
-    if student_union_employee?
-      @alliance = @user.alliances.create! params[:alliance]
-      @alliance.alliance_memberships.each{|membership| AllianceMailer.confirmation_email(membership, @university, university_path(university: @university.key)).deliver }
-    end
+    @alliance = @user.alliances.create! params[:alliance]
+    @alliance.alliance_memberships.each{|membership| AllianceMailer.confirmation_email(membership, @university, university_path(university: @university.key)).deliver }
   end
 
 end

@@ -19,6 +19,5 @@
           = render @alliances
           .hr
           .button-row
-            - if student_union_employee?
-              a.btn.js-modal(href=new_alliance_path)
-                = t('alliances.create_alliance')
+            a.btn.js-modal(href=new_alliance_path)
+              = t('alliances.create_alliance')
