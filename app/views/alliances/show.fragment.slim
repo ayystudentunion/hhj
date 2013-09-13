@@ -24,12 +24,12 @@
         | :
       p.list
         ul#unconfirmed_members
-          =@alliance.alliance_memberships.where(confirmed:false).map{|ap| content_tag :li, ap.position_application.user.full_name}.join.html_safe
+          =@alliance.alliance_memberships.where(confirmed:false).map{|ap| content_tag :li, h(ap.position_application.user.full_name)}.join.html_safe
     .item-block
       p.label
         = t('alliances.confirmed_members')
         | :
       p.list
         ul#confirmed_members
-          =@alliance.alliance_memberships.where(confirmed:true).map{|ap| ap.position_application.user.full_name}.join.html_safe
+          =@alliance.alliance_memberships.where(confirmed:true).map{|ap| content_tag :li, h(ap.position_application.user.full_name)}.join.html_safe
 
