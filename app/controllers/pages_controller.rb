@@ -81,58 +81,66 @@ class PagesController < ApplicationController
       role: "student",
       desc: "from unknown university"
     } , {
-      name: "ted",
+      name: "laura",
+      role: "student",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "raisa",
+      role: "student",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "jaakko",
+      role: "student",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "harri",
+      role: "student",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "sanna",
+      role: "student",
+      desc: "Helsingin Yliopisto"
+    } , {
+      name: "natalia",
       role: "union employee",
       desc: "Helsingin Yliopisto"
     } , {
-      name: "anni",
-      role: "union employee",
-      desc: "Helsingin Yliopisto"
-    } , {
-      name: "outi",
-      role: "union employee",
-      desc: "Helsingin Yliopisto"
-    } , {
-      name: "harmo",
-      role: "union employee",
-      desc: "Helsingin Yliopisto"
-    } , {
-      name: "erno",
-      role: "union employee",
-      desc: "Helsingin Yliopisto"
-    } , {
-      name: "miiro",
-      role: "union employee",
-      desc: "Helsingin Yliopisto"
-    } , {
-      name: "katri",
-      role: "union employee",
+      name: "emma",
+      role: "student",
       desc: "Helsingin Yliopisto"
     } , {
       name: "janne",
       role: "union employee",
       desc: "Helsingin Yliopisto"
     } , {
-      name: "reima_l",
-      role: "union employee",
+      name: "tommi",
+      role: "student",
       desc: "Helsingin Yliopisto"
     } , {
-      name: "rami",
-      role: "union employee",
+      name: "anton",
+      role: "student",
       desc: "Helsingin Yliopisto"
     } , {
-      name: "esa",
-      role: "union employee",
+      name: "katariina",
+      role: "student",
       desc: "Helsingin Yliopisto"
     } , {
-      name: "antti",
-      role: "union employee",
+      name: "sanni",
+      role: "student",
       desc: "Helsingin Yliopisto"
     } , {
-      name: "jenni",
-      role: "union employee",
+      name: "anni",
+      role: "student",
       desc: "Helsingin Yliopisto"
-    } ]
+    } , {
+      name: "salla",
+      role: "student",
+      desc: "Helsingin Yliopisto"
+  }, {
+     name: "josi",
+     role: "student",
+     desc: "Helsingin Yliopisto"
+  }]
     render :dev_users, layout: false
   end
 

@@ -160,61 +160,63 @@ class ApplicationController < ActionController::Base
         request.env["A_MOBILE"] = "+358 40 555 8888"
         request.env["A_MAIL"] = "reima@xx.fi"
         request.env["A_HOME_ORGANIZATION"] = "xx.fi"
-      elsif test_user == "ted"
-        request.env["A_PRINCIPAL_NAME"] = 'ted.apter@gmail.com'
-        request.env["A_GIVEN_NAME"] = "Ted"
-        request.env["A_SURNAME"] = "Apter"
+        role = :role_student
+      elsif test_user == "laura"
+        request.env["A_PRINCIPAL_NAME"] = 'laura.mattila@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Laura"
+        request.env["A_SURNAME"] = "Mattila"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = "ted.apter@gmail.com"
+        request.env["A_MAIL"] = 'laura.mattila@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-      elsif test_user == "anni"
-        request.env["A_PRINCIPAL_NAME"] = 'anni.haapalainen@helsinki.fi'
-        request.env["A_GIVEN_NAME"] = "Anni"
-        request.env["A_SURNAME"] = "Haapalainen"
+        role = :role_student
+      elsif test_user == "raisa"
+        request.env["A_PRINCIPAL_NAME"] = 'raisa.kiimamaa@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Raisa"
+        request.env["A_SURNAME"] = "Kiimamaa"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = 'anni.haapalainen@helsinki.fi'
+        request.env["A_MAIL"] = 'raisa.kiimamaa@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-        role = :role_union_employee
-      elsif test_user == "outi"
-        request.env["A_PRINCIPAL_NAME"] = 'outi.hakala@helsinki.fi'
-        request.env["A_GIVEN_NAME"] = "Outi"
-        request.env["A_SURNAME"] = "Hakola"
+        role = :role_student
+      elsif test_user == "jaakko"
+        request.env["A_PRINCIPAL_NAME"] = 'jaakko.teppo@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Jaakko"
+        request.env["A_SURNAME"] = "Teppo"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = 'outi.hakola@helsinki.fi'
+        request.env["A_MAIL"] = 'jaakko.teppo@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-        role = :role_union_employee
-      elsif test_user == "harmo"
-        request.env["A_PRINCIPAL_NAME"] = 'ahto.harmo@gmail.com'
-        request.env["A_GIVEN_NAME"] = "Harmo"
-        request.env["A_SURNAME"] = "Ahto"
+        role = :role_student
+      elsif test_user == "harri"
+        request.env["A_PRINCIPAL_NAME"] = 'harri.macklin@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Harri"
+        request.env["A_SURNAME"] = "Mäcklin"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = 'ahto.harmo@gmail.com'
+        request.env["A_MAIL"] = 'harri.macklin@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-        role = :role_union_employee
-      elsif test_user == "erno"
-        request.env["A_PRINCIPAL_NAME"] = 'erno.helki@helsinki.fi'
-        request.env["A_GIVEN_NAME"] = "Erno"
-        request.env["A_SURNAME"] = "Helki"
+        role = :role_student
+      elsif test_user == "sanna"
+        request.env["A_PRINCIPAL_NAME"] = 'sanna.liesto@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Sanna"
+        request.env["A_SURNAME"] = "Liesto"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = 'erno.helki@helsinki.fi'
+        request.env["A_MAIL"] = 'sanna.liesto@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-        role = :role_union_employee
-      elsif test_user == "miiro"
-        request.env["A_PRINCIPAL_NAME"] = 'miiro.jaaskelainen@helsinki.fi'
-        request.env["A_GIVEN_NAME"] = "Miiro"
-        request.env["A_SURNAME"] = "Jääskeläinen"
+        role = :role_student
+      elsif test_user == "natalia"
+        request.env["A_PRINCIPAL_NAME"] = 'natalia.bogdan@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Natalia"
+        request.env["A_SURNAME"] = "Bogdan"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = 'miiro.jaaskelainen@helsinki.fi'
+        request.env["A_MAIL"] = 'natalia.bogdan@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-        role = :role_union_employee
-      elsif test_user == "katri"
-        request.env["A_PRINCIPAL_NAME"] = 'paasihteeri@helsinki.fi'
-        request.env["A_GIVEN_NAME"] = "Katri"
-        request.env["A_SURNAME"] = "Korolainen"
+        role = :role_student
+      elsif test_user == "emma"
+        request.env["A_PRINCIPAL_NAME"] = 'emma.kuntze@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Emma"
+        request.env["A_SURNAME"] = "Kuntze"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = 'paasihteeri@helsinki.fi'
+        request.env["A_MAIL"] = 'emma.kuntze@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-        role = :role_union_employee
+        role = :role_student
       elsif test_user == "janne"
         request.env["A_PRINCIPAL_NAME"] = 'janne.lardot@hyy.fi'
         request.env["A_GIVEN_NAME"] = "Janne"
@@ -223,48 +225,63 @@ class ApplicationController < ActionController::Base
         request.env["A_MAIL"] = 'janne.lardot@hyy.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
         role = :role_union_employee
-      elsif test_user == "reima_l"
-        request.env["A_PRINCIPAL_NAME"] = 'reima.launonen@helsinki.fi'
-        request.env["A_GIVEN_NAME"] = "Reima"
-        request.env["A_SURNAME"] = "Launonen"
+      elsif test_user == "tommi"
+        request.env["A_PRINCIPAL_NAME"] = 'tommi.jalo@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Tommi"
+        request.env["A_SURNAME"] = "Jalo"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = 'reima.launonen@helsinki.fi'
+        request.env["A_MAIL"] = 'tommi.jalo@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-        role = :role_union_employee
-      elsif test_user == "rami"
-        request.env["A_PRINCIPAL_NAME"] = 'rami.lindstrom@helsinki.fi'
-        request.env["A_GIVEN_NAME"] = "Rami"
-        request.env["A_SURNAME"] = "Lindström"
+        role = :role_student
+      elsif test_user == "anton"
+        request.env["A_PRINCIPAL_NAME"] = 'anton.saressalo@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Anton"
+        request.env["A_SURNAME"] = "Saressalo"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = 'rami.lindstrom@helsinki.fi'
+        request.env["A_MAIL"] = 'anton.saressalo@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-        role = :role_union_employee
-      elsif test_user == "esa"
-        request.env["A_PRINCIPAL_NAME"] = 'esa.perkio@helsinki.fi'
-        request.env["A_GIVEN_NAME"] = "Esa"
-        request.env["A_SURNAME"] = "Perkiö"
+        role = :role_student
+      elsif test_user == "katariina"
+        request.env["A_PRINCIPAL_NAME"] = 'katariina.jarvi@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Katariina"
+        request.env["A_SURNAME"] = "Järvi"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = 'esa.perkio@helsinki.fi'
+        request.env["A_MAIL"] = 'katariina.jarvi@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-        role = :role_union_employee
-      elsif test_user == "antti"
-        request.env["A_PRINCIPAL_NAME"] = 'antti.seitamaa@helsinki.fi'
-        request.env["A_GIVEN_NAME"] = "Antti"
-        request.env["A_SURNAME"] = "Seitamaa"
+        role = :role_student
+      elsif test_user == "sanni"
+        request.env["A_PRINCIPAL_NAME"] = 'sanni.suhonen@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Sanni"
+        request.env["A_SURNAME"] = "Suhonen"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = 'antti.seitamaa@helsinki.fi'
+        request.env["A_MAIL"] = 'sanni.suhonen@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-        role = :role_union_employee
-      elsif test_user == "jenni"
-        request.env["A_PRINCIPAL_NAME"] = 'jenni.sepponen@helsinki.fi'
-        request.env["A_GIVEN_NAME"] = "Jenni"
-        request.env["A_SURNAME"] = "Sepponen"
+        role = :role_student
+      elsif test_user == "anni"
+        request.env["A_PRINCIPAL_NAME"] = 'anni.nelimarkka@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Anni"
+        request.env["A_SURNAME"] = "Nelimarkka"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = 'jenni.sepponen@helsinki.fi'
+        request.env["A_MAIL"] = 'anni.nelimarkka@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
-        role = :role_union_employee
+        role = :role_student
+      elsif test_user == "salla"
+        request.env["A_PRINCIPAL_NAME"] = 'salla.huttunen@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Salla"
+        request.env["A_SURNAME"] = "Huttunen"
+        request.env["A_MOBILE"] = ""
+        request.env["A_MAIL"] = 'salla.huttunen@helsinki.fi'
+        request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_student
+      elsif test_user == "josi"
+        request.env["A_PRINCIPAL_NAME"] = 'josi.seilonen@helsinki.fi'
+        request.env["A_GIVEN_NAME"] = "Josi"
+        request.env["A_SURNAME"] = "Seilonen"
+        request.env["A_MOBILE"] = ""
+        request.env["A_MAIL"] = 'josi.seilonen@helsinki.fi'
+        request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
+        role = :role_student
       end
-
       if role
         user = User.update_or_create_from_env(request.env)
         user.update_attributes!(role: role) if user
