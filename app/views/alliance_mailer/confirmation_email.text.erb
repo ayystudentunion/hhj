@@ -11,10 +11,12 @@ Terveisin,
 
 Hej!
 
-Samma på svenska.
+<%= @alliance.creator.full_name %>  har bjudit in dig till valförbundet <%= @alliance.name %> i följande val: <%=@call_title%>.
+Om du hör till detta valförbund kan du bekräfta detta på ingångssidan efter att du har loggat in <%= link_to "här", @url%>.
 
 Vänliga hälsningar,
 <%=@university.name %>
+
 
 Hello!
 

@@ -33,7 +33,7 @@ sv:
     index:
       choose_university: "Välj ditt universitet/studentkår"
   shared:
-    contacts_title: "Problem? Kontakta: "
+    contacts_title: "Om problem uppstår, kontakta:"
     not_logged_in_side_bar:
       title: "Vad är studentrepresentantverksamhet?"
       description_paragraph_1: "Enligt universitetslagen ska en tredjedel av medlemmarna i de beslutsfattande förvaltningsorganen vid de finländska universiteten bestå av studeranden. Alla närvaroanmälda examensstuderanden kan söka för att bli studentrepresentanter i dessa organ. Studentrepresentanterna (på finska: halloped, hallinnon opiskelijaedustaja) utses av studentkårerna."
@@ -44,12 +44,12 @@ sv:
       my_organs: "Egna organ"
       create_organ: "Skapa ett nytt organ"
       write_news_post: "Skriv ett nytt meddelande eller en ny nyhet"
-      alliance_invite_title: "Du har inbjudor till valförbund:"
+      alliance_invite_title: "Du har bjudits in till följande valförbund:"
     error_messages:
-       title: "Puutteellinen %{class}"
+       title: "Kan inte spara %{class}"
   position_applications:
-    edit_by_creating_new_notice: "Jos haluat muokata hakemustasi, voit jättää uuden hakemuksen samaan hakuun. Uusi hakemus korvaa aiemman."
-    application_to_be_deleted_notice: "Sinulla on jo yksi hakemus tähän hakuun. Jos jätät uuden hakemuksen, aiempi poistetaan. Toimintoa ei voi peruuttaa."
+    edit_by_creating_new_notice: "Om du vill redigera din ansökan kan du lämna in en ny ansökan i samma ansökningsomgång. Den nya ansökan ersätter den gamla."
+    application_to_be_deleted_notice: "Du har redan en ansökan i denna ansökningsomgång. Om du lämnar in en ny raderas den gamla. Åtgärden kan inte ångras."
     plural: "Ansökningar"
     admissible_plural: "Lämpliga"
     new:
@@ -75,19 +75,19 @@ sv:
   alliances:
     confirm: "Bekräfta"
     join: "Gå med"
-    resign: "Erota"
-    confirmed_notification: "Du blev medlem i valförbundet."
-    resigned_notification: "Olet eronnut vaaliliitosta."
+    resign: "Lämna"
+    confirmed_notification: "Du har gått med i ett valförbund"
+    resigned_notification: "Du har lämnat ett valförbund"
     members: "Medlemmar"
     unconfirmed_members: "Obekräftade medlemmar"
     confirmed_members: "Bekräftade medlemmar"
-    create_alliance: "Skapa en allians"
+    create_alliance: "Skapa ett valförbund"
     new:
-      maximum_members_selected_notice: "Olet valinnut vaaliliittoon maksimimäärän henkilöitä. Et voi valita enempää, koska haussa on vain %{number} paikkaa tarjolla."
+      maximum_members_selected_notice: "Du har valt maximalt antal medlemmar i valförbundet. Du kan inte välja flera, för det finns bara %{number} lediga platser."
     create:
-      title: "En allians var skapad"
+      title: "Valförbund skapades"
     show:
-      title: "Valförbundets uppgifter"
+      title: "Uppgifter om valförbundet"
   organs:
     new:
       title: "Skapa ett nytt organ"
@@ -161,16 +161,16 @@ sv:
       term: "Verksamhetsperiod"
       send_application: "Skicka ansökan"
   recommendations:
-    verb: 'Rekommendera'
-    reverse_verb: 'Avbryt rekommendationen'
+    verb: "Rekommendera"
+    reverse_verb: "Ångra din rekommendation"
   mongoid:
     models:
       position_application: "Hakemus"
       call: "Platssökning"
       organ: "Organ"
-      alliance: "Valförbund"
+      alliance: "Valförbundet"
       plurals:
-        alliance: "Valförbund"
+        alliance: "Valförbunden"
         recommendation: "Rekommendationer"
     attributes:
       alliance:
@@ -243,7 +243,7 @@ sv:
             email:
               blank: "E-postadressen saknas"
         position_application:
-          degree_must_be_present: "Oppiarvo vaaditaan"
+          degree_must_be_present: "Lärdomsgrad krävs"
           attributes:
             position:
               blank: "Platsen som söks har inte valts"
@@ -274,4 +274,5 @@ sv:
     thanks_for_application: Tack. Du får svaren genast.
     your_application: Din ansökan
   gritter:
-    title: "Obs"
+    title: "Observera"
+    errors_title: "Det saknas uppgifter i %{class}, kan inte spara"

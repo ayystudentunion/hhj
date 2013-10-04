@@ -7,6 +7,6 @@ class AllianceMailer < ActionMailer::Base
     @alliance = membership.alliance
     @university = university
     @url = url
-    mail(:to => membership.position_application.user.email, :subject => "Sinut on lisätty vaaliliittoon. Samma på svenska. You have been added to an electoral alliance.")
+    mail(:to => membership.position_application.user.email, :subject => "Kutsu vaaliliittoon. Inbjudan till valförbund. Invite to an electoral alliance.")
   end
 end

@@ -11,7 +11,7 @@ class ApplicationMailer < ActionMailer::Base
     @partner_application = partner_application
     @call = partner_application.call
     @university = university
-    mail(:to => email, :subject => "Muista hakea #{@call.title}-hakuun! Remember to apply for #{@call.title}! Samma på svenska!")
+    mail(:to => email, :subject => "Muista hakea #{@call.title}-hakuun! Remember to apply for #{@call.title}! Kom ihåg att lämna in ansökan till #{@call.title}!")
   end
 
 end
