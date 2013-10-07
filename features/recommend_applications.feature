@@ -9,10 +9,10 @@ Feature: Recommending a position application
     And "Helsingin yliopisto" has enabled recommendations with threshold of 1
     And I am at front page of 'Helsingin yliopisto'
     And I navigate to home page of call 'Student council board members'
-    Then I should see 1 button with text "Suosittele"
-    Then I press 'Suosittele'
-    Then I press 'Peru suosittelu'
-    Then I press 'Suosittele'
+    Then I should see 1 button with text "Aseta"
+    Then I press 'Aseta'
+    Then I press 'Peru asettaminen'
+    Then I press 'Aseta'
     And I navigate to home page of organ 'Helsingin yliopiston opiskelijahallitus'
     Then I should see "Suosittelut: 1/1"
 
@@ -22,7 +22,7 @@ Feature: Recommending a position application
     And I am at front page of 'Helsingin yliopisto'
     And I navigate to home page of call 'Student council board members'
     Then I should see "Pekka Jantunen (jäsen, varajäsen: Anna Kainulainen)"
-    And I should see 0 buttons with text "Suosittele"
+    And I should see 0 buttons with text "Aseta"
 
   Scenario: Not seeing a recommend link to for the application a user is deputy of
     Given "Helsingin yliopisto" has enabled recommendations with threshold of 1
@@ -30,10 +30,10 @@ Feature: Recommending a position application
     And I am at front page of 'Helsingin yliopisto'
     And I navigate to home page of call 'Student council board members'
     Then I should see "Pekka Jantunen (jäsen, varajäsen: Anna Kainulainen)"
-    And I should see 0 buttons with text "Suosittele"
+    And I should see 0 buttons with text "Aseta"
 
   Scenario: Not seeing a recommend link if the university hasn't enabled recommendations
     And I am logged in as a Helsinki university students' union employee
     And I am at front page of 'Helsingin yliopisto'
     And I navigate to home page of call 'Student council board members'
-    Then I should see 0 buttons with text "Suosittele"
+    Then I should see 0 buttons with text "Aseta"

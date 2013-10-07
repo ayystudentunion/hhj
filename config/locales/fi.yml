@@ -171,8 +171,8 @@ fi:
       term: Toimikausi
       send_application: Lähetä hakemus
   recommendations:
-    verb: 'Suosittele'
-    reverse_verb: 'Peru suosittelu'
+    verb: "Aseta"
+    reverse_verb: "Peru asettaminen"
   mongoid:
     models:
       call: "Haku"

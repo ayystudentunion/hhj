@@ -161,8 +161,8 @@ sv:
       term: "Verksamhetsperiod"
       send_application: "Skicka ansökan"
   recommendations:
-    verb: "Rekommendera"
-    reverse_verb: "Ångra din rekommendation"
+    verb: "Nominera"
+    reverse_verb: "Ångra din nominering"
   mongoid:
     models:
       position_application: "Hakemus"
@@ -175,7 +175,7 @@ sv:
     attributes:
       alliance:
         name: "Namnet"
-        creator: ""
+        creator: "Skapare"
       organ:
         name: "Namnet på organet"
         description: "Beskrivning av organets verksamhet"
