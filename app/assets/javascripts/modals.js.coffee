@@ -2,6 +2,7 @@
 
 @open_modal_dialog = (url) ->
   wrap = $('#modal-wrap').empty().fadeIn('fast')
+  cached.clear(); #added afterwards to refresh electoral alliances list after creating one
   # TODO: use uncached get for edit modals
   cached.get url + ".fragment", (error, data) ->
     $(data).appendTo wrap
