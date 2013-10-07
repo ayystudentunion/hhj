@@ -13,6 +13,8 @@ Feature: Recommending a position application
     Then I press 'Aseta'
     Then I press 'Peru asettaminen'
     Then I press 'Aseta'
+    When I follow the link 'Pekka Jantunen'
+    Then I should see "Suosittelut:Maija Hyyemployee (maija.hyyemployee@helsinki.fi)"
     And I navigate to home page of organ 'Helsingin yliopiston opiskelijahallitus'
     Then I should see "Suosittelut: 1/1"
 
@@ -23,6 +25,7 @@ Feature: Recommending a position application
     And I navigate to home page of call 'Student council board members'
     Then I should see "Pekka Jantunen (jäsen, varajäsen: Anna Kainulainen)"
     And I should see 0 buttons with text "Aseta"
+    When I follow the link 'Pekka Jantunen'
 
   Scenario: Not seeing a recommend link to for the application a user is deputy of
     Given "Helsingin yliopisto" has enabled recommendations with threshold of 1

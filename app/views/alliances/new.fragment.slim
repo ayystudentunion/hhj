@@ -27,7 +27,7 @@
               -rearrange_pairs_adjancently(call.position_applications).each do |application|
                 li
                   label
-                    = applicant_name_with_coapplicant_for(application)
+                    = applicant_name_with_coapplicant_for(application, false)
                     = check_box_tag("alliance[alliance_memberships_attributes][]position_application_id", application._id)
 
       .button-row
