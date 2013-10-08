@@ -84,6 +84,9 @@ sv:
     create_alliance: "Skapa ett valförbund"
     new:
       maximum_members_selected_notice: "Du har valt maximalt antal medlemmar i valförbundet. Du kan inte välja flera, för det finns bara %{number} lediga platser."
+      seat_numbers_notice: "Haussa on jaossa %{member_number} jäsenpaikkaa and %{deputy_number} varajäsenpaikkaa. "
+      pairs_title: "Hakijaparit"
+      singles_title: "Yksinäiset hakijat"
     create:
       title: "Valförbund skapades"
     show:
@@ -276,3 +279,5 @@ sv:
   gritter:
     title: "Observera"
     errors_title: "Det saknas uppgifter i %{class}, kan inte spara"
+  particles:
+      and: "och"

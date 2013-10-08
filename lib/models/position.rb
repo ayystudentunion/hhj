@@ -104,8 +104,9 @@ module Models
         @applied_position_symbol = symbol
         validates position_field_symbol, allow_nil: true, inclusion: { in:  POSITION_VALUES }
         field applied_position_field_symbol, type: Symbol
-        scope :member_applications, where(applied_position_field_symbol => :position_member)
-        scope :deputy_applications, where(applied_position_field_symbol => :position_deputy)
+        scope :member_applicants, where(applied_position_field_symbol => :position_member)
+        scope :deputy_applicants, where(applied_position_field_symbol => :position_deputy)
+        scope :paired_deputies, deputy_applicants.not_in(:member_id => [nil])
       end
     end
   end

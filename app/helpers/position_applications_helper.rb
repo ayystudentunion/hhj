@@ -1,16 +1,26 @@
 module PositionApplicationsHelper
 
   def applicant_name_with_coapplicant_for(application, show_modal_link = true)
-    translated_position = t("position_applications.show.#{application.position.to_s}.zero")
+    translated_position = translated_position(application.position)
 
     text = show_modal_link ? modal_link_to(application) : application.name
     text = content_tag(:strong, text) + " (" + translated_position.downcase
     if application.deputy?
-      text = text + ", #{t('position_applications.show.position_deputy.zero').downcase}: #{application.deputy.name}"
+      text = text + ", #{translated_position('position_deputy')}: #{application.deputy.name}"
     elsif application.member?
-      text = text + ", #{t('position_applications.show.position_member.zero').downcase}: #{application.member.name}"
+      text = text + ", #{}: #{application.member.name}"
     end
     text + ")"
+  end
+
+  def print_with_coapplicant(deputy)
+    member_text = "#{deputy.member.try(:name)} (#{translated_position('position_member')}) "
+    deputy_text = " #{deputy.name} (#{translated_position('position_deputy')})"
+    member_text + t("particles.and") + deputy_text
+  end
+
+  def translated_position(position)
+    t("position_applications.show.#{position.to_s}.zero").downcase
   end
 
   def rearrange_pairs_adjancently(position_applications)

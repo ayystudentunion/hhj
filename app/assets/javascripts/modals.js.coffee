@@ -85,9 +85,9 @@ init_modals = () ->
     $(this).parents('.email-reminder-fields').find('input[type=text]').toggle()
 
   $("#modal-wrap").delegate "#new-alliance .call select", "change", () ->
-    $('.applications_lists ul').hide()
-    $('.applications_lists ul input:checkbox').prop('checked', false)
-    $.uniform.update();
-    $("#applications-for-call-"+ $(this).val()).show()
+    $('.applications_lists .applications_for_one_call').hide()
+    $('.applications_lists input:checkbox').prop('checked', false)
+    $.uniform.update()
+    $("#applications-for-call-" + $(this).val()).show()
 
 $(init_modals)

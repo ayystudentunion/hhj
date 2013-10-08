@@ -92,6 +92,9 @@ fi:
     create_alliance: "Luo uusi vaaliliitto"
     new:
       maximum_members_selected_notice: "Olet valinnut vaaliliittoon maksimimäärän henkilöitä. Et voi valita enempää, koska haussa on vain %{number} paikkaa tarjolla."
+      seat_numbers_notice: "Haussa on jaossa %{member_number} jäsenpaikkaa and %{deputy_number} varajäsenpaikkaa. "
+      pairs_title: "Hakijaparit"
+      singles_title: "Yksinäiset hakijat"
     create:
       title: "Vaaliliitto luotu."
     show:
@@ -293,3 +296,5 @@ fi:
   gritter:
       title: "Huomio"
       errors_title: "Puuttellinen %{class}, ei voitu tallentaa"
+  particles:
+      and: "ja"

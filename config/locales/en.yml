@@ -84,6 +84,9 @@ en:
     create_alliance: "Create an electoral alliance"
     new:
       maximum_members_selected_notice: "You have selected the maximum number of members. You cannot select more because the call has only %{number} open seats."
+      seat_numbers_notice: "The call has %{member_number} available member seats and %{deputy_number} deputy seats. "
+      pairs_title: "Applicants with deputies"
+      singles_title: "Single applicants"
     create:
       title: "Alliance created"
     show:
@@ -275,3 +278,5 @@ en:
     your_application: Your application
   gritter:
     title: "Please note"
+  particles:
+    and: "and"
