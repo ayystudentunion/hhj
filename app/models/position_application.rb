@@ -2,6 +2,7 @@ class PositionApplication
   include Mongoid::Document
   include Mongoid::Timestamps
   include Models::Position
+  include Models::AppliedPosition
 
   belongs_to :call
   belongs_to :user, inverse_of: :position_applications
@@ -9,7 +10,6 @@ class PositionApplication
   has_many :recommendations
   has_many :alliance_memberships, inverse_of: :position_application,  dependent: :destroy
 
-  validates :position, presence: true, inclusion: { in: POSITION_VALUES + [:position_both]}
   validate :validate_member_and_deputy_positions
   validate :degree_present_for_administrational_call
   before_save :reset_deputy_of_for_position_member
@@ -17,6 +17,7 @@ class PositionApplication
 
   field :position, type: Symbol
   position_field :selected_as
+  applied_position_field :position
   field :deputy_of, type: String
   field :personal_statement, type: String
   field :custom, type: Hash
