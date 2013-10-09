@@ -13,8 +13,8 @@
         p.label
           = t('mongoid.models.plurals.recommendation')
           | :
-        p.text
-          = @position_application.recommendations_for_pair.map{|r| "#{h(r.user.full_name)} (#{h(r.user.email)})"}.join(',<br/>  ').html_safe
+        ul
+          = @position_application.recommendations_for_pair.map{|r| content_tag :li, "#{h(r.user.full_name)} (#{h(r.user.email)})"}.join.html_safe
     - alliance_memberships = @position_application.alliance_memberships
     -if alliance_memberships.any?
       - confirmed, unconfirmed = alliance_memberships.partition{|membership| membership.confirmed == true}

@@ -16,7 +16,7 @@ Feature: Recommending a position application
     And I press 'Peru asettaminen'
     And I press 'Aseta'
     When I follow the link 'Pekka Jantunen'
-    Then I should see "Suosittelut:Maija Hyyemployee (maija.hyyemployee@helsinki.fi)"
+    Then I should see "Suosittelut: Maija Hyyemployee (maija.hyyemployee@helsinki.fi)"
     Then I should see "Vahvistamattomat vaaliliitot: Alliance1"
     Then I should see "Vaaliliitot: Alliance2"
     And I navigate to home page of organ 'Helsingin yliopiston opiskelijahallitus'
