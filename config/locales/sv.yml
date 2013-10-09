@@ -73,6 +73,7 @@ sv:
       deputy_of: "Som suppleant för medlemmen"
       personal_statement: "Motiveringar"
   alliances:
+    unconfirmed: "Obekräftade valförbund"
     confirm: "Bekräfta"
     join: "Gå med"
     resign: "Lämna"

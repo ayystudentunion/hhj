@@ -15,6 +15,23 @@
           | :
         p.text
           = @position_application.recommendations_for_pair.map{|r| "#{h(r.user.full_name)} (#{h(r.user.email)})"}.join(',<br/>  ').html_safe
+    - alliance_memberships = @position_application.alliance_memberships
+    -if alliance_memberships.any?
+      - confirmed, unconfirmed = alliance_memberships.partition{|membership| membership.confirmed == true}
+      - if confirmed.any?
+        .item-block
+          p.label
+            = t("mongoid.models.plurals.alliance")
+            | :
+          ul
+            = confirmed.map{|membership| content_tag :li, h(membership.alliance.name)}.join.html_safe
+      - if unconfirmed.any?
+        .item-block
+          p.label
+            = t 'alliances.unconfirmed'
+            | :
+          ul
+            = unconfirmed.map{|membership| content_tag :li, h(membership.alliance.name)}.join.html_safe
     .item-block
       p.label
         = t ".apply_date"

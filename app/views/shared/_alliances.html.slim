@@ -1,6 +1,6 @@
 - alliance_memberships = @user.alliance_memberships
 - if alliance_memberships.any?
-  -confirmed, unconfirmed = alliance_memberships.partition{|membership| membership.confirmed == true}
+  - confirmed, unconfirmed = alliance_memberships.partition{|membership| membership.confirmed == true}
   - if confirmed.any?
     #confirmed_alliances
       h3

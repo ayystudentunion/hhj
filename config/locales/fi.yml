@@ -81,6 +81,7 @@ fi:
       deputy_of: Varajäseneksi jäsenelle
       personal_statement: Perustelut
   alliances:
+    unconfirmed: "Vahvistamattomat vaaliliitot"
     confirm: "Vahvista"
     join: "Liity"
     resign: "Eroa"

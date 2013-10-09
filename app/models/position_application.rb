@@ -56,10 +56,6 @@ class PositionApplication
     self.recommendations_for_pair.count >= call.recommendations_threshold
   end
 
-  def alliance
-    self.alliance_membership.alliance
-  end
-
   def pair
     if self.position == :position_deputy
       self.member

@@ -73,6 +73,7 @@ en:
       deputy_of: "Deputy to a member"
       personal_statement: "Arguments"
   alliances:
+    unconfirmed: "Unconfirmed alliances"
     confirm: "Confirm"
     join: "Join"
     resign: "Resign"
