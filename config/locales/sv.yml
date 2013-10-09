@@ -66,9 +66,11 @@ sv:
         zero: "Medlem"
       position_deputy:
         zero: "Suppleant"
+        one: "Suppleant för medlem %{name}"
         other: "Suppleant för medlem %{name}"
       position_both:
         zero: "Medlem eller suppleant"
+        one: "Medlem eller suppleant för medlem %{name}"
         other: "Medlem eller suppleant för medlem %{name}"
       deputy_of: "Som suppleant för medlemmen"
       personal_statement: "Motiveringar"

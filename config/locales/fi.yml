@@ -74,9 +74,11 @@ fi:
         zero: Jäsen
       position_deputy:
         zero: Varajäsen
+        one: "Varajäsen jäsenelle %{name}"
         other: "Varajäsen jäsenelle %{name}"
       position_both:
         zero: Jäsen tai varajäsen
+        one: "Jäsen tai varajäsen jäsenelle %{name}"
         other: "Jäsen tai varajäsen jäsenelle %{name}"
       deputy_of: Varajäseneksi jäsenelle
       personal_statement: Perustelut
@@ -278,6 +280,7 @@ fi:
     save: Tallenna
     send: Lähetä
     time_placeholder: Aseta aika
+    print_application: Ominaisuus toteuttamatta
 
   buttons:
     done_edit: Valmis

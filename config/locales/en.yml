@@ -66,9 +66,11 @@ en:
         zero: "Member"
       position_deputy:
         zero: "Deputy "
+        one: "Deputy to a member"
         other: "Deputy to a member"
       position_both:
         zero: "Member or deputy"
+        one: "Member or deputy to a member"
         other: "Member or deputy to a member"
       deputy_of: "Deputy to a member"
       personal_statement: "Arguments"
@@ -266,6 +268,7 @@ en:
     save: "Save"
     send: "Send"
     time_placeholder: "Set time"
+    print_application: Unimplemented
   buttons:
     done_edit: "Done"
   placeholders:
