@@ -121,7 +121,7 @@ Feature: Applying for a position
     And I select "Anna Kainulainen" as the member I want to be deputy of
     And I press 'Lähetä' within dialog
     And I press 'Ok'
-    Then I should see "Anna Kainulainen (varajäsen: Tiina Miettinen)" among the applications listing
+    Then I should see "Anna Kainulainen (jäsen, varajäsen: Tiina Miettinen)" among the applications listing
   #you cannot recommend your own applications and applications without a deputy. Thus:
     Then I should see 0 buttons with text "Suosittele"
 
@@ -136,14 +136,14 @@ Feature: Applying for a position
     And I press 'Lähetä hakemus'
     When I fill in form 'Lähetä hakemus':
       | label      | value                                     |
-      | Haen       | Jäseneksi                             |
+      | Haen       | Jäseneksi                                 |
       | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
       | Oppiarvo   | VTT                                       |
 
     And I select "Anna Kainulainen" as the deputy I want to be member of
     And I press 'Lähetä' within dialog
     And I press 'Ok'
-    Then I should see "Tiina Miettinen (varajäsen: Anna Kainulainen)" among the applications listing
+    Then I should see "Tiina Miettinen (jäsen, varajäsen: Anna Kainulainen)" among the applications listing
   #you cannot recommend your own applications and applications without a deputy. Thus:
     Then I should see 0 buttons with text "Suosittele"
 
@@ -173,15 +173,18 @@ Feature: Applying for a position
   @javascript
   Scenario: Submitting an invalid application in Helsinki university
     Given there is open call for applications called 'Student council board members' in Helsingin yliopisto
+    And "Helsingin yliopisto" has enabled recommendations with threshold of 3
     And I am logged in as helsinki university student Anna
+    And there is a member application for call 'Student council board members' by student Tiina of Helsingin yliopisto
     And I am at front page of 'Helsingin yliopisto'
     And I navigate to home page of call 'Student council board members'
     When I press 'Lähetä hakemus'
     Then I should see Helsinki uni student Anna's name, phone number and email-address in the application form
     When I fill in form 'Lähetä hakemus':
       | label      | value                                     |
-      | Haen       | Jäseneksi                                 |
+      | Haen       | Varajäseneksi                             |
       | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
+    And I select "Tiina Miettinen" as the member I want to be deputy of
     And I press 'Lähetä' within dialog
     Then I should see "Puutteellinen hakemus Oppiarvo vaaditaan"
     When I fill in form 'Lähetä hakemus':
@@ -190,5 +193,9 @@ Feature: Applying for a position
     And I press 'Lähetä' within dialog
     Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
       | label    | value     |
-      | Haen     | Jäseneksi |
+      | Haen     | Varajäseneksi |
       | Oppiarvo | VTT       |
+    When I press 'Ok'
+    Then I should see "Tiina Miettinen (jäsen, varajäsen: Anna Kainulainen)" among the applications listing
+
+

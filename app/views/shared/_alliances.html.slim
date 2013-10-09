@@ -1,0 +1,17 @@
+- alliance_memberships = @user.alliance_memberships
+- if alliance_memberships.any?
+  - confirmed, unconfirmed = alliance_memberships.partition{|membership| membership.confirmed == true}
+  - if confirmed.any?
+    #confirmed_alliances
+      h3
+        = I18n.t("possessive_prefix") + " "
+        = t("mongoid.models.plurals.alliance").downcase
+      ul
+        -confirmed.each do |membership|
+          = content_tag :li, render("alliance_memberships/toggle_confirmation_link", membership: membership)
+  - if unconfirmed.any?
+    #unconfirmed_alliances
+      h3= t 'shared.sidebar.alliance_invite_title'
+      ul
+        - unconfirmed.each do |membership|
+          = content_tag :li, render("alliance_memberships/toggle_confirmation_link", membership: membership)

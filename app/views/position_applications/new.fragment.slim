@@ -17,12 +17,15 @@
         p.phone = @user.phone
     .hr
     = form_for @position_application, url: call_position_applications_path(format: :fragment), class: 'send-application' do |f|
+      - @preseselected_position = @position_application.position.nil? ? :position_member : @position_application.position
       = f.hidden_field :user_id
       .item-row
         span.label = t '.apply_to'
         span.buttons
-          - [:position_member, :position_deputy, :position_both].each do |position_value|
-            - selected = position_value == :position_member
+          - positions = [:position_member, :position_deputy]
+          - positions.push(:position_both) unless @position_application.call.administrational?
+          - positions.each do |position_value|
+            - selected = @preseselected_position == position_value
             label.btn(class="#{'checked' if selected}")
               = f.radio_button :position, position_value, checked: selected
               span = PositionApplication.human_attribute_name(position_value)

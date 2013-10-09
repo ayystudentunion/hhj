@@ -6,7 +6,7 @@ class Alliance
   belongs_to :call
   belongs_to :creator, class_name: "User", inverse_of: :alliances
 
-  has_many :alliance_memberships, :autosave => true
+  has_many :alliance_memberships, :autosave => true, dependent: :destroy, inverse_of: :alliance
 
   validates_presence_of :creator
   validate :applications_must_belong_to_the_call
@@ -26,7 +26,5 @@ class Alliance
        errors.add(:call, :does_not_match_applications) unless mp.position_application.call == self.call
     end
   end
-
-
 
 end

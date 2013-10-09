@@ -1,0 +1,5 @@
+strong
+  = membership.alliance.creator.full_name + " : "
+a.name.js-modal(href=alliance_path(id: membership.alliance.id)) = membership.alliance.name
+- text = membership.confirmed? ? t('alliances.resign') : t('alliances.join')
+= button_to(text, alliance_membership_path(id: membership._id, alliance_membership: {confirmed: !membership.confirmed?}), method: :put, remote: true, class: :btn)

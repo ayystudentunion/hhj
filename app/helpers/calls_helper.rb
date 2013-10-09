@@ -31,7 +31,7 @@ module CallsHelper
   end
 
   def show_recommendations?(call)
-     @user && @user.university.recommendations_threshold.present? && call.administrational?
+    @user && @university.recommendations_threshold.present? && call.administrational?
   end
 
   protected

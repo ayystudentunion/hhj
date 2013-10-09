@@ -90,4 +90,24 @@ module Models
       has_position :member, :position_member
     end
   end
+  module AppliedPosition
+    extend ActiveSupport::Concern
+
+    POSITION_VALUES = [:position_member, :position_deputy, :position_both]
+
+    module ClassMethods
+
+      def applied_position_field_symbol
+        @applied_position_symbol
+      end
+      def applied_position_field(symbol)
+        @applied_position_symbol = symbol
+        validates position_field_symbol, allow_nil: true, inclusion: { in:  POSITION_VALUES }
+        field applied_position_field_symbol, type: Symbol
+        scope :member_applicants, where(applied_position_field_symbol => :position_member)
+        scope :deputy_applicants, where(applied_position_field_symbol => :position_deputy)
+        scope :paired_deputies, deputy_applicants.not_in(:member_id => [nil])
+      end
+    end
+  end
 end

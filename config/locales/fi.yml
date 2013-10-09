@@ -9,6 +9,7 @@ fi:
   introduction: Esittely
   modified: muokattu
   print: Tulosta
+  possessive_prefix: "Omat"
 
   time:
     formats:
@@ -51,7 +52,7 @@ fi:
       my_organs: Omat toimielimet
       create_organ: Luo uusi toimielin
       write_news_post: Kirjoita uusi tiedote tai uutinen
-      alliance_title: "Sinulla on vahvistamattomia vaaliliittokutsuja:"
+      alliance_invite_title: "Sinulla on vahvistamattomia vaaliliittokutsuja:"
     error_messages:
      title: "Puutteellinen %{class}"
   position_applications:
@@ -69,7 +70,8 @@ fi:
       title: Hakemus
       apply_date: Hakemus jätetty
       apply_position: Haettu paikka
-      position_member: Jäsen
+      position_member:
+        zero: Jäsen
       position_deputy:
         zero: Varajäsen
         other: "Varajäsen jäsenelle %{name}"
@@ -79,15 +81,21 @@ fi:
       deputy_of: Varajäseneksi jäsenelle
       personal_statement: Perustelut
   alliances:
+    unconfirmed: "Vahvistamattomat vaaliliitot"
     confirm: "Vahvista"
     join: "Liity"
+    resign: "Eroa"
     confirmed_notification: "Vaaliliittoon kuuluminen vahvistettiin."
+    resigned_notification: "Olet eronnut vaaliliitosta."
     members: "Jäsenet"
     unconfirmed_members: "Vahvistamattomat jäsenet"
     confirmed_members: "Vahvistetut jäsenet"
     create_alliance: "Luo uusi vaaliliitto"
     new:
       maximum_members_selected_notice: "Olet valinnut vaaliliittoon maksimimäärän henkilöitä. Et voi valita enempää, koska haussa on vain %{number} paikkaa tarjolla."
+      seat_numbers_notice: "Haussa on jaossa %{member_number} jäsenpaikkaa and %{deputy_number} varajäsenpaikkaa. "
+      pairs_title: "Hakijaparit"
+      singles_title: "Yksinäiset hakijat"
     create:
       title: "Vaaliliitto luotu."
     show:
@@ -167,14 +175,13 @@ fi:
       term: Toimikausi
       send_application: Lähetä hakemus
   recommendations:
-    verb: 'Suosittele'
-    reverse_verb: 'Peru suosittelu'
+    verb: "Aseta"
+    reverse_verb: "Peru asettaminen"
   mongoid:
     models:
       call: "Haku"
       organ: Toimielin
       position_application: Hakemus
-
       plurals:
         recommendation: "Suosittelut"
         alliance: "Vaaliliitot"
@@ -191,6 +198,7 @@ fi:
         unofficial: Ei lakisääteinen
       alliance:
         name: Nimi
+        creator: Perustaja
       call:
         title: Paikkahaun otsikko
         workflow: Työnkulku
@@ -289,3 +297,5 @@ fi:
   gritter:
       title: "Huomio"
       errors_title: "Puuttellinen %{class}, ei voitu tallentaa"
+  particles:
+      and: "ja"

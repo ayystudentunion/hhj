@@ -239,16 +239,26 @@ body:before
   width 240px
   float right
   padding-top 15px
-  #unconfirmed_alliances
-    border 1px solid #EB9D9E
+  #confirmed_alliances
+    border 1px solid #cacaca
+
+  #confirmed_alliances, #unconfirmed_alliances
     background #f2f2f2
     padding: 5px 8px 8px 8px
     h3
-      color:red
+      font-size: 13px
       text-align: center
-      margin-bottom: 10px
+      margin-bottom: 14px
+    li
+      margin-bottom: 5px
+      text-align: center
+      margin-bottom: 12px
     form
-      display:inline-block
+      margin-top: 5px
+  #unconfirmed_alliances
+    border 1px solid #EB9D9E
+    h3
+      color:red
   .contact-info
     span
       display:block
@@ -943,9 +953,11 @@ a.btn:active, input.btn:active
           width 160px
           font-weight bold
           vertical-align top
-        .text, ul.list-of-recipients
+        .text, ul
           display inline-block
           width 370px
+        ul
+          margin-top: 6px
         ul.list-of-recipients
           li
             line-height 18px
@@ -1052,7 +1064,8 @@ a.add-members
 form.new_application
   textarea.wide
     margin 14px 0 10px 0
-
+select
+  border: 1px solid #cacaca
 form.new_organ, form.edit_organ
   input.wide
     margin 14px 0 10px 0

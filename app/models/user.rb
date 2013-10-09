@@ -6,7 +6,7 @@ class User
 
   has_many :position_applications
   has_many :members
-  has_many :recommendations
+  has_many :recommendations,  dependent: :destroy
   has_many :alliances, inverse_of: :creator
 
   belongs_to :university, class_name: 'Organization'
@@ -64,8 +64,8 @@ class User
     true
   end
 
-  def unconfirmed_memberships
-    self.position_applications.inject([]) {|aggregate, application| aggregate | application.alliance_memberships.where(confirmed: false)}
+  def alliance_memberships
+    self.position_applications.inject([]) {|aggregate, application| aggregate | application.alliance_memberships}
   end
 
 end

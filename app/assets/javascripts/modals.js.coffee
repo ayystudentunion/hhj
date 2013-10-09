@@ -2,6 +2,7 @@
 
 @open_modal_dialog = (url) ->
   wrap = $('#modal-wrap').empty().fadeIn('fast')
+  cached.clear(); #added afterwards to refresh electoral alliances list after creating one
   # TODO: use uncached get for edit modals
   cached.get url + ".fragment", (error, data) ->
     $(data).appendTo wrap
@@ -84,9 +85,9 @@ init_modals = () ->
     $(this).parents('.email-reminder-fields').find('input[type=text]').toggle()
 
   $("#modal-wrap").delegate "#new-alliance .call select", "change", () ->
-    $('.applications_lists ul').hide()
-    $('.applications_lists ul input:checkbox').prop('checked', false)
-    $.uniform.update();
-    $("#applications-for-call-"+ $(this).val()).show()
+    $('.applications_lists .applications_for_one_call').hide()
+    $('.applications_lists input:checkbox').prop('checked', false)
+    $.uniform.update()
+    $("#applications-for-call-" + $(this).val()).show()
 
 $(init_modals)

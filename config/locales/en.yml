@@ -5,6 +5,8 @@ en:
   introduction: "Introduction"
   modified: "Modified"
   print: "Print"
+  possessive_prefix: "My"
+
   time:
     formats:
       default: "%Y-%m-%d %H:%M"
@@ -41,7 +43,7 @@ en:
       my_organs: "My organs"
       create_organ: "Create a new organ"
       write_news_post: "Write a new announcement or news"
-      alliance_title: "You have been invited to the following alliances:"
+      alliance_invite_title: "You have been invited to the following alliances:"
     error_messages:
       title: "Invalid %{class}"
   position_applications:
@@ -60,7 +62,8 @@ en:
       title: "Application"
       apply_date: "Application date"
       apply_position: "Applied position "
-      position_member: "Member"
+      position_member:
+        zero: "Member"
       position_deputy:
         zero: "Deputy "
         other: "Deputy to a member"
@@ -70,15 +73,21 @@ en:
       deputy_of: "Deputy to a member"
       personal_statement: "Arguments"
   alliances:
+    unconfirmed: "Unconfirmed alliances"
     confirm: "Confirm"
     join: "Join"
+    resign: "Resign"
     confirmed_notification: "Alliance membership was confirmed"
+    resigned_notification: "You have resigned from the electoral union."
     members: "Members"
     unconfirmed_members: "Unconfirmed members"
     confirmed_members: "Confirmed members"
     create_alliance: "Create an electoral alliance"
     new:
       maximum_members_selected_notice: "You have selected the maximum number of members. You cannot select more because the call has only %{number} open seats."
+      seat_numbers_notice: "The call has %{member_number} available member seats and %{deputy_number} deputy seats. "
+      pairs_title: "Applicants with deputies"
+      singles_title: "Single applicants"
     create:
       title: "Alliance created"
     show:
@@ -156,8 +165,8 @@ en:
       term: "Term"
       send_application: "Send application"
   recommendations:
-      verb: 'Recommend'
-      reverse_verb: 'Cancel recommendation'
+      verb: "Nominate"
+      reverse_verb: "Cancel nomination"
   mongoid:
     models:
       position_application: "Application"
@@ -165,7 +174,7 @@ en:
       call: "Call"
       organ: "Organ"
       plurals:
-        alliance: "Electroral alliances"
+        alliance: "Electoral alliances"
         recommendation: "Recommendation"
     attributes:
       organ:
@@ -180,6 +189,7 @@ en:
         unofficial: "Unofficial"
       alliance:
         name: "Name"
+        creator: "Creator"
       call:
         title: "Title for the call for applications"
         workflow: "Workflow"
@@ -269,3 +279,5 @@ en:
     your_application: Your application
   gritter:
     title: "Please note"
+  particles:
+    and: "and"

@@ -10,25 +10,34 @@
           =f.label :name, Alliance.human_attribute_name(:name)
         = f.text_field :name
 
+      -selected_call = @calls.first
       -if @calls.any?
         .inline-block
           h3
             =f.label :call_id, Call.model_name.human
-          -calls = Call.all
-          -selected_call = @calls.first
           div.call = f.collection_select :call_id, @calls, "_id", "title", :selected => selected_call._id
 
-        h3= t "alliances.members"
         div(class="applications_lists" )
           - @calls.each do |call|
             - style = call == selected_call ? "" :  "display:none"
-            - max_members = call.total_number_of_selected.to_s
-            ul(id="applications-for-call-#{call._id}" class="checkboxes_with_limited_selectable" style=style data-error-message=t('alliances.new.maximum_members_selected_notice', number: max_members) data-max-limit=max_members)
-              -rearrange_pairs_adjancently(call.position_applications).each do |application|
-                li
-                  label
-                    = applicant_name_with_coapplicant_for(application)
-                    = check_box_tag("alliance[alliance_memberships_attributes][]position_application_id", application._id)
+            div(class="applications_for_one_call" id="applications-for-call-#{call._id}" style=style)
+              - paired_deputies = call.position_applications.paired_deputies
+              - singles = call.position_applications - paired_deputies - paired_deputies.map{|d| d.member}
+              p = t "alliances.new.seat_numbers_notice", member_number: call.member_amount, deputy_number: call.deputy_amount
+              h3= t "alliances.new.pairs_title"
+              ul
+                - call.position_applications.paired_deputies.each do |application|
+                  li
+                    label
+                      = print_with_coapplicant(application)
+                      = check_box_tag("application_ids[]", application._id)
+              h3= t "alliances.new.singles_title"
+              ul
+                - singles.each do |application|
+                  li
+                    label
+                      = application.name + " (#{translated_position(application.position)})"
+                      = check_box_tag("application_ids[]", application._id)
 
       .button-row
         a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
