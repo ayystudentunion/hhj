@@ -20,8 +20,7 @@
         div(class="applications_lists" )
           - @calls.each do |call|
             - style = call == selected_call ? "" :  "display:none"
-            - max_members = call.total_number_of_selected.to_s
-            div(class="applications_for_one_call" id="applications-for-call-#{call._id}" style=style data-error-message=t('alliances.new.maximum_members_selected_notice', number: max_members) data-max-limit=max_members)
+            div(class="applications_for_one_call" id="applications-for-call-#{call._id}" style=style)
               - paired_deputies = call.position_applications.paired_deputies
               - singles = call.position_applications - paired_deputies - paired_deputies.map{|d| d.member}
               p = t "alliances.new.seat_numbers_notice", member_number: call.member_amount, deputy_number: call.deputy_amount
