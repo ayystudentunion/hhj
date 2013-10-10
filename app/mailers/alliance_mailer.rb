@@ -9,4 +9,14 @@ class AllianceMailer < ActionMailer::Base
     @url = url
     mail(:to => membership.position_application.user.email, :subject => "Kutsu vaaliliittoon. Inbjudan till valförbund. Invite to an electoral alliance.")
   end
+
+  class Job
+    include SuckerPunch::Job
+
+    def perform(membership_id, university_id, url)
+      membership = ::AllianceMembership.find(membership_id)
+      university = ::Organization.find(university_id)
+      ::AllianceMailer.confirmation_email(membership, university, url).deliver
+    end
+  end
 end
