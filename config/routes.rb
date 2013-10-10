@@ -1,5 +1,6 @@
 Halloped::Application.routes.draw do
 
+  match "/fail" => "pages#fail"
   match "/logout" => "pages#logout"
   match "/env" => "pages#environment"
   unless Rails.env.production?

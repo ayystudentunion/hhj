@@ -36,5 +36,9 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
+  task :symlink_shared do
+    run "ln -s #{shared_path}/config/airbrake.key #{release_path}/config/"
+  end
 end
 
+before "deploy:restart", "deploy:symlink_shared"
