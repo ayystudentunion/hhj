@@ -11,7 +11,7 @@ class RecommendationsController < ApplicationController
   end
 
   def destroy
-    @recommendation = Recommendation.find(params[:id])
+    @recommendation = @user.recommendations.find(params[:id])
     @position_application = @recommendation.position_application
     @recommendation.destroy
     respond_to do |format|
