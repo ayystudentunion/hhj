@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def update
     @call= Call.find(params[:call_id])
-    @user.update_attributes! params[:user]
+    @user.update_attributes! params[:user].slice(:phone)
     @position_application = PositionApplication.new
   end
 end
