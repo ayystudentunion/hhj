@@ -5,12 +5,6 @@
         .call-details
           = custom_pdf_image_tag('logo.png')
           = render "printed_call", call: @call
-          .item-row
-            span.label #{t "position_applications.plural"}:
-            - if @position_applications.any?
-              -rearrange_pairs_adjancently(@position_applications).each do |application|
-                li
-                  span = applicant_name_with_coapplicant_for(application, false)
           .logo(style="background: url('#{custom_path_in_pdf('logo.png')}');")
 
       span

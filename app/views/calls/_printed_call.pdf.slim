@@ -19,3 +19,15 @@ h2
   span.text = call.appointment_place_and_date
 p.description
   = call.description
+.item_row
+  h3
+    = t "position_applications.plural"
+  ul
+    -call.position_applications.each do |application|
+      li
+        =render file: "/position_applications/_position_application_details.html.slim", locals: { position_application: application }, handlers: [:slim]
+
+.item-row
+  h3.label #{t "mongoid.attributes.call.appointment_place_and_date"}:
+  span.text = call.appointment_place_and_date
+.hr

@@ -3,53 +3,8 @@
     h2
       = t ".title"
       a.close-modal(href='#')
-    .item-block
-      .applicant-details
-        p.name = @position_application.user.full_name.force_encoding('UTF-8')
-        p.email = @position_application.user.email
-        p.phone = @position_application.user.phone
-    - if @position_application.call.administrational?
-      .item-block
-        p.label
-          = t('mongoid.models.plurals.recommendation')
-          | :
-        ul
-          = @position_application.recommendations_for_pair.map{|r| content_tag :li, "#{h(r.user.full_name)} (#{h(r.user.email)})"}.join.html_safe
-    - alliance_memberships = @position_application.alliance_memberships
-    -if alliance_memberships.any?
-      - confirmed, unconfirmed = alliance_memberships.partition{|membership| membership.confirmed == true}
-      - if confirmed.any?
-        .item-block
-          p.label
-            = t("mongoid.models.plurals.alliance")
-            | :
-          ul
-            = confirmed.map{|membership| content_tag :li, h(membership.alliance.name)}.join.html_safe
-      - if unconfirmed.any?
-        .item-block
-          p.label
-            = t 'alliances.unconfirmed'
-            | :
-          ul
-            = unconfirmed.map{|membership| content_tag :li, h(membership.alliance.name)}.join.html_safe
-    .item-block
-      p.label
-        = t ".apply_date"
-        | :
-      p.text = formatted_date @position_application.created_at
-    .item-block
-      p.label
-        = t ".apply_position"
-        | :
-      p.text = @position_application.call.title + ', ' + t(".#{@position_application.position}", count: @position_application.deputy_of_safe_length, name: @position_application.deputy_of)
-    - if custom_template_exists?('fields_show')
-      = render partial: custom_file('fields_show'), formats: :html
-    .item-block
-      p.label
-        = t '.personal_statement'
-        | :
-      textarea.wide-text(readonly="readonly") = @position_application.personal_statement
-
+    = render file: "/position_applications/_position_application_details", locals: { position_application: @position_application }, :handlers => [:slim], formats: [:html]
     .button-row
       a.unimplemented.print(href='#') = t "modals.print_application"
       a.close-modal.btn(href='#') = t "modals.close"
+
