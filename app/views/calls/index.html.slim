@@ -20,4 +20,8 @@ div#open-calls
       .tab
         .open-calls
           = render @calls
-        a.show-more.btn.unimplemented(href='#') Näytä lisää
+          -if student_union_employee?
+            .hr
+            .button-row
+              a.print.popup(href=calls_path(format: :pdf)) = t :print
+              a.show-more.btn.unimplemented(href='#') Näytä lisää
