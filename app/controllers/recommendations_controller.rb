@@ -15,7 +15,6 @@ class RecommendationsController < ApplicationController
     @position_application = @recommendation.position_application
     @recommendation.destroy
     respond_to do |format|
-      format.html { redirect_to call_path(id: @position_application.call._id) }
       format.js { render "refresh_recommend_link" }
     end
   end
