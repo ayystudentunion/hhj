@@ -27,7 +27,6 @@ class OrgansController < ApplicationController
     @organ = selected_organization.organs.build params[:organ]
 
     respond_to do |format|
-      format.json { render json: @organ.to_json }
       format.html do
         if @organ.save
           redirect_to action: :show, id: @organ._id
