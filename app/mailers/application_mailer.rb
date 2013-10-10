@@ -14,4 +14,14 @@ class ApplicationMailer < ActionMailer::Base
     mail(:to => email, :subject => "Muista hakea #{@call.title}-hakuun! Remember to apply for #{@call.title}! Kom ihåg att lämna in ansökan till #{@call.title}!")
   end
 
+  class ReminderJob
+    include SuckerPunch::Job
+
+    def perform(partner_id, university_id, email)
+      a = ::PositionApplication.find(partner_id)
+      u = ::Organization.find(university_id)
+      ::ApplicationMailer.reminder_to_send_application(a, u, email).deliver
+    end
+  end
+
 end

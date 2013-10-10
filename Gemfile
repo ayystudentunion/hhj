@@ -26,6 +26,7 @@ gem 'valid_email'
 gem 'redcarpet'
 gem "gritter", "1.0.3"
 gem "airbrake", ">=3.1.12"
+gem "sucker_punch"
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'
