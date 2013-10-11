@@ -180,6 +180,7 @@ fi:
   recommendations:
     verb: "Aseta"
     reverse_verb: "Peru asettaminen"
+    description: "Ylioppilaskunnan vaaliohjesäännön 21 § mukaisesti %{count} kyseisessä vaalissa vaalikelpoisella henkilöllä on oikeus asettaa ehdokkaita vaaliin. Itseään ei voi asettaa ehdokkaaksi."
   mongoid:
     models:
       call: "Haku"

@@ -170,6 +170,7 @@ sv:
   recommendations:
     verb: "Nominera"
     reverse_verb: "Ångra din nominering"
+    description: "Enligt studentkårens valreglemente 21 § har %{count} personer som är valberättigade i ifrågavarande val rätt att ställa upp kandidater i valet. Man kan inte fungera som kandidatuppställare för sig själv."
   mongoid:
     models:
       position_application: "Hakemus"
