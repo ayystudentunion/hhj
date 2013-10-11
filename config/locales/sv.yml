@@ -88,9 +88,9 @@ sv:
     create_alliance: "Skapa ett valförbund"
     new:
       maximum_members_selected_notice: "Du har valt maximalt antal medlemmar i valförbundet. Du kan inte välja flera, för det finns bara %{number} lediga platser."
-      seat_numbers_notice: "Haussa on jaossa %{member_number} jäsenpaikkaa and %{deputy_number} varajäsenpaikkaa. "
-      pairs_title: "Hakijaparit"
-      singles_title: "Yksinäiset hakijat"
+      seat_numbers_notice: "I denna ansökningsomgång söks %{member_number} ordinarie representanter och %{deputy_number} suppleant. "
+      pairs_title: "Kandidatpar"
+      singles_title: "Ensamma kandidater"
     create:
       title: "Valförbund skapades"
     show:
@@ -158,7 +158,7 @@ sv:
       members:
         zero: "inga ordinarie medlem"
         one: "en ordinarie medlem"
-        other: "%{count} ordinarie medlemmar"
+        other: a
       deputies:
         zero: "inga suppleanter"
         one: "en suppleant"
