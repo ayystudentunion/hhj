@@ -30,7 +30,7 @@ class PositionApplicationsController < ApplicationController
     @position_application.deputy =  PositionApplication.find(params[:deputy_id]) if params[:deputy_id].present?
     if @position_application.save
       if params[:send_reminder_switch] && params[:send_reminder_switch] == "yes" &&  params[:reminder_email].present?
-        ApplicationMailer::ReminderJob.new.async.perform(@position_application.id, @university.id, params[:reminder_email])
+        ApplicationMailer::EmailNotificationJob.new.async.perform(@position_application.id, @university.id, params[:reminder_email])
       end
       render "create"
     else

@@ -73,13 +73,16 @@ init_modals = () ->
 
     return false
 
-  $("#modal-wrap").delegate "#send-application .radio input", "change", () ->
+  $("#modal-wrap").delegate "#send-application .radio input", "change", (e) ->
     $(this).parents('.item-row:first').find("#position_application_deputy_of").toggle($(this).val() == 'position_deputy')
+    event.preventDefault()
 
-  $("#modal-wrap").delegate "#send-application-for-administrational-call .radio input", "change", () ->
+  $("#modal-wrap").delegate "#send-application-for-administrational-call .radio input", "change", (e) ->
     pair_selects = $(this).parents('.item-row:first').find(".pair-select")
     shown_id = "show_when_#{$(this).val()}_selected"
     $(pair_select).toggle(shown_id == $(pair_select).attr('id')) for pair_select in pair_selects
+    event.preventDefault()
+
 
   $("#modal-wrap").delegate "#send-application-for-administrational-call  .email-reminder-fields input[type=checkbox]", "change", () ->
     $(this).parents('.email-reminder-fields').find('input[type=text]').toggle()
