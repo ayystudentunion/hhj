@@ -1,0 +1,33 @@
+h2
+  a(href=call_path(id:call._id))
+    = call.title
+  a.edit-icon.unimplemented(href='#')
+.item-row
+  span.label #{t "calls.show.looking_for"}:
+  span.text = formatted_looking_for(call)
+.item-row
+  span.label #{t "mongoid.attributes.call.date_open"}:
+  span.text = formatted_date call.date_open
+.item-row
+  span.label #{t "calls.show.submission_dates"}:
+  span.text = formatted_date call.date_start, end_date: call.date_end
+.item-row
+  span.label #{t "calls.show.term"}:
+  span.text = formatted_date call.term_start, end_date: call.term_end
+.item-row
+  span.label #{t "mongoid.attributes.call.appointment_place_and_date"}:
+  span.text = call.appointment_place_and_date
+p.description
+  = call.description
+.item_row
+  h3
+    = t "position_applications.plural"
+  ul
+    -call.position_applications.each do |application|
+      li
+        =render file: "/position_applications/_position_application_details.html.slim", locals: { position_application: application }, handlers: [:slim]
+
+.item-row
+  h3.label #{t "mongoid.attributes.call.appointment_place_and_date"}:
+  span.text = call.appointment_place_and_date
+.hr
