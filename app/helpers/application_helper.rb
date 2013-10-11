@@ -106,6 +106,10 @@ module ApplicationHelper
     (translations || {})[locale.to_s] || ''
   end
 
+  def old_browser_warning
+    raw "<!--[if lt IE 9]>#{content_tag(:p, t(:old_ie), :id => 'old-ie')}<![endif]-->"
+  end
+
   protected
 
   def format_date(date, options)

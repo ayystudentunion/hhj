@@ -1,4 +1,5 @@
 en:
+  old_ie: Your browser is not supported (old Internet Explorer)
   logged_in_as: "You are logged in as"
   login_with_haka: "Login with your university credentials"
   front_page: "Front page"

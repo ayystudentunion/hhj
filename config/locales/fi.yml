@@ -1,5 +1,6 @@
 
 fi:
+  old_ie: Selaimesi ei ole tuettu (vanha Internet Explorer)
   logged_in_as: Olet kirjautuneena nimellä
   login_with_haka: Kirjaudu yliopistosi käyttäjätunnuksilla
   university_not_supported: Yliopistoasi ei ole vielä järjestelmässä
