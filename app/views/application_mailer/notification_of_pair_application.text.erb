@@ -10,7 +10,8 @@ Ystävällisin terveisin,
 
 Hej!
 
-Detta är en påminnelse som <%=@partner_application.name%> har skickat för att du ska komma ihåg att lämna in din ansökan till <%=@call.title%>. Du kan ansöka <%=link_to "här", root_path%>.
+<%= @partner_application.name %> har lämnat in en ansökan i Halloped-systemet och har valt dig till sin medkandidat. För att ni ska kunna bli valda behöver ni <%= @university.recommendations_threshold %>
+kandidatuppställare. Du kan logga in i Halloped-systemet  <%=link_to "här", root_path%>.q
 
 Med vänlig hälsning,
 <%=@university.name%>
