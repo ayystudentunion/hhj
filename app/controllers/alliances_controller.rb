@@ -17,7 +17,7 @@ class AlliancesController < ApplicationController
 
   def new
     @alliance = @user.alliances.build
-    @calls = Call.all.find_all{|call| call.administrational? }
+    @calls = Call.all.find_all { |call| call.administrational? }
     respond_to do |format|
       format.fragment
     end
@@ -32,8 +32,12 @@ class AlliancesController < ApplicationController
   end
 
   def alliance_memberships_attributes(application_ids)
-    with_coapplicants = (application_ids | application_ids.map{|id| PositionApplication.find(id).member_id})
-    {"alliance_memberships_attributes" => with_coapplicants.find_all(&:present?).map{|id| {"position_application_id" => id} }}
+    if application_ids
+      with_coapplicants = (application_ids | application_ids.map { |id| PositionApplication.find(id).member_id })
+      {"alliance_memberships_attributes" => with_coapplicants.find_all(&:present?).map { |id| {"position_application_id" => id} }}
+    else
+      {}
+    end
   end
 
 end
