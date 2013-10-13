@@ -3,7 +3,7 @@
 Hei!
 
 <%= @alliance.creator.full_name %> on kutsunut sinut <%= @alliance.name %>-vaaliliittoon <%=@call_title%> vaaleissa.
-Jos kuulut kyseiseen vaaliliittoon, voit vahvistaa liittymisen kirjautumisen jälkeen etusivulla <%= link_to "täällä", @url%>.
+Jos kuulut kyseiseen vaaliliittoon, voit vahvistaa liittymisen kirjautumisen jälkeen etusivulla <%= (link_to "täällä", @url).html_safe%>.
 
 Terveisin,
 <%=@university.name %>
@@ -12,7 +12,7 @@ Terveisin,
 Hej!
 
 <%= @alliance.creator.full_name %>  har bjudit in dig till valförbundet <%= @alliance.name %> i följande val: <%=@call_title%>.
-Om du hör till detta valförbund kan du bekräfta detta på ingångssidan efter att du har loggat in <%= link_to "här", @url%>.
+Om du hör till detta valförbund kan du bekräfta detta på ingångssidan efter att du har loggat in <%= (link_to "här", @url).html_safe%>.
 
 Vänliga hälsningar,
 <%=@university.name %>
@@ -21,7 +21,7 @@ Vänliga hälsningar,
 Hello!
 
 <%= @alliance.creator.full_name %> has invited you to an electoral alliance called <%= @alliance.name %> in the election for <%=@call_title%>.
-If you really belong to this alliance, please confirm it after signin on <%= link_to "this page", @url%>.
+If you really belong to this alliance, please confirm it after signin on <%= (link_to "this page", @url).html_safe%>.
 
 Kind regards,
 <%=@university.name %>

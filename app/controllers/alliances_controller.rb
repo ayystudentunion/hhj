@@ -26,7 +26,7 @@ class AlliancesController < ApplicationController
   def create
     @alliance = @user.alliances.create! params[:alliance].merge(alliance_memberships_attributes(params[:application_ids]))
     @alliance.alliance_memberships.each do |membership|
-      url = university_path(university: @university.key)
+      url = university_url(university: @university.key)
       AllianceMailer::Job.new.async.perform(membership.id, @university.id, url)
     end
   end
