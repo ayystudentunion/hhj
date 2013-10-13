@@ -60,5 +60,6 @@ div#single-call
           .item-row
             #recommendations
               h2.label #{t "position_applications.plural"}
+              p= t "recommendations.description", count: @university.recommendations_threshold
               = render("calls/applications_list")
           div.clear

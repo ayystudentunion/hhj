@@ -10,7 +10,11 @@ class AllianceMembership
   validates_presence_of :position_application
 
   def user_name
-    self.position_application.user.full_name
+    self.user.full_name
+  end
+
+  def user
+    self.position_application.user
   end
 
 end
