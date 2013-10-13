@@ -1,6 +1,6 @@
 # coding: utf-8
 class AllianceMailer < ActionMailer::Base
-  default from: "admin@halloped.fi"
+  default :from => '"Halloped" <admin@halloped.fi>'
   
   def confirmation_email(membership, university, url)
     @call_title = membership.position_application.call.title

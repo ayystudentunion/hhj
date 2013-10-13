@@ -1,7 +1,7 @@
 # coding: utf-8
 class ApplicationMailer < ActionMailer::Base
   add_template_helper(PositionApplicationsHelper)
-  default from: "admin@halloped.fi"
+  default :from => '"Halloped" <admin@halloped.fi>'
 
   def sent_email(application)
     @application = application
