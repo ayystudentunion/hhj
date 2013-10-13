@@ -37,6 +37,8 @@ Halloped::Application.routes.draw do
     end
 
     resources :organizations
+
+    match "/global_status" => "pages#global_status"
   end
 
 
