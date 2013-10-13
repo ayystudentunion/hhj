@@ -2,7 +2,7 @@
 
 Hei!
 
-Tämä on muistutus, jonka <%= @partner_application.name %> lähetti sinulle, jotta muistaisit hakea <%=@call.title%>-hakuun. Voit hakea <%=link_to "täällä", root_path%>.
+Tämä on muistutus, jonka <%= @partner_application.name %> lähetti sinulle, jotta muistaisit hakea <%=@call.title%>-hakuun. Voit hakea täällä: <%=root_url%>.
 
 Terveisin,
 <%=@university.name %>
@@ -11,7 +11,7 @@ Terveisin,
 
 Hej!
 
-Detta är en påminnelse som <%=@partner_application.name%> har skickat för att du ska komma ihåg att lämna in din ansökan till <%=@call.title%>. Du kan ansöka <%=link_to "här", root_path%>..
+Detta är en påminnelse som <%=@partner_application.name%> har skickat för att du ska komma ihåg att lämna in din ansökan till <%=@call.title%>. Du kan ansöka här: <%=root_url%>.
 
 Med vänlig hälsning,
 <%=@university.name%>
@@ -21,7 +21,7 @@ Med vänlig hälsning,
 Hello!
 
 This is reminder sent to you by <%=@partner_application.name%> so that you would remember to leave an application for the currently ongoing call <%=@call.title%>. You
-can do that <%=link_to "here", root_path%>.
+can do that here: <%=root_url%>.
 
 Kind regards,
 <%=@university.name%>
