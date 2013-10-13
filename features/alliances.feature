@@ -32,6 +32,17 @@ Feature: Handling electoral alliances
     And "anna.kainulainen@helsinki.fi" should receive an email
     And "pekka@helsinki.fi" should receive an email
 
+  Scenario: Creating an an empty alliance
+    Given I am logged in as a Helsinki university students' union employee
+    And there is an application with deputy for "Student council board members"
+    When I am at front page of 'Helsingin yliopisto'
+    And I follow "Vaaliliitot"
+    And I follow "Luo uusi vaaliliitto"
+    And I fill in "MyAlliance" for "Nimi"
+    And I select "Student council board members" from "Haku"
+    And I press "Lähetä"
+    Then I should see "Vaaliliitto luotu"
+
   Scenario: Confirming an alliance membership and resigned from an alliance
     And I am logged in as helsinki university student Anna
     Given someone has added my application to an electoral alliance called "Alliance1"
