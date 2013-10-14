@@ -128,8 +128,8 @@ sv:
       not_selected: "De som inte valdes"
       archive_call: "Arkivera sökningen"
     show:
-      has_open_positions: "Representantplatserna till organet är ännu ofyllda. Öppna en ny platssökning nu?"
-      new_call_for_applications: "Öppna en ny platssökning"
+      has_open_positions: "Representantplatserna i organet har inte fyllts ännu. Skapa en ny ansökning nu?"
+      new_call_for_applications: "Skapa ny ansökning"
       organization: "Organisationsenhet"
       show_archived_calls: "Visa de arkiverade sökningarna"
       hide_archived_calls: "Dölj de arkiverade sökningarna"
@@ -178,11 +178,11 @@ sv:
       organ: "Organ"
       alliance: "Valförbundet"
       plurals:
-        alliance: "Valförbunden"
+        alliance: "Valförbund"
         recommendation: "Rekommendationer"
     attributes:
       alliance:
-        name: "Namnet"
+        name: "Namn"
         creator: "Skapare"
       organ:
         name: "Namnet på organet"
@@ -199,7 +199,7 @@ sv:
         workflow: "Arbetsförlopp"
         workflow_normal: "Normalt förfarande"
         workflow_administration_election: "Förvaltningsvalsförfarande"
-        workflow_proposal_available: "Förslaget framlagt -förfarande"
+        workflow_proposal_available: "Förslag framlagt-förfarande"
         member_amount: "Ordinarie medlemmar"
         deputy_amount: "Suppleanter"
         quota_information: "Tilläggsinformation för  behandlare (antalet kvotplatser o.s.v.)"

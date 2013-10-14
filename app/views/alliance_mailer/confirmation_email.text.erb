@@ -20,8 +20,9 @@ Vänliga hälsningar,
 
 Hello!
 
-<%= @alliance.creator.full_name %> has invited you to an electoral alliance called <%= @alliance.name %> in the election for <%=@call_title%>.
-If you really belong to this alliance, please confirm it after signin on this page: <%= @url%>.
+Hi! <%= @alliance.creator.full_name %> has invited you to <%= @alliance.name %> electoral coalition in the <%=@call_title%> elections.
+If you belong to the electoral coalition in question, you can confirm your involvement on the front page after logging in on this page:
+<%= @url%>.
 
 Kind regards,
 <%=@university.name %>

@@ -44,14 +44,14 @@ en:
       my_organs: "My organs"
       create_organ: "Create a new organ"
       write_news_post: "Write a new announcement or news"
-      alliance_invite_title: "You have been invited to the following alliances:"
+      alliance_invite_title: "You have been invited to the following coalitions:"
     error_messages:
       title: "Invalid %{class}"
   position_applications:
     plural: "Applications"
     admissible_plural: "Admissible"
-    edit_by_creating_new_notice: "If you want to edit your application, just leave a new application for the same call. The newer application will replace the older one."
-    application_to_be_deleted_notice: "You have already submitted an application for this call. If you create another application for this call, the older application wil be removed. This action can't be reversed."
+    edit_by_creating_new_notice: "If you want to edit your application, you can submit a new application for the same call for applications. A new application replaces the previous one."
+    application_to_be_deleted_notice: "You already have one application in this call for applications. If you submit a new application, the previous one will be deleted. This command cannot be cancelled."
 
     new:
       title: "Send application"
@@ -76,25 +76,25 @@ en:
       deputy_of: "Deputy to a member"
       personal_statement: "Arguments"
   alliances:
-    unconfirmed: "Unconfirmed alliances"
+    unconfirmed: "Unconfirmed coalitions"
     confirm: "Confirm"
     join: "Join"
     resign: "Resign"
-    confirmed_notification: "Alliance membership was confirmed"
-    resigned_notification: "You have resigned from the electoral union."
+    confirmed_notification: "You have joined the electoral coalition"
+    resigned_notification: "You have resigned from the electoral coalition."
     members: "Members"
     unconfirmed_members: "Unconfirmed members"
     confirmed_members: "Confirmed members"
-    create_alliance: "Create an electoral alliance"
+    create_alliance: "Create electoral coalition"
     new:
-      maximum_members_selected_notice: "You have selected the maximum number of members. You cannot select more because the call has only %{number} open seats."
+      maximum_members_selected_notice: "You have selected the maximum number of people for the electoral coalition. You cannot select any more because the call only has %{number} positions available."
       seat_numbers_notice: "The call has %{member_number} available member seats and %{deputy_number} deputy seats. "
       pairs_title: "Applicants with deputies"
       singles_title: "Single applicants"
     create:
-      title: "Alliance created"
+      title: "Electoral coalition created"
     show:
-      title: "Electoral alliance details"
+      title: "Electoral coalition details"
   organs:
     new:
       title: "Create a new organ"
@@ -174,11 +174,11 @@ en:
   mongoid:
     models:
       position_application: "Application"
-      alliance: "Electoral alliance"
+      alliance: "Electoral coalition"
       call: "Call"
       organ: "Organ"
       plurals:
-        alliance: "Electoral alliances"
+        alliance: "Electoral coalitions"
         recommendation: "Recommendation"
     attributes:
       organ:
@@ -251,7 +251,7 @@ en:
             email:
               blank: "Email is missing"
         position_application:
-          degree_must_be_present: "Degree is missing"
+          degree_must_be_present: "Degree is required"
           attributes:
             position:
               blank: "Applied position is not selected"
