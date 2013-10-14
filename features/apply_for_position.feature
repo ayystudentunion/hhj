@@ -100,7 +100,7 @@ Feature: Applying for a position
       | Haen  | Varajäseneksi |
     Then "test@test.com" should receive an email with the following body:
     """
-    This is reminder sent to you by Tiina Miettinen
+    This is a reminder that Tiina Miettinen sent to you
     """
     And I press 'Ok'
     Then I should see "Tiina Miettinen" among the applications listing
