@@ -170,7 +170,7 @@ en:
   recommendations:
       verb: "Nominate"
       reverse_verb: "Cancel nomination"
-      description: "According to the section 21 of the election code of the student union, %{count} people eligible to stand as candidates can nominate. You cannot nominate yourself."
+      description: "In accordance with Section 21 of the Student Union's election regulations, %{count} persons eligible in the elections in question are entitled to nominate candidates for the elections. They cannot nominate themselves as candidates."
   mongoid:
     models:
       position_application: "Application"
