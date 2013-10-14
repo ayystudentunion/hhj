@@ -18,6 +18,13 @@ class Organ
   field :manager_email, type: String
   field :appointer, type: String
   field :official, type: Boolean
+  field :status, type: Symbol, default: :visible
+
+  scope :visible, where(status: :visible)
+
+  def self.visible_by_university(university)
+    visible.select{|o| o.belongs_to?(university)}
+  end
 
   def self.by_university(university)
     all.select{|o| o.belongs_to?(university)}
