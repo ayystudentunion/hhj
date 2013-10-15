@@ -1,6 +1,6 @@
 class PositionApplicationsController < ApplicationController
 
-  before_filter :authorize_call_admin, except: [:new, :create]
+  before_filter :authorize_call_admin, except: [:new, :create, :show]
   before_filter :authorize_applicant, only: [:new, :create]
   before_filter { |c| c.find_call_from_current_university :call_id }
   before_filter :find_application_from_call, except: [:index, :new, :create]

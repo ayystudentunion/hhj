@@ -6,7 +6,7 @@ Feature: Recommending a position application
 
   Scenario: Recommending another application and looking and one application's information card
     Given the member application has one confirmed alliance and one unconfirmed alliance
-    And I am logged in as a Helsinki university students' union employee
+    And I am logged in as helsinki university student Tiina
     And "Helsingin yliopisto" has enabled recommendations with threshold of 1
     And I am at front page of 'Helsingin yliopisto'
     And I navigate to home page of call 'Student council board members'
@@ -16,9 +16,11 @@ Feature: Recommending a position application
     And I press 'Peru asettaminen'
     And I press 'Aseta'
     When I follow the link 'Pekka Jantunen'
-    Then I should see "Suosittelut: Maija Hyyemployee (maija.hyyemployee@helsinki.fi)"
+    Then I should see "Suosittelut: Tiina Miettinen (tiina.miettinen@helsinki.fi)"
     Then I should see "Vahvistamattomat vaaliliitot: Alliance1"
     Then I should see "Vaaliliitot: Alliance2"
+    Given I am logged in as a Helsinki university students' union employee
+    And I am at front page of 'Helsingin yliopisto'
     And I navigate to home page of organ 'Helsingin yliopiston opiskelijahallitus'
     Then I should see "Suosittelut: 1/1"
 
