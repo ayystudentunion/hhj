@@ -14,4 +14,5 @@ fi:
       available_true: Kyllä
       available_false: Ei
       degree_programme: Tutkinto-ohjelma
+      degree: Oppiarvo
       experience_in_student_associations: Aiempi kokemus järjestötoiminnasta

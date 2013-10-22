@@ -10,6 +10,11 @@
       | :
     ul
       = position_application.recommendations_for_pair.map{|r| content_tag :li, "#{h(r.user.full_name)} (#{h(r.user.email)})"}.join.html_safe
+  .item-block
+    p.label
+      = t "helsinki.fields_show.degree"
+      | :
+    p.text = position_application.custom['degree'] if position_application.custom
 - alliance_memberships = position_application.alliance_memberships
 -if alliance_memberships.any?
   - confirmed, unconfirmed = alliance_memberships.partition{|membership| membership.confirmed == true}
