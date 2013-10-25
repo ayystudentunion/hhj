@@ -19,15 +19,16 @@ h2
   span.text = call.appointment_place_and_date
 p.description
   = call.description
-.item_row
-  h3
-    = t "position_applications.plural"
-  ul
-    -call.position_applications.each do |application|
-      li
-        =render file: "/position_applications/_position_application_details.html.slim", locals: { position_application: application }, handlers: [:slim]
 
-.item-row
-  h3.label #{t "mongoid.attributes.call.appointment_place_and_date"}:
-  span.text = call.appointment_place_and_date
-.hr
+- applications = call.position_applications
+-if applications.any?
+  .item_row
+    h3 #{t "position_applications.plural"}:
+
+    table
+      thead
+        tr
+          =[User.human_attribute_name(:name), User.human_attribute_name(:email), t("helsinki.fields_show.degree")].map{|item| content_tag :td, item }.join.html_safe
+      -rearrange_pairs_adjacently(call.position_applications).each do |application|
+        tr
+          =render file: "/position_applications/_table_row", locals: { position_application: application }, handlers: [:slim]

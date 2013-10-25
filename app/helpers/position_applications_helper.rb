@@ -23,7 +23,7 @@ module PositionApplicationsHelper
     t("position_applications.show.#{position.to_s}.zero").downcase
   end
 
-  def rearrange_pairs_adjancently(position_applications)
+  def rearrange_pairs_adjacently(position_applications)
     with_member = position_applications.partition{|application| application.member_id != nil}[0]
     pairs = with_member.map do|deputy|
       member= position_applications.select{|application| application.id == deputy.member_id }

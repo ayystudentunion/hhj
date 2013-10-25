@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe PositionApplicationsHelper do
 
-  describe "rearrange_pairs_adjancently method" do
+  describe "rearrange_pairs_adjacently method" do
 
     before(:each) do
       user1 = FactoryGirl.create(:helsinki_uni_student_anna)
@@ -17,12 +17,12 @@ describe PositionApplicationsHelper do
     end
 
     it "rearranges the application correctly" do
-      arranged = rearrange_pairs_adjancently([@deputy, @member, @pairless])
+      arranged = rearrange_pairs_adjacently([@deputy, @member, @pairless])
       arranged.should == [@member, @deputy, @pairless]
       end
 
     it "rearranges the application correctly" do
-      arranged = rearrange_pairs_adjancently([@deputy, @pairless, @member])
+      arranged = rearrange_pairs_adjacently([@deputy, @pairless, @member])
       arranged.should == [@member, @deputy, @pairless]
     end
   end

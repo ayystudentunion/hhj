@@ -220,6 +220,7 @@ fi:
         appointment_place_and_date: Päätöksenteon paikka ja ajankohta
         description: Kuvaus hallopedin työnkuvasta
       user:
+        name: Nimi
         first_name: Etunimi
         last_name: Sukunimi
         email: Sähköpostiosoite

@@ -211,6 +211,7 @@ sv:
         appointment_place_and_date: "Plats och tidpunkt för beslutsfattandet"
         description: "Beskrivning av hallopedens arbetsbeskrivning"
       user:
+        name: "Namn"
         first_name: "Förnamn"
         last_name: "Efternamn"
         email: "E-postadress"
