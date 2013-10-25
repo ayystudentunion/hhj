@@ -11,7 +11,11 @@ class CallsController < ApplicationController
     respond_to do |format|
       format.html
       format.fragment { render "index", formats: ['html'], layout: false }
-      format.pdf {render pdf: "calls", encoding: 'utf-8', layout: true}
+      format.pdf do
+        #quickfix before different scopes are properly supported in this action:
+        @calls = Call.by_university @university
+        render pdf: "calls", encoding: 'utf-8', layout: true
+      end
     end
   end
 

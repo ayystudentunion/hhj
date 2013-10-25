@@ -33,6 +33,9 @@ class Call
   def self.open_by_university(university)
     open.select{|c| c.organ.belongs_to?(university)}
   end
+  def self.by_university(university)
+    Call.all.select{|c| c.organ.belongs_to?(university)}
+  end
 
   def recommendations_threshold
     self.organ.organization.recommendations_threshold || self.university.recommendations_threshold || 0

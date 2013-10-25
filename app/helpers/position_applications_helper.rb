@@ -6,9 +6,9 @@ module PositionApplicationsHelper
     text = show_modal_link ? modal_link_to(application) : application.name
     text = content_tag(:strong, text) + " (" + translated_position.downcase
     if application.deputy?
-      text = text + ", #{translated_position('position_deputy')}: #{application.deputy.name}"
+      text = text + ", #{translated_position('position_deputy')}: #{application.deputy.try(:name)}"
     elsif application.member?
-      text = text + ", #{}: #{application.member.name}"
+      text = text + ", #{}: #{application.member.try(:name)}"
     end
     text + ")"
   end
