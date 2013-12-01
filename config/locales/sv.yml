@@ -158,7 +158,7 @@ sv:
       members:
         zero: "inga ordinarie medlem"
         one: "en ordinarie medlem"
-        other: a
+        other: "%{count} ordinarie medlem"
       deputies:
         zero: "inga suppleanter"
         one: "en suppleant"

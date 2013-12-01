@@ -158,11 +158,11 @@ en:
       members:
         zero: "no members"
         one: "one member"
-        other: "members"
+        other: "%{count} members"
       deputies:
         zero: "no deputies"
         one: "one deputy"
-        other: "deputies"
+        other: "%{count} deputies"
       submission_dates: "Application period"
       description: "Description"
       term: "Term"
