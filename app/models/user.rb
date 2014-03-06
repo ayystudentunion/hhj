@@ -53,7 +53,7 @@ class User
       principal_name: env["A_PRINCIPAL_NAME"],
       first_name: env["A_GIVEN_NAME"],
       last_name: env["A_SURNAME"],
-      email: env["A_MAIL"],
+      email: env["A_MAIL"].split(";")[0], # Fix for strange Åbo Akademi syntax 
       phone: env["A_MOBILE"],
       university_domain: env["A_HOME_ORGANIZATION"],
       edu_data: env.select{|k,v| k.starts_with?("A_")}
