@@ -37,7 +37,7 @@ class User
     return nil unless principal_name and domain
     university = Organization.university_by_key domain.split(".").first
     return nil unless university
-    user = university.users.where(:$or => [{email: attrs[:email]}, {principal_name: principal_name}]).first
+    user = university.users.where(:$or => [{email: attrs[:email].split(";")[0]}, {principal_name: principal_name}]).first
     if user.nil?
       user = university.users.create! attrs
     else
@@ -53,7 +53,7 @@ class User
       principal_name: env["A_PRINCIPAL_NAME"],
       first_name: env["A_GIVEN_NAME"],
       last_name: env["A_SURNAME"],
-      email: env["A_MAIL"].split(";")[0], # Fix for strange Åbo Akademi syntax 
+      email: env["A_MAIL"],
       phone: env["A_MOBILE"],
       university_domain: env["A_HOME_ORGANIZATION"],
       edu_data: env.select{|k,v| k.starts_with?("A_")}
