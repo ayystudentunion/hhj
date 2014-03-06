@@ -32,6 +32,7 @@ class User
   def self.update_or_create_from_env(env)
     attrs = env_to_attributes(env)
     attrs.delete(:phone) unless PhoneNumberChecker.is_ok?(attrs[:phone])
+    attrs[:email] = attrs[:email].split(";")[0] unless attrs[:email].nil? # Fix Abo Akademi problem
     principal_name = attrs[:principal_name]
     domain = attrs[:university_domain]
     return nil unless principal_name and domain
