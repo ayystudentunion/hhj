@@ -278,7 +278,7 @@ class ApplicationController < ActionController::Base
         request.env["A_GIVEN_NAME"] = "Josi"
         request.env["A_SURNAME"] = "Seilonen"
         request.env["A_MOBILE"] = ""
-        request.env["A_MAIL"] = 'josi.seilonen@helsinki.fi'
+        request.env["A_MAIL"] = 'josi1.seilonen@helsinki.fi;josi2.seilonen@helsinki.fi'
         request.env["A_HOME_ORGANIZATION"] = "helsinki.fi"
         role = :role_student
       end
