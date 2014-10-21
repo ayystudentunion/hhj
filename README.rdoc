@@ -17,7 +17,7 @@ Install node.js
 
 Clone the Halloped Project Repository
 
-  git clone git@github.com:ayy/hhj.git
+  git clone git@github.com:ayystudentunion/hhj.git
 
 Install Gem Dependencies
 
