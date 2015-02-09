@@ -50,7 +50,7 @@ end
 gem 'jquery-rails', '2.1'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.10.0'
+  gem 'rspec-rails', '2.99.0'
   gem 'letter_opener', '~> 1.0.0'
   gem 'email_spec', '~> 1.2.1'
 end
