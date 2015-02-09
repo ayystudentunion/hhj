@@ -13,6 +13,6 @@ describe StatusTracker do
 
     FactoryGirl.create :recommendation, position_application: pa
 
-    StatusTracker.global_success.should == 1
+    expect(StatusTracker.global_success).to eq(1)
   end
 end

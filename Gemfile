@@ -17,7 +17,7 @@ gem 'mongoid-tree', '>= 0.7'
 gem 'slim', '~> 1.1.1'
 # gem 'sprockets'
 # gem 'railties'
-gem 'factory_girl_rails', '~> 3.0.0', require: false
+gem 'factory_girl_rails'#, '~> 3.0.0', require: false
 gem 'wkhtmltopdf-binary', '>=0.9.9.1'
 gem 'wicked_pdf', '>=0.9.6'
 gem 'rails_admin', '> 0.4.3'
@@ -50,23 +50,23 @@ end
 gem 'jquery-rails', '2.1'
 
 group :development, :test do
-  gem 'rspec-rails', '2.99.0'
-  gem 'letter_opener', '~> 1.0.0'
-  gem 'email_spec', '~> 1.2.1'
+  gem 'rspec-rails', '~> 3.2'
+  gem 'letter_opener'#, '~> 1.0.0'
+  gem 'email_spec'#, '~> 1.2.1'
 end
 
 group :test do
-  gem 'rspec_multi_matchers', '~> 1.2.1'
+  gem 'rspec_multi_matchers'#, '~> 1.2.1'
   gem 'cucumber-rails', '~> 1.3.0', require: false
   # restricting until capybara-webkit releases a version compatible with 2.1
-  gem 'capybara', '~> 2.0.3'
-  gem 'capybara-webkit', '~> 0.14.2'
-  gem 'capybara-screenshot', '~> 0.3.6'
+  gem 'capybara'#, '~> 2.0.3'
+  gem 'capybara-webkit'#, '~> 0.14.2'
+  gem 'capybara-screenshot'#, '~> 0.3.6'
   # database_cleaner is not required, but highly recommended
-  gem 'database_cleaner', '>= 1.0.0'
-  gem 'launchy', '~> 2.1.0'
-  gem 'wait_for', '~> 0.1.1'
-  gem 'debugger', '~> 1.6.1'
+  gem 'database_cleaner'#, '>= 1.0.0'
+  gem 'launchy'#, '~> 2.1.0'
+  gem 'wait_for'#, '~> 0.1.1'
+  gem 'debugger'#, '~> 1.6.1'
 end
 
 # To use ActiveModel has_secure_password

@@ -7,19 +7,19 @@ describe 'position_applications/show.fragment.slim' do
 
   it 'should render for application for normal application' do
     test_partial
-    rendered.should_not match(/translation_missing/)
+    expect(rendered).not_to match(/translation_missing/)
   end
 
   it 'should render with one char deputy' do
     application.deputy_of = '-'
     test_partial
-    rendered.should_not match(/translation_missing/)
+    expect(rendered).not_to match(/translation_missing/)
   end
 
   it 'should have translation missing for unknown position' do
     application.position = 'foobar'
     test_partial
-    rendered.should match(/translation_missing/)
+    expect(rendered).to match(/translation_missing/)
   end
 
   def test_partial

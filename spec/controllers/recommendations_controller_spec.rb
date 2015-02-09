@@ -24,8 +24,8 @@ describe RecommendationsController do
 
     it 'should allow destroy' do
       post :destroy, id: recommendation.id, format: :js
-      response.should be_success
-      Recommendation.count.should == 0
+      expect(response).to be_success
+      expect(Recommendation.count).to eq(0)
     end
   end
 end
