@@ -22,16 +22,16 @@ gem 'wkhtmltopdf-binary', '>=0.9.9.1'
 gem 'wicked_pdf', '>=0.9.6'
 gem 'rails_admin', '> 0.4.3'
 gem 'devise', '~> 2.0.4'
-gem 'valid_email'
-gem 'redcarpet'
-gem "gritter", "1.0.3"
-gem "airbrake", ">=3.1.12"
-gem "sucker_punch"
+gem 'valid_email', '~> 0.0.4'
+gem 'redcarpet', '~> 2.2.2'
+gem 'gritter', '1.0.3'
+gem 'airbrake', '>=3.1.12'
+gem 'sucker_punch', '~> 1.0.2'
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'
   gem 'better_errors', '~> 0.9.0'
-  gem 'meta_request'
+  gem 'meta_request', '~> 0.2.7'
 end
 
 # Gems used only for assets and not required
@@ -79,8 +79,8 @@ end
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
-gem 'rvm-capistrano'
+gem 'capistrano', '~> 2.11.2'
+gem 'rvm-capistrano', '~> 1.2.7'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
