@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
-gem 'rails'
+gem 'rails', '3.2.21'
 
 # Bundle edge Rails instead:
 # gem 'rails', git: 'git://github.com/rails/rails.git'
 
-gem 'execjs'
+gem 'execjs', '~> 1.4.0'
 
 # was a git dependency before, locked down only to avoid upgrading a big leap for now
 gem 'mongoid', '~> 3.0.23'
@@ -14,14 +14,14 @@ gem 'bson_ext', '>= 1.5'
 gem 'mongoid_rails_migrations', '>= 0.0.13'
 gem 'mongoid-tree', '>= 0.7'
 # gem 'therubyracer'
-gem 'slim'
+gem 'slim', '~> 1.1.1'
 # gem 'sprockets'
 # gem 'railties'
-gem 'factory_girl_rails', require: false
+gem 'factory_girl_rails', '~> 3.0.0', require: false
 gem 'wkhtmltopdf-binary', '>=0.9.9.1'
 gem 'wicked_pdf', '>=0.9.6'
 gem 'rails_admin', '> 0.4.3'
-gem 'devise'
+gem 'devise', '~> 2.0.4'
 gem 'valid_email'
 gem 'redcarpet'
 gem "gritter", "1.0.3"
@@ -30,7 +30,7 @@ gem "sucker_punch"
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'
-  gem 'better_errors'
+  gem 'better_errors', '~> 0.9.0'
   gem 'meta_request'
 end
 
@@ -38,7 +38,7 @@ end
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '>= 3.2.3'
-  gem 'stylus'
+  gem 'stylus', '~> 0.5.0'
   # locked down to resolve conflicts for bundle update rails_admin
   gem 'coffee-rails', '~> 3.2.1'
 
@@ -50,23 +50,23 @@ end
 gem 'jquery-rails', '2.1'
 
 group :development, :test do
-  gem 'rspec-rails', '>= 2.6'
-  gem "letter_opener"
-  gem 'email_spec'
+  gem 'rspec-rails', '~> 2.10.0'
+  gem 'letter_opener', '~> 1.0.0'
+  gem 'email_spec', '~> 1.2.1'
 end
 
 group :test do
-  gem 'rspec_multi_matchers'
-  gem 'cucumber-rails', require: false
+  gem 'rspec_multi_matchers', '~> 1.2.1'
+  gem 'cucumber-rails', '~> 1.3.0', require: false
   # restricting until capybara-webkit releases a version compatible with 2.1
-  gem 'capybara', '~>2.0.0'
-  gem 'capybara-webkit'
-  gem 'capybara-screenshot'
+  gem 'capybara', '~> 2.0.3'
+  gem 'capybara-webkit', '~> 0.14.2'
+  gem 'capybara-screenshot', '~> 0.3.6'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner', '>= 1.0.0'
-  gem 'launchy'
-  gem 'wait_for'
-  gem 'debugger'
+  gem 'launchy', '~> 2.1.0'
+  gem 'wait_for', '~> 0.1.1'
+  gem 'debugger', '~> 1.6.1'
 end
 
 # To use ActiveModel has_secure_password
