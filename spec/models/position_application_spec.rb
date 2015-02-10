@@ -1,7 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PositionApplication, type: :model do
-#describe PositionApplication do
+describe PositionApplication do
 
   context '(when checking eligibility for election)' do
     it 'is eligible if there are no rules set' do
@@ -35,14 +34,16 @@ RSpec.describe PositionApplication, type: :model do
       expect(pplication.selected_as).to eq(nil)
     end
 
-    check_all_self_references_are_nil = lambda do
-      PositionApplication.all.each do |position_application|
-        #position_application.deputy.should == nil
-        #position_application.member.should == nil
-        expect(position_application.deputy).to eq(nil)
-        expect(position_application.member).to eq(nil)
+    let (:check_all_self_references_are_nil) {
+      lambda do
+        PositionApplication.all.each do |position_application|
+          #position_application.deputy.should == nil
+          #position_application.member.should == nil
+          expect(position_application.deputy).to eq(nil)
+          expect(position_application.member).to eq(nil)
+        end
       end
-    end
+    }
 
     it 'can mark applicant as not selected' do
       application = FactoryGirl.create(:kirjakerho_application)
