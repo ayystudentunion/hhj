@@ -30,13 +30,16 @@ describe PositionApplication do
   context '(when marking applicants for selection)' do
 
     PositionApplication.all.each do | application |
-      application.selected_as.should == nil
+      #application.selected_as.should == nil
+      expect(pplication.selected_as).to eq(nil)
     end
 
     check_all_self_references_are_nil = lambda do
       PositionApplication.all.each do |position_application|
-        position_application.deputy.should == nil
-        position_application.member.should == nil
+        #position_application.deputy.should == nil
+        #position_application.member.should == nil
+        expect(position_application.deputy).to eq(nil)
+        expect(position_application.member).to eq(nil)
       end
     end
 
