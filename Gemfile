@@ -51,22 +51,22 @@ gem 'jquery-rails', '2.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2'
-  gem 'letter_opener'#, '~> 1.0.0'
-  gem 'email_spec'#, '~> 1.2.1'
+  gem 'letter_opener', '~> 1.3.0'
+  gem 'email_spec', '~> 1.6.0'
 end
 
 group :test do
   # gem 'rspec_multi_matchers'#, '~> 1.2.1'
   gem 'cucumber-rails', '~> 1.3.0', require: false
   # restricting until capybara-webkit releases a version compatible with 2.1
-  gem 'capybara'#, '~> 2.0.3'
+  gem 'capybara', '~> 2.4.4'
   # gem 'capybara-webkit'#, '~> 0.14.2'
   # gem 'capybara-screenshot'#, '~> 0.3.6'
   # database_cleaner is not required, but highly recommended
-  gem 'database_cleaner'#, '>= 1.0.0'
-  gem 'launchy'#, '~> 2.1.0'
-  gem 'wait_for'#, '~> 0.1.1'
-  gem 'debugger'#, '~> 1.6.1'
+  gem 'database_cleaner', '~> 1.4.0'
+  gem 'launchy', '~> 2.4.3'
+  gem 'wait_for', '~> 0.1.1'
+  gem 'debugger', '~> 1.6.8'
 end
 
 # To use ActiveModel has_secure_password
