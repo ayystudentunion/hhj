@@ -17,7 +17,7 @@ gem 'mongoid-tree', '>= 0.7'
 gem 'slim', '~> 1.1.1'
 # gem 'sprockets'
 # gem 'railties'
-gem 'factory_girl_rails', '~> 4.5.0', require: false
+gem 'factory_girl_rails', '~> 3.0.0', require: false
 gem 'wkhtmltopdf-binary', '>=0.9.9.1'
 gem 'wicked_pdf', '>=0.9.6'
 gem 'rails_admin', '> 0.4.3'

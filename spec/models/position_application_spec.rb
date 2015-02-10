@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-describe PositionApplication do
+RSpec.describe PositionApplication, type: :model do
+#describe PositionApplication do
 
   context '(when checking eligibility for election)' do
     it 'is eligible if there are no rules set' do
