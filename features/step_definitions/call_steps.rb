@@ -6,8 +6,11 @@ Then %r/^I should see call for application '([^']*)'(?: with description '([^']*
 end
 
 def check_personal_details(container_selector, person_attributes)
-  check_that_contains_values container_selector, person_attributes[:first_name], person_attributes[:last_name],
-    person_attributes[:phone], person_attributes[:email]
+  # check_that_contains_values container_selector, person_attributes[:first_name], person_attributes[:last_name],
+  #  person_attributes[:phone], person_attributes[:email]
+  [:first_name, :last_name, :phone, :email].each do |attr|
+    expect(page).to have_selector(container_selector, text: person_attributes[attr])
+  end
 end
 
 Then /^I should see ([^"]*)'s name, phone number and email\-address in the application form$/ do |student|

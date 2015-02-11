@@ -14,8 +14,12 @@ Given %r/^I am logged in as a student$/ do
 end
 
 Then %r/^I should see logged in user "([^"]*)" with mail "([^"]*)" and phone "([^"]*)"$/ do |name, email, phone|
-  check_that_contains_values '.profile-info', name, phone, email
-  check_that_contains_values '.login-info', name
+  #check_that_contains_values '.profile-info', name, phone, email
+  #check_that_contains_values '.login-info', name
+  expect(page).to have_selector('.profile-info', :text => name)
+  expect(page).to have_selector('.profile-info', :text => email)
+  expect(page).to have_selector('.profile-info', :text => phone)
+  expect(page).to have_selector('.login-info', :text => name)
 end
 
 Given /^I am logged in as user ([^"]*)$/ do |user|

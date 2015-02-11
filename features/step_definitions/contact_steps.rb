@@ -4,11 +4,13 @@ Given /^there is a student union employee marked as contactable and contactable 
 end
 
 Then /^I should see "([^"]*)" as contact info$/ do |text|
-  page.find(".contact-info").should have_content(text)
+  #page.find(".contact-info").should have_content(text)
+  expect(page.find(".contact-info")).to have_content(text)
 end
 
 Then /^I should not see "([^"]*)" as contact info$/ do |text|
-  page.find(".contact-info").should_not have_content(text)
+  #page.find(".contact-info").should_not have_content(text)
+  expect(page.find(".contact-info")).not_to have_content(text)
 end
 
 When /^somebody creates an ongoing call$/ do
