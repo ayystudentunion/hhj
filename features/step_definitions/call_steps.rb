@@ -22,11 +22,13 @@ Then %r/^I should see my own name, phone number and email\-address in the confir
 end
 
 Then %r/^I should see (\d+) persons in '([^']*)'$/ do |person_count, title|
-  all(".organ-members:contains('#{title}') .member-card" ).count().should == person_count.to_i
+  # all(".organ-members:contains('#{title}') .member-card" ).count().should == person_count.to_i
+  expect(page.all('.organ-members .member-card', :text => '#{title}').count()).to eq(person_count.to_i)
 end
 
 def applicant(name)
-  find ".applicants .member-card:contains('#{name}')"
+  # find ".applicants .member-card:contains('#{name}')"
+  puts page.all('.applicants .member-card', :text => '#{name}')
 end
 
 Then %r/^I set applicant '([^']*)' as '([^']*)'$/ do |name, position|
