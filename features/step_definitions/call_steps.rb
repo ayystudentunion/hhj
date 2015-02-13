@@ -27,8 +27,7 @@ Then %r/^I should see (\d+) persons in '([^']*)'$/ do |person_count, title|
 end
 
 def applicant(name)
-  # find ".applicants .member-card:contains('#{name}')"
-  puts page.all('.applicants .member-card', :text => '#{name}')
+  find ".applicants .member-card:contains('#{name}')"
 end
 
 Then %r/^I set applicant '([^']*)' as '([^']*)'$/ do |name, position|
