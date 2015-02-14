@@ -1,7 +1,28 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
 
-gem 'rails', '3.2.21'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.0.13'
+
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.2'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
+
+gem 'stylus', '~> 0.5.0'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# gem 'therubyracer', platforms: :ruby
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
 
 # Bundle edge Rails instead:
 # gem 'rails', git: 'git://github.com/rails/rails.git'
@@ -9,7 +30,7 @@ gem 'rails', '3.2.21'
 gem 'execjs', '~> 1.4.0'
 
 # was a git dependency before, locked down only to avoid upgrading a big leap for now
-gem 'mongoid', '~> 3.0.23'
+gem 'mongoid'#, '~> 3.0.23'
 gem 'bson_ext', '>= 1.5'
 gem 'mongoid_rails_migrations', '>= 0.0.13'
 gem 'mongoid-tree', '>= 0.7'
@@ -21,7 +42,7 @@ gem 'factory_girl_rails', '~> 3.0.0', require: false
 gem 'wkhtmltopdf-binary', '>=0.9.9.1'
 gem 'wicked_pdf', '>=0.9.6'
 gem 'rails_admin', '> 0.4.3'
-gem 'devise', '~> 2.0.4'
+gem 'devise'#, '~> 2.0.4'
 gem 'valid_email', '~> 0.0.4'
 gem 'redcarpet', '~> 2.2.2'
 gem 'gritter', '1.0.3'
@@ -33,21 +54,6 @@ group :development do
   gem 'better_errors', '~> 0.9.0'
   gem 'meta_request', '~> 0.2.7'
 end
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '>= 3.2.3'
-  gem 'stylus', '~> 0.5.0'
-  # locked down to resolve conflicts for bundle update rails_admin
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-
-  gem 'uglifier', '>= 1.0.3'
-end
-
-gem 'jquery-rails', '2.1'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2'
@@ -67,6 +73,14 @@ group :test do
   gem 'launchy', '~> 2.4.3'
   gem 'wait_for', '~> 0.1.1'
   gem 'debugger', '~> 1.6.8'
+end
+
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 1.2'
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
 end
 
 # To use ActiveModel has_secure_password
