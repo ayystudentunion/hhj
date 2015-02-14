@@ -10,7 +10,7 @@ Devise.setup do |config|
   # config.mailer = "Devise::Mailer"
 
   # Automatically apply schema changes in tableless databases
-  config.apply_schema = false
+  # config.apply_schema = false # Rails 4.0
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -113,7 +113,7 @@ Devise.setup do |config|
 
   # If true, uses the password salt as remember token. This should be turned
   # to false if you are not using database authenticatable.
-  config.use_salt_as_remember_token = true
+  # config.use_salt_as_remember_token = true  # Rails 4.0
 
   # Options to be passed to the created cookie. For instance, you can set
   # :secure => true in order to force SSL only cookies.
@@ -178,6 +178,7 @@ Devise.setup do |config|
   # Defines name of the authentication token params key
   # config.token_authentication_key = :auth_token
 
+config.secret_key = 'e13ebe48ac644c8989080838edbf2bc3d79c10f4c45c75de7e57d54c5cb12b656a5d65abe98e6aa017b2a63666e31794c35059a67907673c6ff9c963f27e95f6'
   # ==> Scopes configuration
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you

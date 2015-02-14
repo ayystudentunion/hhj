@@ -1,16 +1,16 @@
 Halloped::Application.routes.draw do
 
-  match "/fail" => "pages#fail"
-  match "/logout" => "pages#logout"
-  match "/env" => "pages#environment"
+  get "/fail", to: "pages#fail"
+  get "/logout", to: "pages#logout"
+  get "/env", to: "pages#environment"
   unless Rails.env.production?
-    match "/dev_login" => "pages#dev_login"
-    match "/dev_logout" => "pages#dev_logout"
-    match "/dev_users" => "pages#dev_users"
+    get "/dev_login", to: "pages#dev_login"
+    get "/dev_logout", to: "pages#dev_logout"
+    get "/dev_users", to: "pages#dev_users"
   end
 
   devise_for :admins
-  match "/admin" => redirect("/en/admin")
+  get "/admin", to: redirect("/en/admin")
 
   scope "/:locale" do
     mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
@@ -38,7 +38,7 @@ Halloped::Application.routes.draw do
 
     resources :organizations
 
-    match "/global_status" => "pages#global_status"
+    get "/global_status", to: "pages#global_status"
   end
 
 
@@ -46,11 +46,11 @@ Halloped::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+  #   get 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  #   get 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
@@ -96,17 +96,17 @@ Halloped::Application.routes.draw do
 
   # News are not implemented yet so route university frontpage to open calls until
   # we have some content for the university frontpage
-  #match ':locale/:university' => 'pages#university', :as => :university
-  match ':locale/:university' => 'calls#index', :as => :university
+  #get ':locale/:university' => 'pages#university', :as => :university
+  get ':locale/:university', to: 'calls#index', :as => :university
 
-  match ':locale' => 'pages#index', :as => :index
+  get ':locale', to: 'pages#index', :as => :index
 
 
-  root :to => 'pages#default_locale_redirect'
+  root 'pages#default_locale_redirect'
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  # get ':controller(/:action(/:id))(.:format)'
 end
