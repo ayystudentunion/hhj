@@ -28,7 +28,7 @@ class Call
   field :appointment_place_and_date, localize: true
   field :description, localize: true
 
-  scope :open, where(status: :open)
+  scope :open, -> { where(status: :open) }
 
   def self.open_by_university(university)
     open.select{|c| c.organ.belongs_to?(university)}
