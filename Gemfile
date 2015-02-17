@@ -38,7 +38,7 @@ gem 'mongoid-tree', '~> 2.0.0' #, '>= 0.7'
 gem 'slim', '~> 1.1.1'
 # gem 'sprockets'
 # gem 'railties'
-gem 'factory_girl_rails', '~> 3.0.0', require: false
+
 gem 'wkhtmltopdf-binary', '>=0.9.9.1'
 gem 'wicked_pdf', '>=0.9.6'
 gem 'rails_admin', '> 0.4.3'
@@ -57,6 +57,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2'
+  gem 'factory_girl_rails', '~> 3.0.0', require: false
   gem 'letter_opener', '~> 1.3.0'
   gem 'email_spec', '~> 1.6.0'
 end
