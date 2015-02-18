@@ -104,10 +104,10 @@ GEM
     erubis (2.7.0)
     execjs (1.4.1)
       multi_json (~> 1.0)
-    factory_girl (3.0.0)
+    factory_girl (4.5.0)
       activesupport (>= 3.0.0)
-    factory_girl_rails (3.0.0)
-      factory_girl (~> 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
     font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
@@ -308,7 +308,7 @@ DEPENDENCIES
   devise
   email_spec (~> 1.6.0)
   execjs (~> 1.4.0)
-  factory_girl_rails (~> 3.0.0)
+  factory_girl_rails
   gritter (= 1.0.3)
   jbuilder (~> 1.2)
   jquery-rails

@@ -57,7 +57,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2'
-  gem 'factory_girl_rails', '~> 3.0.0', require: false
+  gem 'factory_girl_rails', '~> 4.5.0', require: false
   gem 'letter_opener', '~> 1.3.0'
   gem 'email_spec', '~> 1.6.0'
 end
