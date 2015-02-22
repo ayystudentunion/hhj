@@ -1,0 +1,317 @@
+
+fi:
+  errors: &errors
+    format:  '%{attribute} %{message}'
+    messages:
+      validations:
+        message: There was validation errors on %{document}
+        summary: "Errors:\n    %{errors}"
+        resolution: Check the instances for this model looking for missing
+
+  old_ie: Selaimesi ei ole tuettu (vanha Internet Explorer)
+  logged_in_as: Olet kirjautuneena nimellä
+  login_with_haka: Kirjaudu yliopistosi käyttäjätunnuksilla
+  university_not_supported: Yliopistoasi ei ole vielä järjestelmässä
+  header_title: Hallinnon opiskelijaedustajien tietojärjestelmä
+
+  front_page: Etusivu
+  introduction: Esittely
+  modified: muokattu
+  print: Tulosta
+  possessive_prefix: "Omat"
+
+  time:
+    formats:
+      default: "%d.%m.%Y klo %H:%M"
+      date: "%d.%m.%Y"
+      file: "%Y_%m_%d"
+
+  date:
+    formats:
+      default: "%d.%m.%Y"
+
+  languages:
+    fi: FI
+    to_fi: Suomeksi
+    en: EN
+    to_en: In English
+    sv: SE
+    to_sv: På svenska
+
+  navi:
+    organs: Toimielimet
+    open_calls: Avoimet haut
+    hallopeds: Hallopedit
+    all: Kaikki
+    active: Aktiiviset
+
+  pages:
+    index:
+      choose_university: Valitse oma yliopistosi/ylioppilaskuntasi
+
+  shared:
+    contacts_title: "Ongelmatilanteissa ota yhteyttä:"
+    not_logged_in_side_bar:
+      title: Mitä ovat hallopedit?
+      description_paragraph_1: Hallopedit eli hallinnon opiskelijaedustajat ovat ylioppilaskunnan valitsemia edustajia yliopiston toimielimiin. He edustavat itsensä lisäksi koko opiskelijakuntaa. Hallopediksi voi hakeutua avoimessa haussa kuka tahansa yliopiston opiskelija.
+      description_paragraph_2: Hallopedit ovat täysivaltaisia toimielintensä jäseniä ja vaikuttavatkin siihen, millaista opiskelu ja tutkimus yliopistossa tulevaisuudessa on. Heitä tuet parhaiten antamalla palautetta tai lähtemällä itse vapaaehtoiseksi.
+    sidebar:
+      user_info: Omat tiedot
+      edit: Muokkaa
+      my_organs: Omat toimielimet
+      create_organ: Luo uusi toimielin
+      write_news_post: Kirjoita uusi tiedote tai uutinen
+      alliance_invite_title: "Sinulla on vahvistamattomia vaaliliittokutsuja:"
+    error_messages:
+     title: "Puutteellinen %{class}"
+  position_applications:
+    plural: "Hakemukset"
+    admissible_plural: "Soveltuvat"
+    edit_by_creating_new_notice: "Jos haluat muokata hakemustasi, voit jättää uuden hakemuksen samaan hakuun. Uusi hakemus korvaa aiemman."
+    application_to_be_deleted_notice: "Sinulla on jo yksi hakemus tähän hakuun. Jos jätät uuden hakemuksen, aiempi poistetaan. Toimintoa ei voi peruuttaa."
+    new:
+      title: Lähetä hakemus
+      apply_to: 'Haen:'
+    create:
+      title: Hakemus lähetetty
+      apply_to: 'Haen:'
+    show:
+      title: Hakemus
+      apply_date: Hakemus jätetty
+      apply_position: Haettu paikka
+      position_member:
+        zero: Jäsen
+      position_deputy:
+        zero: Varajäsen
+        one: "Varajäsen jäsenelle %{name}"
+        other: "Varajäsen jäsenelle %{name}"
+      position_both:
+        zero: Jäsen tai varajäsen
+        one: "Jäsen tai varajäsen jäsenelle %{name}"
+        other: "Jäsen tai varajäsen jäsenelle %{name}"
+      deputy_of: Varajäseneksi jäsenelle
+      personal_statement: Perustelut
+  alliances:
+    unconfirmed: "Vahvistamattomat vaaliliitot"
+    confirm: "Vahvista"
+    join: "Liity"
+    resign: "Eroa"
+    confirmed_notification: "Vaaliliittoon kuuluminen vahvistettiin."
+    resigned_notification: "Olet eronnut vaaliliitosta."
+    members: "Jäsenet"
+    unconfirmed_members: "Vahvistamattomat jäsenet"
+    confirmed_members: "Vahvistetut jäsenet"
+    create_alliance: "Luo uusi vaaliliitto"
+    new:
+      maximum_members_selected_notice: "Olet valinnut vaaliliittoon maksimimäärän henkilöitä. Et voi valita enempää, koska haussa on vain %{number} paikkaa tarjolla."
+      seat_numbers_notice: "Haussa on jaossa %{member_number} jäsenpaikkaa and %{deputy_number} varajäsenpaikkaa. "
+      pairs_title: "Hakijaparit"
+      singles_title: "Yksinäiset hakijat"
+    create:
+      title: "Vaaliliitto luotu."
+    show:
+      title: "Vaaliliiton tiedot"
+  organs:
+    new:
+      title: Luo uusi toimielin
+      select_organization: Valitse organisaatioyksikkö
+    edit:
+      title: Muokkaa toimielintä
+    applicant:
+      not_eligible: Ei vaalikelpoinen
+      eligibility_rule_not_met: "Ei täytä ehtoa: %{rule}"
+    member:
+      position_member: Jäsen
+      position_deputy: Varajäsen
+      open_ended: Toistaiseksi
+      term: Kausi
+    call_results:
+      dragndrop_deputy_placeholder: Raahaa ja pudota varajäsen tähän
+      dragndrop_member_placeholder: Raahaa ja pudota jäsen tähän
+      no_member_placeholder: Ei jäsentä
+      no_deputy_placeholder: Ei varajäsentä
+      not_proposed_applicants: Muut hakijat
+      applicants: Hakemuksen lähettäneet opiskelijat
+      close_call: Sulje haku
+      accept_proposal: Hyväksy esitettävät valituiksi
+      save_applicants: Hyväksy valinnat
+      propose_applicants: Esitä valittaviksi
+    proposal_call_results:
+      proposed_to_be_selected: Esitetään valittaviksi
+    handled_call_results:
+      position_member: Valitut jäsenet
+      position_deputy: Valitut varajäsenet
+      not_selected: Valitsematta jääneet
+      archive_call: Arkistoi haku
+    show:
+      has_open_positions: Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
+      new_call_for_applications: Avaa uusi paikkahaku
+      organization: Organisaatioyksikkö
+      show_archived_calls: Näytä arkistoidut haut
+      hide_archived_calls: Piilota arkistoidut haut
+      staff: Henkilöstön edustajat
+      add_staff_by_email: Lisää edustaja sähköpostiosoitteella
+      professors: Professorit
+      add_professor_by_email: Lisää professori sähköpostiosoitteella
+      term: Toimikausi
+      manager: Vastuuhenkilö
+    current_members:
+      hallopeds: Istuvat opiskelijaedustajat
+      add_member_by_email: Lisää opiskelijaedustaja sähköpostiosoitteella
+    members:
+      member_missing_for_deputy: Ei jäsentä
+      deputy_missing_for_member: Ei varajäsentä
+
+  calls:
+    new:
+      title: Avaa uusi paikkahaku toimielimelle
+      no_eligibility_rules: Ei vaalikelpoisuusrajoitteita
+    edit:
+      title: Muokkaa paikkahakua
+    show:
+      details: Haun tiedot
+      looking_for: Haetaan
+      found: Hakeneita
+      members:
+        zero: ei yhtäkään varsinaista jäsentä
+        one: yhtä varsinaista jäsentä
+        other: '%{count} varsinaista jäsentä'
+      deputies:
+        zero: ei yhtäkään varajäsentä
+        one: yhtä varajäsentä
+        other: '%{count} varajäsentä'
+        description: Varajäseniä
+      submission_dates: Hakuaika
+      description: Kuvaus
+      term: Toimikausi
+      send_application: Lähetä hakemus
+  recommendations:
+    verb: "Aseta"
+    reverse_verb: "Peru asettaminen"
+    description: "Ylioppilaskunnan vaaliohjesäännön 21 § mukaisesti %{count} kyseisessä vaalissa vaalikelpoisella henkilöllä on oikeus asettaa ehdokkaita vaaliin. Itseään ei voi asettaa ehdokkaaksi."
+  mongoid:
+    models:
+      call: "Haku"
+      organ: Toimielin
+      position_application: Hakemus
+      plurals:
+        recommendation: "Suosittelut"
+        alliance: "Vaaliliitot"
+    attributes:
+      organ:
+        name: Toimielimen nimi
+        description: Kuvaus toimielimen toiminnasta
+        term_start: Toimikauden alkamisaika
+        term_end: Toimikauden päättymisaika
+        manager_name: Vastuuhenkilön nimi
+        manager_email: Vastuuhenkilön sähköpostiosoite
+        appointer: Nimityksen tekevä taho
+        official: Lakisääteinen
+        unofficial: Ei lakisääteinen
+      alliance:
+        name: Nimi
+        creator: Perustaja
+      call:
+        title: Paikkahaun otsikko
+        workflow: Työnkulku
+        workflow_normal: Normaali menettely
+        workflow_administration_election: Hallintovaalimenettely
+        workflow_proposal_available: Esitys nähtävillä -menettely
+        member_amount: Varsinaisia jäseniä
+        deputy_amount: Varajäseniä
+        quota_information: Lisätietoa käsittelijälle (kiintiöpaikkojen määrä jne.)
+        date_open: Haun avaamispäivämäärä
+        date_start: Haun alkamispäivämäärä
+        date_end: Haun päättymispäivämäärä
+        term_start: Toimikauden alkamisaika
+        term_end: Toimikauden päättymisaika
+        appointment_place_and_date: Päätöksenteon paikka ja ajankohta
+        description: Kuvaus hallopedin työnkuvasta
+      user:
+        name: Nimi
+        first_name: Etunimi
+        last_name: Sukunimi
+        email: Sähköpostiosoite
+      position_application:
+        position: Haen
+        position_member: Jäseneksi
+        position_deputy: Varajäseneksi
+        position_both: Molempiin
+        deputy_of: Kenen varajäseneksi haluat
+        personal_statement: Perustelut
+
+    errors:
+      <<: *errors
+
+      models:
+        organization:
+          attributes:
+            key:
+              blank: "Ylimmän tason organisaation '%{name}' lyhenne (key) puuttuu"
+              taken: "Organisaation '%{name}' lyhenne '%{key}' on jo käytössä organisaatiolla '%{other}'"
+        organ:
+          attributes:
+            name:
+              blank: puuttuu
+            organization:
+              blank: puuttuu
+        call:
+          attributes:
+            title:
+              blank: puuttuu
+            member_amount:
+              blank: Varsinaisten jäsenten määrä puuttuu
+            deputy_amount:
+              blank: Varajäsenten määrä puuttuu
+        user:
+          attributes:
+            first_name:
+              blank: Etunimi puuttuu
+            last_name:
+              blank: Sukunimi puuttuu
+            email:
+              blank: Sähköpostiosoite puuttuu
+        position_application:
+          degree_must_be_present: "Oppiarvo vaaditaan"
+          attributes:
+            position:
+              blank: Haettavaa paikkaa ei ole valittu
+              invalid: "Haettava paikka voi olla: Jäsen, Varajäsen tai Molemmat"
+            deputy:
+              position: "Merkitse ensin haluttu hakijan varajäsen varajäseneksi"
+            member:
+              position: "Merkitse ensin haluttu varajäsenen jäsen jäseneksi"
+
+  valid_email:
+    validations:
+      email:
+        invalid: Virheellinen sähköpostiosoite
+
+  modals:
+    close: Sulje
+    cancel: Peruuta
+    save: Tallenna
+    send: Lähetä
+    time_placeholder: Aseta aika
+    print_application: Ominaisuus toteuttamatta
+
+  buttons:
+    done_edit: Valmis
+
+  placeholders:
+    search: Hae ...
+    limit_results: Rajaa tuloksia haulla
+    message_for_organ: Kirjoita viesti toimielimelle
+
+  send: Lähetä
+  
+  email:
+    application_received: Hakemuksesi hallinnon opiskelijaedustajaksi on vastaanotettu.
+    thanks_for_application: Kiitos. Sinulle vastataan pian.
+    your_application: Hakemuksesi
+
+  gritter:
+      title: "Huomio"
+      errors_title: "Puuttellinen %{class}, ei voitu tallentaa"
+  particles:
+      and: "ja"

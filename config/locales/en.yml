@@ -1,23 +1,299 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  errors: &errors
+    format:  '%{attribute} %{message}'
+    messages:
+      validations:
+        message: There was validation errors on %{document}
+        summary: "Errors:\n    %{errors}"
+        resolution: Check the instances for this model looking for missing
+
+  old_ie: Your browser is not supported (old Internet Explorer)
+  logged_in_as: "You are logged in as"
+  login_with_haka: "Login with your university credentials"
+  front_page: "Front page"
+  introduction: "Introduction"
+  modified: "Modified"
+  print: "Print"
+  possessive_prefix: "My"
+
+  time:
+    formats:
+      default: "%Y-%m-%d %H:%M"
+      date: "%Y-%m-%d"
+      file: "%Y_%m_%d"
+  date:
+    formats:
+      default: "%Y-%m-%d"
+  languages:
+    fi: FI
+    to_fi: Suomeksi
+    en: EN
+    to_en: In English
+    sv: SE
+    to_sv: På svenska
+  navi:
+    organs: "Organs"
+    open_calls: "Open calls"
+    hallopeds: "Hallopeds"
+    all: "All"
+    active: "Active"
+  pages:
+    index:
+      choose_university: "Select your own university/student union"
+  shared:
+    contacts_title: "Problems? Please contact:"
+    not_logged_in_side_bar:
+      title: "What are Student Representatives?"
+      description_paragraph_1: "Hallopeds, student representatives in administration, are representatives elected for administrative organs from among the members by the Student Union Representative Council. In their position, they represent themselves and the whole student community. Student representatives are full members of administration – they only cannot have direct effect on the evaluation of thesis. All student union members can apply for the position of a halloped through the open call for applications."
+      description_paragraph_2: "Hallopeds and the Student Union Board together aim at preserving and improving students' services and equity in the academic community. All students are encouraged to provide them with feedback to guide their influencing work. "
+    sidebar:
+      user_info: "User info"
+      edit: "Edit"
+      my_organs: "My organs"
+      create_organ: "Create a new organ"
+      write_news_post: "Write a new announcement or news"
+      alliance_invite_title: "You have been invited to the following coalitions:"
+    error_messages:
+      title: "Invalid %{class}"
+  position_applications:
+    plural: "Applications"
+    admissible_plural: "Admissible"
+    edit_by_creating_new_notice: "If you want to edit your application, you can submit a new application for the same call for applications. A new application replaces the previous one."
+    application_to_be_deleted_notice: "You already have one application in this call for applications. If you submit a new application, the previous one will be deleted. This command cannot be cancelled."
+
+    new:
+      title: "Send application"
+      apply_to: "Apply"
+    create:
+      title: "Application sent"
+      apply_to: "Apply"
+    show:
+      title: "Application"
+      apply_date: "Application date"
+      apply_position: "Applied position "
+      position_member:
+        zero: "Member"
+      position_deputy:
+        zero: "Deputy "
+        one: "Deputy to a member"
+        other: "Deputy to a member"
+      position_both:
+        zero: "Member or deputy"
+        one: "Member or deputy to a member"
+        other: "Member or deputy to a member"
+      deputy_of: "Deputy to a member"
+      personal_statement: "Arguments"
+  alliances:
+    unconfirmed: "Unconfirmed coalitions"
+    confirm: "Confirm"
+    join: "Join"
+    resign: "Resign"
+    confirmed_notification: "You have joined the electoral coalition"
+    resigned_notification: "You have resigned from the electoral coalition."
+    members: "Members"
+    unconfirmed_members: "Unconfirmed members"
+    confirmed_members: "Confirmed members"
+    create_alliance: "Create electoral coalition"
+    new:
+      maximum_members_selected_notice: "You have selected the maximum number of people for the electoral coalition. You cannot select any more because the call only has %{number} positions available."
+      seat_numbers_notice: "The call has %{member_number} available member seats and %{deputy_number} deputy seats. "
+      pairs_title: "Applicants with deputies"
+      singles_title: "Single applicants"
+    create:
+      title: "Electoral coalition created"
+    show:
+      title: "Electoral coalition details"
+  organs:
+    new:
+      title: "Create a new organ"
+      select_organization: "Select an organisation unit"
+    edit:
+      title: "Edit organ"
+    applicant:
+      not_eligible: "Not eligibile"
+      eligibility_rule_not_met: "Prerequisite not met"
+    member:
+      position_member: "Member"
+      position_deputy: "Deputy "
+      open_ended: "Open-ended"
+      term: "Term"
+    call_results:
+      dragndrop_deputy_placeholder: "Drag and drop the debuty here"
+      dragndrop_member_placeholder: "Drag and drop the member here"
+      no_member_placeholder: "No member"
+      no_deputy_placeholder: "No deputy"
+      not_proposed_applicants: "Other applicants"
+      applicants: "Students who have sent the application"
+      close_call: "Close the call"
+      accept_proposal: "Accept proposals as elected"
+      save_applicants: "Accept elected applicants"
+      propose_applicants: "Propose applicants"
+    proposal_call_results:
+      proposed_to_be_selected: "Proposed for appointment"
+    handled_call_results:
+      position_member: "Elected members"
+      position_deputy: "Elected deputies"
+      not_selected: "Not appointed"
+      archive_call: "File the call "
+    show:
+      has_open_positions: "Organ's representative seats are still vacant. Open a new call for applications now?"
+      new_call_for_applications: "New call for applications"
+      organization: "Organisation unit"
+      show_archived_calls: "Show filed searches"
+      hide_archived_calls: "Hide filed searches"
+      staff: "University representatives"
+      add_staff_by_email: "Add representative by email"
+      professors: "Professors"
+      add_professor_by_email: "Add professor by email"
+      term: "Term"
+      manager: "Person in charge"
+    current_members:
+      hallopeds: "Current student representatives"
+      add_member_by_email: "Add student representative by e-mail"
+    members:
+      member_missing_for_deputy: "No member"
+      deputy_missing_for_member: "No deputy"
+  calls:
+    new:
+      title: "Open a new call for applications for the organ"
+      no_eligibility_rules: "No eligibility restrictions"
+    edit:
+      title: "Edit call for applications "
+    show:
+      details: "Application details"
+      looking_for: "Searching for"
+      found: "Applications"
+      members:
+        zero: "no members"
+        one: "one member"
+        other: "%{count} members"
+      deputies:
+        zero: "no deputies"
+        one: "one deputy"
+        other: "%{count} deputies"
+      submission_dates: "Application period"
+      description: "Description"
+      term: "Term"
+      send_application: "Send application"
+  recommendations:
+      verb: "Nominate"
+      reverse_verb: "Cancel nomination"
+      description: "In accordance with Section 21 of the Student Union's election regulations, %{count} persons eligible in the elections in question are entitled to nominate candidates for the elections. They cannot nominate themselves as candidates."
+  mongoid:
+    <<: *errors
+
+    models:
+      position_application: "Application"
+      alliance: "Electoral coalition"
+      call: "Call"
+      organ: "Organ"
+      plurals:
+        alliance: "Electoral coalitions"
+        recommendation: "Recommendation"
+    attributes:
+      organ:
+        name: "Organ name"
+        description: "Description on organ's operations"
+        term_start: "Start date for a term"
+        term_end: "End date for a term"
+        manager_name: "Name of the person in charge"
+        manager_email: "Email of the person in charge"
+        appointer: "Appointer"
+        official: "Statutory"
+        unofficial: "Unofficial"
+      alliance:
+        name: "Name"
+        creator: "Creator"
+      call:
+        title: "Title for the call for applications"
+        workflow: "Workflow"
+        workflow_normal: "Standard procedure"
+        workflow_administration_election: "Administrative election procedure"
+        workflow_proposal_available: "Proposal available procedure"
+        member_amount: "Members"
+        deputy_amount: "Deputies"
+        quota_information: "Additional information for the receiver (number of quotas, etc.)"
+        date_open: "Opening date of application"
+        date_start: "Start day of application"
+        date_end: "End date of application"
+        term_start: "Start of the term"
+        term_end: "End of the term"
+        appointment_place_and_date: "Place and date for decision making"
+        description: "Halloped's job description"
+      user:
+        name: "Name"
+        first_name: "First name"
+        last_name: "Last name "
+        email: "Email address "
+      position_application:
+        position: "Apply for "
+        position_member: "Member "
+        position_deputy: "Deputy "
+        position_both: "Both"
+        deputy_of: "Deputy of"
+        personal_statement: "Arguments"
+    errors:
+      models:
+        organization:
+          attributes:
+            key:
+              blank: "Abbreviation x of the higher level organisation x is missing"
+              taken: "Abbreviation x of the organisation x is already used by the organisation x"
+        organ:
+          attributes:
+            name:
+              blank: "is missing"
+            organization:
+              blank: "is missing"
+        call:
+          attributes:
+            title:
+              blank: "is missing"
+            member_amount:
+              blank: "Number of members is missing"
+            deputy_amount:
+              blank: "Number of deputies is missing"
+        user:
+          attributes:
+            first_name:
+              blank: "First name is missing"
+            last_name:
+              blank: "Last name is missing"
+            email:
+              blank: "Email is missing"
+        position_application:
+          degree_must_be_present: "Degree is required"
+          attributes:
+            position:
+              blank: "Applied position is not selected"
+              invalid: "Applied position may be: member, deputy or both"
+            deputy:
+              position: "First enter the selected member's deputy as a deputy"
+            member:
+              position: "First enter the selected deputy's member as a member"
+  valid_email:
+    validations:
+      email:
+        invalid: "Invalid email"
+  modals:
+    close: "Close"
+    cancel: "Cancel"
+    save: "Save"
+    send: "Send"
+    time_placeholder: "Set time"
+    print_application: Unimplemented
+  buttons:
+    done_edit: "Done"
+  placeholders:
+    search: "Search "
+    limit_results: "Search to limit results"
+    message_for_organ: "Write a message to organ"
+  send: "Send"
+  email:
+    application_received: Your application to a student representative position has been received.
+    thanks_for_application: Thank you. We will be in touch shortly.
+    your_application: Your application
+  gritter:
+    title: "Please note"
+  particles:
+    and: "and"
