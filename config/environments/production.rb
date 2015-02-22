@@ -36,6 +36,10 @@ Rails.application.configure do
   config.assets.digest = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
+  # precompile university stylsheets
+  config.assets.precompile += Dir[Rails.root.join('public/universities/*/stylesheet/*.styl')].map{
+    |f| Pathname(f).relative_path_from(Rails.root.join('public/universities')).to_s.chomp(File.extname(f))
+  }
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
@@ -63,6 +67,12 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
+  # Disable delivery errors, bad email addresses will be ignored
+  config.action_mailer.default_url_options = { :host => 'halloped.fi' }
+  
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -73,4 +83,8 @@ Rails.application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+  # wkhtmltopdf binary gem does not work in Redhat production environment
+  # Comment this if you need to run locally using production env
+  WickedPdf.config = {exe_path: '/home/leonidas/bin/wkhtmltopdf'}
 end
