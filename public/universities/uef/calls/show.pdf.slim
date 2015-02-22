@@ -1,0 +1,31 @@
+.print
+  div#single-call
+    .tab-content
+      .tab
+        .call-details
+          = custom_pdf_image_tag('logo.png')
+          span.header Halloped-haku
+          h2
+            a(href=call_path(id:@call._id))
+            a.edit-icon.unimplemented(href='#')
+          .item-row
+            span.label #{t ".looking_for"}:
+            span.text = formatted_looking_for(@call)
+          .item-row
+            span.label #{t "mongoid.attributes.call.date_open"}:
+            span.text = formatted_date @call.date_open
+          .item-row
+            span.label #{t ".submission_dates"}:
+            span.text = formatted_date @call.date_start, end_date: @call.date_end
+          .item-row
+            span.label #{t ".term"}:
+            span.text = formatted_date @call.term_start, end_date: @call.term_end
+          .item-row
+            span.label #{t "mongoid.attributes.call.appointment_place_and_date"}:
+            span.text = @call.appointment_place_and_date
+          p.description
+            = @call.description
+          .logo(style="background: url('#{custom_path_in_pdf('logo.png')}');")
+      span
+      .hr
+

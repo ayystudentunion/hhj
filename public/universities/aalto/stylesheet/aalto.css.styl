@@ -1,0 +1,105 @@
+color-1-dark = #e7e6e4
+color-1-light = #f0f0f0
+color-2-dark = #f0f0f0
+color-2-light = #ffffff
+color-3-dark = #ffa100
+color-3-light = #fbce03
+
+gradient(color-1, color-2)
+  background-color color-1
+  background-image linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image -o-linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image -moz-linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image -webkit-linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image -ms-linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image -webkit-gradient(linear, left bottom, left top, color-stop(0.0, color-2), color-stop(1.0, color-1))
+
+a
+  color #336699
+  color #0064c1
+a:hover
+  color #003366
+  color #095398
+
+#header
+  background #FFF
+  #header-content
+    .logo-index
+      text-shadow 4px 4px 0px #ffa100
+      color #fbce03
+    .logo
+      background url('../resize_logo.png') no-repeat
+    .headline
+      color #333
+      span.service
+        color #666
+    .headline:hover
+      color #000
+    .language-sel
+      background #e7e6e4
+      a
+        color #333
+
+#navi
+  #navi-content
+    gradient(color-1-light, color-1-dark)
+    ul.navi-links
+      li:hover, li.active
+        background #666
+        a
+          color #FFF
+
+#page-content
+  .breadcrumb
+    ul.breadcrumb-list
+      li
+        a:hover
+          color #333
+  .tabs-container
+    .tabs
+      ul.tabs-list
+        li
+          gradient(color-1-dark, color-1-light)
+  .tab-content
+    gradient(color-2-light, color-2-dark)
+    .organ-members, .call-for-application, .proposed-to-be-selected, .edit-members
+      .member-card-empty
+        background-color color-1-light
+      .member-card
+        gradient(color-1-light, color-1-dark)
+
+#footer
+  .footer-content
+    gradient(color-1-light, color-1-dark)
+
+a.btn, input.btn, label.btn
+  gradient(color-3-light, color-3-dark)
+  text-shadow none
+a.btn:hover, input.btn:hover, label.btn:hover
+  gradient(color-3-dark, color-3-light)
+a.btn:active, input.btn:active
+   background #ffa100
+
+#modal-wrap
+  .modal
+    .content
+      gradient(color-2-light, color-2-dark)
+      h2
+        .language-buttons
+          a.active
+            background #f39900
+            color #333
+
+label.btn.checked
+  gradient(color-1-dark, color-1-light)
+
+.button-row
+  a.cancel
+    gradient(color-1-light, color-1-dark)
+  a.cancel:hover
+    gradient(color-1-dark, color-1-light)
+
+/* Note: images to pdfs must be added in the slim files, not in this file. */
+.print
+  #navi
+    display none

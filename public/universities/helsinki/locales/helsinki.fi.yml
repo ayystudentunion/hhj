@@ -1,0 +1,18 @@
+fi:
+  helsinki:
+    fields:
+      available: Olen käytettävissä tehtävään koko toimikauden ajan
+      available_true: Kyllä
+      available_false: Ei
+      degree_programme: Tutkinto-ohjelma (esim. Automaatiotekniikka)
+      degree: Oppiarvo (esim. VTK tai fil. yo)
+      experience_in_student_associations: Aiempi kokemus järjestötoiminnasta
+    member_fields:
+      send_email_reminder: "Lähetä muistutus hakukumppanillesi hausta"
+    fields_show:
+      available: Koko kaudeksi
+      available_true: Kyllä
+      available_false: Ei
+      degree_programme: Tutkinto-ohjelma
+      degree: Oppiarvo
+      experience_in_student_associations: Aiempi kokemus järjestötoiminnasta

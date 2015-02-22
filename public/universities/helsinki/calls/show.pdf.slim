@@ -1,0 +1,12 @@
+.print
+  div#single-call
+    .tab-content
+      .tab
+        .call-details
+          = custom_pdf_image_tag('logo.png')
+          = render "printed_call", call: @call
+          .logo(style="background: url('#{custom_path_in_pdf('logo.png')}');")
+
+      span
+      .hr
+

@@ -1,0 +1,35 @@
+.custom
+  - if f.nil?
+    - if @position_application.custom.include? 'available'
+      .item-row
+        span.label = t('.available') + ':'
+        span.value = t(".available_#{@position_application.custom['available']}")
+    - if @position_application.custom.include? 'degree'
+      .item-row
+        span.label = t('.degree') + ':'
+        span.value = @position_application.custom['degree']
+    - if @position_application.custom.include? 'degree_programme'
+      h3
+        = t ".degree_programme"
+      p.text = @position_application.custom['degree_programme']
+    - if @position_application.custom.include? 'experience_in_student_associations'
+      h3
+        = t '.experience_in_student_associations'
+      textarea.wide-text(readonly="readonly") = @position_application.custom['experience_in_student_associations']
+  - else
+    .item-row
+      span.label = t('.available') + ':'
+      span.buttons
+        -['true', 'false'].each do |value|
+          - existing_value = @position_application.custom['available']
+          - checked = existing_value.nil? ? value == 'true' : existing_value == value
+          - class_name = checked ? "btn checked" : "btn"
+          label(class=class_name)
+            = t ".available_#{value}"
+            = f.radio_button 'custom[available]', value,  checked: checked
+    .item-row
+    -if @call.administrational?
+      .item-row
+        = text_field_tag 'position_application[custom[degree]]', @position_application.custom['degree'].to_s, placeholder: t('.degree'), class: 'field wide'
+    .item-row
+      = text_area_tag 'position_application[custom[experience_in_student_associations]]', @position_application.custom['experience_in_student_associations'].to_s, placeholder: t('.experience_in_student_associations'), class: 'wide'
