@@ -1,5 +1,54 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  get "/fail", to: "pages#fail"
+  get "/logout", to: "pages#logout"
+  get "/env", to: "pages#environment"
+
+  unless Rails.env.production?
+    get "/dev_login", to: "pages#dev_login"
+    get "/dev_logout", to: "pages#dev_logout"
+    get "/dev_users", to: "pages#dev_users"
+  end
+
+  devise_for :admins
+  get "/admin", to: redirect("/en/admin")
+
+  scope "/:locale" do
+    mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  end
+
+  scope "/:locale/:university" do
+
+    resources :users, only: [:edit, :update]
+
+    resources :calls do
+      resources :position_applications
+    end
+
+    resources :alliance_memberships, only: [:update] do
+    end
+
+    resources :recommendations, only: [:create, :destroy]
+
+    resources :alliances, only: [:index, :new, :create, :show]
+
+    resources :organs do
+      resources :calls
+      resources :members
+    end
+
+    resources :organizations
+
+    get "/global_status", to: "pages#global_status"
+  end
+
+  get ':locale/:university', to: 'calls#index', :as => :university
+
+  get ':locale', to: 'pages#index', :as => :index
+
+
+  root 'pages#default_locale_redirect'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
