@@ -1,0 +1,46 @@
+.call-for-application.open
+  h2 = call.title + ', ' + formatted_date(call.term_start, end_date: call.term_end)
+  p.definition
+    | #{Call.human_attribute_name(call.workflow)}: #{t 'calls.show.looking_for'} #{formatted_looking_for(call)}
+    br
+    span.quota_information = call.quota_information
+  - if call.status == :proposed
+    h3 #{t 'organs.proposal_call_results.proposed_to_be_selected'}:
+  div.selected
+    - free_positions_with_selected_applicants(call).each do |position, member, deputy|
+      - unless position == :position_deputy
+        .member-card-empty.member(data-name=:position_member)
+          - unless member.nil?
+            = render :partial => "applicant", object: member, :locals => { applicant_counter: 0, call: call }
+          .placeholder
+            h2 = t '.dragndrop_member_placeholder'
+      - else
+        .member-card-empty.no-deputy
+          .placeholder
+            h2 = t '.no_member_placeholder'
+      .arrow
+      - unless position == :position_member
+        .member-card-empty.deputy(data-name=:position_deputy)
+          - unless deputy.nil?
+            = render :partial => "applicant", object: deputy, :locals => { applicant_counter: 0, call: call }
+          .placeholder
+            h2 = t '.dragndrop_deputy_placeholder'
+      - else
+        .member-card-empty.no-deputy
+          .placeholder
+            h2 = t '.no_deputy_placeholder'
+  - if call.status == :proposed
+    h3 #{t '.not_proposed_applicants'}:
+  - else
+    h3 #{t '.applicants'}:
+  div.applicants
+    = render :partial => "applicant", :collection => call.position_applications.not_selected, :locals => { call: call }
+  = form_for call, url: organ_call_path(organ_id: @organ._id, id: call._id), method: :put do |f|
+    .button-row
+      - if call.status == :open
+        = f.submit "#{t '.close_call'}", class: 'submit btn', name: 'status[closed]'
+      - elsif call.status == :closed and call.workflow == :workflow_proposal_available
+        = f.submit "#{t '.propose_applicants'}", class: 'submit btn', name: 'status[proposed]'
+      - elsif call.status == :closed or call.status == :proposed
+        = f.submit "#{t call.status == :proposed ? '.accept_proposal' : '.save_applicants'}", class: 'submit btn', name: 'status[handled]'
+.hr

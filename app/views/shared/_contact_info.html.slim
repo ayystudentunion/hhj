@@ -1,0 +1,15 @@
+-if @university
+    -contacts = User.where(university_id: @university._id, contactable: true)
+    -unless contacts.empty?
+      .contact-info
+        h2 = t("shared.contacts_title")
+        ul
+          -contacts.each do |contact|
+            li
+              span
+                strong
+                  = contact.full_name
+              span
+                = contact.email
+              span
+                = contact.phone if contact.contactable_by_phone? && Call.ongoing_calls_exist?

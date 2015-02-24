@@ -1,0 +1,21 @@
+h2
+  | #{title}
+  a.send-message.unimplemented(href='#') Lähetä ryhmäviesti
+  - if group == :group_professors and can_admin_organs? and not @edit_staff
+    a.edit-icon(href=organ_path(id: @organ._id, edit_staff: true))
+- if @edit_staff
+  .edit-members
+    = render :partial => 'member', collection: collection, locals: { edit: true }
+    .add-member
+      = form_for [@organ, @new_member], url: organ_members_path(organ_id: @organ.id) do |f|
+        input.field(type='text' placeholder=placeholder name='member[email]')
+        = f.hidden_field :position, value: :position_member
+        = f.hidden_field :group, value: group
+        a.btn.add-row(href='#')
+          span.plus-icon
+    - if group == :group_staff
+      .button-row
+        a.btn(href=organ_path) #{t 'buttons.done_edit'}
+- else
+  .members
+    = render :partial => 'member', collection: collection, locals: { edit: false }

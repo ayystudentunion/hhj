@@ -1,0 +1,25 @@
+-status = status_class_for(applicant)
+.member-card(class="#{'no-margin' if applicant_counter%2 == 1} #{status}" data-id=applicant._id)
+  = form_for [call, applicant], url: call_position_application_path(call_id: call._id, id: applicant._id, format: :json) do |f|
+    = f.hidden_field :member, value: applicant[:member_id], class: :value_member
+    = f.hidden_field :deputy, value: applicant[:deputy_id], class: :value_deputy
+    = f.hidden_field :selected_as, class: :value_position
+    a.show-application.js-modal(href=call_position_application_path(call_id:call._id, id:applicant._id))
+    div.avatar
+    p
+      =modal_link_to(applicant)
+      br
+      span.email = applicant.user.email
+    - unless applicant.eligible?
+      br
+      span.not_eligible(title=t('.eligibility_rule_not_met', rule: call.eligibility_rule_set.name)) = t('.not_eligible')
+    - if call.administrational?
+      br
+        p
+          = t('mongoid.models.plurals.recommendation')
+          = ": #{applicant.recommendations_for_pair.count}/#{@university.recommendations_threshold}"
+      -if applicant.pair.present?
+        span
+          = t('organs.member.' + applicant.pair.position.to_s)
+          = ": "
+          = applicant.pair.name

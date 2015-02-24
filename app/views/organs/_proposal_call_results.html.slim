@@ -1,0 +1,22 @@
+.call-for-application.proposal
+  h2 = call.title + ', ' + formatted_date(call.term_start, end_date: call.term_end)
+  p.definition
+    | #{t 'calls.show.looking_for'} #{formatted_looking_for(call)}
+  - if call.status == :proposed
+    h3 #{t '.proposed_to_be_selected'}:
+  div.proposed-to-be-selected
+    - call.selected_with_deputies.each do |member, deputy|
+      - unless member.nil?
+        = render partial: 'proposed_applicant', object: member
+      - else
+        .member-card-empty.current-member
+          .placeholder
+            h2 = t '.member_missing_for_deputy'
+      .arrow
+      - unless deputy.nil?
+        = render partial: 'proposed_applicant', object: deputy
+      - else
+        .member-card-empty.current-deputy
+          .placeholder
+            h2 = t '.deputy_missing_for_member'
+.hr

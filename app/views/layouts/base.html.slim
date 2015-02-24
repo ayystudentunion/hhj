@@ -1,0 +1,54 @@
+doctype html
+html
+  head
+    title Halloped
+    = stylesheet_link_tag "application"
+    - if custom_css_exists?
+      = stylesheet_link_tag custom_css_href
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
+    script(src="/i18n/jquery.ui.datepicker-#{locale}.js" type="text/javascript")
+  body(data-env=Rails.env)
+    #wrapper
+      div#header
+        #header-content
+          = yield(:header)
+          .language-sel
+            - languages.reject{|l| l == I18n.locale}.each do |locale|
+              a(href='#' hreflang=locale) = t("languages.to_#{locale}") + ' • '
+            - 
+          - if @user or user_university_not_supported?
+            .login-info(href='#')
+              - if user_university_not_supported?
+                = render "shared/not_supported_user"
+              - else
+                = render "shared/logged_in_user"
+              a.logout-btn.js-reload(href=logout_link) Kirjaudu ulos ›
+          - else
+            = render "shared/login"
+      div#navi
+        #navi-content
+          = yield(:navigation)
+      div#content
+        javascript:
+          #{ add_gritter(flash[:success], title: t("gritter.title"), class_name: "success", time: 8000, fadeout_speed: :slow)}
+        -if flash[:errors]
+          -flash[:errors].each do |msg|
+            javascript:
+              #{ add_gritter(msg, title: flash[:errors_title], class_name: "error", time: 8000, fadeout_speed: :slow) }
+        div#page-content
+          = yield
+
+        = yield(:sidebar)
+        .clear
+
+    div#footer
+      .footer-content
+        p
+        a href='http://github.com/ayystudentunion/hhj' Lähdekoodi
+        |  • Hallinnon opiskelijaedustajien tietojärjestelmä. • 
+        a href='http://rekisterit.ayy.fi/tietosuojaselosteet/hhj.pdf' Tietosuojaseloste
+        
+
+  div#modal-wrap

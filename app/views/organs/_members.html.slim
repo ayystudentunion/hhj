@@ -1,0 +1,14 @@
+- member, deputy = member_deputy_pair
+- unless member.nil?
+  = render partial: 'member', object: member, locals: { edit: false, member_counter: 0}
+- else
+  .member-card-empty.current-member
+    .placeholder
+      h2 = t '.member_missing_for_deputy'
+.arrow
+- unless deputy.nil?
+  = render partial: 'member', object: deputy, locals: { edit: false, member_counter: 0}
+- else
+  .member-card-empty.current-deputy
+    .placeholder
+      h2 = t '.deputy_missing_for_member'

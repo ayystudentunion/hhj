@@ -1,0 +1,10 @@
+.modal#received-application
+  .content
+    h2
+      = t ".title"
+      a.close-modal(href='#')
+    = render file: "/position_applications/_position_application_details", locals: { position_application: @position_application }, :handlers => [:slim], formats: [:html]
+    .button-row
+      a.unimplemented.print(href='#') = t "modals.print_application"
+      a.close-modal.btn(href='#') = t "modals.close"
+

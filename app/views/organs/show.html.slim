@@ -1,0 +1,115 @@
+div#single-organ
+  .breadcrumb
+    ul.breadcrumb-list
+      li
+        a(href=index_path)
+          = t :front_page
+          span.arrow ›
+      li
+        a(href=organs_path)
+          = t "navi.organs"
+          span.arrow ›
+      li
+        a(href=organ_path(id:@organ._id))
+          = @organ.name
+          span.arrow ›
+  .tabs-container
+    .tabs
+      ul.tabs-list
+        li.active: a(href='#') = t :introduction
+    .tab-content
+      .tab
+        .organ-details
+          h2
+            a(href='#') = @organ.name
+            span.date
+              = t(:modified) + ' ' + l(@organ.updated_at)
+            - if can_admin_organs?
+              a.edit-icon.js-modal(href=edit_organ_path(id: @organ._id))
+          .item-row
+            span.label
+              = t '.organization'
+              | :
+            span.text = @organ.organization_full_name
+          .item-row
+            span.label
+              = t '.term'
+              | :
+            span.text
+              = formatted_date @organ.term_start, end_date: @organ.term_end
+          .item-row
+            span.label
+              = t '.manager'
+              | :
+            span.text
+              = manager
+          .item-row
+            == rendered_markdown @organ.description
+        - if student_union_employee?
+          em
+            - if @organ.members.current_hallopeds.empty?
+              = t '.has_open_positions'
+          a.application-call.btn.js-modal(href=new_organ_call_path(organ_id:@organ._id))
+            = t '.new_call_for_applications'
+        .hr
+        form.message-for-organ.unimplemented
+          textarea.wide(type='textarea' placeholder=t("placeholders.message_for_organ"))
+        .button-row.unimplemented
+          a.submit.btn(href='#')
+            = t :send
+
+        .content-comments.unimplemented
+          .comment
+            span.user-avatar
+              img(src='/img/comment-avatar.png')
+            p
+              span.user-name Santeri Kainulainen
+              br
+              span.content Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus.
+              br
+              span.date 13.5.2012 •
+              a.edit(href='#') muokkaa •
+              a.remove(href='#') poista asiaton viesti
+          .comment
+            span.user-avatar
+              img(src='/img/comment-avatar.png')
+            p
+              span.user-name Saara Suttura
+              br
+              span.content Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis.
+              br
+              span.date 13.5.2012 •
+              a.edit(href='#') muokkaa •
+              a.remove(href='#') poista asiaton viesti
+
+      .tab
+
+        .organ-members.hallopeds
+          = render partial: 'current_members'
+        .hr
+
+        - if student_union_employee?
+          = render partial: 'call_results', collection: @calls, as: :call
+        - else
+          = render partial: 'proposal_call_results', collection: @proposals, as: :call
+
+        .organ-members.staff-members
+          .professors
+            = render partial: 'current_staff', locals: {group: :group_professors, collection: @organ.members.current_professors, placeholder: t('.add_professor_by_email'), title: t('.professors')}
+          .staff
+            = render partial: 'current_staff', locals: {group: :group_staff, collection: @organ.members.current_staff, placeholder: t('.add_staff_by_email'), title: t('.staff')}
+        .hr
+
+        - if student_union_employee?
+          = render partial: 'handled_call_results', collection: @handled_calls, as: :call
+
+        .button-row
+          a.hide-archived.btn(href='#' style='display:none;') = t '.hide_archived_calls'
+
+        - if student_union_employee?
+          .archived-call-for-applications(style='display:none;')
+            = render partial: 'handled_call_results', collection: @archived_calls, as: :call
+          .button-row
+            a.show-archived.btn(href='#') = t '.show_archived_calls'
+            a.hide-archived.btn(href='#' style='display:none;') = t '.hide_archived_calls'
+  div.clear

@@ -1,0 +1,8 @@
+.member-card
+  div.avatar
+  p
+    a.name(href='#') = proposed_applicant.user.full_name
+    br
+    span.email = proposed_applicant.user.email
+    br
+    span.position = PositionApplication.human_attribute_name(proposed_applicant.selected_as)

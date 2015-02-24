@@ -1,0 +1,10 @@
+#encoding: utf-8
+.login-name
+  span.label
+    = t :logged_in_as
+    | :
+  br
+  span.name = @user.full_name.force_encoding('UTF-8')
+  br
+  span.university = @user.university.name
+

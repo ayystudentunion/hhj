@@ -1,0 +1,18 @@
+= form_for call, url: organ_call_path(organ_id: @organ._id, id: call._id), method: :put do |f|
+  .call-for-application.handled
+    h2 = call.title + ', ' + formatted_date(call.term_start, end_date: call.term_end)
+    p.definition
+      | #{t 'calls.show.looking_for'} #{formatted_looking_for(call)}
+      br
+      span.quota_information = call.quota_information
+    - PositionApplication::POSITION_VALUES.each do |selected_as|
+      div(class=selected_as)
+        h3 = t(".#{selected_as}") + ':'
+        = render :partial => "handled_applicant", :collection => call.position_applications.where(selected_as: selected_as), as: :applicant, locals:{call: call}
+    div(class='not_selected')
+      h3 = t('.not_selected') + ':'
+      = render :partial => "handled_applicant", :collection => call.position_applications.where(selected_as: nil), as: :applicant, locals:{call: call}
+    .button-row
+      - if call.status == :handled
+        = f.submit "#{t '.archive_call'}", class: 'submit btn', name: 'status[archived]'
+  .hr

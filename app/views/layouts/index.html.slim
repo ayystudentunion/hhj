@@ -1,0 +1,13 @@
+- content_for :header do
+  .logo-index H
+  a.headline.js-reload(href=root_path)
+    | Halloped.fi
+    br
+    span.service
+      = t :header_title
+    = old_browser_warning
+- content_for :navi do
+  =
+- content_for :sidebar do
+  = render 'shared/not_logged_in_side_bar'
+= render :template => 'layouts/base'

@@ -1,0 +1,46 @@
+.modal#create-new-organ(data-url=organizations_path(format: :json))
+  .content
+    div(id='organ-form-container')
+      h2
+        = @form_title
+        a.close-modal(href='#')
+        .language-buttons
+          - languages.each do |locale|
+            a.lang.btn(href='#' hreflang="#{locale}" class="#{'active' if locale == I18n.locale}") = t "languages.#{locale}"
+      = form_for @organ, url: @form_path, class: 'new-organ' do |f|
+        - languages.each do |locale|
+          = f.text_field :name, placeholder: Organ.human_attribute_name(:name, locale: locale), class: "wide field localized #{locale}", name: "organ[name[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}", value: localized(@organ.name_translations, locale.to_s)
+        .inline-block
+          = f.label :term_start, Organ.human_attribute_name(:term_start) + ':', class: "field-label"
+          = f.text_field :term_start, placeholder: t('modals.time_placeholder'), class: 'field date'
+          /span.datepicker
+        .inline-block.no-margin
+          = f.label :term_end, Organ.human_attribute_name(:term_end) + ':', class: 'field-label'
+          = f.text_field :term_end, placeholder: t('modals.time_placeholder'), class: 'field date'
+          /span.datepicker
+        .inline-block
+          = f.text_field :manager_name, placeholder: Organ.human_attribute_name(:manager_name), class: 'field'
+        .inline-block.no-margin
+          = f.text_field :manager_email, placeholder: Organ.human_attribute_name(:manager_email), class: 'field'
+        = f.text_field :appointer, placeholder:  Organ.human_attribute_name(:appointer), class: 'field half'
+        .inline-block
+          = select("organ[organization]", "", @university.children.map{|p| [p.name, p.id]}, {prompt: t('.select_organization')}, {class: 'organizations'})
+          span#organization-path.js-data
+            = @organ.organization_ids
+        .inline-block.no-margin
+          label.inline-label
+            = f.radio_button :official, 'true', checked: true
+            = Organ.human_attribute_name :official
+          label.inline-label
+            = f.radio_button :official, 'false'
+            = Organ.human_attribute_name :unofficial
+        - languages.each do |locale|
+          = f.text_area :description, placeholder: Organ.human_attribute_name(:description, locale: locale), class: "wide localized #{locale}", name: "organ[description[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}", value: localized(@organ.description_translations, locale.to_s)
+        .button-row
+          a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
+          input.submit.close-modal.btn(type='submit' value="#{t 'modals.save'}")
+
+script#organization-select-template(type='text/html')
+  select.organizations(name='organ[organization][]')
+    option.item
+

@@ -1,0 +1,35 @@
+div#sidebar
+  .sidebar-content
+    .profile-info(href='#' style="#{'display:none;' if @user.nil?}")
+      .info-tab
+        span.tab-left
+        span.tab-middle = t '.user_info'
+        span.tab-right
+      .info-content
+        div.avatar
+        p
+          span.name = @user.full_name.force_encoding('UTF-8')
+          br
+          span.email = @user.email
+          br
+          span.phone = @user.phone
+      = render "shared/alliances"
+      a.edit-btn.unimplemented(href='#') = t '.edit'
+      div.clear
+      h4.unimplemented
+        = t '.my_organs'
+        | :
+      ul.my-organs.unimplemented
+        li: a(href='#') Joku toimielin
+        li: a(href='#') Joku toimielin
+        li: a(href='#') Joku toimielin
+        li: a(href='#') Joku toimielin
+
+      - if can_admin_organs?
+        a.sidebar-button.btn.create-new-organ.js-modal(href=new_organ_path)
+          = t '.create_organ'
+          span.plus-icon
+      a.sidebar-button.btn.unimplemented(href='#')
+        = t '.write_news_post'
+        span.plus-icon
+  = render('shared/contact_info')

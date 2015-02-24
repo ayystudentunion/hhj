@@ -1,0 +1,37 @@
+.modal#application-sent
+  .content
+    h2
+      = t '.title'
+    .item-block
+      .item-row
+        .notice.success
+          = t('position_applications.edit_by_creating_new_notice')
+    .item-block
+      .applicant-details
+        p.name = @user.full_name.force_encoding('UTF-8')
+        p.email = @user.email
+        p.phone = @user.phone
+    .hr
+    .item-row
+      span.label = t('.apply_to') + ' '
+      span = PositionApplication.human_attribute_name @position_application.position
+    - if not @position_application.deputy_of.blank?
+      .item-row
+        span.label = PositionApplication.human_attribute_name(:deputy_of) + ': '
+        span = @position_application.deputy_of
+    - if custom_template_exists?('fields')
+      = render partial: custom_file('fields'), formats: :html, locals: { f: nil }
+    .item-row
+      h3
+        = PositionApplication.human_attribute_name(:personal_statement)
+      textarea.wide-text(readonly="readonly") = @position_application.personal_statement
+    .button-row-bottom
+      .button-row
+        a.ok.close-modal.btn(href='#') = t 'modals.ok'
+
+-if show_recommendations?(@call)
+  javascript:
+    $('#application-sent a.ok').click(function(){
+      $('#recommendations ul').replaceWith("#{escape_javascript(render :file => "/calls/_applications_list", handlers: [:slim], formats: [:html])}");
+    });
+

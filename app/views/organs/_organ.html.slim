@@ -1,0 +1,9 @@
+/ partial for a single organ
+.organ
+  h2
+    a(href="#{organ_path(id: organ.id)}") = organ.name
+    - if can_admin_organs?
+      a.edit-icon.js-modal(href=edit_organ_path(id: organ.id))
+    span.date = formatted_date(organ.updated_at, format: :date)
+  p.description == rendered_markdown organ.description
+

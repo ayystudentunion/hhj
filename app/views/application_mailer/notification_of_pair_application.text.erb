@@ -1,0 +1,25 @@
+#coding: utf-8
+
+Hei!
+
+<%= @partner_application.name %> on jättänyt Halloped-järjestelmään hakemuksen, jossa hän valitsi sinut hakukumppanikseen. Jotta parinne voi tulla valituksi, tarvitsette
+<%= @university.recommendations_threshold %> ehdolleasettajaa. Halloped-järjestelmään voi kirjautua sisään täällä: <%= root_url%>.
+
+Ystävällisin terveisin,
+<%=@university.name %>
+
+Hej!
+
+<%= @partner_application.name %> har lämnat in en ansökan i Halloped-systemet och har valt dig till sin medkandidat. För att ni ska kunna bli valda behöver ni <%= @university.recommendations_threshold %>
+kandidatuppställare. Du kan logga in i Halloped-systemet här: <%=root_url%>.
+
+Med vänlig hälsning,
+<%=@university.name%>
+
+Hello!
+
+<%= @partner_application.name %> has submitted a Halloped application where you were named as the coapplicant. In order for you to be elected
+you need <%= @university.recommendations_threshold %> nominations. You can sign in the Halloped application here: <%= root_url %>.
+
+Kind regards,
+<%=@university.name%>

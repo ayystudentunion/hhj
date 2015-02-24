@@ -1,0 +1,28 @@
+- content_for :header do
+  .logo
+  a.headline.js-reload(href=university_path)
+    = @university.name
+    br
+    span.service
+      = t :header_title
+    = old_browser_warning
+
+- content_for :navigation do
+  ul.navi-links
+    li: a.home(href=university_path)
+    li: a(href=organs_path) = t('navi.organs')
+    li: a(href=calls_path) = t('navi.open_calls')
+    -if @university && @university.alliances_enabled?
+      li: a(href=alliances_path) = t('mongoid.models.plurals.alliance')
+
+  form.search.unimplemented(href='#')
+    input.field.search-field(type='text' placeholder="#{t 'placeholders.search'}")
+
+- content_for :sidebar do
+  - if @user.nil?
+    = render "shared/not_logged_in_side_bar"
+  - else
+    = render "shared/sidebar"
+
+
+= render :template => 'layouts/base'

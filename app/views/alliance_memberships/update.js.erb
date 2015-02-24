@@ -1,0 +1,5 @@
+$('#sidebar').replaceWith('<%= escape_javascript(render('shared/sidebar'))%>');
+cached.clear();
+<%= add_gritter(flash[:success], title: t("gritter.title"), class_name: "success", time: 8000, fadeout_speed: :slow)  if flash[:success].present?%>
+<%= add_gritter(flash[:error], title: t("gritter.title"), class_name: "error", time: 8000, fadeout_speed: :slow)  if flash[:error].present?%>
+

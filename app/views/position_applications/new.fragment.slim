@@ -1,0 +1,41 @@
+-id =  @call.administrational? ? "send-application-for-administrational-call" : "send-application"
+.modal{id=id}
+  .content
+    h2
+      = t '.title'
+      a.close-modal(href='#')
+    = render file: "/shared/_error_messages", locals: { object: @position_application }, :handlers => [:slim], formats: [:html]
+    -if @call.position_applications.where(user_id: @user).exists?
+      .item-block
+        .item-row
+          .notice.warning
+            = t('position_applications.application_to_be_deleted_notice')
+    .item-block
+      .applicant-details
+        p.name = @user.full_name.force_encoding('UTF-8')
+        p.email = @user.email
+        p.phone = @user.phone
+    .hr
+    = form_for @position_application, url: call_position_applications_path(format: :fragment), class: 'send-application' do |f|
+      - @preseselected_position = @position_application.position.nil? ? :position_member : @position_application.position
+      = f.hidden_field :user_id
+      .item-row
+        span.label = t '.apply_to'
+        span.buttons
+          - positions = [:position_member, :position_deputy]
+          - positions.push(:position_both) unless @position_application.call.administrational?
+          - positions.each do |position_value|
+            - selected = @preseselected_position == position_value
+            label.btn(class="#{'checked' if selected}")
+              = f.radio_button :position, position_value, checked: selected
+              span = PositionApplication.human_attribute_name(position_value)
+        - if custom_template_exists?('member_fields') && @call.administrational?
+          = render partial: custom_file('member_fields'), formats: :html, locals: { f: f, call: @position_application.call }, rescue: nil
+        -else
+          = f.text_field :deputy_of, placeholder:  PositionApplication.human_attribute_name(:deputy_of), class: 'field half', style: 'display:none;'
+      - if custom_template_exists?('fields')
+        = render partial: custom_file('fields'), formats: :html, locals: { f: f }, rescue: nil
+      = f.text_area :personal_statement, placeholder: PositionApplication.human_attribute_name(:personal_statement), class: 'wide'
+      .button-row
+        a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
+        input.submit.js-submit.btn(type='submit' value="#{t 'modals.send'}")
