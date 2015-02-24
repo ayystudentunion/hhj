@@ -1,0 +1,8 @@
+
+/*
+  There is some problem with sass parsing and our assets pipeline configuration that causes errors:
+    Undefined variable: "$red".
+      (in ...gems/rails_admin-0.0.1/app/assets/stylesheets/rails_admin/imports.css.scss.erb)
+
+  This empty file is temp fix for that problem and it overwrites the rails_admin default css (We need to fix the problem to make the UI look ok)
+*/
