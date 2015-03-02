@@ -27,7 +27,7 @@ init_routing = () ->
   crossroads.addRoute "/{locale}/{university}/:controller:/:param:", loadFragment
   # crossroads.routed.add(console.log, console);
 
-  $('a').live 'click', (ev) ->
+  $('a').on 'click', (ev) ->
     $this = $(this)
     href = $this.attr 'href'
     return false if $this.hasClass 'js-modal' or href == "#"
