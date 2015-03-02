@@ -16,5 +16,6 @@
 //= require jquery-ui/datepicker-fi.js
 //= require jquery-ui/datepicker-en-GB.js
 //= require jquery-ui/datepicker-sv.js
+//= require "signals.min.js"
 //= require turbolinks
 //= require_tree .
