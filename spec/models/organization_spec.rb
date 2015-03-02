@@ -1,13 +1,13 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Organization do
 
   it 'can be converted to full tree hash with all recursive children' do
     FactoryGirl.create(:kirjasto)
     tree = Organization.root.tree_hash[:children]
-    tree.count.should > 0
+    expect(tree.count).to be > 0
     str_dump = tree.to_s
-    str_dump.should include('Kirjasto')
+    expect(str_dump).to include('Kirjasto')
   end
 
 end
