@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe PositionApplicationsHelper do
 
@@ -18,12 +18,12 @@ describe PositionApplicationsHelper do
 
     it "rearranges the application correctly" do
       arranged = rearrange_pairs_adjacently([@deputy, @member, @pairless])
-      arranged.should == [@member, @deputy, @pairless]
+      expect(arranged).to eq([@member, @deputy, @pairless])
       end
 
     it "rearranges the application correctly" do
       arranged = rearrange_pairs_adjacently([@deputy, @pairless, @member])
-      arranged.should == [@member, @deputy, @pairless]
+      expect(arranged).to eq([@member, @deputy, @pairless])
     end
   end
 end

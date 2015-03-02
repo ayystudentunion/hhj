@@ -21,7 +21,7 @@ end
 
 Given /^there are 3 applications for "([^"]*)"$/ do |title|
   call= Call.where(title: title).first
-  call.should be_present
+  expect(call).to be_present
   FactoryGirl.create :position_application, user: FactoryGirl.create(:student_martti), call: call
   FactoryGirl.create :position_application, user: FactoryGirl.create(:student_emma), call: call
   FactoryGirl.create :position_application, user: FactoryGirl.create(:student_topias), call: call
@@ -29,7 +29,7 @@ end
 
 Given /^there are applications for "([^"]*)" by Helsinki uni students:$/ do |title, students|
   call = Call.where(title: title).first
-  call.should be_present
+  expect(call).to be_present
   students.raw.flatten.each do |student|
     user = FactoryGirl.create "helsinki_uni_student_" + student.gsub(" ", "_").downcase
     FactoryGirl.create(:position_application, user: user, call: call)
@@ -50,6 +50,6 @@ Given /^there is a ([^"]*) application for call 'Student council board members' 
 end
 
 Then /^only there should exist only one application with "([^"]*)" as personal statement$/ do |text|
-  PositionApplication.count.should == 1
-  PositionApplication.first.personal_statement.should == text
+  expect(PositionApplication.count).to eq(1)
+  expect(PositionApplication.first.personal_statement).to eq(text)
 end
