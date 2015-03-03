@@ -1,11 +1,11 @@
 # coding: utf-8
 Then %r/^I should see a list of organs$/ do
-  expect(page).to have_content "Tasa-arvotyöryhmä"
-  expect(page).to have_content "Kirjakerho"
+  page.should have_content "Tasa-arvotyöryhmä"
+  page.should have_content "Kirjakerho"
 end
 
 Then %r/^I should see the organ page for '([^']*)'$/ do |organ_name|
-  expect(page.find(".organ-details h2")).to have_content organ_name
+  page.find(".organ-details h2").should have_content organ_name
 end
 
 Then %r/^I should see introduction of organ '([^']*)' with description '([^']*)':$/ do |organ_name, description, table|
@@ -22,11 +22,11 @@ Then %r/^I should see (:?exactly )?the following persons in '([^']*)':$/ do |exa
   members = find(:xpath, "//div[(h2|h3)[contains(text(),'#{title}')]]")
   table.hashes.each do |row|
     member = members.find(".member-card:contains('#{row[:name]}'), .member-list-item:contains('#{row[:email]}')")
-    expect(member).to have_css("*:contains('#{row[:term]}')")
-    expect(member).to have_css("*:contains('#{row[:position]}')")
+    member.should have_css("*:contains('#{row[:term]}')")
+    member.should have_css("*:contains('#{row[:position]}')")
   end
 
-  expect(members.all('.member-card, .member-list-item').count).to eq(table.hashes.count) unless exactly.nil?
+  members.all('.member-card, .member-list-item').count.should == table.hashes.count unless exactly.nil?
 end
 
 Given /^"([^"]*)" has enabled recommendations with threshold of (\d+)$/ do |uni_name, threshold|

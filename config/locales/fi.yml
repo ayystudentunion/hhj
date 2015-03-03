@@ -1,5 +1,13 @@
 
 fi:
+  errors: &errors
+    format:  '%{attribute} %{message}'
+    messages:
+      validations:
+        message: There was validation errors on %{document}
+        summary: "Errors:\n    %{errors}"
+        resolution: Check the instances for this model looking for missing
+
   old_ie: Selaimesi ei ole tuettu (vanha Internet Explorer)
   logged_in_as: Olet kirjautuneena nimellä
   login_with_haka: Kirjaudu yliopistosi käyttäjätunnuksilla
@@ -233,6 +241,8 @@ fi:
         personal_statement: Perustelut
 
     errors:
+      <<: *errors
+
       models:
         organization:
           attributes:

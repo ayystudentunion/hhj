@@ -1,4 +1,4 @@
-require 'rails_helper'
+require 'spec_helper'
 
 describe 'position_applications/show.fragment.slim' do
   let(:application) {

@@ -321,7 +321,7 @@ class ApplicationController < ActionController::Base
 
   def layout_by_context
     if request.fullpath.match /^\/admins\//
-      'device'
+      'devise'
     else
       'application'
     end
