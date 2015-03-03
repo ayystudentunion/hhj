@@ -31,7 +31,7 @@ describe PositionApplication do
 
     PositionApplication.all.each do | application |
       #application.selected_as.should == nil
-      expect(pplication.selected_as).to eq(nil)
+      expect(application.selected_as).to eq(nil)
     end
 
     let (:check_all_self_references_are_nil) {
