@@ -80,6 +80,7 @@ group :test do
   gem 'database_cleaner', '~> 1.4.0'
   gem 'launchy', '~> 2.4.3'
   gem 'wait_for', '~> 0.1.1'
+  gem 'simplecov', '~> 0.9.2', :require => false
   # gem 'debugger' # Only 1.9.2 and 1.9.3 are supported. For 2.X rubies, use byebug.
 end
 

@@ -30,3 +30,5 @@ mongod.lock
 
 *.rdb
 
+coverage
+
