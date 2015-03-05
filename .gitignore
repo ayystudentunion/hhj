@@ -29,3 +29,6 @@ journal/*
 mongod.lock
 
 *.rdb
+
+coverage
+

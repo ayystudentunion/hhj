@@ -1,8 +1,5 @@
-# Load the rails application
+# Load the Rails application.
 require File.expand_path('../application', __FILE__)
 
-Encoding.default_internal = Encoding::UTF_8
-Encoding.default_external = Encoding::UTF_8
-
-# Initialize the rails application
-Halloped::Application.initialize!
+# Initialize the Rails application.
+Rails.application.initialize!

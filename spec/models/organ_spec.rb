@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 
-require 'spec_helper'
+require 'rails_helper'
 
 describe Organ do
 
@@ -18,9 +18,9 @@ describe Organ do
     organ.add_selected_members! FactoryGirl.create(:lukurinki)
 
     organ.reload_relations
-    organ.members.count.should == 5
-    organ.members.where(position: :position_deputy).count.should == 2
-    organ.members.where(position: :position_member).count.should == 3
-    organ.members.where(user_id: deputy_user._id).first.member.user._id.should == member_user._id
+    expect(organ.members.count).to eq(5)
+    expect(organ.members.where(position: :position_deputy).count).to eq(2)
+    expect(organ.members.where(position: :position_member).count).to eq(3)
+    expect(organ.members.where(user_id: deputy_user._id).first.member.user._id).to eq(member_user._id)
   end
 end

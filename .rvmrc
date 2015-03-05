@@ -1,1 +1,2 @@
-rvm 1.9.3-p194
+rvm use 2.2.0@halloped --create
+

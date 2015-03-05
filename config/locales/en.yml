@@ -1,4 +1,12 @@
 en:
+  errors: &errors
+    format:  '%{attribute} %{message}'
+    messages:
+      validations:
+        message: There was validation errors on %{document}
+        summary: "Errors:\n    %{errors}"
+        resolution: Check the instances for this model looking for missing
+
   old_ie: Your browser is not supported (old Internet Explorer)
   logged_in_as: "You are logged in as"
   login_with_haka: "Login with your university credentials"
@@ -172,6 +180,8 @@ en:
       reverse_verb: "Cancel nomination"
       description: "In accordance with Section 21 of the Student Union's election regulations, %{count} persons eligible in the elections in question are entitled to nominate candidates for the elections. They cannot nominate themselves as candidates."
   mongoid:
+    <<: *errors
+
     models:
       position_application: "Application"
       alliance: "Electoral coalition"

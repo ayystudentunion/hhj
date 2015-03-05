@@ -28,7 +28,7 @@ choose_org = (parent) -> (id, cb) ->
   #$.uniform.update()
 
 init_modals = () ->
-  $('a.js-modal').live 'click', () ->
+  $('a.js-modal').on 'click', () ->
     href = $(this).attr 'href'
     open_modal_dialog href
     return false

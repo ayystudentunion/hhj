@@ -7,8 +7,8 @@ Install RVM and Ruby
   bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
   source ~/.bash_profile
 
-  rvm install 1.9.3-p194
-  rvm use 1.9.3-p194
+  rvm install ruby-2.2.0
+  rvm use ruby-2.2.0
 
 Install node.js
 
@@ -24,7 +24,7 @@ Install Gem Dependencies
   cd hhj
 
   rvm pkg install zlib openssl libxml2 libxslt
-  rvm reinstall 1.9.3-p194
+  rvm reinstall ruby-2.2.0
 
   sudo apt-get install libqt4-dev # For qmake on Linux
   brew install Qt # For qmake on OS X
@@ -32,7 +32,7 @@ Install Gem Dependencies
 If you're getting trouble from nokogiri, do
   rm -rf $rvm_path/usr
   rvm requirements # Copy the apt-get [...] part and sudo it
-  rvm reinstall 1.9.3-p194
+  rvm reinstall ruby-2.2.0
 
 Then install bundled dependencies
 

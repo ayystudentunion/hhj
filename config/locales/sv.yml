@@ -1,4 +1,12 @@
 sv:
+  errors: &errors
+    format:  '%{attribute} %{message}'
+    messages:
+      validations:
+        message: There was validation errors on %{document}
+        summary: "Errors:\n    %{errors}"
+        resolution: Check the instances for this model looking for missing
+
   old_ie: Din webbläsare stöds inte (gamla Internet Explorer)
   header_title: "Halloped-ansökningssystem"
   logged_in_as: "Du är inloggad som"
