@@ -13,4 +13,4 @@ else
   token = 'c4198f3d55de585c11209512f1373cc6fe47303f53194604b4abea0c0deb2b8fb27e3aa4c024530c1ad96c2b114a3918e0a91a6671f504594b23416624dffc58'
 end
 
-Halloped::Application.config.secret_token = token
+Halloped::Application.config.secret_key_base = token # <%= ENV["SECRET_KEY_BASE"] %>

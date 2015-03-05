@@ -5,7 +5,7 @@ Given /^there is an application with deputy for "([^"]*)"$/ do |title|
 end
 
 Given /^the member application has one confirmed alliance and one unconfirmed alliance$/ do
-  PositionApplication.where(position: :position_member).count.should == 1
+  expect(PositionApplication.where(position: :position_member).count).to eq(1)
   application = PositionApplication.where(position: :position_member).first
   alliance1 = FactoryGirl.create(:alliance, name: "Alliance1")
   alliance2 = FactoryGirl.create(:alliance, name: "Alliance2")

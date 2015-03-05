@@ -12,17 +12,17 @@ end
 
 Then /^I should not see "([^"]*)" in the sidebar$/ do |text|
   sidebar = page.find('#sidebar')
-  sidebar.should have_no_content(text)
+  expect(sidebar).to have_no_content(text)
 end
 
 Then /^I should see my name among the ([^"]*) members$/ do |group|
   list = page.find("#alliance ##{group}_members")
-  list.should have_content('Anna Kainulainen')
+  expect(list).to have_content('Anna Kainulainen')
 end
 
 Then /^I should not see my name among the ([^"]*) members$/ do |group|
   list = page.find("#alliance ##{group}_members")
-  list.should_not have_content('Anna Kainulainen')
+  expect(list).not_to have_content('Anna Kainulainen')
 end
 
 Then /^I check "([^"]*)" for call "([^"]*)"$/ do |field, title|

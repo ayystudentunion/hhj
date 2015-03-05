@@ -17,28 +17,28 @@ FactoryGirl.define do
       _id   '4f6b1edf91bc2b33d3010000'
     end
 
-    factory :luonnontieteellinen_tiedekunta do
+    factory :luonnontieteellinen_tiedekunta, :parent => :spartan_teknillinen_yliopisto do
       name  'Luonnontieteellinen tiedekunta'
       _id   '4f6b1edf91bc2b33d3010100'
-      parent { FactoryGirl.create(:spartan_teknillinen_yliopisto) }
+      # parent { FactoryGirl.create(:spartan_teknillinen_yliopisto) }
     end
 
-    factory :kirjasto do
+    factory :kirjasto, :parent => :spartan_teknillinen_yliopisto do
       name  'Kirjasto'
       _id   '4f6b1edf91bc2b33d3010200'
-      parent { FactoryGirl.create(:spartan_teknillinen_yliopisto) }
+      # parent { FactoryGirl.create(:spartan_teknillinen_yliopisto) }
     end
 
-    factory :kemian_laitos do
+    factory :kemian_laitos, :parent => :luonnontieteellinen_tiedekunta do
       name  'Kemian laitos'
       _id   '4f6b1edf91bc2b33d3010101'
-      parent { FactoryGirl.create(:luonnontieteellinen_tiedekunta) }
+      # parent { FactoryGirl.create(:luonnontieteellinen_tiedekunta) }
     end
 
-    factory :fysiikan_laitos do
+    factory :fysiikan_laitos, :parent => :luonnontieteellinen_tiedekunta do
       name  'Fysiikan laitos'
       _id   '4f6b1edf91bc2b33d3010102'
-      parent { FactoryGirl.create(:luonnontieteellinen_tiedekunta) }
+      # parent { FactoryGirl.create(:luonnontieteellinen_tiedekunta) }
     end
 
     factory :akhaimenidien_yliopisto do
@@ -47,10 +47,10 @@ FactoryGirl.define do
       _id   '5e5c1edf91bc2b3300000000'
     end
 
-    factory :akhaimenidien_kirjasto do
+    factory :akhaimenidien_kirjasto, :parent => :akhaimenidien_yliopisto do
       name  'Akhaimenidien Kirjasto'
       _id   '5e5c1edf91bc2b3302000000'
-      parent { FactoryGirl.create(:akhaimenidien_yliopisto) }
+      # parent { FactoryGirl.create(:akhaimenidien_yliopisto) }
     end
 
   end
