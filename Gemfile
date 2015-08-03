@@ -67,6 +67,7 @@ group :test do
   gem 'launchy'
   gem 'wait_for'
   gem 'debugger'
+  gem 'simplecov', :require => false, :group => :test
 end
 
 # To use ActiveModel has_secure_password

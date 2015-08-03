@@ -6,6 +6,14 @@ Feature: Editing an existing organ
     And I am at front page of 'Spartan Teknillinen Yliopisto'
     And I navigate to home page of organ 'Tasa-arvotyöryhmä'
 
+  Scenario: Staff member fails to edit en existing organ
+    When I press the edit icon within organ details
+    And I fill in form 'Muokkaa toimielintä':
+      |  label                           | value                                                            |
+      |  Toimielimen nimi                |                                                                  |
+    And I press 'Tallenna'
+    Then I should see "Puutteellinen toimielin"
+
   Scenario: Staff member edits an existing organ
     When I press the edit icon within organ details
     And I fill in form 'Muokkaa toimielintä':

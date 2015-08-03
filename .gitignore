@@ -13,7 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
+/coverage
+/coverageall
 /public/assets
 .DS_Store
 *.orig
@@ -29,3 +30,5 @@ journal/*
 mongod.lock
 
 *.rdb
+
+.ruby-version

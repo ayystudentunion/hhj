@@ -18,9 +18,18 @@ describe Organ do
     organ.add_selected_members! FactoryGirl.create(:lukurinki)
 
     organ.reload_relations
+    u = organ.unofficial
+    u.should == false
     organ.members.count.should == 5
     organ.members.where(position: :position_deputy).count.should == 2
     organ.members.where(position: :position_member).count.should == 3
     organ.members.where(user_id: deputy_user._id).first.member.user._id.should == member_user._id
+  end
+
+  it 'can choose by university' do
+    uni = FactoryGirl.create :helsinki_uni
+    hki = FactoryGirl.create :helsinki_uni_student_council
+    r = Organ.by_university(uni)
+    r[0].should == hki
   end
 end

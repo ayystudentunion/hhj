@@ -31,6 +31,10 @@ Given /^I am logged in as helsinki university student ([^"]*)$/ do |name|
 end
 
 Given /^I am logged in as a Helsinki university students' union employee$/ do
-  user = FactoryGirl.create :helsinki_uni_student_union_employee
+  FactoryGirl.create :helsinki_uni_student_union_employee
   visit "/dev_login?user=helsinki_uni_student_union_employee"
+end
+
+And /^I logout$/ do
+  visit "/dev_logout"
 end
