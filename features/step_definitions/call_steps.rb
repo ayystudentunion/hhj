@@ -1,7 +1,10 @@
 # -*- encoding : utf-8 -*-
 
-Then %r/^I should see call for application '([^']*)'(?: with description '([^']*)':)?$/ do |*args|
-  name, description, table = args
+Then %r/^I should see call for application '([^']*)'$/ do |name|
+  check_details '.call-details', name, nil, nil
+end
+
+Then %r/^I should see call for application '([^']*)' with description '([^']*)':$/ do |name, description, table|
   check_details '.call-details', name, description, table
 end
 
