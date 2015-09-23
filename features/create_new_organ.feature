@@ -5,6 +5,13 @@ Feature: Creating a new organ
     And I am logged in as a member of university staff
     And I am at front page of 'Spartan Teknillinen Yliopisto'
 
+  Scenario: Creating an organ fails
+    When I press 'Luo uusi toimielin'
+    And I fill in form 'Luo uusi toimielin':
+      |  label                           | value                                                            |
+    And I press 'Tallenna'
+    Then I should see "Puutteellinen toimielin"
+
   Scenario: Staff member creates new organ
     When I press 'Luo uusi toimielin'
     And I fill in form 'Luo uusi toimielin':

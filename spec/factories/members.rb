@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :member do
+    association :organ, :factory => :kirjakerho
+    association :user, :factory => :eija
   end
 end

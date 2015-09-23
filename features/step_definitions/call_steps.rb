@@ -1,7 +1,10 @@
 # -*- encoding : utf-8 -*-
 
-Then %r/^I should see call for application '([^']*)'(?: with description '([^']*)':)?$/ do |*args|
-  name, description, table = args
+Then %r/^I should see call for application '([^']*)'$/ do |name|
+  check_details '.call-details', name, nil, nil
+end
+
+Then %r/^I should see call for application '([^']*)' with description '([^']*)':$/ do |name, description, table|
   check_details '.call-details', name, description, table
 end
 
@@ -37,4 +40,10 @@ Then %r/^I set applicant '([^']*)' as '([^']*)'$/ do |name, position|
   end
   member_slot = all(".member-card-empty.#{css_class}").first
   applicant(name).drag_to member_slot
+end
+
+When %r/^I press the edit icon within call details$/ do
+  within '.call-details' do
+    find(".edit-icon").click
+  end
 end
