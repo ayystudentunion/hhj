@@ -13,13 +13,13 @@ describe CallsController do
   end
 
   it 'should have a working show page' do
-    get :show, id: @call1.id, university: @call1_uni_key
+    get :show, id: @call1.id, university: @call1_uni_key, locale: :fi
 
     response.should be_success
   end
 
   it 'should not allow access to calls through the wrong university' do
-    get :show, id: @call1.id, university: @call2_uni_key
+    get :show, id: @call1.id, university: @call2_uni_key, locale: :fi
 
     response.response_code.should == 404
   end

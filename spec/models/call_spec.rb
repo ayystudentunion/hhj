@@ -11,7 +11,7 @@ describe Call do
 
   it 'should report about unhandled applications' do
     FactoryGirl.create :helsinki_uni_board_application
-    c = FactoryGirl.create :call_for_student_council_board
+    c = TestSingletons.call_for_student_council_board
     c.has_unhandled_applications.should == true
   end
 

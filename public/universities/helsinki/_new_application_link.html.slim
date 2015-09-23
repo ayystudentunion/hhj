@@ -2,5 +2,5 @@
   a.send-application.btn.js-modal(href=new_call_position_application_path(call_id:call._id))
     = I18n.t("calls.show.send_application")
 -else
-  a.send-application.btn.js-modal(href=edit_user_path(user_id:user._id, call_id: call._id))
+  a.send-application.btn.js-modal(href=edit_user_path(format: :fragment, call_id: call._id))
     = I18n.t("calls.show.send_application")

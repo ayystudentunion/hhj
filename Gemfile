@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails'
+gem 'rails', '~>4.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', git: 'git://github.com/rails/rails.git'
 
 gem 'execjs'
 
-# was a git dependency before, locked down only to avoid upgrading a big leap for now
-gem 'mongoid', '~> 3.0.23'
+# Locked down to avoid big leap upgrading
+gem 'mongoid', '~> 4.0.0'
 gem 'bson_ext', '>= 1.5'
 gem 'mongoid_rails_migrations', '>= 0.0.13'
 gem 'mongoid-tree', '>= 0.7'
@@ -27,6 +27,7 @@ gem 'redcarpet'
 gem "gritter", "1.0.3"
 gem "airbrake", ">=3.1.12"
 gem "sucker_punch"
+gem "protected_attributes"
 
 group :development do
   gem 'mongrel', '~> 1.2.0.pre2'
@@ -34,20 +35,15 @@ group :development do
   gem 'meta_request'
 end
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '>= 3.2.3'
-  gem 'stylus'
-  # locked down to resolve conflicts for bundle update rails_admin
-  gem 'coffee-rails', '~> 3.2.1'
+gem 'sass-rails',   '>= 4.0.0'
+gem 'stylus'
+gem 'coffee-rails', '~> 4.0.0'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
 
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'uglifier', '>= 1.0.3'
 
-gem 'jquery-rails', '2.1'
+gem 'jquery-rails', '>=2.1'
 
 group :development, :test do
   gem 'rspec-rails', '>=3.0'
@@ -65,7 +61,7 @@ group :test do
   gem 'database_cleaner', '>= 1.0.0'
   gem 'launchy'
   gem 'wait_for'
-  gem 'debugger'
+  gem 'byebug'
   gem 'simplecov', :require => false, :group => :test
 end
 
@@ -81,6 +77,3 @@ end
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'rvm-capistrano', require: false
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'

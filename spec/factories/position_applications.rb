@@ -4,14 +4,13 @@ FactoryGirl.define do
   factory :position_application do
     position  :position_member
     factory :kirjakerho_application do
-      association :user, :factory => :eija
-      association :call, :factory => :lukurinki
+      user { TestSingletons.eija }
+      call { TestSingletons.lukurinki }
     end
     factory :helsinki_uni_board_application do
-      association :user, :factory => :helsinki_uni_student_union_employee
-      association :call, :factory => :call_for_student_council_board
+      user { TestSingletons.helsinki_uni_student_union_employee }
+      call { TestSingletons.call_for_student_council_board }
     end
     custom Hash[*['degree','VTT']]
   end
 end
-

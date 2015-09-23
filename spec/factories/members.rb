@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :member do
-    association :organ, :factory => :kirjakerho
-    association :user, :factory => :eija
+    organ { TestSingletons.kirjakerho }
+    user { TestSingletons.eija }
   end
 end

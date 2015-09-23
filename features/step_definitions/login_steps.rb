@@ -1,5 +1,5 @@
 Given %r/^I am logged in as a student union employee$/ do
-  FactoryGirl.create :eija
+  TestSingletons.eija
   visit "/dev_login?user=eija"
 end
 
@@ -25,13 +25,14 @@ Given /^I am logged in as user ([^"]*)$/ do |user|
 end
 
 Given /^I am logged in as helsinki university student ([^"]*)$/ do |name|
-  user = "helsinki_uni_student_" + name.gsub(" ", "_").downcase
-  FactoryGirl.create user
+  suffix = name.gsub(" ", "_").downcase
+  user = "helsinki_uni_student_" + suffix
+  TestSingletons.helsinki_uni_student(suffix)
   visit "/dev_login?user=#{user}"
 end
 
 Given /^I am logged in as a Helsinki university students' union employee$/ do
-  FactoryGirl.create :helsinki_uni_student_union_employee
+  TestSingletons.helsinki_uni_student_union_employee
   visit "/dev_login?user=helsinki_uni_student_union_employee"
 end
 

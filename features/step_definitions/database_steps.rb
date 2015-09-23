@@ -3,12 +3,12 @@
 Given %r/^there exist university organization$/ do
   FactoryGirl.create :fysiikan_laitos
   FactoryGirl.create :kemian_laitos
-  FactoryGirl.create :kirjasto
+  TestSingletons.kirjasto
 end
 
 Given %r/^there are several organs in the system$/ do
   FactoryGirl.create :tasa_arvotyoryhma
-  FactoryGirl.create :kirjakerho
+  TestSingletons.kirjakerho
 end
 
 Given %r/^there exists an organ 'Tasa-arvotyöryhmä'$/ do
@@ -16,7 +16,7 @@ Given %r/^there exists an organ 'Tasa-arvotyöryhmä'$/ do
 end
 
 Given %r/^there is open call for applications called 'Kirjakerhon lukurinki'$/ do
-  FactoryGirl.create :lukurinki
+  TestSingletons.lukurinki
 end
 
 Given /^there are 3 applications for "([^"]*)"$/ do |title|
@@ -37,7 +37,7 @@ Given /^there are applications for "([^"]*)" by Helsinki uni students:$/ do |tit
 end
 
 Given /^there is open call for applications called 'Student council board members' in Helsingin yliopisto$/ do
-  FactoryGirl.create :call_for_student_council_board
+  TestSingletons.call_for_student_council_board
 end
 
 Given /^there is open call for applications called 'Alumni council board members call' in Helsingin yliopisto$/ do

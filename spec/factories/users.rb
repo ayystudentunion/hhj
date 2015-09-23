@@ -3,7 +3,7 @@
 
 FactoryGirl.define do
   factory :user do
-    association :university, :factory => :spartan_teknillinen_yliopisto
+    university { TestSingletons.sparta }
     factory :eija do
       _id        '4f7963bf91bc2bc1f6000001'
       first_name 'Eija'
@@ -64,7 +64,7 @@ FactoryGirl.define do
   end
   factory :helsinki_uni_user, class: User do
     factory :helsinki_uni_student_anna do
-      association :university, :factory => :helsinki_uni
+      university { TestSingletons.helsinki }
       _id        '4f7963bf91bc2bc1f6000077'
       first_name 'Anna'
       last_name  'Kainulainen'
@@ -74,7 +74,7 @@ FactoryGirl.define do
       role       :role_student
     end
     factory :helsinki_uni_student_tiina do
-      association :university, :factory => :helsinki_uni
+      university { TestSingletons.helsinki }
       _id        '4f7963bf91bc2bc1f6000074'
       first_name 'Tiina'
       last_name  'Miettinen'
@@ -84,7 +84,7 @@ FactoryGirl.define do
       role       :role_student
     end
     factory :helsinki_uni_student_pekka do
-      association :university, :factory => :helsinki_uni
+      university { TestSingletons.helsinki }
       _id        '4f7963bf91bc2bc1f6000078'
       first_name 'Pekka'
       last_name  'Jantunen'
@@ -94,7 +94,7 @@ FactoryGirl.define do
       role       :role_student
     end
     factory :helsinki_uni_student_with_no_phone do
-      association :university, :factory => :helsinki_uni
+      university { TestSingletons.helsinki }
       _id        '4f7963bf91bc2bc1f6000075'
       first_name 'Markku'
       last_name  'Nophone'
@@ -104,7 +104,7 @@ FactoryGirl.define do
       role       :role_student
     end
     factory :helsinki_uni_student_union_employee do
-      association :university, :factory => :helsinki_uni
+      university { TestSingletons.helsinki }
       _id        '4f7963bf91bc2bc1f6000073'
       first_name 'Maija'
       last_name  'Hyyemployee'

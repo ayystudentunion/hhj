@@ -12,10 +12,10 @@ module Models
         @symbol = symbol
         validates position_field_symbol, allow_nil: true, inclusion: { in:  POSITION_VALUES }
         field position_field_symbol, type: Symbol
-        scope :members, where(position_field_symbol => :position_member)
-        scope :deputies, where(position_field_symbol => :position_deputy)
-        scope :not_selected, where(position_field_symbol => nil)
-        scope :lone_deputies, deputies.where(member_id: nil)
+        scope :members, -> { where(position_field_symbol => :position_member) }
+        scope :deputies, -> { where(position_field_symbol => :position_deputy) }
+        scope :not_selected, -> { where(position_field_symbol => nil) }
+        scope :lone_deputies, -> { deputies.where(member_id: nil) }
       end
     end
 
@@ -28,9 +28,9 @@ module Models
       id.blank? ? nil : self.class.find(id)
     end
 
-    def update_attributes(attributes = {}, options = {})
+    def update_attributes(attributes = {})
       set_position! attributes if attributes.include? self.class.position_field_symbol
-      super(attributes.except(self.class.position_field_symbol, :member, :deputy), options)
+      super attributes.except(self.class.position_field_symbol, :member, :deputy)
     end
 
     def set_position!(params)
@@ -104,9 +104,9 @@ module Models
         @applied_position_symbol = symbol
         validates position_field_symbol, allow_nil: true, inclusion: { in:  POSITION_VALUES }
         field applied_position_field_symbol, type: Symbol
-        scope :member_applicants, where(applied_position_field_symbol => :position_member)
-        scope :deputy_applicants, where(applied_position_field_symbol => :position_deputy)
-        scope :paired_deputies, deputy_applicants.not_in(:member_id => [nil])
+        scope :member_applicants, -> { where(applied_position_field_symbol => :position_member) }
+        scope :deputy_applicants, -> { where(applied_position_field_symbol => :position_deputy) }
+        scope :paired_deputies, -> { deputy_applicants.not_in(:member_id => [nil]) }
       end
     end
   end
