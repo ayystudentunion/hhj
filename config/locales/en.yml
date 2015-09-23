@@ -272,6 +272,7 @@ en:
     send: "Send"
     time_placeholder: "Set time"
     print_application: Unimplemented
+    ok: "Ok"
   buttons:
     done_edit: "Done"
   placeholders:

@@ -271,6 +271,7 @@ sv:
     save: "Spara"
     send: "Skicka"
     time_placeholder: "Ställ in tid"
+    ok: "Ok"
   buttons:
     done_edit: "Färdig"
   placeholders:
