@@ -43,7 +43,7 @@
     | :
   p.text = position_application.call.title + ', ' + t("position_applications.show.#{position_application.position}", count: position_application.deputy_of_safe_length, name: position_application.deputy_of)
 - if custom_template_exists?('fields_show')
-  = render file: "/" + custom_file('_fields_show.html'), handlers: [:slim], locals: { position_application: position_application }
+  = render file: "/" + custom_file('_fields_show'), formats: [:html], handlers: [:slim], locals: { position_application: position_application }
 .item-block
   p.label
     = t 'position_applications.show.personal_statement'
