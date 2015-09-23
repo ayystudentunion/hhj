@@ -50,7 +50,7 @@ end
 gem 'jquery-rails', '2.1'
 
 group :development, :test do
-  gem 'rspec-rails', '>= 2.6'
+  gem 'rspec-rails', '~> 2.99'
   gem "letter_opener"
   gem 'email_spec'
 end
@@ -85,5 +85,3 @@ gem 'rvm-capistrano', require: false
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
-
