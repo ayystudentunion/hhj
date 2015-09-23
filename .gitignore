@@ -32,3 +32,6 @@ mongod.lock
 *.rdb
 
 .ruby-version
+
+# Ctags for editor symbol support
+.tags*
