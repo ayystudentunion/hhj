@@ -10,4 +10,18 @@ describe Organization do
     str_dump.should include('Kirjasto')
   end
 
+  it 'provides an error on duplicate key' do
+    h = FactoryGirl.create(:helsinki_uni)
+
+    o = Organization.new key: h.key
+
+    o.should have(1).errors_on(:key)
+  end
+
+  it 'provides an error with blank key' do
+    o = Organization.new key: ''
+
+    o.should have(1).errors_on(:key)
+  end
+
 end
