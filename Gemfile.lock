@@ -338,6 +338,7 @@ DEPENDENCIES
   rails
   rails_admin (> 0.4.3)
   redcarpet
+  rspec-collection_matchers
   rspec-rails (~> 2.99)
   rspec_multi_matchers
   rvm-capistrano

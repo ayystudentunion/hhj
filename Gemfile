@@ -57,6 +57,7 @@ end
 
 group :test do
   gem 'rspec_multi_matchers'
+  gem 'rspec-collection_matchers'
   gem 'cucumber-rails', require: false
   # restricting until capybara-webkit releases a version compatible with 2.1
   gem 'capybara', '~>2.0.0'
