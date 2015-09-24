@@ -57,7 +57,7 @@ end
 
 group :test do
   gem 'rspec-collection_matchers'
-  gem 'cucumber-rails', require: false
+  gem 'cucumber-rails', '>=1.4.0', require: false
   gem 'capybara', '>=2.5.0'
   gem 'capybara-webkit', '>=1.7.0'
   gem 'capybara-screenshot'
