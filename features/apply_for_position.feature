@@ -34,7 +34,7 @@ Feature: Applying for a position
     Then I should see student Martti's name, phone number and email-address in the application form
     Then I fill in form 'Lähetä hakemus':
       | label                      | value                    |
-      | Haen                       | Jäseneksi                |
+      | Haen                       | Varajäseneksi            |
       | Kenen varajäseneksi haluat | Tenho Taipale            |
       | Perustelut                 | This should be destroyed |
     And I press 'Lähetä' within dialog
@@ -44,7 +44,7 @@ Feature: Applying for a position
     Then I should not see "Sinulla on jo yksi hakemus tähän hakuun"
     Then I fill in form 'Lähetä hakemus':
       | label                      | value              |
-      | Haen                       | Jäseneksi          |
+      | Haen                       | Varajäseneksi      |
       | Kenen varajäseneksi haluat | Tenho Taipale      |
       | Perustelut                 | This should remain |
     And I press 'Lähetä' within dialog
@@ -204,5 +204,3 @@ Feature: Applying for a position
       | Oppiarvo | VTT       |
     When I press 'Ok'
     Then I should see "Tiina Miettinen (jäsen, varajäsen: Anna Kainulainen)" among the applications listing
-
-
