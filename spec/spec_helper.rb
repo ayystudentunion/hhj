@@ -4,7 +4,6 @@ ENV["RAILS_ENV"] ||= 'test'
 
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'factory_girl'
 require 'devise'
 require 'capybara/rspec'
@@ -49,4 +48,8 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.infer_spec_type_from_file_location!
+
+  # Old project so old syntax. Feel free to migrate.
+  config.expect_with(:rspec) { |c| c.syntax = [:should, :expect] }
 end

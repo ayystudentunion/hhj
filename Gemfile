@@ -50,17 +50,16 @@ end
 gem 'jquery-rails', '2.1'
 
 group :development, :test do
-  gem 'rspec-rails', '>= 2.6'
+  gem 'rspec-rails', '>=3.0'
   gem "letter_opener"
   gem 'email_spec'
 end
 
 group :test do
-  gem 'rspec_multi_matchers'
-  gem 'cucumber-rails', require: false
-  # restricting until capybara-webkit releases a version compatible with 2.1
-  gem 'capybara', '~>2.0.0'
-  gem 'capybara-webkit'
+  gem 'rspec-collection_matchers'
+  gem 'cucumber-rails', '>=1.4.0', require: false
+  gem 'capybara', '>=2.5.0'
+  gem 'capybara-webkit', '>=1.7.0'
   gem 'capybara-screenshot'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner', '>= 1.0.0'
@@ -85,5 +84,3 @@ gem 'rvm-capistrano', require: false
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-
-
