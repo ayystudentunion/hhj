@@ -245,7 +245,6 @@ GEM
       rspec-core (~> 2.99.0)
       rspec-expectations (~> 2.99.0)
       rspec-mocks (~> 2.99.0)
-    rspec_multi_matchers (1.2.1)
     rvm-capistrano (1.2.7)
       capistrano (>= 2.0.0)
     safe_yaml (0.9.5)
@@ -331,7 +330,6 @@ DEPENDENCIES
   redcarpet
   rspec-collection_matchers
   rspec-rails (~> 2.99)
-  rspec_multi_matchers
   rvm-capistrano
   sass-rails (>= 3.2.3)
   simplecov

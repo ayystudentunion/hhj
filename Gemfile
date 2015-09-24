@@ -56,7 +56,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec_multi_matchers'
   gem 'rspec-collection_matchers'
   gem 'cucumber-rails', require: false
   gem 'capybara', '>=2.5.0'
