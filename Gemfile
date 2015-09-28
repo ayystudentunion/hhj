@@ -24,7 +24,7 @@ gem 'rails_admin', '> 0.4.3'
 gem 'devise'
 gem 'valid_email'
 gem 'redcarpet'
-gem "gritter", "1.0.3"
+gem "gritter", ">=1.2.0"
 gem "airbrake", ">=3.1.12"
 gem "sucker_punch"
 gem "protected_attributes"
