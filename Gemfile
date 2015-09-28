@@ -75,5 +75,5 @@ end
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano', '~> 2.0'
 gem 'rvm-capistrano', require: false

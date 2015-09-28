@@ -54,6 +54,9 @@ module Halloped
       g.test_framework :rspec, :fixture => true, :views => false, :fixture_replacement => :factory_girl, :view_specs => false
       g.fixture_replacement :factory_girl, :dir=>"spec/factories"
     end
+
+    # This should be removed when code base is migrated to strong parameters
+    config.action_controller.permit_all_parameters = true
   end
 
   def self.languages
