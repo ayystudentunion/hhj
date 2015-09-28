@@ -85,5 +85,7 @@ heroku:
     default:
       uri: <%= ENV['MONGOLAB_URI'] %>
       options:
-        safe: true
-        skip_version_check: true
+        timeout: 15
+        max_retries: 30
+        retry_interval: 1
+        refresh_interval: 10
