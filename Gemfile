@@ -30,7 +30,6 @@ gem "sucker_punch"
 gem "protected_attributes"
 
 group :development do
-  gem 'mongrel', '~> 1.2.0.pre2'
   gem 'better_errors'
   gem 'meta_request'
 end
