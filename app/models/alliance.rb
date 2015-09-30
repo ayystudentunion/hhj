@@ -2,6 +2,9 @@ class Alliance
   include Mongoid::Document
 
   field :name, type: String
+  field :archived, type: Boolean, default: false
+
+  scope :active, -> { where(archived: false) }
 
   belongs_to :call
   belongs_to :creator, class_name: "User", inverse_of: :alliances

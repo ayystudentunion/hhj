@@ -66,3 +66,12 @@ Feature: Handling electoral alliances
     And I follow "Alliance1" in the sidebar
     Then I should see my name among the unconfirmed members
     Then I should not see my name among the confirmed members
+
+  Scenario: Hide Alliances
+    Given I am logged in as helsinki university student Anna
+    And someone has added my application to an electoral alliance called "Alliance1"
+    When I follow "Helsingin yliopisto"
+    Then I should see "Sinulla on vahvistamattomia vaaliliittokutsuja"
+    When all alliances have been archived
+    And I refresh the page
+    Then I should not see "Sinulla on vahvistamattomia vaaliliittokutsuja"
