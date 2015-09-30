@@ -32,7 +32,7 @@ Feature: Handling electoral alliances
     And "anna.kainulainen@helsinki.fi" should receive an email
     And "pekka@helsinki.fi" should receive an email
 
-  Scenario: Creating an an empty alliance
+  Scenario: Creating an empty alliance
     Given I am logged in as a Helsinki university students' union employee
     And there is an application with deputy for "Student council board members"
     When I am at front page of 'Helsingin yliopisto'
