@@ -56,13 +56,16 @@ Feature: Handling electoral alliances
     And I press "Liity"
     Then I should not see "Sinulla on vahvistamattomia vaaliliittoja" in the sidebar
     And I should see "Vaaliliittoon kuuluminen vahvistettiin."
-    And I follow "Alliance1" in the sidebar
+    Then "eija.zitting@sty.fi" should receive an email
+    Given a clear email queue
+    When I follow "Alliance1" in the sidebar
     Then I should see my name among the confirmed members
     Then I should not see my name among the unconfirmed members
     When I close the dialog
     And I press "Eroa"
     Then I should see "Olet eronnut vaaliliitosta."
     And I should see "Sinulla on vahvistamattomia vaaliliittokutsuja"
+    And "eija.zitting@sty.fi" should receive no emails
     When I follow "Alliance1" in the sidebar
     Then I should see my name among the unconfirmed members
     Then I should not see my name among the confirmed members

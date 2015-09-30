@@ -9,6 +9,8 @@ class AllianceMembership
   validates_presence_of :alliance
   validates_presence_of :position_application
 
+  after_update :send_notifications
+
   def user_name
     self.user.full_name
   end
@@ -17,4 +19,9 @@ class AllianceMembership
     self.position_application.user
   end
 
+  def send_notifications
+    if confirmed_changed? && confirmed
+      AllianceMailer::Job.new.async.perform(id, email: :membership_confirmed)
+    end
+  end
 end
