@@ -61,9 +61,9 @@ Feature: Handling electoral alliances
     Then I should not see my name among the unconfirmed members
     When I close the dialog
     And I press "Eroa"
-    And I should see "Olet eronnut vaaliliitosta."
-    Then I should see "Sinulla on vahvistamattomia vaaliliittokutsuja"
-    And I follow "Alliance1" in the sidebar
+    Then I should see "Olet eronnut vaaliliitosta."
+    And I should see "Sinulla on vahvistamattomia vaaliliittokutsuja"
+    When I follow "Alliance1" in the sidebar
     Then I should see my name among the unconfirmed members
     Then I should not see my name among the confirmed members
 
