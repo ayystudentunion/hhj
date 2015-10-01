@@ -1,4 +1,4 @@
-require 'factory_girl_rails'
+# coding: utf-8
 
 class PagesController < ApplicationController
   def logout
