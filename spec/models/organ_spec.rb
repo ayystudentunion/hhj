@@ -4,9 +4,8 @@ require 'spec_helper'
 
 describe Organ do
 
-  organ = FactoryGirl.create(:tasa_arvotyoryhma)
-
   it 'can add members' do
+    organ = FactoryGirl.create(:tasa_arvotyoryhma)
     deputy_user = FactoryGirl.create(:student_martti)
     member_user = FactoryGirl.create(:student_topias)
     member = FactoryGirl.create(:kirjakerho_application, selected_as: :position_member, user: member_user)
@@ -15,12 +14,21 @@ describe Organ do
     deputy_without_member = FactoryGirl.create(:kirjakerho_application, selected_as: :position_deputy)
     not_selected = FactoryGirl.create(:kirjakerho_application)
 
-    organ.add_selected_members! FactoryGirl.create(:lukurinki)
+    organ.add_selected_members! TestSingletons.lukurinki
 
     organ.reload_relations
+    u = organ.unofficial
+    u.should == false
     organ.members.count.should == 5
     organ.members.where(position: :position_deputy).count.should == 2
     organ.members.where(position: :position_member).count.should == 3
     organ.members.where(user_id: deputy_user._id).first.member.user._id.should == member_user._id
+  end
+
+  it 'can choose by university' do
+    uni = TestSingletons.helsinki
+    hki = FactoryGirl.create :helsinki_uni_student_council
+    r = Organ.by_university(uni)
+    r[0].should == hki
   end
 end

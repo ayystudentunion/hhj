@@ -13,16 +13,16 @@ describe PositionApplication do
       application.call.eligibility_rule_set = FactoryGirl.create(:accept_only_martti_to_lukurinki)
       application.user.unset(:edu_data)
       application.eligible?.should == false
-      application.user.set(:edu_data, {'A_GIVEN_NAME' => 'Emma'})
+      application.user.set(edu_data: {'A_GIVEN_NAME' => 'Emma'})
       application.eligible?.should == false
-      application.user.set(:edu_data, {'A_OTHER' => 'Martti'})
+      application.user.set(edu_data: {'A_OTHER' => 'Martti'})
       application.eligible?.should == false
-      application.user.set(:edu_data, {})
+      application.user.set(edu_data: {})
       application.eligible?.should == false
-      application.user.set(:edu_data, nil)
+      application.user.set(edu_data: nil)
       application.eligible?.should == false
 
-      application.user.set(:edu_data, {'A_GIVEN_NAME' => 'Martti'})
+      application.user.set(edu_data: {'A_GIVEN_NAME' => 'Martti'})
       application.eligible?.should == true
     end
   end

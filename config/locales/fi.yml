@@ -284,6 +284,7 @@ fi:
     send: Lähetä
     time_placeholder: Aseta aika
     print_application: Ominaisuus toteuttamatta
+    ok: Ok
 
   buttons:
     done_edit: Valmis
@@ -294,7 +295,7 @@ fi:
     message_for_organ: Kirjoita viesti toimielimelle
 
   send: Lähetä
-  
+
   email:
     application_received: Hakemuksesi hallinnon opiskelijaedustajaksi on vastaanotettu.
     thanks_for_application: Kiitos. Sinulle vastataan pian.

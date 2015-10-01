@@ -29,7 +29,7 @@ class ApplicationMailer < ActionMailer::Base
     def perform(partner_id, university_id, email)
       a = ::PositionApplication.find(partner_id)
       u = ::Organization.find(university_id)
-      ::ApplicationMailer.pair_notification(a, u, email).deliver
+      ::ApplicationMailer.pair_notification(a, u, email).deliver_now
     end
   end
 

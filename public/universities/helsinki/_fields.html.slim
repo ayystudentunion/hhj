@@ -12,7 +12,7 @@
       h3
         = t ".degree_programme"
       p.text = @position_application.custom['degree_programme']
-    - if @position_application.custom.include? 'experience_in_student_associations'
+    - if @position_application.custom.include? 'experience_in_student_associations' && !@call.administrational?
       h3
         = t '.experience_in_student_associations'
       textarea.wide-text(readonly="readonly") = @position_application.custom['experience_in_student_associations']
@@ -31,5 +31,6 @@
     -if @call.administrational?
       .item-row
         = text_field_tag 'position_application[custom[degree]]', @position_application.custom['degree'].to_s, placeholder: t('.degree'), class: 'field wide'
-    .item-row
-      = text_area_tag 'position_application[custom[experience_in_student_associations]]', @position_application.custom['experience_in_student_associations'].to_s, placeholder: t('.experience_in_student_associations'), class: 'wide'
+    - else
+      .item-row
+        = text_area_tag 'position_application[custom[experience_in_student_associations]]', @position_application.custom['experience_in_student_associations'].to_s, placeholder: t('.experience_in_student_associations'), class: 'wide'

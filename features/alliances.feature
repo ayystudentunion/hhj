@@ -32,7 +32,7 @@ Feature: Handling electoral alliances
     And "anna.kainulainen@helsinki.fi" should receive an email
     And "pekka@helsinki.fi" should receive an email
 
-  Scenario: Creating an an empty alliance
+  Scenario: Creating an empty alliance
     Given I am logged in as a Helsinki university students' union employee
     And there is an application with deputy for "Student council board members"
     When I am at front page of 'Helsingin yliopisto'
@@ -52,16 +52,29 @@ Feature: Handling electoral alliances
     Then I should see my name among the unconfirmed members
     Then I should not see my name among the confirmed members
     And I should see "Sinulla on vahvistamattomia vaaliliittokutsuja"
-    When I press "Liity"
+    When I close the dialog
+    And I press "Liity"
     Then I should not see "Sinulla on vahvistamattomia vaaliliittoja" in the sidebar
     And I should see "Vaaliliittoon kuuluminen vahvistettiin."
-    And I follow "Alliance1" in the sidebar
+    Then "eija.zitting@sty.fi" should receive an email
+    Given a clear email queue
+    When I follow "Alliance1" in the sidebar
     Then I should see my name among the confirmed members
     Then I should not see my name among the unconfirmed members
-    When I press "Eroa"
-    And I should see "Olet eronnut vaaliliitosta."
-    Then I should see "Sinulla on vahvistamattomia vaaliliittokutsuja"
-    And I follow "Alliance1" in the sidebar
+    When I close the dialog
+    And I press "Eroa"
+    Then I should see "Olet eronnut vaaliliitosta."
+    And I should see "Sinulla on vahvistamattomia vaaliliittokutsuja"
+    And "eija.zitting@sty.fi" should receive no emails
+    When I follow "Alliance1" in the sidebar
     Then I should see my name among the unconfirmed members
     Then I should not see my name among the confirmed members
 
+  Scenario: Hide Alliances
+    Given I am logged in as helsinki university student Anna
+    And someone has added my application to an electoral alliance called "Alliance1"
+    When I follow "Helsingin yliopisto"
+    Then I should see "Sinulla on vahvistamattomia vaaliliittokutsuja"
+    When all alliances have been archived
+    And I refresh the page
+    Then I should not see "Sinulla on vahvistamattomia vaaliliittokutsuja"

@@ -48,21 +48,21 @@ class ApplicationController < ActionController::Base
 
   def authorize_organ_admin
     if not can_admin_organs?
-      render text: "Unauthorized", status: :unauthorized
+      render plain: "Unauthorized", status: :unauthorized
       return false
     end
   end
 
   def authorize_call_admin
     if not student_union_employee?
-      render text: "Unauthorized", status: :unauthorized
+      render plain: "Unauthorized", status: :unauthorized
       return false
     end
   end
 
   def authorize_applicant
     if not can_apply?
-      render text: "Unauthorized", status: :unauthorized
+      render plain: "Unauthorized", status: :unauthorized
       return false
     end
   end
@@ -321,7 +321,7 @@ class ApplicationController < ActionController::Base
 
   def layout_by_context
     if request.fullpath.match /^\/admins\//
-      'device'
+      'devise'
     else
       'application'
     end

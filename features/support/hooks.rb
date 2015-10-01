@@ -1,3 +1,3 @@
 Before do
-  # Do something before each scenario.
+  TestSingletons.clear
 end

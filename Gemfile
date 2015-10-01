@@ -1,15 +1,14 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
 
-gem 'rails'
+gem 'rails', '~>4.2.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', git: 'git://github.com/rails/rails.git'
 
 gem 'execjs'
 
-# was a git dependency before, locked down only to avoid upgrading a big leap for now
-gem 'mongoid', '~> 3.0.23'
+# Locked down to avoid big leap upgrading
+gem 'mongoid', '~> 4.0.0'
 gem 'bson_ext', '>= 1.5'
 gem 'mongoid_rails_migrations', '>= 0.0.13'
 gem 'mongoid-tree', '>= 0.7'
@@ -24,49 +23,44 @@ gem 'rails_admin', '> 0.4.3'
 gem 'devise'
 gem 'valid_email'
 gem 'redcarpet'
-gem "gritter", "1.0.3"
+gem "gritter", ">=1.2.0"
 gem "airbrake", ">=3.1.12"
 gem "sucker_punch"
+gem "protected_attributes"
 
 group :development do
-  gem 'mongrel', '~> 1.2.0.pre2'
-  gem 'better_errors'
+  gem 'better_errors', platforms: [:mri_20]
   gem 'meta_request'
 end
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '>= 3.2.3'
-  gem 'stylus'
-  # locked down to resolve conflicts for bundle update rails_admin
-  gem 'coffee-rails', '~> 3.2.1'
+gem 'sass-rails',   '>= 4.0.0'
+gem 'stylus'
+gem 'coffee-rails', '~> 4.0.0'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
 
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'uglifier', '>= 1.0.3'
 
-gem 'jquery-rails', '2.1'
+gem 'jquery-rails', '>=2.1'
 
 group :development, :test do
-  gem 'rspec-rails', '>= 2.6'
+  gem 'rspec-rails', '>=3.0'
   gem "letter_opener"
   gem 'email_spec'
 end
 
 group :test do
-  gem 'rspec_multi_matchers'
-  gem 'cucumber-rails', require: false
-  # restricting until capybara-webkit releases a version compatible with 2.1
-  gem 'capybara', '~>2.0.0'
-  gem 'capybara-webkit'
+  gem 'rspec-collection_matchers'
+  gem 'cucumber-rails', '>=1.4.0', require: false
+  gem 'capybara', '>=2.5.0'
+  gem 'capybara-webkit', '>=1.7.0'
   gem 'capybara-screenshot'
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner', '>= 1.0.0'
   gem 'launchy'
   gem 'wait_for'
-  gem 'debugger'
+  gem 'byebug', platforms: [:mri_20]
+  gem 'simplecov', :require => false, :group => :test
 end
 
 # To use ActiveModel has_secure_password
@@ -79,10 +73,6 @@ end
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano', require: false
-gem 'rvm-capistrano', require: false
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
-
-
+# the net-ssh dependency on latests version only works with MRI >= 2.0
+gem 'capistrano', '~> 2.0', require: false, platforms: [:mri_20]
+gem 'rvm-capistrano', require: false, platforms: [:mri_20]

@@ -12,6 +12,6 @@ Then /^I should not see "([^"]*)" as contact info$/ do |text|
 end
 
 When /^somebody creates an ongoing call$/ do
-  call = FactoryGirl.create(:lukurinki)
+  call = TestSingletons.lukurinki
   call.update_attributes!(date_start: (Time.zone.now - 1.day).to_date, date_end: (Time.zone.now + 1.day).to_date)
 end

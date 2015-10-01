@@ -4,7 +4,9 @@
   wrap = $('#modal-wrap').empty().fadeIn('fast')
   cached.clear(); #added afterwards to refresh electoral alliances list after creating one
   # TODO: use uncached get for edit modals
-  cached.get url + ".fragment", (error, data) ->
+  url += ".fragment" unless url.indexOf('.fragment') > -1
+
+  cached.get url, (error, data) ->
     $(data).appendTo wrap
     initDom wrap
     wrap.find('.field.date').datepicker
@@ -28,7 +30,7 @@ choose_org = (parent) -> (id, cb) ->
   #$.uniform.update()
 
 init_modals = () ->
-  $('a.js-modal').live 'click', () ->
+  $(document).on 'click', 'a.js-modal', () ->
     href = $(this).attr 'href'
     open_modal_dialog href
     return false
@@ -62,11 +64,11 @@ init_modals = () ->
     select.nextAll().remove()
 
     $.get $("#modal-wrap .modal").attr('data-url'), (organizations) ->
-      children = _(organizations).filter((org) -> org.parent_id == organization_id)
+      children = _(organizations).filter((org) -> org.parent_id?.$oid == organization_id)
       if children.length > 0
         template = $($("#organization-select-template").html())
         select.parents('.inline-block:first').append template
-        template.render(children, item: -> value: "#{@_id}", text: "#{@name}")
+        template.render(children, item: -> value: "#{@_id.$oid}", text: "#{@name}")
         default_option = select.children('option').first().clone().attr('selected', 'selected')
         template.prepend(default_option) #.uniform()
       select.trigger("resolved")

@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :member do
+    organ { TestSingletons.kirjakerho }
+    user { TestSingletons.eija }
   end
 end
