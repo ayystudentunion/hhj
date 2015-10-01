@@ -83,7 +83,7 @@ production:
 heroku:
   sessions:
     default:
-      uri: <%= ENV['MONGOLAB_URI'] %>
+      uri: <%= ENV['MONGOHQ_URL'] %>
       options:
         timeout: 15
         max_retries: 30
