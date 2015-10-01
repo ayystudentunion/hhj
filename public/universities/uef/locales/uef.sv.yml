@@ -1,0 +1,18 @@
+sv:
+  uef:
+    fields:
+      available: Kan du åta dig uppdraget för hela mandatperioden?
+      available_true: Ja
+      available_false: Nej
+      degree_programme: Utbildningsprogram (t. ex. Automation Teknik)
+      degree: Lärdomsgrad (t.ex. PK eller fil.stud.)
+      experience_in_student_associations: Erfarenhet av studentföreningar
+    fields_show:
+      available: För hela periodet
+      available_true: Ja
+      available_false: Nej
+      degree_programme: Utbildningsprogram
+      degree: Lärdomsgrad
+      experience_in_student_associations: Erfarenhet av studentföreningar
+    member_fields:
+      send_email_reminder: "Skicka en påminnelse om ansökan till din medkandidat."

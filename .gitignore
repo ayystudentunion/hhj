@@ -25,7 +25,6 @@
 
 halloped_development*
 halloped_test*
-local*
 journal/*
 mongod.lock
 
