@@ -28,6 +28,8 @@ gem "gritter", ">=1.2.0"
 gem "airbrake", ">=3.1.12"
 gem "sucker_punch"
 gem "protected_attributes"
+# For running on heroku
+gem "thin"
 
 group :development do
   gem 'better_errors', platforms: [:mri_20]
