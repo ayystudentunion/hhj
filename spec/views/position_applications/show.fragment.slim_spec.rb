@@ -24,6 +24,7 @@ describe 'position_applications/show.fragment.slim' do
 
   def test_partial
     assign(:position_application, application)
+    assign(:call, application.call)
     assign(:university, Organization.find_by(key: 'sty'))
     render
   end

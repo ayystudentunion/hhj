@@ -69,4 +69,8 @@ class User
     self.position_applications.inject([]) {|aggregate, application| aggregate | application.alliance_memberships}
   end
 
+  def active_alliance_memberships
+    alliance_memberships.select { |m| !m.alliance.archived }
+  end
+
 end

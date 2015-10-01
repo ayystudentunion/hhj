@@ -68,11 +68,10 @@ Feature: Applying for a position
     When I fill in form 'Lähetä hakemus':
       | label      | value                                     |
       | Haen       | Jäseneksi                                 |
-      | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
       | Oppiarvo   | VTT                                       |
 
     And I press 'Lähetä' within dialog
-    Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
+    Then I should see dialog 'Hakemus lähetetty':
       | label    | value     |
       | Haen     | Jäseneksi |
       | Oppiarvo | VTT       |
@@ -91,11 +90,10 @@ Feature: Applying for a position
     When I fill in form 'Lähetä hakemus':
       | label      | value                                     |
       | Haen       | Varajäseneksi                             |
-      | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
       | Oppiarvo   | VTT                                       |
     And I choose to send an email reminder to "test@test.com"
     And I press 'Lähetä' within dialog
-    Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
+    Then I should see dialog 'Hakemus lähetetty':
       | label | value         |
       | Haen  | Varajäseneksi |
     Then "test@test.com" should receive an email with the following body:
@@ -118,7 +116,6 @@ Feature: Applying for a position
     When I fill in form 'Lähetä hakemus':
       | label      | value                                     |
       | Haen       | Varajäseneksi                             |
-      | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
       | Oppiarvo   | VTT                                       |
     And I choose to send an email reminder to "test@test.com"
     And I select "Anna Kainulainen" as the member I want to be deputy of
@@ -144,7 +141,6 @@ Feature: Applying for a position
     When I fill in form 'Lähetä hakemus':
       | label      | value                                     |
       | Haen       | Jäseneksi                                 |
-      | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
       | Oppiarvo   | VTT                                       |
 
     And I select "Anna Kainulainen" as the deputy I want to be member of
@@ -168,11 +164,10 @@ Feature: Applying for a position
     When I fill in form 'Lähetä hakemus':
       | label      | value                                     |
       | Haen       | Jäseneksi                                 |
-      | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
       | Oppiarvo   | VTT                                       |
 
     And I press 'Lähetä' within dialog
-    Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
+    Then I should see dialog 'Hakemus lähetetty':
       | label | value     |
       | Haen  | Jäseneksi |
     Then should see "192837654" within the applicant details
@@ -190,7 +185,6 @@ Feature: Applying for a position
     When I fill in form 'Lähetä hakemus':
       | label      | value                                     |
       | Haen       | Varajäseneksi                             |
-      | Perustelut | 3 vuoden kokemus Hallopedina toimimisesta |
     And I select "Tiina Miettinen" as the member I want to be deputy of
     And I press 'Lähetä' within dialog
     Then I should see "Puutteellinen hakemus Oppiarvo vaaditaan"
@@ -198,7 +192,7 @@ Feature: Applying for a position
       | label                            | value |
       | Oppiarvo (esim. VTK tai fil. yo) | VTT   |
     And I press 'Lähetä' within dialog
-    Then I should see dialog 'Hakemus lähetetty' with text '3 vuoden kokemus Hallopedina toimimisesta':
+    Then I should see dialog 'Hakemus lähetetty':
       | label    | value     |
       | Haen     | Varajäseneksi |
       | Oppiarvo | VTT       |

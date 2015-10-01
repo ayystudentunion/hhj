@@ -12,7 +12,7 @@
           = t "helsinki.fields.degree_programme"
           | :
           p.text = position_application.custom['degree_programme']
-    - if position_application.custom.include? 'experience_in_student_associations'
+    - if position_application.custom.include? 'experience_in_student_associations' && !@call.administrational?
       .item-block
         p.label
           = t 'helsinki.fields.experience_in_student_associations'
