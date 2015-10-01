@@ -22,7 +22,7 @@ class AllianceMembership
 
   def send_notifications
     if confirmed_changed? && confirmed
-      AllianceMailer::Job.new.async.perform(id, email: :membership_confirmed)
+      AllianceMailer::Job.new.async.perform(id, nil, nil, :membership_confirmed)
     end
   end
 end

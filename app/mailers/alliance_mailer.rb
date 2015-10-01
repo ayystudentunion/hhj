@@ -22,7 +22,7 @@ class AllianceMailer < ActionMailer::Base
   class Job
     include SuckerPunch::Job
 
-    def perform(membership_id, university_id: nil, url: nil, email: :confirmation_email)
+    def perform(membership_id, university_id, url, email = :confirmation_email)
       membership = ::AllianceMembership.find(membership_id)
       if university_id
         university = ::Organization.find(university_id)
