@@ -1,5 +1,6 @@
 class Alliance
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :name, type: String
   field :archived, type: Boolean, default: false

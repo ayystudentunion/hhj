@@ -1,5 +1,6 @@
 class AllianceMembership
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   field :confirmed, type: Boolean, default: false
 

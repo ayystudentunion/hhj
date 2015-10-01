@@ -1,5 +1,6 @@
 class Recommendation
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   belongs_to :position_application
   belongs_to :user
