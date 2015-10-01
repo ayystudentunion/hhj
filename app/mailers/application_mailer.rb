@@ -23,6 +23,12 @@ class ApplicationMailer < ActionMailer::Base
     end
   end
 
+  def administrational_confirmation(application)
+    @application = application
+    @university = application.call.university
+    mail(:to => application.user.email, :subject => "Hakemuksesi on vastaanotettu. Vi har mottagit din ansökan. Your application has been received.")
+  end
+
   class EmailNotificationJob
     include SuckerPunch::Job
 
@@ -30,6 +36,15 @@ class ApplicationMailer < ActionMailer::Base
       a = ::PositionApplication.find(partner_id)
       u = ::Organization.find(university_id)
       ::ApplicationMailer.pair_notification(a, u, email).deliver_now
+    end
+  end
+
+  class ApplicationNotificationJob
+    include SuckerPunch::Job
+
+    def perform(application_id)
+      application = PositionApplication.find(application_id)
+      ApplicationMailer.administrational_confirmation(application).deliver_now
     end
   end
 

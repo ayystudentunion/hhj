@@ -22,6 +22,8 @@ class PositionApplication
   field :personal_statement, type: String
   field :custom, type: Hash
 
+  after_create :send_confirmation_email
+
   def reset_deputy_of_for_position_member
     self.deputy_of = "" if self.applying_for_member?
   end
@@ -76,6 +78,12 @@ class PositionApplication
 
   def applying_for_member?
     self.position == :position_member
+  end
+
+  def send_confirmation_email
+    if call.administrational?
+      ApplicationMailer::ApplicationNotificationJob.new.async.perform(self.id)
+    end
   end
 
 end
