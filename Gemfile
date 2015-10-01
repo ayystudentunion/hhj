@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '1.9.3'
 
 gem 'rails', '~>4.2.0'
 
@@ -30,7 +30,7 @@ gem "sucker_punch"
 gem "protected_attributes"
 
 group :development do
-  gem 'better_errors'
+  gem 'better_errors', platforms: [:mri_20]
   gem 'meta_request'
 end
 
@@ -60,7 +60,7 @@ group :test do
   gem 'database_cleaner', '>= 1.0.0'
   gem 'launchy'
   gem 'wait_for'
-  gem 'byebug'
+  gem 'byebug', platforms: [:mri_20]
   gem 'simplecov', :require => false, :group => :test
 end
 
@@ -74,5 +74,6 @@ end
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano', '~> 2.0'
-gem 'rvm-capistrano', require: false
+# the net-ssh dependency on latests version only works with MRI >= 2.0
+gem 'capistrano', '~> 2.0', platforms: [:mri_20]
+gem 'rvm-capistrano', require: false, platforms: [:mri_20]
