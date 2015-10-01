@@ -30,7 +30,7 @@ gem "sucker_punch"
 gem "protected_attributes"
 # For running on heroku
 gem "thin"
-gem "rails_12factor", group: :production
+gem "rails_12factor", group: :heroku
 
 group :development do
   gem 'better_errors', platforms: [:mri_20]
