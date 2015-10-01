@@ -1,5 +1,3 @@
-require 'factory_girl_rails'
-
 class OrgansController < ApplicationController
 
   before_filter :authorize_organ_admin, except: [:index, :show]

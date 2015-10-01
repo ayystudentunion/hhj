@@ -1,5 +1,3 @@
-require 'factory_girl_rails'
-
 class PagesController < ApplicationController
   def logout
     for c in cookies
