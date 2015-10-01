@@ -30,7 +30,7 @@ gem "sucker_punch"
 gem "protected_attributes"
 # For running on heroku
 gem "thin"
-gem "rails_stdout_logging", require: false
+gem "rails_12factor", group: :production
 
 group :development do
   gem 'better_errors', platforms: [:mri_20]
