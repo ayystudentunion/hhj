@@ -49,6 +49,12 @@ sv:
     error_messages:
        title: "Kan inte spara %{class}"
   position_applications:
+    application_received: "Din anmälning har tagits emot."
+    referees_needed:
+      "
+      Bekräfta den genom att skaffa %{referees_needed} understödjare som stöder din kandidatur.
+      Mera information får du i bekräftelsen som kommer per e-post.
+      "
     edit_by_creating_new_notice: "Om du vill redigera din ansökan kan du lämna in en ny ansökan i samma ansökningsomgång. Den nya ansökan ersätter den gamla."
     application_to_be_deleted_notice: "Du har redan en ansökan i denna ansökningsomgång. Om du lämnar in en ny raderas den gamla. Åtgärden kan inte ångras."
     plural: "Ansökningar"

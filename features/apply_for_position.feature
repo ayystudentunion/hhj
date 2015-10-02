@@ -75,6 +75,7 @@ Feature: Applying for a position
       | label    | value     |
       | Haen     | Jäseneksi |
       | Oppiarvo | VTT       |
+    And I should see "Vahvista vielä hakemuksesi hankkimalla 3 suosittelijaa"
 
     And I press 'Ok'
     And I should see call for application 'Student council board members'

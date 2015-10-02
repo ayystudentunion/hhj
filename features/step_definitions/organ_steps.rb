@@ -33,3 +33,8 @@ Given /^"([^"]*)" has enabled recommendations with threshold of (\d+)$/ do |uni_
   university = Organization.roots.where(name: uni_name).first
   university.update_attributes(recommendations_threshold: threshold)
 end
+
+Given /^"([^"]*)" has not enabled recommendations$/ do |uni_name|
+  university = Organization.roots.where(name: uni_name).first
+  university.update_attributes(recommendations_threshold: nil)
+end

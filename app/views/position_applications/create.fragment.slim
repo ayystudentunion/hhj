@@ -5,6 +5,9 @@
     .item-block
       .item-row
         .notice.success
+          = t('position_applications.application_received')
+          - if show_recommendations?(@call)
+            = t('position_applications.referees_needed', referees_needed: @position_application.call.recommendations_threshold)
           = t('position_applications.edit_by_creating_new_notice')
     .item-block
       .applicant-details

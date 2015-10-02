@@ -8,6 +8,7 @@ FactoryGirl.define do
     factory :helsinki_uni do
       name  'Helsingin yliopisto'
       key   'helsinki'
+      recommendations_threshold 3
       _id   '4f6b1edf91bc2b33d3010300'
     end
 

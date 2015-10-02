@@ -50,6 +50,12 @@ en:
   position_applications:
     plural: "Applications"
     admissible_plural: "Admissible"
+    application_received: "We have received your registration."
+    referees_needed:
+      "
+      Please confirm your application by adding %{referees_needed} referees.
+      You will receive a confirmation e-mail with more information on the matter.
+      "
     edit_by_creating_new_notice: "If you want to edit your application, you can submit a new application for the same call for applications. A new application replaces the previous one."
     application_to_be_deleted_notice: "You already have one application in this call for applications. If you submit a new application, the previous one will be deleted. This command cannot be cancelled."
 

@@ -41,6 +41,7 @@ Feature: Recommending a position application
     And I should see 0 buttons with text "Aseta"
 
   Scenario: Not seeing a recommend link if the university hasn't enabled recommendations
+    Given "Helsingin yliopisto" has not enabled recommendations
     And I am logged in as a Helsinki university students' union employee
     And I am at front page of 'Helsingin yliopisto'
     And I navigate to home page of call 'Student council board members'
