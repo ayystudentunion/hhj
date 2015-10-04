@@ -50,6 +50,7 @@ en:
   position_applications:
     plural: "Applications"
     admissible_plural: "Admissible"
+    administrational_confirmation_title: "We have received your application, which needs %{referees_needed} referees"
     application_received: "We have received your registration."
     referees_needed:
       "

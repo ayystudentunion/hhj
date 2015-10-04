@@ -49,6 +49,7 @@ sv:
     error_messages:
        title: "Kan inte spara %{class}"
   position_applications:
+    administrational_confirmation_title: "Din ansökan har tagits emot, nu måste den ytterligare understödas av %{referees_needed} personer"
     application_received: "Din anmälning har tagits emot."
     referees_needed:
       "

@@ -79,6 +79,24 @@ Feature: Applying for a position
 
     And I press 'Ok'
     And I should see call for application 'Student council board members'
+    And "anna.kainulainen@helsinki.fi" should receive an email with subject "Hakemuksesi on vastaanotettu ja tarvitsee 3 suosittelijaa"
+
+  @javascript
+  Scenario: Submitting a member application in Helsinki university in English
+    Given there is open call for applications called 'Student council board members' in Helsingin yliopisto
+    And I am logged in as helsinki university student Anna
+    And I am at front page of 'Helsingin yliopisto'
+    And I navigate to home page of call 'Student council board members'
+    Given a clear email queue
+    When I follow "In English"
+    And I press 'Send application'
+    And I fill in form 'Send application':
+      | label           | value                                  |
+      | Apply           | Member                                 |
+      | Academic degree | VTT                                    |
+    And I press 'Send' within dialog
+    Then I should see "Please confirm your application by adding 3 referees"
+    And "anna.kainulainen@helsinki.fi" should receive an email with subject "We have received your application, which needs 3 referees"
 
   @javascript
   Scenario: Submitting a deputy application and sending an email reminder a running partner in Helsinki university

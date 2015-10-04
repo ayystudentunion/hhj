@@ -82,7 +82,7 @@ class PositionApplication
 
   def send_confirmation_email
     if call.administrational?
-      ApplicationMailer::ApplicationNotificationJob.new.async.perform(self.id)
+      ApplicationMailer::ApplicationNotificationJob.new.async.perform(self.id, I18n.locale)
     end
   end
 

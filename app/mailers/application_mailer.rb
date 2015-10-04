@@ -26,7 +26,9 @@ class ApplicationMailer < ActionMailer::Base
   def administrational_confirmation(application)
     @application = application
     @university = application.call.university
-    mail(:to => application.user.email, :subject => "Hakemuksesi on vastaanotettu. Vi har mottagit din ansökan. Your application has been received.")
+    @referees_needed = application.call.recommendations_threshold
+    subject = I18n.t 'position_applications.administrational_confirmation_title', referees_needed: @referees_needed
+    mail(to: application.user.email, subject: subject)
   end
 
   class EmailNotificationJob
@@ -42,9 +44,11 @@ class ApplicationMailer < ActionMailer::Base
   class ApplicationNotificationJob
     include SuckerPunch::Job
 
-    def perform(application_id)
+    def perform(application_id, locale)
       application = PositionApplication.find(application_id)
-      ApplicationMailer.administrational_confirmation(application).deliver_now
+      I18n.with_locale(locale) do
+        ApplicationMailer.administrational_confirmation(application).deliver_now
+      end
     end
   end
 

@@ -59,6 +59,7 @@ fi:
   position_applications:
     plural: "Hakemukset"
     admissible_plural: "Soveltuvat"
+    administrational_confirmation_title: "Hakemuksesi on vastaanotettu ja tarvitsee %{referees_needed} suosittelijaa"
     application_received: "Ilmoittautumisesi on vastaanotettu. "
     referees_needed:
       "
