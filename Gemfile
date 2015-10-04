@@ -29,7 +29,7 @@ gem "airbrake", ">=3.1.12"
 gem "sucker_punch"
 gem "protected_attributes"
 # For running on heroku
-gem "thin"
+gem "thin", group: :heroku
 gem "rails_12factor", group: :heroku
 
 group :development do
