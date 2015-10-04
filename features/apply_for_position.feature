@@ -41,7 +41,7 @@ Feature: Applying for a position
     And I press 'Ok'
     Then I should see call for application 'Kirjakerhon lukurinki'
     When I press 'Lähetä hakemus'
-    Then I should not see "Sinulla on jo yksi hakemus tähän hakuun"
+    Then I should see "Sinulla on jo yksi hakemus tähän hakuun"
     Then I fill in form 'Lähetä hakemus':
       | label                      | value              |
       | Haen                       | Varajäseneksi      |
