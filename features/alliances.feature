@@ -13,6 +13,7 @@ Feature: Handling electoral alliances
       | tiina |
     And there are applications for "Student council board members" by Helsinki uni students:
       | with_no_phone |
+    And a clear email queue
     When I am at front page of 'Helsingin yliopisto'
     And I follow "Vaaliliitot"
     And I follow "Luo uusi vaaliliitto"

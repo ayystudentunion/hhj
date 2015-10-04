@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'rails', '~>4.2.0'
 
@@ -27,6 +28,9 @@ gem "gritter", ">=1.2.0"
 gem "airbrake", ">=3.1.12"
 gem "sucker_punch"
 gem "protected_attributes"
+# For running on heroku
+gem "thin"
+gem "rails_12factor", group: :heroku
 
 group :development do
   gem 'better_errors', platforms: [:mri_20]
@@ -74,5 +78,5 @@ end
 
 # Deploy with Capistrano
 # the net-ssh dependency on latests version only works with MRI >= 2.0
-gem 'capistrano', '~> 2.0', platforms: [:mri_20]
+gem 'capistrano', '~> 2.0', require: false, platforms: [:mri_20]
 gem 'rvm-capistrano', require: false, platforms: [:mri_20]
