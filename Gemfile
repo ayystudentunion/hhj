@@ -53,7 +53,7 @@ gem 'sass-rails',   '>= 4.0.0'
 # the .styl markup language for stylesheet
 gem 'stylus'
 # We use coffeescript instead of javascript directly
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 
 # Javascript is compressed with this
 gem 'uglifier', '>= 1.0.3'
