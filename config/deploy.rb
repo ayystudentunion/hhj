@@ -38,8 +38,8 @@ namespace :deploy do
   end
   task :symlink_shared do
     run "ln -s #{shared_path}/config/airbrake.key #{release_path}/config/"
-    run "ln -s #{shared_path}/config/secret.key #{release_path}/config/"
+    run "ln -sf #{shared_path}/config/secret.key #{release_path}/config/"
   end
 end
 
-before "deploy:restart", "deploy:symlink_shared"
+before "deploy:assets:precompile", "deploy:symlink_shared"
