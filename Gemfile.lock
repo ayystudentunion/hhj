@@ -310,7 +310,6 @@ GEM
     valid_email (0.0.11)
       activemodel
       mail (~> 2.6.1)
-    wait_for (0.1.1)
     warden (1.2.3)
       rack (>= 1.0)
     wicked_pdf (0.11.0)
@@ -336,11 +335,9 @@ DEPENDENCIES
   database_cleaner (>= 1.0.0)
   devise
   email_spec
-  execjs
   factory_girl_rails
   gritter (>= 1.2.0)
   jquery-rails (>= 2.1)
-  launchy
   letter_opener
   meta_request
   mongoid (~> 4.0.0)
@@ -362,6 +359,8 @@ DEPENDENCIES
   thin
   uglifier (>= 1.0.3)
   valid_email
-  wait_for
   wicked_pdf (>= 0.9.6)
   wkhtmltopdf-binary (>= 0.9.9.1)
+
+BUNDLED WITH
+   1.10.6
