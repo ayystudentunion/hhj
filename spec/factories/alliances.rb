@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :alliance do
     name "The appropriate candidates"
-    call { FactoryGirl.create(:lukurinki) }
-    creator { FactoryGirl.create(:eija) }
+    call { TestSingletons.lukurinki }
+    creator { TestSingletons.eija }
     end
   factory :alliance_membership do
     alliance

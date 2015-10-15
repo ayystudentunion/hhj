@@ -18,15 +18,15 @@ class Member
   field :removed_date, type: Date
   position_field :position
 
-  scope :currents, where(current: true)
-  scope :hallopeds, where(group: :group_hallopeds)
-  scope :current_hallopeds, currents.hallopeds
-  scope :current_members, current_hallopeds.members
-  scope :current_deputies, current_hallopeds.deputies
-  scope :staff, where(group: :group_staff)
-  scope :current_staff, currents.staff
-  scope :professors, where(group: :group_professors)
-  scope :current_professors, currents.professors
+  scope :currents, -> { where(current: true) }
+  scope :hallopeds, -> { where(group: :group_hallopeds) }
+  scope :current_hallopeds, -> { currents.hallopeds }
+  scope :current_members, -> { current_hallopeds.members }
+  scope :current_deputies, -> { current_hallopeds.deputies }
+  scope :staff,  -> { where(group: :group_staff) }
+  scope :current_staff, -> { currents.staff }
+  scope :professors, -> { where(group: :group_professors) }
+  scope :current_professors, -> { currents.professors }
 
   def current_deputy
     return nil if deputy.nil?

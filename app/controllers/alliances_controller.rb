@@ -1,7 +1,7 @@
 class AlliancesController < ApplicationController
 
   def index
-    @alliances = Alliance.all
+    @alliances = Alliance.active
     respond_to do |format|
       format.html
       format.fragment { render "index", formats: ['html'], layout: false }

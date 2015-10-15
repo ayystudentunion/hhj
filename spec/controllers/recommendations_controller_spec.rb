@@ -10,10 +10,10 @@ describe RecommendationsController do
     login_user :student_tiina
 
     it 'should only allow destroying own recommendations' do
-      rid = recommendation.id
+      rid = recommendation.to_param
       expect do
         expect do
-          post :destroy, id: rid, format: :js
+          post :destroy, id: rid, format: :js, locale: :fi, university: 'sty'
         end.to raise_exception(Mongoid::Errors::DocumentNotFound)
       end.to_not change(Recommendation, :count)
     end
@@ -23,7 +23,7 @@ describe RecommendationsController do
     login_user :eija
 
     it 'should allow destroy' do
-      post :destroy, id: recommendation.id, format: :js
+      post :destroy, id: recommendation.to_param, format: :js, locale: :fi, university: 'sty'
       response.should be_success
       Recommendation.count.should == 0
     end

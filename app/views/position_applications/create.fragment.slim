@@ -5,6 +5,9 @@
     .item-block
       .item-row
         .notice.success
+          = t('position_applications.application_received')
+          - if show_recommendations?(@call)
+            = t('position_applications.referees_needed', referees_needed: @position_application.call.recommendations_threshold)
           = t('position_applications.edit_by_creating_new_notice')
     .item-block
       .applicant-details
@@ -21,10 +24,11 @@
         span = @position_application.deputy_of
     - if custom_template_exists?('fields')
       = render partial: custom_file('fields'), formats: :html, locals: { f: nil }
-    .item-row
-      h3
-        = PositionApplication.human_attribute_name(:personal_statement)
-      textarea.wide-text(readonly="readonly") = @position_application.personal_statement
+    - if !@call.administrational?
+      .item-row
+        h3
+          = PositionApplication.human_attribute_name(:personal_statement)
+        textarea.wide-text(readonly="readonly") = @position_application.personal_statement
     .button-row-bottom
       .button-row
         a.ok.close-modal.btn(href='#') = t 'modals.ok'
@@ -34,4 +38,3 @@
     $('#application-sent a.ok').click(function(){
       $('#recommendations ul').replaceWith("#{escape_javascript(render :file => "/calls/_applications_list", handlers: [:slim], formats: [:html])}");
     });
-

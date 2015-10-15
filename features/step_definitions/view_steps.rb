@@ -18,8 +18,7 @@ def check_that_contains_values(container_selector, *values)
   values.each{ |value| find(container_selector).should have_content value }
 end
 
-Then %r/^I should see dialog '([^']*)'(?: with text '([^']*)')?:$/ do |*args|
-  title, text, table = args
+Then %r/^I should see dialog '([^']*)'(?: with text '([^']*)')?:$/ do |title, text, table|
   content = find(".modal .content")
   content.find("h2:contains('#{title}')")
   content.find("textarea:contains('#{text}')") unless text.nil?

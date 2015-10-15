@@ -23,13 +23,32 @@ class ApplicationMailer < ActionMailer::Base
     end
   end
 
+  def administrational_confirmation(application)
+    @application = application
+    @university = application.call.university
+    @referees_needed = application.call.recommendations_threshold
+    subject = I18n.t 'position_applications.administrational_confirmation_title', referees_needed: @referees_needed
+    mail(to: application.user.email, subject: subject)
+  end
+
   class EmailNotificationJob
     include SuckerPunch::Job
 
     def perform(partner_id, university_id, email)
       a = ::PositionApplication.find(partner_id)
       u = ::Organization.find(university_id)
-      ::ApplicationMailer.pair_notification(a, u, email).deliver
+      ::ApplicationMailer.pair_notification(a, u, email).deliver_now
+    end
+  end
+
+  class ApplicationNotificationJob
+    include SuckerPunch::Job
+
+    def perform(application_id, locale)
+      application = PositionApplication.find(application_id)
+      I18n.with_locale(locale) do
+        ApplicationMailer.administrational_confirmation(application).deliver_now
+      end
     end
   end
 

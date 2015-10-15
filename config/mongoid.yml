@@ -15,11 +15,6 @@ development:
         # (default: false)
         # safe: false
 
-        # Change the default consistency model to :eventual or :strong.
-        # :eventual will send reads to secondaries, :strong sends everything
-        # to master. (default: :eventual)
-        # consistency: :eventual
-
         # How many times Moped should attempt to retry an operation after
         # failure. (default: 30)
         # max_retries: 30
@@ -73,7 +68,6 @@ test:
       hosts:
         - localhost:27017
       options:
-        consistency: :strong
         # In the test environment we lower the retries and retry interval to
         # low amounts for fast failures.
         max_retries: 1
@@ -89,7 +83,9 @@ production:
 heroku:
   sessions:
     default:
-      uri: <%= ENV['MONGOLAB_URI'] %>
+      uri: <%= ENV['MONGOHQ_URL'] %>
       options:
-        safe: true
-        skip_version_check: true
+        timeout: 15
+        max_retries: 30
+        retry_interval: 1
+        refresh_interval: 10

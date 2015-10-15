@@ -1,4 +1,4 @@
-require 'factory_girl_rails'
+# coding: utf-8
 
 class PagesController < ApplicationController
   def logout
@@ -140,6 +140,10 @@ class PagesController < ApplicationController
      name: "josi",
      role: "student",
      desc: "Helsingin Yliopisto"
+  }, {
+     name: "hilda",
+     role: "student",
+     desc: "Itä-Suomen yliopisto"
   }]
     render :dev_users, layout: false
   end

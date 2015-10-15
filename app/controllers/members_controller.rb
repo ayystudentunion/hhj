@@ -18,7 +18,7 @@ class MembersController < ApplicationController
 
   def create
     member_params = params[:member]
-    user = @university.users.find_or_create_by(email: member_params[:email])
+    user = @university.users.find_or_create_by(email: member_params.delete(:email))
     user.save!
     @member = @organ.members.create! member_params.merge(user: user)
     respond_to do |format|

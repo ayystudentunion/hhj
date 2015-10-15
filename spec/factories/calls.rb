@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :call do
-    association :organ, :factory => :kirjakerho
+    organ { TestSingletons.kirjakerho }
     member_amount 2
     deputy_amount 1
     factory :lukurinki do
@@ -12,7 +12,7 @@ FactoryGirl.define do
   end
   factory :helsinki_uni_call, class: Call do
     factory :call_for_student_council_board do
-      association :organ, :factory => :helsinki_uni_student_council
+      organ { TestSingletons.helsinki_uni_student_council }
       member_amount 1
       deputy_amount 1
       title "Student council board members"

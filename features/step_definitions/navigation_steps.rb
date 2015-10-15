@@ -14,6 +14,10 @@ When %r/^I press '([^']*)' within dialog$/ do |text|
   end
 end
 
+When %r/^I close the dialog$/ do
+  find('a.close-modal').click
+end
+
 When %r/^I follow the link '([^']*)'$/ do |link_title|
   click_link link_title
 end

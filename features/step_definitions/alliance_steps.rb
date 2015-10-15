@@ -31,3 +31,7 @@ Then /^I check "([^"]*)" for call "([^"]*)"$/ do |field, title|
     check(field)
   end
 end
+
+When(/^all alliances have been archived$/) do
+  Alliance.update_all(archived: true)
+end

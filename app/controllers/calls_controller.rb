@@ -1,5 +1,3 @@
-require 'factory_girl_rails'
-
 class CallsController < ApplicationController
 
   before_filter :authorize_call_admin, except: [:index, :show]

@@ -1,5 +1,5 @@
 require "rvm/capistrano"                  # Load RVM's capistrano plugin.
-set :rvm_ruby_string, '1.9.3'        # Or whatever env you want it to run in.
+set :rvm_ruby_string, 'ruby-2.0.0-p645'   # Or whatever env you want it to run in.
 set :rvm_type, :user
 
 require "bundler/capistrano"
@@ -38,8 +38,8 @@ namespace :deploy do
   end
   task :symlink_shared do
     run "ln -s #{shared_path}/config/airbrake.key #{release_path}/config/"
-    run "ln -s #{shared_path}/config/secret.key #{release_path}/config/"
+    run "ln -sf #{shared_path}/config/secret.key #{release_path}/config/"
   end
 end
 
-before "deploy:restart", "deploy:symlink_shared"
+before "deploy:assets:precompile", "deploy:symlink_shared"
