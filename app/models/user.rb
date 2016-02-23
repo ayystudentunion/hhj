@@ -50,10 +50,17 @@ class User
   def self.env_to_attributes(env)
     # The environment variables in this block need to be
     # configured in Shibboleth.
+    last_name = env["A_SURNAME"]
+    common_name = env["A_COMMON_NAME"]
+    if common_name.nil?
+      first_name = env["A_GIVEN_NAME"]
+    else
+      first_name = common_name.chomp(last_name).rstrip
+    end
     return {
       principal_name: env["A_PRINCIPAL_NAME"],
-      first_name: env["A_GIVEN_NAME"],
-      last_name: env["A_SURNAME"],
+      first_name: first_name,
+      last_name: last_name,
       email: env["A_MAIL"],
       phone: env["A_MOBILE"],
       university_domain: env["A_HOME_ORGANIZATION"],
