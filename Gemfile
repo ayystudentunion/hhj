@@ -11,7 +11,6 @@ gem 'mongoid', '~> 4.0.0'
 # bson_ext is a native code implementation of bson
 # to speed up mongodb operations
 gem 'bson_ext', '>= 1.5'
-gem 'mongoid_rails_migrations', '>= 0.0.13'
 # This provides hierarchy support of our models.
 # It's used for the organization hierarchy.
 gem 'mongoid-tree', '>= 0.7'
@@ -32,24 +31,17 @@ gem 'valid_email'
 gem 'redcarpet'
 # Used to provide javascript based notifications
 gem "gritter", ">=1.2.0"
-# Automatically reports exceptions to a Saas service.
-gem "airbrake", ">=3.1.12"
 # Run jobs in the background. Uses threads in the web server process.
 gem "sucker_punch"
 # Backwards compability with old rails approach before the app
 # is migrated to strong_parameters
 gem "protected_attributes"
-# For running on heroku
-gem "thin", group: :heroku
-gem "rails_12factor", group: :heroku
 
 group :development do
   gem 'better_errors', platforms: [:mri_20]
   gem 'meta_request'
 end
 
-# Currently unused. Can be used to run on css_compressor.
-gem 'sass-rails',   '>= 4.0.0'
 # the .styl markup language for stylesheet
 gem 'stylus'
 # We use coffeescript instead of javascript directly
@@ -86,9 +78,3 @@ group :test do
   # Code coverage
   gem 'simplecov', :require => false, :group => :test
 end
-
-# Deploy with Capistrano
-# the net-ssh dependency on latests version only works with MRI >= 2.0
-gem 'capistrano', '~> 2.0', require: false, platforms: [:mri_20]
-# RVM (Ruby Version Manager) is used to control the ruby version in production
-gem 'rvm-capistrano', require: false, platforms: [:mri_20]
