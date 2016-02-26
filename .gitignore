@@ -34,3 +34,6 @@ mongod.lock
 
 # Ctags for editor symbol support
 .tags*
+
+# Docs built with rake
+/doc/app/
