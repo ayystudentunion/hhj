@@ -33,9 +33,6 @@ gem 'redcarpet'
 gem "gritter", ">=1.2.0"
 # Run jobs in the background. Uses threads in the web server process.
 gem "sucker_punch"
-# Backwards compability with old rails approach before the app
-# is migrated to strong_parameters
-gem "protected_attributes"
 
 group :development do
   gem 'better_errors', platforms: [:mri_20]
