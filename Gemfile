@@ -19,7 +19,7 @@ gem 'slim'
 # Factory Girl provides the fixtures for the test suite
 gem 'factory_girl_rails', require: false
 # Convert html to pdf. Used to provide printable output.
-gem 'wicked_pdf', '>=0.9.6'
+gem 'wicked_pdf', '~>0.11.0'
 # The linux binaries for wicked_pdf to use
 gem 'wkhtmltopdf-binary', '>=0.9.9.1'
 # /admin interface
@@ -32,7 +32,7 @@ gem 'redcarpet'
 # Used to provide javascript based notifications
 gem "gritter", ">=1.2.0"
 # Run jobs in the background. Uses threads in the web server process.
-gem "sucker_punch"
+gem "sucker_punch", "~>1.5.0"
 
 group :development do
   gem 'better_errors', platforms: [:mri_20]
@@ -62,9 +62,9 @@ group :test do
   # Acceptance testing framework
   gem 'cucumber-rails', '>=1.4.0', require: false
   # Capybara provides a DSL for browser automation
-  gem 'capybara', '>=2.5.0'
+  gem 'capybara', '~>2.5.0'
   # Backend for capybara
-  gem 'capybara-webkit', '>=1.7.0'
+  gem 'capybara-webkit', '~>1.7.0'
   gem 'capybara-screenshot'
   # Resets state between tests
   gem 'database_cleaner', '>= 1.0.0'
