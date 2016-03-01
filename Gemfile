@@ -71,5 +71,5 @@ group :test do
   # debugger
   gem 'byebug', platforms: [:mri_20]
   # Code coverage
-  gem 'simplecov', :require => false, :group => :test
+  gem 'simplecov', require: false
 end
