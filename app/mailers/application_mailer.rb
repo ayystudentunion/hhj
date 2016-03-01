@@ -30,6 +30,15 @@ class ApplicationMailer < ActionMailer::Base
     subject = I18n.t 'position_applications.administrational_confirmation_title', referees_needed: @referees_needed
     mail(to: application.user.email, subject: subject)
   end
+  
+  class ApplicationConfirmationJob
+    include SuckerPunch::Job
+
+    def perform(application_id)
+      application = PositionApplication.find(application_id)
+      ApplicationMailer.sent_email(application).deliver_now
+    end
+  end
 
   class EmailNotificationJob
     include SuckerPunch::Job
@@ -41,7 +50,7 @@ class ApplicationMailer < ActionMailer::Base
     end
   end
 
-  class ApplicationNotificationJob
+  class AdminstrationalApplicationConfirmationJob
     include SuckerPunch::Job
 
     def perform(application_id, locale)

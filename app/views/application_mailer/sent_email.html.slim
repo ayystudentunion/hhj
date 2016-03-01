@@ -11,14 +11,19 @@ html
     h1 = 
     
     table
-      th = t 'email.your_application'
-      tr
-        td = t 'mongoid.attributes.organ.name'
-        td = @application.call.organ.name
-        td = t 'mongoid.attributes.position_application.position'
-        td = t 'mongoid.attributes.position_application.' + @application.position.to_s
-        td = t 'mongoid.attributes.position_application.personal_statement'
-        td = @application.personal_statement
-        /- @application.custom.each do |k,v|
-        /  td = k
-        /  td = v
+      thead
+        td = t 'email.your_application'
+      tbody
+        tr
+          td = t 'mongoid.attributes.organ.name'
+          td = @application.call.organ.name
+        tr
+          td = t 'mongoid.attributes.position_application.position'
+          td = t 'mongoid.attributes.position_application.' + @application.position.to_s
+        tr
+          td = t 'mongoid.attributes.position_application.personal_statement'
+          td = @application.personal_statement
+          /- @application.custom.each do |k,v|
+          /  tr =
+          /    td = k
+          /    td = v

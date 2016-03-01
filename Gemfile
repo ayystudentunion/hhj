@@ -56,8 +56,6 @@ gem 'jquery-rails', '>=2.1'
 group :development, :test do
   # Unit testing framework
   gem 'rspec-rails', '>=3.0'
-  # Deliveries emails in development to the browser
-  gem "letter_opener"
   # rspec and cucumber support for emails
   gem 'email_spec'
 end
