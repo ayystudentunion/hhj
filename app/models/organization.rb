@@ -20,7 +20,7 @@ class Organization
   end
 
   def self.university_by_key(key)
-    roots.where(key: key).first
+    roots.find_by(key: key)
   end
 
   protected

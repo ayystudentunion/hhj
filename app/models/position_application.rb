@@ -33,7 +33,9 @@ class PositionApplication
   end
 
   def degree_present_for_administrational_call
-    errors[:base] << I18n.translate('mongoid.errors.models.position_application.degree_must_be_present') if call.university.try(:key) == 'helsinki' && call.administrational? && (custom.nil? || custom['degree'].blank?)
+    errors[:base] << I18n.translate('mongoid.errors.models.position_application.degree_must_be_present') if call.university.try(:key) == 'helsinki' &&
+                                                                                                            call.administrational? &&
+                                                                                                            (custom.nil? || custom['degree'].blank?)
   end
 
   def eligible?
