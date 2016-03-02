@@ -8,7 +8,7 @@ class PositionApplication
   belongs_to :user, inverse_of: :position_applications
 
   has_many :recommendations
-  has_many :alliance_memberships, inverse_of: :position_application,  dependent: :destroy
+  has_many :alliance_memberships, inverse_of: :position_application, dependent: :destroy
 
   validate :validate_member_and_deputy_positions
   validate :degree_present_for_administrational_call
@@ -25,15 +25,15 @@ class PositionApplication
   after_create :send_confirmation_email
 
   def reset_deputy_of_for_position_member
-    self.deputy_of = "" if self.applying_for_member?
+    self.deputy_of = '' if applying_for_member?
   end
 
   def reset_member_for_position_member
-    self.member = nil if self.applying_for_member? && selected_as == nil
+    self.member = nil if applying_for_member? && selected_as.nil?
   end
 
   def degree_present_for_administrational_call
-    errors[:base] << I18n.translate('mongoid.errors.models.position_application.degree_must_be_present') if self.call.university.try(:key) == "helsinki" && self.call.administrational? && (custom.nil? || custom['degree'].blank?)
+    errors[:base] << I18n.translate('mongoid.errors.models.position_application.degree_must_be_present') if call.university.try(:key) == 'helsinki' && call.administrational? && (custom.nil? || custom['degree'].blank?)
   end
 
   def eligible?
@@ -51,41 +51,40 @@ class PositionApplication
   end
 
   def recommendation_by(user)
-    Recommendation.where(user_id: user._id, position_application_id: self._id).first
+    Recommendation.where(user_id: user._id, position_application_id: _id).first
   end
 
   def admissible?
-    self.recommendations_for_pair.count >= call.recommendations_threshold
+    recommendations_for_pair.count >= call.recommendations_threshold
   end
 
   def pair
-    if self.position == :position_deputy
-      self.member
+    if position == :position_deputy
+      member
     else
-      self.deputy
+      deputy
     end
   end
 
-  #recommendations are given to a pair. The implementation is that you can only recommend the primary application,
-  #and these recommendations are considered to belong to the deputy as well
+  # recommendations are given to a pair. The implementation is that you can only recommend the primary application,
+  # and these recommendations are considered to belong to the deputy as well
   def recommendations_for_pair
-    if self.position == :position_deputy && self.member
-      self.member.recommendations
+    if position == :position_deputy && member
+      member.recommendations
     else
-      self.recommendations
+      recommendations
     end
   end
 
   def applying_for_member?
-    self.position == :position_member
+    position == :position_member
   end
 
   def send_confirmation_email
     if call.administrational?
-      ApplicationMailer:: AdminstrationalApplicationConfirmationJob.new.async.perform(self.id, I18n.locale)
+      ApplicationMailer:: AdminstrationalApplicationConfirmationJob.new.async.perform(id, I18n.locale)
     else
-       ApplicationMailer::ApplicationConfirmationJob.new.async.perform(self.id)
+      ApplicationMailer::ApplicationConfirmationJob.new.async.perform(id)
     end
   end
-
 end

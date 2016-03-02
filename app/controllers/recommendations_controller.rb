@@ -6,7 +6,7 @@ class RecommendationsController < ApplicationController
     @position_application.recommendations.create!(user_id: @user._id) if recommendation_allowed_for?(@position_application)
     respond_to do |format|
       format.html { redirect_to call_path(id: @position_application.call._id) }
-      format.js { render "refresh_recommend_link" }
+      format.js { render 'refresh_recommend_link' }
     end
   end
 
@@ -15,8 +15,7 @@ class RecommendationsController < ApplicationController
     @position_application = @recommendation.position_application
     @recommendation.destroy
     respond_to do |format|
-      format.js { render "refresh_recommend_link" }
+      format.js { render 'refresh_recommend_link' }
     end
   end
-
 end

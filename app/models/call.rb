@@ -3,7 +3,7 @@ class Call
   include Ext::Mongoid::AutoFormatLocalizedAttributes
   include Mongoid::Timestamps
 
-  WORKFLOW_VALUES = [:workflow_normal, :workflow_administration_election, :workflow_proposal_available]
+  WORKFLOW_VALUES = [:workflow_normal, :workflow_administration_election, :workflow_proposal_available].freeze
 
   belongs_to :organ, dependent: :nullify
   has_many :position_applications
@@ -11,7 +11,7 @@ class Call
   belongs_to :eligibility_rule_set
 
   validates :title, :member_amount, :deputy_amount, allow_blank: false, presence: true
-  validates :status, presence: true, allow_blank: false, :format => { :with => /(open|closed|handled|archived|proposed)/ }
+  validates :status, presence: true, allow_blank: false, format: { with: /(open|closed|handled|archived|proposed)/ }
   validates :workflow, presence: true, allow_blank: false, inclusion: { in:  WORKFLOW_VALUES }
 
   field :title, localize: true
@@ -31,18 +31,19 @@ class Call
   scope :open, -> { where(status: :open) }
 
   def self.open_by_university(university)
-    open.select{|c| c.organ.belongs_to?(university)}
+    open.select { |c| c.organ.belongs_to?(university) }
   end
+
   def self.by_university(university)
-    Call.all.select{|c| c.organ.belongs_to?(university)}
+    Call.all.select { |c| c.organ.belongs_to?(university) }
   end
 
   def recommendations_threshold
-    self.organ.organization.recommendations_threshold || self.university.recommendations_threshold || 0
+    organ.organization.recommendations_threshold || university.recommendations_threshold || 0
   end
 
   def university
-    self.organ.organization.root
+    organ.organization.root
   end
 
   def has_unhandled_applications
@@ -54,26 +55,25 @@ class Call
   end
 
   def selected_with_deputies
-    members = position_applications.members.map{|a| [a, a.deputy]}
-    lone_deputies = position_applications.lone_deputies.map{|a| [nil, a]}
+    members = position_applications.members.map { |a| [a, a.deputy] }
+    lone_deputies = position_applications.lone_deputies.map { |a| [nil, a] }
     members + lone_deputies
   end
 
   def admissible_applications
-    self.position_applications.find_all{|application| application.admissible?}
+    position_applications.find_all(&:admissible?)
   end
 
   def self.ongoing_calls_exist?
-    today =  Time.zone.now.to_date
+    today = Time.zone.now.to_date
     Call.lte(date_start: today).gte(date_end: today).exists?
   end
 
   def administrational?
-    self.workflow == :workflow_administration_election
+    workflow == :workflow_administration_election
   end
 
   def total_number_of_selected
     member_amount + deputy_amount if member_amount && deputy_amount
   end
-
 end

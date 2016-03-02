@@ -9,6 +9,6 @@ class EligibilityRuleSet
   field :name, localize: true
 
   def match?(position_application)
-    eligibility_rules.all?{|rule| rule.match? position_application }
+    eligibility_rules.all? { |rule| rule.match? position_application }
   end
 end

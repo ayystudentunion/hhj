@@ -3,7 +3,7 @@ class Member
   include Mongoid::Timestamps
   include Models::Position
 
-  GROUPS = [:group_hallopeds, :group_staff, :group_professors]
+  GROUPS = [:group_hallopeds, :group_staff, :group_professors].freeze
   belongs_to :organ
   belongs_to :user
 
@@ -23,7 +23,7 @@ class Member
   scope :current_hallopeds, -> { currents.hallopeds }
   scope :current_members, -> { current_hallopeds.members }
   scope :current_deputies, -> { current_hallopeds.deputies }
-  scope :staff,  -> { where(group: :group_staff) }
+  scope :staff, -> { where(group: :group_staff) }
   scope :current_staff, -> { currents.staff }
   scope :professors, -> { where(group: :group_professors) }
   scope :current_professors, -> { currents.professors }
@@ -43,9 +43,6 @@ class Member
   protected
 
   def add_removed_date_if_resigned
-    if current_changed? and not current
-      self.removed_date = Time.now.utc
-    end
+    self.removed_date = Time.now.utc if current_changed? && !current
   end
-
 end

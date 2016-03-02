@@ -1,10 +1,9 @@
 
-require "cgi"
+require 'cgi'
 
 module ApplicationHelper
-
   def languages
-    Halloped::languages
+    Halloped.languages
   end
 
   def formatted_term_of(member)
@@ -13,12 +12,12 @@ module ApplicationHelper
     term
   end
 
-  def formatted_date(date, options={})
-    [date, options[:end_date]].reject{ |date|
-      date.blank? and options[:end_date].nil?
-    }.map{ |date|
+  def formatted_date(date, options = {})
+    [date, options[:end_date]].reject do |date|
+      date.blank? && options[:end_date].nil?
+    end.map do |date|
       format_date date, options
-    }.join(' - ')
+    end.join(' - ')
   end
 
   def login_link
@@ -34,7 +33,7 @@ module ApplicationHelper
     if Rails.env.development? || Rails.env.heroku?
       dev_logout_path
     else
-      "/logout"
+      '/logout'
     end
   end
 
@@ -55,7 +54,7 @@ module ApplicationHelper
   end
 
   def custom_css_file_name
-    custom_css_file_plain_name + ".css.styl"
+    custom_css_file_plain_name + '.css.styl'
   end
 
   def custom_css_exists?
@@ -70,20 +69,20 @@ module ApplicationHelper
   def custom_pdf_image_tag(filename)
     custom_file_exists?(filename) ?
       case params[:format]
-        when 'pdf' then wicked_pdf_image_tag("#{@university.key}/#{filename}")
-        when 'print' then image_tag("#{@university.key}/#{filename}")
-      end : ""
+      when 'pdf' then wicked_pdf_image_tag("#{@university.key}/#{filename}")
+      when 'print' then image_tag("#{@university.key}/#{filename}")
+      end : ''
   end
 
   def custom_path_in_pdf(filename)
     case params[:format]
-      when 'pdf' then "file://#{@custom_path.join(filename).to_s}"
-      when 'print' then "/assets/#{@university.key}/#{filename}"
+    when 'pdf' then "file://#{@custom_path.join(filename)}"
+    when 'print' then "/assets/#{@university.key}/#{filename}"
     end
   end
 
   def user_university_not_supported?
-    not_supported_user and not not_supported_user[:university_domain].blank?
+    not_supported_user && !not_supported_user[:university_domain].blank?
   end
 
   def not_supported_user_full_name
@@ -94,7 +93,7 @@ module ApplicationHelper
     not_supported_user[:university_domain]
   end
 
-  def rendered_markdown markdown
+  def rendered_markdown(markdown)
     return '' if markdown.nil?
     @html_renderer ||= Redcarpet::Render::HTML.new
     extensions = {}
@@ -102,22 +101,21 @@ module ApplicationHelper
     @redcarpet.render markdown
   end
 
-  def localized translations, locale
+  def localized(translations, locale)
     (translations || {})[locale.to_s] || ''
   end
 
   def old_browser_warning
-    raw "<!--[if lt IE 9]>#{content_tag(:p, t(:old_ie), :id => 'old-ie')}<![endif]-->"
+    raw "<!--[if lt IE 9]>#{content_tag(:p, t(:old_ie), id: 'old-ie')}<![endif]-->"
   end
 
   protected
 
   def format_date(date, options)
     if date.nil?
-        ''
+      ''
     else
       I18n.l(date, format: options[:format])
     end
   end
-
 end

@@ -7,8 +7,8 @@ class Organ
   has_many :calls, dependent: :delete
   has_many :members, dependent: :nullify
 
-  validates :name, :organization, { presence: { allow_blank: false } }
-  validates :official, inclusion: { :in => [true, false] }
+  validates :name, :organization, presence: { allow_blank: false }
+  validates :official, inclusion: { in: [true, false] }
 
   field :name, localize: true
   field :description, localize: true
@@ -23,19 +23,19 @@ class Organ
   scope :visible, -> { where(status: :visible) }
 
   def self.visible_by_university(university)
-    visible.select{|o| o.belongs_to?(university)}
+    visible.select { |o| o.belongs_to?(university) }
   end
 
   def self.by_university(university)
-    all.select{|o| o.belongs_to?(university)}
+    all.select { |o| o.belongs_to?(university) }
   end
 
   def belongs_to?(university)
-    organization._id == university._id or organization.descendant_of?(university)
+    organization._id == university._id || organization.descendant_of?(university)
   end
 
   def unofficial
-    not official
+    !official
   end
 
   def organization_full_name
@@ -43,12 +43,12 @@ class Organ
   end
 
   def organization_ids
-    return "" if not organization
+    return '' unless organization
     organization.ancestors_and_self.drop(1).map(&:_id).join('|')
   end
 
   def add_selected_members!(call)
-    call.selected_with_deputies.each do | member, deputy |
+    call.selected_with_deputies.each do |member, deputy|
       member = member.nil? ? nil : Member.create!(
         user: member.user,
         position: :position_member,
@@ -62,14 +62,13 @@ class Organ
         term_start: call.term_start,
         term_end: call.term_end
       )
-      self.members << [member, deputy].reject(&:blank?)
+      members << [member, deputy].reject(&:blank?)
     end
   end
 
   def member_deputy_pairs
-    members_with_deputies = self.members.current_members.map{|a| [a, a.current_deputy]}.sort_by{|m,d| d.nil? ? 1 : 0}
-    lone_deputies = self.members.current_deputies.lone_deputies.map{|a| [nil, a]}
+    members_with_deputies = members.current_members.map { |a| [a, a.current_deputy] }.sort_by { |_m, d| d.nil? ? 1 : 0 }
+    lone_deputies = members.current_deputies.lone_deputies.map { |a| [nil, a] }
     members_with_deputies + lone_deputies
   end
-
 end

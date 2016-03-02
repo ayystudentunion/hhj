@@ -5,9 +5,9 @@ module OrgansHelper
 
   def status_class_for(application)
     if show_recommendations?(application.call)
-      application.admissible? && application.eligible? ? "valid" : "invalid"
+      application.admissible? && application.eligible? ? 'valid' : 'invalid'
     else
-      ""
+      ''
     end
   end
 end

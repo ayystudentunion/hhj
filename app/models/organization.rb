@@ -12,8 +12,8 @@ class Organization
 
   field     :name, localize: true
   field     :key, type: String
-  field     :recommendations_threshold, type: Integer #inclusive minimal number of recommendations required for PositionApplication to be approved
-  field     :alliances_enabled, type: Boolean #Determines if the candidates can form electoral alliances. Time of this writing only used by Helsingin yliopisto.
+  field     :recommendations_threshold, type: Integer # inclusive minimal number of recommendations required for PositionApplication to be approved
+  field     :alliances_enabled, type: Boolean # Determines if the candidates can form electoral alliances. Time of this writing only used by Helsingin yliopisto.
 
   def tree_hash
     serializable_hash.merge(children: children.map(&:serializable_hash))
@@ -26,7 +26,7 @@ class Organization
   protected
 
   def downcase_key
-    self.key.downcase! unless key.blank?
+    key.downcase! unless key.blank?
   end
 
   def validate_key_uniqueness_for_root_organizations
@@ -38,9 +38,8 @@ class Organization
       Organization.where(key: key, :_id.ne => _id).each do |other|
         errors.add(
           :key, errors.generate_message(
-            :key, :taken, name: name, key: key, other: other.name))
+                  :key, :taken, name: name, key: key, other: other.name))
       end
     end
   end
-
 end

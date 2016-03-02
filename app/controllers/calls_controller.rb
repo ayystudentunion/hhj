@@ -1,5 +1,4 @@
 class CallsController < ApplicationController
-
   before_filter :authorize_call_admin, except: [:index, :show]
   before_filter(only: [:new, :create]) { |c| c.find_organ_from_current_university :organ_id }
   before_filter :find_call_from_organ_or_university, except: [:index, :new, :create]
@@ -8,11 +7,11 @@ class CallsController < ApplicationController
     @calls = Call.open_by_university @university
     respond_to do |format|
       format.html
-      format.fragment { render "index", formats: ['html'], layout: false }
+      format.fragment { render 'index', formats: ['html'], layout: false }
       format.pdf do
-        #quickfix before different scopes are properly supported in this action:
+        # quickfix before different scopes are properly supported in this action:
         @calls = Call.by_university @university
-        render pdf: "calls", encoding: 'utf-8', layout: true
+        render pdf: 'calls', encoding: 'utf-8', layout: true
       end
     end
   end
@@ -20,7 +19,7 @@ class CallsController < ApplicationController
   def new
     @call = @organ.calls.build
     @form_path = organ_calls_path
-    @form_title = t "calls.new.title"
+    @form_title = t 'calls.new.title'
     respond_to do |format|
       format.fragment
     end
@@ -35,7 +34,7 @@ class CallsController < ApplicationController
         if call.save
           redirect_to action: :show, id: call._id
         else
-          flash[:errors_title]= I18n.t('shared.error_messages.title', class: call.model_name.human.downcase)
+          flash[:errors_title] = I18n.t('shared.error_messages.title', class: call.model_name.human.downcase)
           flash[:errors] = call.errors.full_messages
           redirect_to organ_path(id: @organ._id)
         end
@@ -47,18 +46,18 @@ class CallsController < ApplicationController
     @position_applications = @call.position_applications
     respond_to do |format|
       format.html
-      format.json { render :json => @call }
-      format.fragment { render "show", formats: ['html'], layout: false }
+      format.json { render json: @call }
+      format.fragment { render 'show', formats: ['html'], layout: false }
       format.pdf { render pdf: @call.file_name, encoding: 'utf-8', layout: true }
-      format.print { render "show", formats: ['pdf'], encoding: 'utf-8' }
+      format.print { render 'show', formats: ['pdf'], encoding: 'utf-8' }
     end
   end
 
   def edit # form for modifing an existing call
     @form_path = call_path
-    @form_title = t "calls.edit.title"
+    @form_title = t 'calls.edit.title'
     respond_to do |format|
-      format.fragment { render "new" }
+      format.fragment { render 'new' }
     end
   end
 
@@ -69,7 +68,7 @@ class CallsController < ApplicationController
     else
       unless params[:status].blank?
         status = params[:status].first.first.to_sym
-        if status == :handled and status != @call.status
+        if status == :handled && status != @call.status
           @call.organ.add_selected_members!(@call)
         end
         @call.status = status
@@ -78,14 +77,14 @@ class CallsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html {
+      format.html do
         if updated_call
           redirect_to call_path(id: @call._id)
         else
           redirect_to organ_path(id: @call.organ._id)
         end
-      }
-      format.json { render :json => @call }
+      end
+      format.json { render json: @call }
     end
   end
 
@@ -102,5 +101,4 @@ class CallsController < ApplicationController
       find_call_from_current_university
     end
   end
-
 end

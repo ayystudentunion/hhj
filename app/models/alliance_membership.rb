@@ -13,11 +13,11 @@ class AllianceMembership
   after_update :send_notifications
 
   def user_name
-    self.user.full_name
+    user.full_name
   end
 
   def user
-    self.position_application.user
+    position_application.user
   end
 
   def send_notifications

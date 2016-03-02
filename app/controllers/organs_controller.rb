@@ -1,5 +1,4 @@
 class OrgansController < ApplicationController
-
   before_filter :authorize_organ_admin, except: [:index, :show]
   before_filter :find_organ_from_current_university, except: [:index, :new, :create]
 
@@ -7,8 +6,8 @@ class OrgansController < ApplicationController
     @organs = Organ.visible_by_university(@university)
     respond_to do |format|
       format.html
-      format.fragment { render "index", formats: ['html'], layout: false }
-      format.json { render :json => @organs }
+      format.fragment { render 'index', formats: ['html'], layout: false }
+      format.json { render json: @organs }
     end
   end
 
@@ -29,7 +28,7 @@ class OrgansController < ApplicationController
         if @organ.save
           redirect_to action: :show, id: @organ._id
         else
-          flash[:errors_title]= I18n.t('shared.error_messages.title', class: @organ.model_name.human.downcase)
+          flash[:errors_title] = I18n.t('shared.error_messages.title', class: @organ.model_name.human.downcase)
           flash[:errors] = @organ.errors.full_messages
           redirect_to request.referer
         end
@@ -47,8 +46,8 @@ class OrgansController < ApplicationController
     @new_member = Member.new
     respond_to do |format|
       format.html
-      format.json { render :json => @organ }
-      format.fragment { render "show", formats: ['html'], layout: false }
+      format.json { render json: @organ }
+      format.fragment { render 'show', formats: ['html'], layout: false }
     end
   end
 
@@ -56,7 +55,7 @@ class OrgansController < ApplicationController
     @form_path = organ_path
     @form_title = t 'organs.edit.title'
     respond_to do |format|
-      format.fragment { render "new" }
+      format.fragment { render 'new' }
     end
   end
 
@@ -68,7 +67,7 @@ class OrgansController < ApplicationController
         if @organ.update_attributes(organ_params)
           redirect_to action: :show, id: @organ._id
         else
-          flash[:errors_title]= I18n.t('shared.error_messages.title', class: @organ.model_name.human.downcase)
+          flash[:errors_title] = I18n.t('shared.error_messages.title', class: @organ.model_name.human.downcase)
           flash[:errors] = @organ.errors.full_messages
           redirect_to request.referer
         end
@@ -84,6 +83,4 @@ class OrgansController < ApplicationController
   def selected_organization
     Organization.find params[:organ][:organization].unshift(@university._id).reject(&:blank?).last
   end
-
-
 end

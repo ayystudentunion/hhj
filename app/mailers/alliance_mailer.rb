@@ -1,16 +1,16 @@
 # coding: utf-8
 class AllianceMailer < ActionMailer::Base
-  default :from => '"Halloped" <admin@halloped.fi>'
+  default from: '"Halloped" <admin@halloped.fi>'
 
   def confirmation_email(membership, university, url)
     @call_title = membership.position_application.call.title
     @alliance = membership.alliance
     @university = university
     @url = url
-    mail(:to => membership.position_application.user.email, :subject => "Kutsu vaaliliittoon. Inbjudan till valförbund. Invitation to an electoral alliance.")
+    mail(to: membership.position_application.user.email, subject: "Kutsu vaaliliittoon. Inbjudan till valförbund. Invitation to an electoral alliance.")
   end
 
-  def membership_confirmed(membership, university, url)
+  def membership_confirmed(membership, _university, _url)
     @call_title = membership.position_application.call.title
     @alliance = membership.alliance
     @membership = membership
@@ -24,9 +24,7 @@ class AllianceMailer < ActionMailer::Base
 
     def perform(membership_id, university_id, url, email = :confirmation_email)
       membership = ::AllianceMembership.find(membership_id)
-      if university_id
-        university = ::Organization.find(university_id)
-      end
+      university = ::Organization.find(university_id) if university_id
       ::AllianceMailer.send(email, membership, university, url).deliver_now
     end
   end
