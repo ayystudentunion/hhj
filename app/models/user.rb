@@ -73,7 +73,7 @@ class User
   end
 
   def alliance_memberships
-    position_applications.inject([]) { |aggregate, application| aggregate | application.alliance_memberships }
+    position_applications.flat_map(&:alliance_memberships).uniq
   end
 
   def active_alliance_memberships
