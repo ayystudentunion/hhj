@@ -1,0 +1,4 @@
+Metrics/LineLength:
+  Max: 200
+Documentation:
+  Enabled: false
