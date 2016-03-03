@@ -22,7 +22,7 @@ module ApplicationHelper
 
   def login_link
     current = request.fullpath
-    if Rails.env.development? || Rails.env.heroku?
+    if Rails.env.development?
       dev_users_path(target: current)
     else
       "/Shibboleth.sso/DS?target=#{CGI.escape current}"
@@ -30,7 +30,7 @@ module ApplicationHelper
   end
 
   def logout_link
-    if Rails.env.development? || Rails.env.heroku?
+    if Rails.env.development?
       dev_logout_path
     else
       '/logout'

@@ -79,13 +79,3 @@ production:
       hosts:
         - localhost:27017
       options:
-
-heroku:
-  sessions:
-    default:
-      uri: <%= ENV['MONGOHQ_URL'] %>
-      options:
-        timeout: 15
-        max_retries: 30
-        retry_interval: 1
-        refresh_interval: 10

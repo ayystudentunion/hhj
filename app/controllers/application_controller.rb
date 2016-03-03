@@ -84,7 +84,7 @@ class ApplicationController < ActionController::Base
       request.env['A_MOBILE'] = attributes[:phone]
       request.env['A_MAIL'] = attributes[:email]
       request.env['A_HOME_ORGANIZATION'] = attributes[:principal_name].split('@')[1]
-    elsif Rails.env.development? || Rails.env.heroku?
+    elsif Rails.env.development?
       test_user = session[:test_user]
       role = nil
       if test_user == 'teija'
