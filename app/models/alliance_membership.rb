@@ -7,6 +7,8 @@ class AllianceMembership
   belongs_to :alliance, inverse_of: :alliance_memberships, autosave: true
   belongs_to :position_application, inverse_of: :alliance_membership
 
+  delegate :user, to: :position_application
+
   validates_presence_of :alliance
   validates_presence_of :position_application
 
@@ -14,10 +16,6 @@ class AllianceMembership
 
   def user_name
     user.full_name
-  end
-
-  def user
-    position_application.user
   end
 
   def send_notifications

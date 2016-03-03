@@ -38,7 +38,7 @@ class User
     return nil unless principal_name && domain
     university = Organization.university_by_key domain.split('.').first
     return nil unless university
-    user = university.users.where(:$or => [{ email: attrs[:email] }, { principal_name: principal_name }]).first
+    user = university.users.find_by(:$or => [{ email: attrs[:email] }, { principal_name: principal_name }])
     if user.nil?
       user = university.users.create! attrs
     else

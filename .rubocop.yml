@@ -2,3 +2,6 @@ Metrics/LineLength:
   Max: 200
 Documentation:
   Enabled: false
+# No find_each for mongoid
+FindEach:
+  Enabled: false
