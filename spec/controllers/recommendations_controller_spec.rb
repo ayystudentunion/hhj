@@ -14,7 +14,7 @@ describe RecommendationsController do
       expect do
         expect do
           post :destroy, id: rid, format: :js, locale: :fi, university: 'sty'
-        end.to raise_exception(Mongoid::Errors::DocumentNotFound)
+        end.to raise_exception(RuntimeError)
       end.to_not change(Recommendation, :count)
     end
   end

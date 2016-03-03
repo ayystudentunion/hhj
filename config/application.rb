@@ -51,6 +51,9 @@ module Halloped
 
     # This should be removed when code base is migrated to strong parameters
     config.action_controller.permit_all_parameters = true
+
+    # find_by returns nil if not found
+    Mongoid.raise_not_found_error = false
   end
 
   def self.languages
