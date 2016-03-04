@@ -9,8 +9,8 @@ class AllianceMembership
 
   delegate :user, to: :position_application
 
-  validates_presence_of :alliance
-  validates_presence_of :position_application
+  validates :alliance, presence: true
+  validates :position_application, presence: true
 
   after_update :send_notifications
 
