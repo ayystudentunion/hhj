@@ -4,8 +4,8 @@ module CallsHelper
   end
 
   def free_positions(call)
-    [call.member_amount, call.deputy_amount].max.times
-                                            .map do |index|
+    positions_amount = [call.member_amount, call.deputy_amount].max
+    Array.new(positions_amount) do |index|
       if index >= call.deputy_amount
         :position_member
       elsif index >= call.member_amount

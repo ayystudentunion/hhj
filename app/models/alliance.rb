@@ -12,7 +12,7 @@ class Alliance
 
   has_many :alliance_memberships, autosave: true, dependent: :destroy, inverse_of: :alliance
 
-  validates_presence_of :creator
+  validates :creator, presence: true
   validate :applications_must_belong_to_the_call
 
   accepts_nested_attributes_for :alliance_memberships
