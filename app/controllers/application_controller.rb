@@ -2,13 +2,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :set_fake_env_for_development
-  before_filter :set_user
-  before_filter :change_language
-  before_filter :set_locale
-  before_filter :set_university
-  before_filter :set_fixed_locale_for_admin_login
-  before_filter :init_custom_view_paths
+  before_action :set_fake_env_for_development
+  before_action :set_user
+  before_action :change_language
+  before_action :set_locale
+  before_action :set_university
+  before_action :set_fixed_locale_for_admin_login
+  before_action :init_custom_view_paths
 
   helper_method :user_role?
   helper_method :is_in_current_university?

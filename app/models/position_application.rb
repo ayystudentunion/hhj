@@ -53,7 +53,7 @@ class PositionApplication
   end
 
   def recommendation_by(user)
-    Recommendation.find_by({ user_id: user._id, position_application_id: _id })
+    Recommendation.find_by(user_id: user._id, position_application_id: _id)
   end
 
   def admissible?

@@ -1,7 +1,7 @@
 class CallsController < ApplicationController
-  before_filter :authorize_call_admin, except: [:index, :show]
-  before_filter(only: [:new, :create]) { |c| c.find_organ_from_current_university :organ_id }
-  before_filter :find_call_from_organ_or_university, except: [:index, :new, :create]
+  before_action :authorize_call_admin, except: [:index, :show]
+  before_action(only: [:new, :create]) { |c| c.find_organ_from_current_university :organ_id }
+  before_action :find_call_from_organ_or_university, except: [:index, :new, :create]
 
   def index
     @calls = Call.open_by_university @university

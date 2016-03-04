@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
-  before_filter :authorize_organ_admin
-  before_filter { |c| c.find_organ_from_current_university :organ_id }
-  before_filter :find_member_from_organ, except: [:index, :new, :create]
+  before_action :authorize_organ_admin
+  before_action { |c| c.find_organ_from_current_university :organ_id }
+  before_action :find_member_from_organ, except: [:index, :new, :create]
 
   def index
   end

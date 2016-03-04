@@ -1,6 +1,6 @@
 class OrgansController < ApplicationController
-  before_filter :authorize_organ_admin, except: [:index, :show]
-  before_filter :find_organ_from_current_university, except: [:index, :new, :create]
+  before_action :authorize_organ_admin, except: [:index, :show]
+  before_action :find_organ_from_current_university, except: [:index, :new, :create]
 
   def index # list of all organs
     @organs = Organ.visible_by_university(@university)

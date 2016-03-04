@@ -14,7 +14,7 @@ class RecommendationsController < ApplicationController
     # Find returns nil if recomendation does not exist
     @recommendation = @user.recommendations.find(params[:id])
     # FIXME: control flow by error
-    fail 'Attempting to destroy recommendation that does not exist' if @recommendation.nil?
+    raise 'Attempting to destroy recommendation that does not exist' if @recommendation.nil?
     @position_application = @recommendation.position_application
     @recommendation.destroy
     respond_to do |format|
