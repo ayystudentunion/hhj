@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   before_action :init_custom_view_paths
 
   helper_method :user_role?
-  helper_method :is_in_current_university?
+  helper_method :in_current_university?
   helper_method :student_union_employee?
   helper_method :can_admin_organs?
   helper_method :can_apply?
@@ -23,11 +23,11 @@ class ApplicationController < ActionController::Base
 
   def user_role?(role)
     return false unless @user
-    return false unless is_in_current_university?
+    return false unless in_current_university?
     @user.role == role
   end
 
-  def is_in_current_university?
+  def in_current_university?
     return false unless @user
     @user.university.key == @university.key
   end
@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
   end
 
   def can_apply?
-    is_in_current_university?
+    in_current_university?
   end
 
   def authorize_organ_admin

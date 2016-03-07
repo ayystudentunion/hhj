@@ -13,8 +13,7 @@ module ApplicationHelper
   end
 
   def formatted_date(arg_date, options = {})
-    dates = [arg_date, options[:end_date]].reject { |date| date.blank? }
-    dates = dates.map { |date| format_date date, options }
+    dates = [arg_date, options[:end_date]].reject(&:blank?).map { |date| format_date date, options }
     dates.join(' - ')
   end
 

@@ -12,7 +12,7 @@ describe Call do
   it 'should report about unhandled applications' do
     FactoryGirl.create :helsinki_uni_board_application
     c = TestSingletons.call_for_student_council_board
-    c.has_unhandled_applications.should == true
+    c.unhandled_applications?.should == true
   end
 
   it 'strips filename according to sanitizer' do

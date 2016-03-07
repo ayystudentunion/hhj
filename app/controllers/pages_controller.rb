@@ -2,10 +2,7 @@
 
 class PagesController < ApplicationController
   def logout
-    for c in cookies
-      cookies.delete c[0]
-    end
-
+    cookies.clear
     redirect_to index_path(locale: I18n.default_locale)
   end
 

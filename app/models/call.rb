@@ -46,7 +46,7 @@ class Call
     organ.organization.root
   end
 
-  def has_unhandled_applications
+  def unhandled_applications?
     position_applications.not_selected.exists?
   end
 
