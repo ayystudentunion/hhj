@@ -43,6 +43,8 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bson (3.2.6)
     bson_ext (1.5.1)
     builder (3.2.2)
@@ -90,6 +92,7 @@ GEM
       railties (>= 3, < 5)
     cucumber-wire (0.0.1)
     database_cleaner (1.5.1)
+    debug_inspector (0.0.2)
     devise (3.5.6)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -169,6 +172,14 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (3.3.0)
+      byebug (~> 8.0)
+      pry (~> 0.10)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
+    pry-stack_explorer (0.4.9.2)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     rack (1.6.4)
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
@@ -312,7 +323,9 @@ DEPENDENCIES
   meta_request
   mongoid (~> 4.0.0)
   mongoid-tree (>= 0.7)
-  pry
+  pry-byebug
+  pry-rails
+  pry-stack_explorer
   rails (~> 4.2.0)
   rails_admin (> 0.4.3)
   redcarpet

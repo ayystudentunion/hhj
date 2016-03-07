@@ -35,7 +35,9 @@ class Organization
     if key.blank?
       errors.add(:key, errors.generate_message(:key, :blank, name: name))
     else
-      Organization.where(key: key, :_id.ne => _id).each do |other|
+      Organization.where(key: key,
+                         _id: { :$ne => _id }
+                        ).each do |other|
         errors.add(
           :key, errors.generate_message(
                   :key, :taken, name: name, key: key, other: other.name))

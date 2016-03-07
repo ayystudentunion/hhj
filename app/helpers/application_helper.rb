@@ -12,12 +12,10 @@ module ApplicationHelper
     term
   end
 
-  def formatted_date(date, options = {})
-    [date, options[:end_date]].reject do |date|
-      date.blank? && options[:end_date].nil?
-    end.map do |date|
-      format_date date, options
-    end.join(' - ')
+  def formatted_date(arg_date, options = {})
+    dates = [arg_date, options[:end_date]].reject { |date| date.blank? }
+    dates = dates.map { |date| format_date date, options }
+    dates.join(' - ')
   end
 
   def login_link

@@ -95,10 +95,10 @@ class CallsController < ApplicationController
 
   def find_call_from_organ_or_university
     @organ = find_organ_from_current_university :organ_id if params.include? :organ_id
-    unless @organ.nil?
-      @call = @organ.calls.find(params[:id])
-    else
+    if @organ.nil?
       find_call_from_current_university
+    else
+      @call = @organ.calls.find(params[:id])
     end
   end
 end

@@ -49,7 +49,9 @@ gem 'uglifier', '>= 1.0.3'
 gem 'jquery-rails', '>=2.1'
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
   # Unit testing framework
   gem 'rspec-rails', '>=3.0'
   # rspec and cucumber support for emails

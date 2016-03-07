@@ -37,3 +37,4 @@ mongod.lock
 
 # Docs built with rake
 /doc/app/
+/.byebug_history/
