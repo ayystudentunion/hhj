@@ -303,7 +303,7 @@ class ApplicationController < ActionController::Base
   def change_language(to_locale = nil)
     to_locale ||= request.query_parameters[:locale]
     return if to_locale.nil?
-    return if request.fullpath =~ /\/admin\//
+    return if request.fullpath.include? '/admin/'
     current_path = Rails.application.routes.recognize_path request.fullpath
     redirect_to current_path.merge(locale: to_locale)
   end
@@ -322,11 +322,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_fixed_locale_for_admin_login
-    I18n.locale = :en if request.fullpath =~ /^\/admins\//
+    I18n.locale = :en if request.fullpath.include? '/admins/'
   end
 
   def layout_by_context
-    if request.fullpath =~ /^\/admins\//
+    if request.fullpath.include? '/admins/'
       'devise'
     else
       'application'

@@ -24,7 +24,7 @@ class PositionApplicationsController < ApplicationController
   end
 
   def create
-    @call.position_applications.where(user_id: @user.id).destroy_all if @call.position_applications.where(user: @user).exists?
+    destroy_existing_application if application_for_user
     @position_application = @call.position_applications.build params[:position_application]
     @position_application.deputy = PositionApplication.find(params[:deputy_id]) if params[:deputy_id].present?
     if @position_application.save
@@ -51,5 +51,14 @@ class PositionApplicationsController < ApplicationController
 
   def find_application_from_call
     @position_application = @call.position_applications.find(params[:id])
+  end
+
+  def destroy_existing_application
+    @call.position_applications.where(user_id: @user.id).destroy_all
+  end
+
+  # Nil if no application exists
+  def application_for_user
+    @call.position_applications.find_by(user: @user)
   end
 end
