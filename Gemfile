@@ -60,9 +60,9 @@ group :test do
   # Acceptance testing framework
   gem 'cucumber-rails', '>=1.4.0', require: false
   # Capybara provides a DSL for browser automation
-  gem 'capybara', '~>2.5.0'
+  gem 'capybara'
   # Backend for capybara
-  gem 'capybara-webkit', '~>1.7.0'
+  gem 'capybara-webkit'
   gem 'capybara-screenshot'
   # Resets state between tests
   gem 'database_cleaner', '>= 1.0.0'
