@@ -2,12 +2,13 @@ module Models
   module Position
     extend ActiveSupport::Concern
 
-    POSITION_VALUES = [:position_member, :position_deputy]
+    POSITION_VALUES = [:position_member, :position_deputy].freeze
 
     module ClassMethods
       def position_field_symbol
         @symbol
       end
+
       def position_field(symbol)
         @symbol = symbol
         validates position_field_symbol, allow_nil: true, inclusion: { in:  POSITION_VALUES }
@@ -20,7 +21,7 @@ module Models
     end
 
     included do
-      belongs_to :member, :class_name => name, :inverse_of => :deputy
+      belongs_to :member, class_name: name, inverse_of: :deputy
       has_one :deputy, class_name: name, inverse_of: :member, autosave: true
     end
 
@@ -36,8 +37,8 @@ module Models
     def set_position!(params)
       return to_not_selected! if params[self.class.position_field_symbol].blank?
       case params[self.class.position_field_symbol].to_sym
-        when :position_member then to_member! params[:deputy]
-        when :position_deputy then to_deputy! params[:member]
+      when :position_member then to_member! params[:deputy]
+      when :position_deputy then to_deputy! params[:member]
       end
     end
 
@@ -82,8 +83,8 @@ module Models
         return if selected_for_position.nil?
         if selected_for_position != allowed_position
           errors.add(
-              relation, errors.generate_message(
-                relation, self.class.position_field_symbol))
+            relation, errors.generate_message(
+                        relation, self.class.position_field_symbol))
         end
       end
       has_position :deputy, :position_deputy
@@ -93,20 +94,20 @@ module Models
   module AppliedPosition
     extend ActiveSupport::Concern
 
-    POSITION_VALUES = [:position_member, :position_deputy, :position_both]
+    POSITION_VALUES = [:position_member, :position_deputy, :position_both].freeze
 
     module ClassMethods
-
       def applied_position_field_symbol
         @applied_position_symbol
       end
+
       def applied_position_field(symbol)
         @applied_position_symbol = symbol
         validates position_field_symbol, allow_nil: true, inclusion: { in:  POSITION_VALUES }
         field applied_position_field_symbol, type: Symbol
         scope :member_applicants, -> { where(applied_position_field_symbol => :position_member) }
         scope :deputy_applicants, -> { where(applied_position_field_symbol => :position_deputy) }
-        scope :paired_deputies, -> { deputy_applicants.not_in(:member_id => [nil]) }
+        scope :paired_deputies, -> { deputy_applicants.not_in(member_id: [nil]) }
       end
     end
   end

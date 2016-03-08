@@ -1,20 +1,19 @@
 namespace :db do
   namespace :import do
-
-    desc "import university organization chart from YAML file"
-    task :university => :environment do
+    desc 'import university organization chart from YAML file'
+    task university: :environment do
       file = ENV['file']
-      raise "file parameter missing!\n\n" +
-      "Usage:\n" +
-      "RAILS_ENV=[env name] rake db:import:university file=[path to yaml file]\n\n" +
-      "e.g. 'RAILS_ENV=production rake db:import:university ./public/universities/helsinki/helsinki.yml'\n\n" +
-      "The name of the yaml file will be the identifier of the university. " +
-      "E.g. helsinki.yaml will result organization found under www.halloped.fi/fi/helsinki\n" +
-      "The identifier will also be used when mapping haka credentials so it must be \n" +
-      "(the yaml file name must be) the same as first part of university domain name.\n\n" +
-      "RAILS_ENV is development by default. If you want to import university to production server\n" +
-      "you must use RAILS_ENV=production\n\n" +
-      "Tips: look under public/universities/helsinki for example file" unless file
+      raise "file parameter missing!\n\n" \
+            "Usage:\n" \
+            "RAILS_ENV=[env name] rake db:import:university file=[path to yaml file]\n\n" \
+            "e.g. 'RAILS_ENV=production rake db:import:university ./public/universities/helsinki/helsinki.yml'\n\n" \
+            'The name of the yaml file will be the identifier of the university. ' \
+            "E.g. helsinki.yaml will result organization found under www.halloped.fi/fi/helsinki\n" \
+            "The identifier will also be used when mapping haka credentials so it must be \n" \
+            "(the yaml file name must be) the same as first part of university domain name.\n\n" \
+            "RAILS_ENV is development by default. If you want to import university to production server\n" \
+            "you must use RAILS_ENV=production\n\n" \
+            'Tips: look under public/universities/helsinki for example file' unless file
 
       h = YAML.load_file(file)
       univ_name = h.keys.first
@@ -34,12 +33,14 @@ namespace :db do
     end
 
     def looks_like_we_have_created_organisations?(univ_name)
-      Organization.find_by(name: univ_name) rescue false
+      Organization.find_by(name: univ_name)
+    rescue
+      false
     end
 
-    def create_organizations(organizations, parent=nil)
+    def create_organizations(organizations, parent = nil)
       organizations.each do |org|
-        if org.kind_of?(String)
+        if org.is_a?(String)
           create!(parent, name: org)
         elsif structured_list?(org)
           head, *tail = org

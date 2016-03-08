@@ -1,7 +1,7 @@
-desc "Run all tests"
+desc 'Run all tests'
 
-task :test => [:spec, :cucumber]
+task test: [:spec, :cucumber]
 
 namespace :ci do
-  task :test => 'rake:test'
+  task test: 'rake:test'
 end
