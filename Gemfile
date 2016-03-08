@@ -7,10 +7,7 @@ gem 'rails', '~>4.2.0'
 # The data store for the app is MongoDB
 # mongoid is an object relational mapper on top
 # Locked down to avoid big leap upgrading
-gem 'mongoid', '~> 4.0.0'
-# bson_ext is a native code implementation of bson
-# to speed up mongodb operations
-gem 'bson_ext', '>= 1.5'
+gem 'mongoid'
 # This provides hierarchy support of our models.
 # It's used for the organization hierarchy.
 gem 'mongoid-tree', '>= 0.7'
