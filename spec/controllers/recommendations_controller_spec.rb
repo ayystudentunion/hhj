@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe RecommendationsController do
-  let(:recommendation) {
+  let(:recommendation) do
     # owned by eija
     FactoryGirl.create :recommendation
-  }
+  end
 
   describe 'as tiina' do
     login_user :student_tiina

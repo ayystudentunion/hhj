@@ -3,7 +3,6 @@
 require 'spec_helper'
 
 describe Call do
-
   it 'should report total number of selected' do
     c = FactoryGirl.create :call, title: 'Otsikko', member_amount: 3, deputy_amount: 2
     c.total_number_of_selected.should == 5

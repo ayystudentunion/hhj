@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Organization do
-
   it 'can be converted to full tree hash with all recursive children' do
     FactoryGirl.create(:kirjasto)
     tree = Organization.root.tree_hash[:children]
@@ -23,5 +22,4 @@ describe Organization do
 
     o.should have(1).errors_on(:key)
   end
-
 end

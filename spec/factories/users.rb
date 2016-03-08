@@ -52,7 +52,7 @@ FactoryGirl.define do
       email      'tlap@spu.fi'
     end
     factory :xerxes do
-      association :university, :factory => :akhaimenidien_yliopisto
+      association :university, factory: :akhaimenidien_yliopisto
       _id        '4f7963bf91bc2bc1f6000006'
       first_name 'Xerxes'
       last_name  'I'
@@ -111,7 +111,7 @@ FactoryGirl.define do
       email      'maija.hyyemployee@helsinki.fi'
       phone      '+358 40 123 1234'
       principal_name 'maija.hyyemployee@helsinki.fi'
-      role       :role_union_employee
+      role :role_union_employee
     end
   end
 end

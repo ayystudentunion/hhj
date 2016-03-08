@@ -3,7 +3,6 @@
 require 'spec_helper'
 
 describe Organ do
-
   it 'can add members' do
     organ = FactoryGirl.create(:tasa_arvotyoryhma)
     deputy_user = FactoryGirl.create(:student_martti)

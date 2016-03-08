@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :position_application do
-    position  :position_member
+    position :position_member
     factory :kirjakerho_application do
       user { TestSingletons.eija }
       call { TestSingletons.lukurinki }
@@ -11,6 +11,6 @@ FactoryGirl.define do
       user { TestSingletons.helsinki_uni_student_union_employee }
       call { TestSingletons.call_for_student_council_board }
     end
-    custom Hash[*['degree','VTT']]
+    custom Hash[*%w(degree VTT)]
   end
 end

@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe 'position_applications/show.fragment.slim' do
-  let(:application) {
+  let(:application) do
     FactoryGirl.build(:kirjakerho_application, position: :position_both)
-  }
+  end
 
   it 'should render for application for normal application' do
     test_partial

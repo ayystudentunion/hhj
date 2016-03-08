@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Alliance do
-
   it 'should return empty when there are no member applications' do
     a = FactoryGirl.create :alliance
     a.member_applications.should == []

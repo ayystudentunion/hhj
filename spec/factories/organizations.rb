@@ -2,9 +2,7 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-
   factory :organization do
-
     factory :helsinki_uni do
       name  'Helsingin yliopisto'
       key   'helsinki'
@@ -53,7 +51,5 @@ FactoryGirl.define do
       _id   '5e5c1edf91bc2b3302000000'
       parent { FactoryGirl.create(:akhaimenidien_yliopisto) }
     end
-
   end
-
 end
