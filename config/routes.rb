@@ -1,23 +1,21 @@
 Halloped::Application.routes.draw do
-
-  get "/fail" => "pages#fail"
-  get "/logout" => "pages#logout"
-  get "/env" => "pages#environment"
+  get '/fail' => 'pages#fail'
+  get '/logout' => 'pages#logout'
+  get '/env' => 'pages#environment'
   unless Rails.env.production?
-    get "/dev_login" => "pages#dev_login"
-    get "/dev_logout" => "pages#dev_logout"
-    get "/dev_users" => "pages#dev_users"
+    get '/dev_login' => 'pages#dev_login'
+    get '/dev_logout' => 'pages#dev_logout'
+    get '/dev_users' => 'pages#dev_users'
   end
 
   devise_for :admins
-  get "/admin" => redirect("/en/admin")
+  get '/admin' => redirect('/en/admin')
 
-  scope "/:locale" do
+  scope '/:locale' do
     mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   end
 
-  scope "/:locale/:university" do
-
+  scope '/:locale/:university' do
     resources :users, only: [:edit, :update]
 
     resources :calls do
@@ -38,9 +36,8 @@ Halloped::Application.routes.draw do
 
     resources :organizations
 
-    get "/global_status" => "pages#global_status"
+    get '/global_status' => 'pages#global_status'
   end
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -89,20 +86,17 @@ Halloped::Application.routes.draw do
   #     resources :products
   #   end
 
-
-
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
   # News are not implemented yet so route university frontpage to open calls until
   # we have some content for the university frontpage
-  #get ':locale/:university' => 'pages#university', :as => :university
+  # get ':locale/:university' => 'pages#university', :as => :university
   get ':locale/:university' => 'calls#index', :as => :university
 
   get ':locale' => 'pages#index', :as => :index
 
-
-  root :to => 'pages#default_locale_redirect'
+  root to: 'pages#default_locale_redirect'
 
   # See how all your routes lay out with "rake routes"
 

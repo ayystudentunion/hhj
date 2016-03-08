@@ -1,4 +1,4 @@
-require "i18n/backend/fallbacks"
+require 'i18n/backend/fallbacks'
 
 # Fallbacks are configured to work only for dynamic values stored in database
 # Fallbacks are not supported for static strings that come from locales/:locale.yml files
@@ -8,4 +8,3 @@ require "i18n/backend/fallbacks"
   fi: [:fi, :sv, :en],
   sv: [:sv, :fi, :en]
 }
-

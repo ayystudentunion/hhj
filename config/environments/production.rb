@@ -62,7 +62,7 @@ Rails.application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  config.action_mailer.default_url_options = { :host => 'halloped.fi' }
+  config.action_mailer.default_url_options = { host: 'halloped.fi' }
 
   config.action_mailer.delivery_method = :sendmail
   config.action_mailer.perform_deliveries = true
@@ -82,7 +82,7 @@ Rails.application.configure do
 
   # wkhtmltopdf binary gem does not work in Redhat production environment
   #  Comment this if you need to run locally using production env
-  WickedPdf.config = {exe_path: '/home/leonidas/bin/wkhtmltopdf'}
+  WickedPdf.config = { exe_path: '/home/leonidas/bin/wkhtmltopdf' }
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new

@@ -29,7 +29,7 @@ Rails.application.configure do
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
   # ActionMailer::Base.deliveries array.
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :test
 
   # Randomize the order test cases are executed.
@@ -40,5 +40,5 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  WickedPdf.config = {exe_path: '/usr/local/bin/wkhtmltopdf'}
+  WickedPdf.config = { exe_path: '/usr/local/bin/wkhtmltopdf' }
 end

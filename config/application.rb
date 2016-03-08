@@ -1,9 +1,9 @@
 require File.expand_path('../boot', __FILE__)
 
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "sprockets/railtie"
-require "rails/test_unit/railtie"
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'sprockets/railtie'
+require 'rails/test_unit/railtie'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -34,7 +34,7 @@ module Halloped
     config.i18n.fallbacks = false
 
     # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
+    config.encoding = 'utf-8'
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
@@ -45,8 +45,8 @@ module Halloped
     # config.active_record.schema_format = :sql
 
     config.generators do |g|
-      g.test_framework :rspec, :fixture => true, :views => false, :fixture_replacement => :factory_girl, :view_specs => false
-      g.fixture_replacement :factory_girl, :dir=>"spec/factories"
+      g.test_framework :rspec, fixture: true, views: false, fixture_replacement: :factory_girl, view_specs: false
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
     end
 
     # This should be removed when code base is migrated to strong parameters
