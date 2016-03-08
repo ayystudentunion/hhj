@@ -15,11 +15,11 @@ def fillSelects(div, values)
 end
 
 def clickRadio(div, value)
-  return false if value.nil? or div.nil?
+  return false if value.nil? || div.nil?
   div.find("label:contains('#{value}')").click
 end
 
-def fillRadio(form, label, value)
+def fillRadio(_form, label, value)
   clickRadio first("span:contains('#{label}') + .buttons"), value
 end
 
@@ -29,10 +29,10 @@ def fillSelectsWithRadio(form, label, value)
   return false if selectsDiv.nil?
   fillSelects selectsDiv, selectValue.split('/')
   clickRadio selectsDiv.find(:xpath, './following-sibling::div[1]'), radioValue
-  not selectsDiv.nil?
+  !selectsDiv.nil?
 end
 
-def fill_in_form (form, data)
+def fill_in_form(form, data)
   data.each do |row|
     next if fillFieldByPlaceholder form, row[:label], row[:value]
     next if fillFieldByLabel form, row[:label], row[:value]
@@ -42,9 +42,7 @@ def fill_in_form (form, data)
   end
 end
 
-When %r/^I fill in form '([^']*)':$/ do |form_title, table|
+When /^I fill in form '([^']*)':$/ do |form_title, table|
   form = find("*:contains('#{form_title}') ~ form")
   fill_in_form form, table.hashes
 end
-
-

@@ -1,5 +1,5 @@
 Then /^I should see "([^"]*)" listed as member$/ do |arg|
-  check_that_contains_values("ul.members", arg)
+  check_that_contains_values('ul.members', arg)
 end
 
 Given /^someone has added my application to an electoral alliance called "([^"]*)"$/ do |name|

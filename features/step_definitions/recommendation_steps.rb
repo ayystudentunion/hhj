@@ -7,8 +7,8 @@ end
 Given /^the member application has one confirmed alliance and one unconfirmed alliance$/ do
   PositionApplication.where(position: :position_member).count.should == 1
   application = PositionApplication.where(position: :position_member).first
-  alliance1 = FactoryGirl.create(:alliance, name: "Alliance1")
-  alliance2 = FactoryGirl.create(:alliance, name: "Alliance2")
+  alliance1 = FactoryGirl.create(:alliance, name: 'Alliance1')
+  alliance2 = FactoryGirl.create(:alliance, name: 'Alliance2')
   AllianceMembership.create(position_application: application, alliance: alliance1, confirmed: false)
   AllianceMembership.create(position_application: application, alliance: alliance2, confirmed: true)
 end

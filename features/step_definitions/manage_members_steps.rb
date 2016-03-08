@@ -4,7 +4,7 @@ end
 
 When /^I press the edit icon within organ members$/ do
   within '.organ-members.hallopeds' do
-    find(".edit-icon").click
+    find('.edit-icon').click
   end
 end
 
@@ -14,12 +14,12 @@ end
 
 When /^I press the plus$/ do
   within '.add-member' do
-    find("a.btn.add-row").click
+    find('a.btn.add-row').click
   end
 end
 
 And /^I press the cross$/ do
   within '.edit-members' do
-    find("a.submit.btn.remove-member").click
+    find('a.submit.btn.remove-member').click
   end
 end

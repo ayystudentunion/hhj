@@ -6,26 +6,26 @@ def check_view_values(container, table)
 end
 
 def check_details(details_selector, title, description, table)
-  details = page.find details_selector, :visible => true
-  details.find("h2").should have_content title
-  if not description.nil? and not table.nil?
+  details = page.find details_selector, visible: true
+  details.find('h2').should have_content title
+  if !description.nil? && !table.nil?
     details.should have_content description
     check_view_values details, table
   end
 end
 
 def check_that_contains_values(container_selector, *values)
-  values.each{ |value| find(container_selector).should have_content value }
+  values.each { |value| find(container_selector).should have_content value }
 end
 
-Then %r/^I should see dialog '([^']*)'(?: with text '([^']*)')?:$/ do |title, text, table|
-  content = find(".modal .content")
+Then /^I should see dialog '([^']*)'(?: with text '([^']*)')?:$/ do |title, text, table|
+  content = find('.modal .content')
   content.find("h2:contains('#{title}')")
   content.find("textarea:contains('#{text}')") unless text.nil?
   check_view_values content, table
 end
 
-Then %r/^I should see level 3 header "([^"]*)"$/ do |text|
+Then /^I should see level 3 header "([^"]*)"$/ do |text|
   find("h3:contains('#{text}')")
 end
 
@@ -38,11 +38,11 @@ Given /^I refresh the page$/ do
 end
 
 Then /^I select "([^"]*)" as the member I want to be deputy of$/ do |value|
-  select(value, :from => "position_application_member_id")
+  select(value, from: 'position_application_member_id')
 end
 
 When /^I select "([^"]*)" as the deputy I want to be member of$/ do |value|
-  select(value, :from => "deputy_id")
+  select(value, from: 'deputy_id')
 end
 
 Then /^I should see "([^"]*)" among the applications listing$/ do |text|
@@ -54,8 +54,8 @@ Then /^should see "([^"]*)" within the applicant details$/ do |text|
 end
 
 When /^I choose to send an email reminder to "([^"]*)"$/ do |value|
-  check "send_reminder_switch"
-  step %{I fill in "reminder_email" with "#{value}"}
+  check 'send_reminder_switch'
+  step %(I fill in "reminder_email" with "#{value}")
 end
 
 Then /^I follow "([^"]*)" in the sidebar$/ do |link|
