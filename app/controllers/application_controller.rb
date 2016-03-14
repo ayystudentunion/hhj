@@ -84,6 +84,7 @@ class ApplicationController < ActionController::Base
       request.env['A_MOBILE'] = attributes[:phone]
       request.env['A_MAIL'] = attributes[:email]
       request.env['A_HOME_ORGANIZATION'] = attributes[:principal_name].split('@')[1]
+    # :nocov:
     elsif Rails.env.development?
       test_user = session[:test_user]
       role = nil
@@ -288,6 +289,7 @@ class ApplicationController < ActionController::Base
         request.env['A_HOME_ORGANIZATION'] = 'uef.fi'
         role = :role_student
       end
+      # :nocov:
       if role
         user = User.update_or_create_from_env(request.env)
         user.update_attributes!(role: role) if user
