@@ -6,12 +6,13 @@ class PagesController < ApplicationController
     redirect_to index_path(locale: I18n.default_locale)
   end
 
-  def university
-    respond_to do |format|
-      format.html { render 'pages/_university' }
-      format.fragment { render 'pages/_university', formats: ['html'], layout: false }
-    end
-  end
+  # FIXME: to be deleted
+  #def university
+  #  respond_to do |format|
+  #    format.html { render 'pages/_university' }
+  #    format.fragment { render 'pages/_university', formats: ['html'], layout: false }
+  #  end
+  #end
 
   def default_locale_redirect
     redirect_to index_path(locale: I18n.default_locale)
@@ -30,6 +31,9 @@ class PagesController < ApplicationController
     render 'env', layout: false
   end
 
+
+  # FIXME: Should not be available in production code
+  # :nocov:
   def dev_login
     session[:test_user] = params[:user] || 'eija'
     redirect_to(params[:target] || '/')
@@ -144,6 +148,7 @@ class PagesController < ApplicationController
     }]
     render :dev_users, layout: false
   end
+  # :nocov:
 
   def fail
     raise 'test errors'
