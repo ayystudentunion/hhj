@@ -149,8 +149,4 @@ class PagesController < ApplicationController
     render :dev_users, layout: false
   end
   # :nocov:
-
-  def fail
-    raise 'test errors'
-  end
 end

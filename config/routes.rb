@@ -1,5 +1,4 @@
 Halloped::Application.routes.draw do
-  get '/fail' => 'pages#fail'
   get '/logout' => 'pages#logout'
   get '/env' => 'pages#environment'
   unless Rails.env.production?
