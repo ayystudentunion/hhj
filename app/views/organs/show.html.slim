@@ -30,7 +30,7 @@ div#single-organ
             span.label
               = t '.organization'
               | :
-            span.text = @organ.organization_full_name
+            span.text = @organ.organization_full_name.join(' - ')
           .item-row
             span.label
               = t '.term'

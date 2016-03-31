@@ -38,13 +38,14 @@ class Organ
     !official
   end
 
+  # FIXME: naming
   def organization_full_name
-    organization.ancestors_and_self.drop(1).map(&:name).join(' - ')
+    organization.ancestors_and_self.drop(1).map(&:name)
   end
 
   def organization_ids
-    return '' unless organization
-    organization.ancestors_and_self.drop(1).map(&:_id).join('|')
+    return [] unless organization
+    organization.ancestors_and_self.drop(1).map(&:_id)
   end
 
   def add_selected_members!(call)

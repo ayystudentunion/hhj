@@ -26,7 +26,7 @@
         .inline-block
           = select("organ[organization]", "", @university.children.map{|p| [p.name, p.id]}, {prompt: t('.select_organization')}, {class: 'organizations'})
           span#organization-path.js-data
-            = @organ.organization_ids
+            = @organ.organization_ids.join('|')
         .inline-block.no-margin
           label.inline-label
             = f.radio_button :official, 'true', checked: true
