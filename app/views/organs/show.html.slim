@@ -52,35 +52,6 @@ div#single-organ
           a.application-call.btn.js-modal(href=new_organ_call_path(organ_id:@organ._id))
             = t '.new_call_for_applications'
         .hr
-        form.message-for-organ.unimplemented
-          textarea.wide(type='textarea' placeholder=t("placeholders.message_for_organ"))
-        .button-row.unimplemented
-          a.submit.btn(href='#')
-            = t :send
-
-        .content-comments.unimplemented
-          .comment
-            span.user-avatar
-              img(src='/img/comment-avatar.png')
-            p
-              span.user-name Santeri Kainulainen
-              br
-              span.content Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus.
-              br
-              span.date 13.5.2012 •
-              a.edit(href='#') muokkaa •
-              a.remove(href='#') poista asiaton viesti
-          .comment
-            span.user-avatar
-              img(src='/img/comment-avatar.png')
-            p
-              span.user-name Saara Suttura
-              br
-              span.content Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis.
-              br
-              span.date 13.5.2012 •
-              a.edit(href='#') muokkaa •
-              a.remove(href='#') poista asiaton viesti
 
       .tab
 

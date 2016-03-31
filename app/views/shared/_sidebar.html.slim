@@ -14,7 +14,6 @@ div#sidebar
           br
           span.phone = @user.phone
       = render "shared/alliances"
-      a.edit-btn.unimplemented(href='#') = t '.edit'
       div.clear
       h4.unimplemented
         = t '.my_organs'
@@ -29,7 +28,4 @@ div#sidebar
         a.sidebar-button.btn.create-new-organ.js-modal(href=new_organ_path)
           = t '.create_organ'
           span.plus-icon
-      a.sidebar-button.btn.unimplemented(href='#')
-        = t '.write_news_post'
-        span.plus-icon
   = render('shared/contact_info')

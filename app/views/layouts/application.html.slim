@@ -15,9 +15,6 @@
     -if @university && @university.alliances_enabled?
       li: a(href=alliances_path) = t('mongoid.models.plurals.alliance')
 
-  form.search.unimplemented(href='#')
-    input.field.search-field(type='text' placeholder="#{t 'placeholders.search'}")
-
 - content_for :sidebar do
   - if @user.nil?
     = render "shared/not_logged_in_side_bar"
