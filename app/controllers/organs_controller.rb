@@ -3,7 +3,7 @@ class OrgansController < ApplicationController
   before_action :find_organ_from_current_university, except: [:index, :new, :create]
 
   def index # list of all organs
-    @organs = Organ.visible_by_university(@university).sort_by { |organ| organ.name.downcase }
+    @organs = Organ.visible_by_university(@university)
     respond_to do |format|
       format.html
       format.fragment { render 'index', formats: ['html'], layout: false }
