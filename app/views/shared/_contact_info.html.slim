@@ -1,5 +1,5 @@
 -if @university
-    -contacts = User.where(university_id: @university._id, contactable: true)
+    -contacts = @university.contacts
     -unless contacts.empty?
       .contact-info
         h2 = t("shared.contacts_title")
@@ -8,8 +8,8 @@
             li
               span
                 strong
-                  = contact.full_name
+                  = contact.name
               span
                 = contact.email
               span
-                = contact.phone if contact.contactable_by_phone? && Call.ongoing_calls_exist?
+                = contact.phone_number unless contact.phone_number.blank?
