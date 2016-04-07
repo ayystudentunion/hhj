@@ -12,4 +12,4 @@
               span
                 = contact.email
               span
-                = contact.phone_number unless contact.phone_number.blank?
+                = contact.phone_number if !contact.phone_number.blank? && Call.ongoing_calls_exist? 

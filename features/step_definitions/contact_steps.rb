@@ -3,6 +3,10 @@ Given /^there is a student union employee marked as contactable and contactable 
   employee.update_attributes!(contactable: true, contactable_by_phone: true)
 end
 
+Given /^there is a contact for an organization$/ do
+  FactoryGirl.create(:contact)
+end
+
 Then /^I should see "([^"]*)" as contact info$/ do |text|
   page.find('.contact-info').should have_content(text)
 end
