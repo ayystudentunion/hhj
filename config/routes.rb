@@ -33,6 +33,8 @@ Halloped::Application.routes.draw do
       resources :members
     end
 
+    resources :contacts
+
     resources :organizations
 
     get '/global_status' => 'pages#global_status'

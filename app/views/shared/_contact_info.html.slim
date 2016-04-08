@@ -4,7 +4,7 @@
       .contact-info
         h2 = t("shared.contacts_title")
         ul
-          -contacts.each do |contact|
+          - contacts.each do |contact|
             li
               span
                 strong
@@ -13,3 +13,9 @@
                 = contact.email
               span
                 = contact.phone_number if !contact.phone_number.blank? && Call.ongoing_calls_exist? 
+              - if can_admin_organs?
+                = link_to 'Delete', contact_path(id: contact._id, university: @university.key), method: :delete 
+          - if can_admin_organs?
+            a.sidebar-button.btn.create-new-contact.js-modal(href=new_contact_path)
+              | Add contact
+              span.plus-icon

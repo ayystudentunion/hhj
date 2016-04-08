@@ -1,0 +1,20 @@
+.modal#create-new-contact(data-url=organizations_path(format: :json))
+  .content
+    div(id='contact-form-container')
+      h2
+        = @form_title
+        a.close-modal(href='#')
+      = form_for @contact, url: @form_path, class: 'new-contact' do |f|
+        .inline-block
+          = f.label 'Name'
+          = f.text_field :name
+        .inline-block
+          = f.label 'Email'
+          = f.text_field :email
+        .inline-block
+          = f.label 'Phone number'
+          = f.text_field :phone_number 
+        .button-row
+          a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
+          input.submit.close-modal.btn(type='submit' value="#{t 'modals.save'}")
+
