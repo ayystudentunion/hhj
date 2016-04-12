@@ -3,6 +3,7 @@ class OrganizationsController < ApplicationController
   def index
     respond_to do |format|
       format.json { render json: Organization.all.as_json }
+      format.html
     end
   end
 

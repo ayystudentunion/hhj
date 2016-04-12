@@ -1,0 +1,24 @@
+div#organs
+  .breadcrumb
+    ul.breadcrumb-list
+      li
+        a(href=index_path)
+          = t :front_page
+          span.arrow ›
+      li
+        a(href=organs_path)
+          t 'navi.organs'
+          span.arrow ›
+  .tabs-container
+    .tabs
+      ul.tabs-list
+        li.active: a(href='#') = t 'navi.active'
+        li.unimplemented: a(href='#') Paikkahaussa
+        li.unimplemented: a(href='#') Lakkautetut
+        li.margin.unimplemented: a.unimplemented(href='#') Yliopistotaso
+        li.unimplemented: a(href='#') Korkeakoulutaso
+        li.unimplemented: a(href='#') Laitostaso
+        li.unimplemented: a(href='#') Ryhmätaso
+    .tab-content
+      .tab
+        = render 'organizations'
