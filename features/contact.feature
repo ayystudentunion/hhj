@@ -3,9 +3,9 @@ Feature: Contact
   Background:
     Given there exist university organization
     And I am logged in as a student union employee
+    Given there is a contact for an organization
 
   Scenario: Showing contact information
-    Given there is a contact for an organization
     Given I am at front page of 'Spartan Teknillinen Yliopisto'
     And I should see "Mr Contactabull halloped_contact@hyy.fi" as contact info
     And I should not see "+358 40 555 8899" as contact info

@@ -7,12 +7,12 @@ class PagesController < ApplicationController
   end
 
   # FIXME: to be deleted
-  #def university
+  # def university
   #  respond_to do |format|
   #    format.html { render 'pages/_university' }
   #    format.fragment { render 'pages/_university', formats: ['html'], layout: false }
   #  end
-  #end
+  # end
 
   def default_locale_redirect
     redirect_to index_path(locale: I18n.default_locale)
@@ -30,7 +30,6 @@ class PagesController < ApplicationController
     @environment = request.env
     render 'env', layout: false
   end
-
 
   # FIXME: Should not be available in production code
   # :nocov:

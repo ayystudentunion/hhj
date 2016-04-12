@@ -10,8 +10,8 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-   Contact.find(params[:id]).destroy
-   redirect_to request.referer
+    Contact.find(params[:id]).destroy
+    redirect_to request.referer
   end
 
   def new
@@ -20,5 +20,5 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.fragment
     end
-  end  
+  end
 end
