@@ -1,3 +1,6 @@
-/ partial for a single organ
+/ recursive partial for organization
 .organization
-  | TADAA
+  = '--' * organization.depth
+  = organization.name
+  - organization.children.each do |child|
+    = render child
