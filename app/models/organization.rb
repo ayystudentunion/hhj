@@ -2,6 +2,7 @@ class Organization
   include Mongoid::Document
   include Mongoid::Tree
   include Mongoid::Timestamps
+  include Ext::Mongoid::AutoFormatLocalizedAttributes
 
   has_many  :organs, dependent: :delete
   has_many  :eligibility_rule_sets
