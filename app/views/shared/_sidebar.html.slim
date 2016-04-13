@@ -28,4 +28,8 @@ div#sidebar
         a.sidebar-button.btn.create-new-organ.js-modal(href=new_organ_path)
           = t '.create_organ'
           span.plus-icon
-  = render('shared/contact_info')
+        a.sidebar-button.btn.create-new-organization.js-modal(href=new_organization_path)
+          = t '.create_organization'
+          span.plus-icon
+
+    = render('shared/contact_info')

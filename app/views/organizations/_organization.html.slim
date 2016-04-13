@@ -1,6 +1,6 @@
 / recursive partial for organization
 .organization
   = '--' * organization.depth
-  = organization.name
+  a.edit-organization.js-modal(href=edit_organization_path(id: organization._id)) = organization.name
   - organization.children.each do |child|
     = render child
