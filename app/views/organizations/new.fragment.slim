@@ -13,7 +13,7 @@
         .inline-block
           = select("organization[parent]", "", @university.children.map{|p| [p.name, p.id]}, {prompt: t('.select_organization')}, {class: 'organizations'})
           span#organization-path.js-data
-            = @organization.parent_ids.join('|')
+            = @organization.parent_ids.drop(1).join('|')
         .button-row
           a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
           input.submit.close-modal.btn(type='submit' value="#{t 'modals.save'}")

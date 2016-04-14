@@ -21,4 +21,4 @@ div#organs
         li.unimplemented: a(href='#') Ryhmätaso
     .tab-content
       .tab
-        = render @university
+        = render @university.children.first.children
