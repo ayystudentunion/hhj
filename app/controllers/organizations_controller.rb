@@ -53,8 +53,9 @@ class OrganizationsController < ApplicationController
 
   def destroy
   end
-  
+
   private
+
   def selected_organization
     Organization.find params[:organization][:parent].unshift(@university._id).reject(&:blank?).last
   end
