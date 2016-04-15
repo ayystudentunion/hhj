@@ -32,6 +32,12 @@ When /^I press the "Add contact" button$/ do
   page.find('a.sidebar-button.btn.create-new-contact.js-modal').click
 end
 
+When /^I delete the first contact$/ do
+  within '.contact-info' do
+    click_link('Delete', match: :first)
+  end
+end
+
 When /^I press the save button$/ do
   page.find('.submit.close-modal.btn').click
 end

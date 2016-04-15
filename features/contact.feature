@@ -19,5 +19,5 @@ Feature: Contact
     Then I fill in name, email and phone number fields with "Halloped contact", "halloped@stu.fi" and "+358666"
     And I press the save button
     Then I should see "Halloped contact halloped@stu.fi" as contact info 
-    When I follow the link 'Delete'
-    Then I should not see "Halloped contact halloped@stu.fi" as contact info
+    When I delete the first contact
+    Then I should not see "Mr Contactabull halloped_contact@hyy.fi" as contact info
