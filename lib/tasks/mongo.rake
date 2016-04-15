@@ -50,7 +50,7 @@ namespace :db do
         collections.each do |collection|
           table = collection[:table]
           model = collection[:model]
-          dir = "db/seed/" + Rails.env
+          dir = "#{Rails.root}/db/seeds/" + Rails.env
           filename = dir + "/" + table + ".json"
           Rake::Task["db:model:import"].execute({model: model, filename: filename})
         end
