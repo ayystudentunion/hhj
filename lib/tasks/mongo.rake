@@ -17,6 +17,7 @@ namespace :db do
       model = args[:model].constantize
       model.destroy_all
       filename = args[:filename]
+      # FIXME: depentdent objects also get deleted
       File.foreach(filename) do |line|
         next if line.blank?
         object = model.new.from_json line.strip
