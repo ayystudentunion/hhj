@@ -13,5 +13,5 @@ umask 002
 
 git submodule sync && git submodule update --init --recursive
 
-run deploy/before_restart
+PATH=$HOME/.rbenv/shims/ruby:$PATH run deploy/before_restart
 run deploy/restart && run deploy/after_restart
