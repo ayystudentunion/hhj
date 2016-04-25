@@ -1,4 +1,4 @@
-#!$HOME/.rbenv/shims/ruby
+#!/usr/bin/env ruby
 oldrev, newrev = ARGV
 
 def run(cmd)
