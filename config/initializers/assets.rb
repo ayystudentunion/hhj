@@ -12,8 +12,9 @@ Rails.application.config.assets.css_compressor = nil
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-
 # precompile university stylsheets
 Rails.application.config.assets.precompile += Dir[Rails.root.join('public/universities/*/stylesheet/*.styl')].map do |f|
   Pathname(f).relative_path_from(Rails.root.join('public/universities')).to_s.chomp(File.extname(f))
 end
+
+Rails.application.config.assets.precompile += %w( print.css )
