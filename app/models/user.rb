@@ -75,6 +75,6 @@ class User
   end
 
   def active_alliance_memberships
-    alliance_memberships.select { |m| !m.alliance.archived }
+    alliance_memberships.reject { |m| m.alliance.archived }
   end
 end
