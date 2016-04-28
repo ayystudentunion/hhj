@@ -15,6 +15,8 @@ gem 'mongoid-tree', '>= 0.7'
 gem 'slim'
 # Factory Girl provides the fixtures for the test suite
 gem 'factory_girl_rails', require: false
+
+gem 'faker', require: false
 # Convert html to pdf. Used to provide printable output.
 gem 'wicked_pdf', '~>0.11.0'
 # /admin interface
