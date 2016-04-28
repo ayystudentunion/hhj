@@ -17,4 +17,12 @@ namespace :fake do
       )
     end
   end
+
+  task :applications => :environment do
+    PositionApplication.all.each do |application|
+      application.update_attributes!(
+        personal_statement: Faker::Lorem.paragraph
+      )
+    end
+  end
 end
