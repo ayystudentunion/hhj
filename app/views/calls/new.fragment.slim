@@ -41,10 +41,6 @@
       - languages.each do |locale|
         = f.text_field :appointment_place_and_date, placeholder: Call.human_attribute_name(:appointment_place_and_date, locale: locale), class: "wide field localized #{locale}", name: "call[appointment_place_and_date[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}", value: localized(@call.appointment_place_and_date_translations, locale.to_s)
         = f.text_area :description, placeholder: Call.human_attribute_name(:description, locale: locale), class: "wide localized #{locale}", name: "call[description[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}", value: localized(@call.description_translations, locale.to_s)
-      .unimplemented
-        select.unimplemented
-          option(value='') Valitse lomakepohja
-          option(value='lomake') Joku lomake
       .button-row
         a.print.unimplemented(href='#') Tulosta hakukuulutus
         a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
