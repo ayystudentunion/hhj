@@ -65,24 +65,15 @@ class CallsController < ApplicationController
     updated_call = params[:call]
     if updated_call
       @call.update_attributes!(updated_call)
+      return_path = call_path(id: @call._id)
     else
-      unless params[:status].blank?
-        status = params[:status].first.first.to_sym
-        if status == :handled && status != @call.status
-          @call.organ.add_selected_members!(@call)
-        end
-        @call.status = status
-      end
-      @call.save!
+      update_status(params[:status].first.first.to_sym) unless params[:status].blank?
+      return_path = organ_path(id: @call.organ._id)
     end
 
     respond_to do |format|
       format.html do
-        if updated_call
-          redirect_to call_path(id: @call._id)
-        else
-          redirect_to organ_path(id: @call.organ._id)
-        end
+        redirect_to return_path
       end
       format.json { render json: @call }
     end
@@ -100,5 +91,14 @@ class CallsController < ApplicationController
     else
       @call = @organ.calls.find(params[:id])
     end
+  end
+
+  def update_status(status)
+    status = params[:status].first.first.to_sym
+    if status == :handled && status != @call.status
+      @call.organ.add_selected_members!(@call)
+    end
+    @call.status = status
+    @call.save!
   end
 end
