@@ -17,7 +17,7 @@ class CallsController < ApplicationController
   end
 
   def new
-    @call = @organ.calls.build
+    @call = Call.new
     @form_path = organ_calls_path
     @form_title = t 'calls.new.title'
     respond_to do |format|
