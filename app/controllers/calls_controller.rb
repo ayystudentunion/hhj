@@ -10,14 +10,14 @@ class CallsController < ApplicationController
       format.fragment { render 'index', formats: ['html'], layout: false }
       format.pdf do
         # quickfix before different scopes are properly supported in this action:
-        @calls = Call.by_university @university
+        @calls = Call.open_by_university @university
         render pdf: 'calls', encoding: 'utf-8', layout: true
       end
     end
   end
 
   def new
-    @call = Call.new
+    @call = @organ.default_call ? @organ.default_call.clone : Call.new
     @form_path = organ_calls_path
     @form_title = t 'calls.new.title'
     respond_to do |format|
