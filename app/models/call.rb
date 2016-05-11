@@ -5,7 +5,7 @@ class Call
 
   WORKFLOW_VALUES = [:workflow_normal, :workflow_administration_election, :workflow_proposal_available].freeze
 
-  belongs_to :organ, dependent: :nullify, inverse_of: :default_call
+  belongs_to :organ, dependent: :nullify
   has_many :position_applications
   has_many :alliances
   belongs_to :eligibility_rule_set

@@ -6,7 +6,7 @@ class Organ
   belongs_to :organization
   has_many :calls, dependent: :delete
   has_many :members, dependent: :nullify
-  has_one :default_call, class_name: 'Call', dependent: :delete
+  has_one :default_call
 
   validates :name, :organization, presence: { allow_blank: false }
   validates :official, inclusion: { in: [true, false] }
