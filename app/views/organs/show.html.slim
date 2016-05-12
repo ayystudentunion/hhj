@@ -51,6 +51,9 @@ div#single-organ
               = t '.has_open_positions'
           a.application-call.btn.js-modal(href=new_organ_call_path(organ_id:@organ._id))
             = t '.new_call_for_applications'
+          a.application-call.btn.js-modal(href=organ_default_call_edit_path(organ_id:@organ._id))
+            = t '.edit_default_call_for_applications'
+
         .hr
 
       .tab

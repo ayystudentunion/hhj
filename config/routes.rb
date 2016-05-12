@@ -31,6 +31,9 @@ Halloped::Application.routes.draw do
     resources :organs do
       resources :calls
       resources :members
+      get '/default_call/edit' => 'calls#edit_default'
+      patch '/default_call' => 'calls#update_default'
+      post '/default_call' => 'calls#update_default'
     end
 
     resources :contacts

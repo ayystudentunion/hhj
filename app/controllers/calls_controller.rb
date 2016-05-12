@@ -1,10 +1,11 @@
 class CallsController < ApplicationController
   before_action :authorize_call_admin, except: [:index, :show]
   before_action(only: [:new, :create]) { |c| c.find_organ_from_current_university :organ_id }
-  before_action :find_call_from_organ_or_university, except: [:index, :new, :create]
+  before_action :find_call_from_organ_or_university, except: [:index, :new, :create, :edit_default, :update_default]
 
   def index
-    @calls = Call.open_by_university @university
+    # FIXME: Filter out somewhere else
+    @calls = Call.open_by_university(@university).reject { |c| c.is_a?(DefaultCall) }
     respond_to do |format|
       format.html
       format.fragment { render 'index', formats: ['html'], layout: false }
@@ -80,6 +81,28 @@ class CallsController < ApplicationController
   end
 
   def destroy # delete a call
+  end
+
+  def update_default
+    @organ = find_organ_from_current_university :organ_id
+    # FIXME: looks super sloppy
+    if @organ.default_call.nil?
+      @organ.default_call = DefaultCall.new
+      @organ.save
+    end
+    @call = @organ.default_call # ? @organ.default_call : DefaultCall.new # (organ_id: @organ._id)
+    @call.update_attributes!(params[:call])
+    redirect_to organ_path(id: @organ._id)
+  end
+
+  def edit_default
+    @organ = find_organ_from_current_university :organ_id
+    @call = @organ.default_call || DefaultCall.new
+    @form_path = organ_default_call_path(id: @organ._id)
+    @form_title = t 'calls.edit_default.title'
+    respond_to do |format|
+      format.fragment { render 'new' }
+    end
   end
 
   protected
