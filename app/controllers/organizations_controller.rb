@@ -1,5 +1,6 @@
 
 class OrganizationsController < ApplicationController
+  before_action :authorize_organ_admin, except: [:index, :show]
   def index
     respond_to do |format|
       format.json { render json: Organization.all.as_json }

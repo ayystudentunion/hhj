@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  before_action :authorize_organ_admin
   def create
     # TODO: save our contact
     @contact = @university.contacts.build params[:contact]

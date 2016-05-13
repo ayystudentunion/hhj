@@ -51,6 +51,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # FIXME: rename to something more general.
   def authorize_call_admin
     unless student_union_employee?
       render plain: 'Unauthorized', status: :unauthorized
