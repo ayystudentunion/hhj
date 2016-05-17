@@ -1,4 +1,4 @@
 #!/bin/sh
-cd /home/hhj/hhj && rake secret | cat > config/secret.key
+cd /home/hhj/hhj && bundle exec rake secret | cat > config/secret.key
 touch /etc/uwsgi/vassals/hhj.ini
 echo "restarting Uwsgi vassal"
