@@ -15,14 +15,6 @@ div#sidebar
           span.phone = @user.phone
       = render "shared/alliances"
       div.clear
-      h4.unimplemented
-        = t '.my_organs'
-        | :
-      ul.my-organs.unimplemented
-        li: a(href='#') Joku toimielin
-        li: a(href='#') Joku toimielin
-        li: a(href='#') Joku toimielin
-        li: a(href='#') Joku toimielin
 
       - if can_admin_organs?
         a.sidebar-button.btn.create-new-organ.js-modal(href=new_organ_path)
