@@ -37,10 +37,10 @@ class OrgansController < ApplicationController
   end
 
   def show # return a single organ
-    @calls = @organ.calls.where(:status.in => [:open, :closed, :proposed]).asc(:date_end, :title)
-    @proposals = @organ.calls.where(status: :proposed).asc(:date_end, :title)
-    @handled_calls = @organ.calls.where(status: :handled).asc(:date_end, :title)
-    @archived_calls = @organ.calls.where(status: :archived).asc(:date_end, :title)
+    @calls = @organ.calls.where(:status.in => [:open, :closed, :proposed]).asc(:date_end, :title).reject { |c| c.is_a?(DefaultCall) }
+    @proposals = @organ.calls.where(status: :proposed).asc(:date_end, :title).reject { |c| c.is_a?(DefaultCall) }
+    @handled_calls = @organ.calls.where(status: :handled).asc(:date_end, :title).reject { |c| c.is_a?(DefaultCall) }
+    @archived_calls = @organ.calls.where(status: :archived).asc(:date_end, :title).reject { |c| c.is_a?(DefaultCall) }
     @edit_hallopeds = params.include? :edit_hallopeds
     @edit_staff = params.include? :edit_staff
     @new_member = Member.new
