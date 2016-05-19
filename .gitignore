@@ -41,4 +41,4 @@ mongod.lock
 .byebug_history
 
 # secret key should not be in version control
-/config/secret.key
+config/secret.key
