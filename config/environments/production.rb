@@ -82,7 +82,8 @@ Rails.application.configure do
 
   # wkhtmltopdf binary gem does not work in Redhat production environment
   #  Comment this if you need to run locally using production env
-  WickedPdf.config = { exe_path: '/home/leonidas/bin/wkhtmltopdf' }
+  WickedPdf.config = { exe_path: '/usr/local/bin/wkhtmltopdf' }
+
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
