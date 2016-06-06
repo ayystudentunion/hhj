@@ -10,9 +10,6 @@ div#open-calls
           = t "navi.open_calls"
           span.arrow ›
   .tabs-container
-    .tabs
-      ul.tabs-list
-        li.active: a(href='#') = t 'navi.all'
     .tab-content
       .tab
         .open-calls
@@ -20,4 +17,4 @@ div#open-calls
           -if student_union_employee?
             .hr
             .button-row
-              a.print.popup(href=calls_path(format: :pdf)) = t :print
+              a.print.popup(href='#' onClick='window.print(); return false;') = t :print

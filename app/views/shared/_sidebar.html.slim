@@ -17,10 +17,10 @@ div#sidebar
       div.clear
 
       - if can_admin_organs?
-        a.sidebar-button.btn.create-new-organ.js-modal(href=new_organ_path)
+        a.btn-new.create-new-organ.js-modal(href=new_organ_path)
           = t '.create_organ'
           span.plus-icon
-        a.sidebar-button.btn.create-new-organization.js-modal(href=new_organization_path)
+        a.btn-new.js-modal(href=new_organization_path)
           = t '.create_organization'
           span.plus-icon
 

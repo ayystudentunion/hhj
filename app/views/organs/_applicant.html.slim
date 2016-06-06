@@ -5,7 +5,6 @@
     = f.hidden_field :deputy, value: applicant[:deputy_id], class: :value_deputy
     = f.hidden_field :selected_as, class: :value_position
     a.show-application.js-modal(href=call_position_application_path(call_id:call._id, id:applicant._id))
-    div.avatar
     p
       =modal_link_to(applicant)
       br

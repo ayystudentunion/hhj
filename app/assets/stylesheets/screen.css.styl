@@ -1,7 +1,3 @@
-.unimplemented
-  background-color red !important
-  background-image none !important
-
 /* FONT FAMILIES */
 
 basic-fonts = 'Helvetica Neue', Helvetica, Arial, sans-serif
@@ -41,34 +37,7 @@ box-shadows-inset(x,y,w,c)
   -ms-box-shadow inset x y w c
   box-shadow inset x y w c
 
-/* TEXT STYLES */
-
-h2
-  font-size 16px
-  line-height 19px
-  margin 6px 0
-
-h3
-  font-size 13px
-  line-height 16px
-  margin 10px 0 0 0
-
-p
-  font-size 13px
-  line-height 17px
-  margin 4px 0 8px 0
-
-a
-  color #336699
-a:hover
-  color #003366
-
-.js-data
-  display none
-
 /* LAYOUT COMPONENT STYLES */
-html, body, #wrapper
-  height 100%
 
 .clearfix:after
   content "."
@@ -85,19 +54,6 @@ html, body, #wrapper
   display block
 /* End hide from IE-mac */
 
-body > #wrapper
-  height auto
-  min-height 800px
-
-@media (min-height: 800px)
-  body > #wrapper
-    min-height 100%
-
-#content
-  width 960px
-  margin 0 auto
-  padding-bottom 40px
-
 /*Opera Fix*/
 body:before
   content ""
@@ -106,276 +62,78 @@ body:before
   width 0
   margin-top -32767px
 
-#header, #navi, #content, #footer, #sidebar
-  font-family basic-fonts
-  color #333
-  font-size 13px
+#confirmed_alliances
+  border 1px solid #cacaca
 
-#header
-  width 100%
-  height 120px
-  #header-content
-    width 960px
-    height 120px
-    margin 0 auto
-    position relative
-    .logo-index
-      width 94px
-      position absolute
-      top 28px
-      left 0
-      font-size 72px
-      font-weight bold
-      text-shadow 4px 4px 0px #f0f0f0
-      color #dadada
-      text-align center
-    .logo
-      width 140px
-      height 90px
-      background #bababa
-      position absolute
-      top 14px
-      left 0
-    .headline
-      display inline-block
-      position absolute
-      top 36px
-      left 118px
-      font-size 20px
-      font-weight bold
-      text-shadow 0 1px 0 #FFF
-      color #333
-      span.service
-        font-size 16px
-        color #666
-      #old-ie
-        font-size 16px
-        color red
-    .headline:hover
-      color #000
-    .language-sel
-      height 20px
-      padding 3px 10px 0px 10px
-      border-radius 0 0 4px 4px
-      -moz-border-radius 0 0 4px 4px
-      -webkit-border-radius 0 0 4px 4px
-      -khtml-border-radius 0 0 4px 4px
-      position absolute
-      top 0
-      right 0
-      text-align right
-      text-shadow 0 1px 0 #FFF
-      background #dcdcdc
-      a
-        color #333
-      .fi
-        display none
-    .login-info, .login-request
-      width 240px
-      height 70px
-      position absolute
-      top 34px
-      right 0
-      text-align right
-      .login-name
-        width 210px
+#confirmed_alliances, #unconfirmed_alliances
+  background #f2f2f2
+  padding: 5px 8px 8px 8px
+  h3
+    font-size: 13px
+    text-align: center
+    margin-bottom: 14px
+  li
+    margin-bottom: 5px
+    text-align: center
+    margin-bottom: 12px
+  form
+    margin-top: 5px
+#unconfirmed_alliances
+  border 1px solid #EB9D9E
+  h3
+    color:red
+.contact-info
+  span
+    display:block
+    padding: 2px 0px
+  h2
+   margin-top: 0px
+  border 1px solid #cacaca
+  padding 12px
+  margin: 20px 0px
+  gradient(color-3-light, color-3-dark)
+  li
+    padding: 4px
+.sidebar-content
+  .introduction-text
+    margin-top 24px
+    display none
+  .profile-info, .introduction-text
+    margin-bottom 20px
+    .info-tab
+      height 26px
+      border-bottom 1px solid #f2f2f2
+      margin-bottom -1px
+      span.tab-left
         display inline-block
-        text-shadow 0 1px 0 #FFF
+        width 11px
+        height 27px
+        background url('../img/tab-end-left.png') no-repeat
+      span.tab-middle
+        display inline-block
+        height 27px
+        padding 0 6px
+        background url('../img/tab-bg.png') repeat-x
+        vertical-align top
+        line-height 26px
+      span.tab-right
+        display inline-block
+        width 11px
+        height 27px
+        background url('../img/tab-end-right.png') no-repeat
+    .info-content
+      background #f2f2f2
+      border 1px solid #cacaca
+      padding 12px
+      text-shadow 0 1px 0 #FFF
+      p
+        width 124px
+        display inline-block
+        vertical-align top
         line-height 17px
-        .name, .link
-          font-weight bold
-      .university.not_supported
-        font-weight bold
-        margin-top 4px
-      a.login-btn
-        display inline-block
-        width 80px
-        height 25px
-        margin-top 8px
-        background url('../img/haka-login.png') no-repeat left top
-      a.logout-btn
-        display inline-block
-        margin-top 8px
-
-#navi
-  width 100%
-  height 40px
-  margin-top 1px
-  #navi-content
-    width 960px
-    height 40px
-    margin 0 auto
-    position relative
-    gradient(color-1-light, color-1-dark)
-    ul.navi-links
-      position absolute
-      left 0
-      li
-        float left
-        border-left 1px solid #CCC
-        border-right 1px solid #CCC
-        padding 0
-        margin 0 0 0 -1px
-        a
-          font-size 16px
-          padding 10px 20px
-          line-height 40px
-          color #333
-        a.home
-          display block
-          padding 0
-          width 60px
-          height 40px
-          background url('../img/navi-home.png') no-repeat center center
-      li:hover
-        background #CCC
-
-    form.search
-      width 240px
-      height 40px
-      position absolute
-      right 0
-      .search-field
-        width 100%
-        margin-top 5px
-
-#sidebar
-  width 240px
-  float right
-  padding-top 15px
-  #confirmed_alliances
-    border 1px solid #cacaca
-
-  #confirmed_alliances, #unconfirmed_alliances
-    background #f2f2f2
-    padding: 5px 8px 8px 8px
-    h3
-      font-size: 13px
-      text-align: center
-      margin-bottom: 14px
-    li
-      margin-bottom: 5px
-      text-align: center
-      margin-bottom: 12px
-    form
-      margin-top: 5px
-  #unconfirmed_alliances
-    border 1px solid #EB9D9E
-    h3
-      color:red
-  .contact-info
-    span
-      display:block
-      padding: 2px 0px
-    h2
-     margin-top: 0px
-    border 1px solid #cacaca
-    padding 12px
-    margin: 20px 0px
-    gradient(color-3-light, color-3-dark)
-    li
-      padding: 4px
-  .sidebar-content
-    a.sidebar-button
-      display block
-      width 208px
-      height 28px
-      line-height 27px
-      position relative
-      padding 0 0 0 30px
-      margin-bottom 3px
-      text-align left
-      span.plus-icon
-        display inline-block
-        width 10px
-        height 11px
-        background url('../img/plus-icon.png') no-repeat
-        position absolute
-        top 9px
-        left 10px
-    .introduction-text
-      margin-top 24px
-      display none
-    .profile-info, .introduction-text
-      width 240px
-      margin-bottom 20px
-      .info-tab
-        height 26px
-        border-bottom 1px solid #f2f2f2
-        margin-bottom -1px
-        span.tab-left
-          display inline-block
-          width 11px
-          height 27px
-          background url('../img/tab-end-left.png') no-repeat
-        span.tab-middle
-          display inline-block
-          height 27px
-          padding 0 6px
-          background url('../img/tab-bg.png') repeat-x
-          vertical-align top
-          line-height 26px
-        span.tab-right
-          display inline-block
-          width 11px
-          height 27px
-          background url('../img/tab-end-right.png') no-repeat
-      .info-content
-        background #f2f2f2
-        border 1px solid #cacaca
-        padding 12px
-        text-shadow 0 1px 0 #FFF
-        .avatar
-          display inline-block
-          width 50px
-          height 50px
-          background #CCC
-          margin-right 8px
-        p
-          width 124px
-          display inline-block
-          vertical-align top
-          line-height 17px
-          margin-top 0
-        a.edit-btn
-          display inline-block
-          width 85px
-          height 25px
-          background url('../img/edit-btn.png') no-repeat left top
-          text-shadow 0 1px 0 #000
-          line-height 23px
-          text-align center
-          color #FFF
-          float right
-        a.edit-btn:hover
-          background url('../img/edit-btn.png') no-repeat left bottom
-        h4
-          margin-top 14px
-        ul.my-organs
-          margin 6px 0 2px 0
-          li
-            padding-left 18px
-            line-height 20px
-            background url('../img/bullet.png') no-repeat left 3px
-
-
-
-#footer
-  position relative
-  margin-top -40px
-  clear both
-  width 100%
-  height 40px
-  text-align center
-  text-shadow 0 1px 0 #FFF
-  .footer-content
-    width 960px
-    height 40px
-    margin 0 auto
-    gradient(color-1-light, color-1-dark)
-  p
-    line-height 38px
-    margin 0
+        margin-top 0
+      h4
+        margin-top 14px
 
 .clear
   clear both
@@ -388,509 +146,256 @@ body:before
   margin 20px 0 14px -14px
 
 
-/* GENERAL BUTTON STYLES */
-a.btn, input.btn, label.btn
-  display inline-block
-  gradient(color-3-light, color-3-dark)
-  padding 0 16px
-  border 1px solid #cacaca
-  text-align center
-  line-height 23px
-  color #505050
-  cursor pointer
-a.btn:hover, input.btn:hover, label.btn:hover
-  gradient(color-2-dark, color-2-light)
-  color #333
-a.btn:active, input.btn:active
-  background #f0f0f0
 
 /* CONTENT STYLES */
 
-#page-content
-  width 700px
-  float left
-  overflow visible
+
+.tabs-container
   margin-bottom 40px
+.tab-content
+  width: 100%
+  padding 12px 14px 0 14px
+  border 1px solid #cacaca
+  vertical-align top
+  float right
+  text-shadow 0 1px 0 #FFF
+  gradient(color-2-light, color-2-dark)
 
-  #global-success-count
-    margin: 20px;
-    font-size: 30px;
-
-  .breadcrumb
-    ul.breadcrumb-list
-      width 686px
-      height 40px
-      padding-left 14px
-      line-height 40px
-      li
-        float left
-        a
-          font-size 12px
-          color #666
-          span.arrow
-            display inline-block
-            margin 0 6px
-        a:hover
-          color #333
-
-  .tabs-container
-    width 700px
-    margin-bottom 40px
+.article, .open-calls, .organ-details, .call-details, .organ-members, .profile-details, .call
+  margin-bottom 30px
+  .item-row
+    margin 14px 0 10px 0
+    span.label
+      font-weight bold
+      margin-right 6px
+    ul
+      list-style disc
+    li
+      margin-left 20px
+  .item-block
+    margin 6px 0
+    .label
+      display inline-block
+      width 125px
+      font-weight bold
+      vertical-align top
+    .text
+      display inline-block
+      width 405px
+.profile-details
+  .item-row
     position relative
-    .tabs
-      width 140px
+    margin 14px 0 16px 0
+    clear both
+    height auto
+    span.label
+      display inline-block
+      width 160px
+      font-weight bold
+      margin-right 6px
       vertical-align top
-      clear left
-      float left
-      ul.tabs-list
-        li
-          width 139px
-          height 28px
-          border 1px solid #cacaca
-          border-right none
-          margin-bottom 3px
-          gradient(color-1-dark, color-1-light)
-          a
-            display block
-            width 113px
-            height 28px
-            line-height 28px
-            padding 0 13px
-            color #505050
-        li.active, li:hover
-          background none
-          position relative
-          a
-            width 114px
-            height 28px
-            background #FFF
-            position absolute
-            top 0
-            right -1px
-        li.margin
-          margin-top 27px
-    .tab-content
-      width 530px
-      padding 12px 14px 0 14px
-      border 1px solid #cacaca
-      vertical-align top
+    p.address
+      display inline-block
+      margin 0
+    label.publicity-check
       float right
-      text-shadow 0 1px 0 #FFF
-      gradient(color-2-light, color-2-dark)
-      .article, .open-calls, .organ-details, .call-details, .organ-members, .profile-details, .call
-        margin-bottom 30px
-        h2
-          font-size 16px
-          margin 6px 0 4px 0
-          .date
-            font-size 12px
-            color #999
-            margin-left 6px
-            font-weight normal
-        .edit-icon
-          display inline-block
-          width 14px
-          height 14px
-          float right
-          background url('../img/edit-icon.png') no-repeat left top
-        .edit-icon:hover
-          background url('../img/edit-icon.png') no-repeat left bottom
-        .inline-comment
-          background #dcdcdc
-          padding 4px
-          line-height 17px
-          margin-top 8px
-          span.user-avatar
-            width 50px
-            height 50px
-            display inline-block
-            margin-right 6px
-          p
-            width 465px
-            display inline-block
-            vertical-align top
-            margin -3px 0 0 0
-            span.user-name
-              font-weight bold
-              margin-right 6px
-            span.date
-              color #505050
-            span.content
-              vertical-align top
-        .inline-comment:hover
-          background #e5e5e5
-        .item-row
-          margin 14px 0 10px 0
-          span.label
-            font-weight bold
-            margin-right 6px
-          ul
-            list-style disc
-          li
-            margin-left 20px
-        .item-block
-          margin 6px 0
-          .label
-            display inline-block
-            width 125px
-            font-weight bold
-            vertical-align top
-          .text
-            display inline-block
-            width 405px
-      .profile-details
-        .item-row
-          position relative
-          margin 14px 0 16px 0
-          clear both
-          height auto
-          span.label
-            display inline-block
-            width 160px
-            font-weight bold
-            margin-right 6px
-            vertical-align top
-          p.address
-            display inline-block
-            margin 0
-          label.publicity-check
-            float right
-            margin 0 0 0 16px
-            span
-              margin-top -2px
-      #recommendations
-        ul
-          margin-left 20px
-          list-style-type square
-        li
-          height: 25px
-          margin-bottom: 5px
-          vertical-align middle
-          span
-            display: inline-block
-            line-height 25px
-            height: 25px
-            vertical-align middle
-          form, div
-            display: inline-block
-          div
-            margin-left: 10px
-        .profile-picture
-          width 160px
-          height 100%
-          float left
-          .avatar
-            height 120px
-            width 120px
-            display inline-block
-            background-color #FFF
-            border 1px solid #cacaca
-        .profile-attachments
-          width 363px
-          float right
-          span.or
-            display inline-block
-            width 175px
-            margin 8px 0
-            text-align center
-          .uploader
-            margin-bottom 10px
-          input.field
-            width 323px
-            margin 6px 6px 4px 0
-          a.add-row
-            padding 0
-            width 25px
-            height 23px
-            padding-top 2px
-            span.plus-icon
-              display inline-block
-              width 10px
-              height 11px
-              background url('../img/plus-icon.png') no-repeat center center
+      margin 0 0 0 16px
+      span
+        margin-top -2px
+#recommendations
+  ul
+    margin-left 20px
+    list-style-type square
+  li
+    height: 25px
+    margin-bottom: 5px
+    vertical-align middle
+    span
+      display: inline-block
+      line-height 25px
+      height: 25px
+      vertical-align middle
+    form, div
+      display: inline-block
+    div
+      margin-left: 10px
 
-      .organ-members, .call-for-application, .proposed-to-be-selected, .edit-members
-        h2
-          .send-message
-            font-size 12px
-            color #999
-            margin-left 6px
-            font-weight normal
-            float right
-            background url('../img/mail-icon.png') no-repeat left center
-            padding-left 22px
-          .send-message:hover
-            color #505050
-        .member-card.invalid
-          text-shadow: none
-          border 1px solid darken(#EB9D9E, 15%)
-          gradient(#EB9D9E, lighten(#EB9D9E, 7%))
-        .member-card.valid
-          text-shadow: none
-          border 1px solid darken(#B4EEB4, 22%)
-          gradient(darken(#B4EEB4, 7%), #B4EEB4)
-        .member-card-empty
-          position relative
-          width 257px
-          height 80px
-          display inline-block
-          margin 11px 0 0 0
-          border 1px dashed #cacaca
-          background-color color-1-light
-          text-align center
-          vertical-align top
-          .placeholder
-            position absolute
-            top 0px
-            margin-left 40px
-            z-index 0
-            h2
-              width 170px
-              margin 20px auto 0 auto
-              text-shadow none
-              color #CCC
-        .no-deputy, .no-member, .current-member, .current-deputy
-          border none
-          background none
-        .arrow
-          width 11px
-          height 82px
-          display inline-block
-          background url('../img/arrow-right.png') no-repeat center center
-          margin-top 11px
-        .member-card
-          gradient(color-1-light, color-1-dark)
-          border-radius 2px
-          -moz-border-radius 2px
-          -webkit-border-radius 2px
-          -khtml-border-radius 2px
-          border 1px solid #cacaca
-          width 231px
-          min-height 54px
-          padding 13px
-          display inline-block
-          position relative
-          margin 0 0 11px 0
-          cursor pointer
-          z-index 1
-          text-align left
-          .avatar
-            float left
-            width 50px
-            height 50px
-            background #CCC
-            margin-right 8px
-          a.name
-            font-weight bold
-          a.remove-member
-            width 8px
-            height 8px
-            background url('../img/remove-icon-small.png') no-repeat 0 0
-            display inline-block
-            position absolute
-            padding 0
-            border none
-            top 13px
-            right 13px
-          a.remove-member:hover
-            padding 1px
-            border-radius 2px
-            -moz-border-radius 2px
-            -webkit-border-radius 2px
-            -khtml-border-radius 2px
-            border 1px solid #cacaca
-            background url('../img/remove-icon-small.png') no-repeat center -9px
-            margin -2px -2px 0 0
-            cursor pointer
-          a.show-application:hover
-            background-position left bottom
-          p
-            display inline-block
-            width: 170px;
-            margin -2px 0 0 0
-            vertical-align top
-            line-height 15px
-          p.term, p.selected-as, p.email
-            margin-top 6px
-            min-width 100px
-        .no-margin
-          margin-right 0
-        .highlight-drop-area
-          background #FFF
-        .highlight-return-area
-          background #FFF
-          border 1px dashed #dcdcdc
-          width 529px
-          margin 10px 0 0 -1px
-        .member-card.handled
-          background #e9e9e9
-          border 1px solid #dcdcdc
-          text-align left
-          .avatar, a.show-application
-            opacity 0.5
-          a.name, p
-            color #666
-            text-shadow none
-          a.name:hover
-            color #333
-        .member-card:active
-          border 1px solid #cacaca
-          -webkit-box-shadow 0px 0px 6px 0px #cacaca
-          -moz-box-shadow 0px 0px 6px 0px #cacaca
-          box-shadow 0px 0px 6px 0px #cacaca
-        p.definition
-          margin-top 10px
-        .member-list-item
-          width 258px
-          height 20px
-          margin 6px 11px 8px 0
-          display inline-block
-          p
-            margin 0
-          a.show-application
-            width 16px
-            height 16px
-            background url('../img/application-icon.png') no-repeat left top
-            display inline-block
-            position relative
-            top 4px
-            left 10px
-          a.show-application:hover
-            background-position left bottom
-        .no-margin
-          margin-right 0
+.organ-members, .call-for-application, .proposed-to-be-selected, .edit-members
+  .member-card.invalid
+    text-shadow: none
+    border 1px solid darken(#EB9D9E, 15%)
+    gradient(#EB9D9E, lighten(#EB9D9E, 7%))
+  .member-card.valid
+    text-shadow: none
+    border 1px solid darken(#B4EEB4, 22%)
+    gradient(darken(#B4EEB4, 7%), #B4EEB4)
+  .member-card-empty
+    position relative
+    width 257px
+    height 80px
+    display inline-block
+    margin 11px 0 0 0
+    border 1px dashed #cacaca
+    background-color color-1-light
+    text-align center
+    vertical-align top
+    .placeholder
+      position absolute
+      top 0px
+      margin-left 40px
+      z-index 0
+      h2
+        width 170px
+        margin 20px auto 0 auto
+        text-shadow none
+        color #CCC
+  .no-deputy, .no-member, .current-member, .current-deputy
+    border none
+    background none
+  .arrow
+    width 11px
+    height 82px
+    display inline-block
+    background url('../img/arrow-right.png') no-repeat center center
+    margin-top 11px
+  .member-card
+    gradient(color-1-light, color-1-dark)
+    border-radius 2px
+    -moz-border-radius 2px
+    -webkit-border-radius 2px
+    -khtml-border-radius 2px
+    border 1px solid #cacaca
+    width 231px
+    min-height 54px
+    padding 13px
+    display inline-block
+    position relative
+    margin 0 0 11px 0
+    cursor pointer
+    z-index 1
+    text-align left
+    a.name
+      font-weight bold
+    p
+      display inline-block
+      width: 170px;
+      margin -2px 0 0 0
+      vertical-align top
+      line-height 15px
+    p.term, p.selected-as, p.email
+      margin-top 6px
+      min-width 100px
+  .no-margin
+    margin-right 0
+  .highlight-drop-area
+    background #FFF
+  .highlight-return-area
+    background #FFF
+    border 1px dashed #dcdcdc
+    width 529px
+    margin 10px 0 0 -1px
+  .member-card.handled
+    background #e9e9e9
+    border 1px solid #dcdcdc
+    text-align left
+    .avatar, a.show-application
+      opacity 0.5
+    a.name, p
+      color #666
+      text-shadow none
+    a.name:hover
+      color #333
+  .member-card:active
+    border 1px solid #cacaca
+    -webkit-box-shadow 0px 0px 6px 0px #cacaca
+    -moz-box-shadow 0px 0px 6px 0px #cacaca
+    box-shadow 0px 0px 6px 0px #cacaca
+  p.definition
+    margin-top 10px
+  .member-list-item
+    width 258px
+    height 20px
+    margin 6px 11px 8px 0
+    display inline-block
+    p
+      margin 0
+    a.show-application
+      width 16px
+      height 16px
+      background url('../img/application-icon.png') no-repeat left top
+      display inline-block
+      position relative
+      top 4px
+      left 10px
+    a.show-application:hover
+      background-position left bottom
+  .no-margin
+    margin-right 0
 
-      .organ-members, .proposed-to-be-selected
-        .member-card
-          margin 11px 0 0 0
-          vertical-align top
-          cursor default
-          min-height 65px
-        .arrow, .current-deputy, .current-member
-          height 92px
-          .placeholder
-            h2
-              margin-top 38px
+.organ-members, .proposed-to-be-selected
+  .member-card
+    margin 11px 0 0 0
+    vertical-align top
+    cursor default
+    min-height 65px
+  .arrow, .current-deputy, .current-member
+    height 92px
+    .placeholder
+      h2
+        margin-top 38px
 
-      .call-for-application, .edit-members, .organ-members.staff-members
-        .member-card
-          vertical-align top
-          min-height 54px
-        .column
-          width 33%
-          display inline-block
-          vertical-align top
-          ul.list-of-names
-            margin 4px 0 13px 0
-            li
-              line-height 18px
-              margin-top 4px
-        .applicants, .members, .edit-members, .selected
-          min-height 100px
-          margin 11px 0 0 0
-          .member-card
-            margin-right 11px
-          .no-margin
-            margin-right 0
-          span.not_eligible
-            font-weight bold
-            margin-top 4px
-            display inline-block
-          span.not_eligible:hover
-            color #000
-
-      .edit-members
-        .member-card
-          top -12px
-          left -1px
-
-      .selected
-        .member-card
-          top -1px
-          left -1px
-
-      .proposed-to-be-selected, .edit-members
-        .arrow
-          height 82px
-
-      .sort-links
-        width 100%
-        height 13px
-        margin-bottom 6px
-        a.sort-name, a.sort-date
-          color #999
-          font-size 12px
-          span.arrow-down
-            display inline-block
-            margin 0 0 1px 4px
-            width 0
-            height 0
-            border-left 5px solid transparent
-            border-right 5px solid transparent
-            border-top 5px solid #999
-        a.sort-name:hover, a.sort-date:hover
-          color #505050
-        a.sort-date
-          float right
-      .organ
-        margin-bottom 30px
-        h2
-          font-size 16px
-          margin 6px 0 4px 0
-          .date
-            font-size 14px
-            float right
-            margin-right 8px
-          .edit-icon
-            display inline-block
-            width 14px
-            height 14px
-            float right
-            background url('../img/edit-icon.png') no-repeat left top
-          .edit-icon:hover
-            background url('../img/edit-icon.png') no-repeat left bottom
-        p.description
-          width 420px
-      a.application-call
-        margin-top 14px
-      a.show-more
-        display inline-block
-        margin 0 0 -1px 216px
-
-  .content-comments
-    width 546px
-    line-height 17px
-    .comment
-      margin 20px 0
-      span.user-avatar
-        width 50px
-        height 50px
-        display inline-block
-        margin-right 6px
-      p
-        width 465px
-        display inline-block
-        vertical-align top
-        margin -3px 0 0 0
-        span.user-name
-          font-weight bold
-          margin-right 6px
-        span.content
-          vertical-align top
-        span.date, a.edit, a.remove
-          color #999
-          font-size 12px
-          margin-right 4px
-        a.edit:hover, a.remove:hover
-          color #505050
-
-  #index
-    padding-top 15px
-    ul.universities
+.call-for-application, .edit-members, .organ-members.staff-members
+  .member-card
+    vertical-align top
+    min-height 54px
+  .column
+    width 33%
+    display inline-block
+    vertical-align top
+    ul.list-of-names
+      margin 4px 0 13px 0
       li
-        background url('../img/bullet.png') no-repeat left 0
-        padding-left 17px
-        margin 10px 0 12px 0
+        line-height 18px
+        margin-top 4px
+  .applicants, .members, .edit-members, .selected
+    min-height 100px
+    margin 11px 0 0 0
+    .member-card
+      margin-right 11px
+    .no-margin
+      margin-right 0
+    span.not_eligible
+      font-weight bold
+      margin-top 4px
+      display inline-block
+    span.not_eligible:hover
+      color #000
+
+.edit-members
+  .member-card
+    top -12px
+    left -1px
+
+.selected
+  .member-card
+    top -1px
+    left -1px
+
+.proposed-to-be-selected, .edit-members
+  .arrow
+    height 82px
+
+.organ
+  margin-bottom 30px
+  h2
+    font-size 16px
+    margin 6px 0 4px 0
+    .date
+      font-size 14px
+      float right
+      margin-right 8px
+  p.description
+    width 420px
 
 /* MODAL STYLES */
 #modal-wrap
@@ -922,40 +427,6 @@ a.btn:active, input.btn:active
     .content
       padding 14px 14px 2px 14px
       gradient(color-2-light, color-2-dark)
-      h2
-        .close-modal
-          display inline-block
-          width 14px
-          height 14px
-          background url('../img/remove-icon.png') no-repeat left top
-          float right
-          margin-top 1px
-        .close-modal:hover
-          background url('../img/remove-icon.png') no-repeat left bottom
-          padding 2px
-          border-radius 2px
-          -moz-border-radius 2px
-          -webkit-border-radius 2px
-          -khtml-border-radius 2px
-          border 1px solid #cacaca
-          background url('../img/remove-icon.png') no-repeat center -14px
-          margin -2px -3px 0 0
-        .language-buttons
-          display inline-block
-          margin-left 1px
-          vertical-align top
-          position absolute
-          right 40px
-          margin -2px 14px 0 0
-          a.lang
-            padding 0 6px
-            font-size 12px
-            height 17px
-            line-height 17px
-            margin-left -1px
-          a.active
-            gradient(color-1-dark, color-1-light)
-            color #333
       .item-block
         margin 14px 0
         .applicant-details
@@ -968,14 +439,6 @@ a.btn:active, input.btn:active
         .text, ul
           display inline-block
           width 370px
-        ul
-          margin-top: 6px
-        ul.list-of-recipients
-          li
-            line-height 18px
-
-// #create-new-organ, #call-for-application, #received-application, #send-group-message, #send-application, #send-application-for-administrative-call
-//  display none
 
 /* FORM ELEMENT STYLES */
 
@@ -1033,31 +496,6 @@ form.application-workflow
     position absolute
     top 8px
     left -2px
-
-a.add-row
-  padding 0
-  width 25px
-  height 23px
-  padding-top 2px
-  span.plus-icon
-    display inline-block
-    width 10px
-    height 11px
-    background url('../img/plus-icon.png') no-repeat center center
-
-a.add-members
-  padding 0 13px 0 30px
-  margin-bottom 3px
-  text-align left
-  position relative
-  span.plus-icon
-    display inline-block
-    width 10px
-    height 11px
-    background url('../img/plus-icon.png') no-repeat
-    position absolute
-    top 6px
-    left 10px
 
 #application-sent,
 #received-application
@@ -1165,31 +603,6 @@ form.new_member
   span.label
     font-weight bold
     margin-right 6px
-
-.button-row-bottom
-  .button-row
-    position absolute
-    bottom 14px
-    right 26px
-
-.button-row
-  width 100%
-  clear both
-  text-align right
-  margin 16px 0 14px 0
-  a.submit, input.btn, a.cancel, a.ok
-    margin-left 3px
-  a.cancel
-    gradient(color-1-light, color-1-dark)
-  a.cancel:hover
-    gradient(color-1-dark, color-1-light)
-  a.print
-    margin 6px 0 18px 0
-    float left
-    display inline-block
-    height 15px
-    padding-left 24px
-    background url('../img/print-icon.png') no-repeat center left
 
 /* TOOLTIP STYLES */
 

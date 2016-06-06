@@ -14,9 +14,6 @@ div#single-organ
           = @organ.name
           span.arrow ›
   .tabs-container
-    .tabs
-      ul.tabs-list
-        li.active: a(href='#') = t :introduction
     .tab-content
       .tab
         .organ-details
@@ -49,9 +46,10 @@ div#single-organ
           em
             - if @organ.members.current_hallopeds.empty?
               = t '.has_open_positions'
-          a.application-call.btn.js-modal(href=new_organ_call_path(organ_id:@organ._id))
+          br
+          a.btn.js-modal(href=new_organ_call_path(organ_id:@organ._id))
             = t '.new_call_for_applications'
-          a.application-call.btn.js-modal(href=organ_default_call_edit_path(organ_id:@organ._id))
+          a.btn.js-modal(href=organ_default_call_edit_path(organ_id:@organ._id))
             = t '.edit_default_call_for_applications'
 
         .hr

@@ -1,0 +1,335 @@
+/* FONT FAMILIES */
+
+basic-fonts = 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+
+/* COLORS */
+
+color-1-dark = #dcdcdc
+color-1-light = #f0f0f0
+color-2-dark = #f0f0f0
+color-2-light = #ffffff
+color-3-dark = #f0f0f0
+color-3-light = #ffffff
+
+/* FUNCTIONS */
+
+gradient(color-1, color-2)
+  background-color color-1
+  background-image linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image -o-linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image -moz-linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image -webkit-linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image -ms-linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image -webkit-gradient(linear, left bottom, left top, color-stop(0.0, color-2), color-stop(1.0, color-1))
+
+box-shadows(x,y,w,c)
+  -moz-box-shadow x y w c
+  -webkit-box-shadow x y w c
+  -o-box-shadow x y w c
+  -ms-box-shadow x y w c
+  box-shadow x y w c
+
+box-shadows-inset(x,y,w,c)
+  -moz-box-shadow inset x y w c
+  -webkit-box-shadow inset x y w c
+  -o-box-shadow inset x y w c
+  -ms-box-shadow inset x y w c
+  box-shadow inset x y w c
+
+
+/* Reusable elements. Buttons, graphics etc. */
+.btn-new
+  border: 1px solid #cacaca
+  color: #505050
+  display: inline-block
+  gradient(color-3-light, color-3-dark)
+  height: 30px
+  line-height: 30px
+  margin: 5px
+  min-width: 180px
+  padding: 0px 5px
+  position: relative
+  text-align: center
+.btn-new:hover
+  gradient(color-2-dark, color-2-light)
+  color #333
+.btn-new:active
+  background #f0f0f0
+  
+
+.edit-icon
+  display inline-block
+  width 14px
+  height 14px
+  float right
+  background url('../img/edit-icon.png') no-repeat left top
+.edit-icon:hover
+  background url('../img/edit-icon.png') no-repeat left bottom
+
+a.edit-btn
+  display inline-block
+  width 85px
+  height 25px
+  background url('../img/edit-btn.png') no-repeat left top
+  text-shadow 0 1px 0 #000
+  line-height 23px
+  text-align center
+  color #FFF
+  float right
+a.edit-btn:hover
+  background url('../img/edit-btn.png') no-repeat left bottom
+
+a.login-btn
+  display inline-block
+  width 80px
+  height 25px
+  margin-top 8px
+  background url('../img/haka-login.png') no-repeat left top
+a.logout-btn
+  display inline-block
+  margin-top 8px
+
+/* GENERAL BUTTON STYLES */
+a.btn, input.btn, label.btn
+  display inline-block
+  gradient(color-3-light, color-3-dark)
+  padding 0 16px
+  border 1px solid #cacaca
+  text-align center
+  line-height 23px
+  color #505050
+  cursor pointer
+  position relative
+a.btn:hover, input.btn:hover, label.btn:hover
+  gradient(color-2-dark, color-2-light)
+  color #333
+a.btn:active, input.btn:active
+  background #f0f0f0
+
+a.remove-member
+  width 8px
+  height 8px
+  background url('../img/remove-icon-small.png') no-repeat 0 0
+  display inline-block
+  position absolute
+  padding 0
+  border none
+  top 13px
+  right 13px
+a.remove-member:hover
+  padding 1px
+  border-radius 2px
+  -moz-border-radius 2px
+  -webkit-border-radius 2px
+  -khtml-border-radius 2px
+  border 1px solid #cacaca
+  background url('../img/remove-icon-small.png') no-repeat center -9px
+  margin -2px -2px 0 0
+  cursor pointer
+
+
+a.sidebar-button
+  display block
+  width 208px
+  height 28px
+  line-height 27px
+  position relative
+  padding 0 0 0 30px
+  margin-bottom 3px
+  text-align left
+span.plus-icon
+  display inline-block
+  width 10px
+  height 11px
+  background url('../img/plus-icon.png') no-repeat
+  position absolute
+  top 9px
+  left 10px
+
+a.add-row
+  padding 0
+  width 25px
+  height 23px
+  padding-top 2px
+  span.plus-icon
+    display inline-block
+    width 10px
+    height 11px
+    background url('../img/plus-icon.png') no-repeat center center
+
+ul.navi-links
+  position absolute
+  left 0
+  li
+    float left
+    border-left 1px solid #CCC
+    border-right 1px solid #CCC
+    padding 0
+    margin 0 0 0 -1px
+    a
+      font-size 16px
+      padding 10px 20px
+      line-height 40px
+      color #333
+    a.home
+      display block
+      padding 0
+      width 60px
+      height 40px
+      background url('../img/navi-home.png') no-repeat center center
+  li:hover
+    background #CCC
+
+.close-modal-fixme
+  display inline-block
+  width 14px
+  height 14px
+  background url('../img/remove-icon.png') no-repeat left top
+  float right
+  margin-top 1px
+.close-modal-fixme:hover
+  background url('../img/remove-icon.png') no-repeat left bottom
+  padding 2px
+  border-radius 2px
+  -moz-border-radius 2px
+  -webkit-border-radius 2px
+  -khtml-border-radius 2px
+  border 1px solid #cacaca
+  background url('../img/remove-icon.png') no-repeat center -14px
+  margin -2px -3px 0 0
+.language-buttons
+  display inline-block
+  margin-left 1px
+  vertical-align top
+  position absolute
+  right 40px
+  margin -2px 14px 0 0
+  a.lang
+    padding 0 6px
+    font-size 12px
+    height 17px
+    line-height 17px
+    margin-left -1px
+  a.active
+    gradient(color-1-dark, color-1-light)
+    color #333
+
+.button-row-bottom
+  .button-row
+    position absolute
+    bottom 14px
+    right 26px
+
+.button-row
+  width 100%
+  clear both
+  text-align right
+  margin 16px 0 14px 0
+  a.submit, input.btn, a.cancel, a.ok
+    margin-left 3px
+  a.cancel
+    gradient(color-1-light, color-1-dark)
+  a.cancel:hover
+    gradient(color-1-dark, color-1-light)
+  a.print
+    margin 6px 0 18px 0
+    float left
+    display inline-block
+    height 15px
+    padding-left 24px
+    background url('../img/print-icon.png') no-repeat center left
+
+
+ul.universities
+  li
+    background url('../img/bullet.png') no-repeat left 0
+    padding-left 17px
+    margin 10px 0 12px 0
+
+ul.breadcrumb-list
+  height 40px
+  padding-left 14px
+  line-height 40px
+  li
+    float left
+    a
+      font-size 12px
+      color #666
+      span.arrow
+        display inline-block
+        margin 0 6px
+    a:hover
+      color #333
+
+
+.logo-index
+  width 94px
+  position absolute
+  top 28px
+  left 0
+  font-size 72px
+  font-weight bold
+  text-shadow 4px 4px 0px #f0f0f0
+  color #dadada
+  text-align center
+.logo
+  width 140px
+  height 90px
+  background #bababa
+  position absolute
+  top 14px
+  left 0
+
+.headline
+  display inline-block
+  position absolute
+  top 36px
+  left 118px
+  font-size 20px
+  font-weight bold
+  text-shadow 0 1px 0 #FFF
+  color #333
+  span.service
+    font-size 16px
+    color #666
+  #old-ie
+    font-size 16px
+    color red
+.headline:hover
+  color #000
+.language-sel
+  height 20px
+  padding 3px 10px 0px 10px
+  border-radius 0 0 4px 4px
+  -moz-border-radius 0 0 4px 4px
+  -webkit-border-radius 0 0 4px 4px
+  -khtml-border-radius 0 0 4px 4px
+  position absolute
+  top 0
+  right 0
+  text-align right
+  text-shadow 0 1px 0 #FFF
+  background #dcdcdc
+  a
+    color #333
+  .fi
+    display none
+.login-info, .login-request
+  width 240px
+  height 70px
+  position absolute
+  top 34px
+  right 0
+  text-align right
+  .login-name
+    width 210px
+    display inline-block
+    text-shadow 0 1px 0 #FFF
+    line-height 17px
+    .name, .link
+      font-weight bold
+  .university.not_supported
+    font-weight bold
+    margin-top 4px
+

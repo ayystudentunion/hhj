@@ -16,6 +16,6 @@
               - if can_admin_organs?
                 = link_to 'Delete', contact_path(id: contact._id, university: @university.key), method: :delete 
     - if can_admin_organs?
-      a.sidebar-button.btn.create-new-contact.js-modal(href=new_contact_path)
+      a.btn-new.js-modal(href=new_contact_path)
         | Add contact
         span.plus-icon

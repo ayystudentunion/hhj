@@ -37,8 +37,8 @@
         - languages.each do |locale|
           = f.text_area :description, placeholder: Organ.human_attribute_name(:description, locale: locale), class: "wide localized #{locale}", name: "organ[description[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}", value: localized(@organ.description_translations, locale.to_s)
         .button-row
-          a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
-          input.submit.close-modal.btn(type='submit' value="#{t 'modals.save'}")
+          a.btn-new.close-modal(href='#') = t 'modals.cancel'
+          input.btn-new.close-modal(type='submit' value="#{t 'modals.save'}")
 
 script#organization-select-template(type='text/html')
   select.organizations(name='organ[organization][]')

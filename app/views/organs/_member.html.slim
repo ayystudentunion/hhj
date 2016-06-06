@@ -1,5 +1,4 @@
 .member-card(data-id=member._id class="#{'no-margin' if member_counter%2 == 1}")
-  div.avatar
   - if edit
     = form_for member, url: organ_member_path(organ_id: @organ._id, id: member._id, format: :json), method: :put do |f|
       = f.hidden_field :current

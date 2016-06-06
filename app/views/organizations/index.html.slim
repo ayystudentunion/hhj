@@ -6,13 +6,10 @@ div#organs
           = t :front_page
           span.arrow ›
       li
-        a(href=organs_path)
-          t 'navi.organs'
+        a(href=organizations_path)
+          = t 'navi.organizations'
           span.arrow ›
   .tabs-container
-    .tabs
-      ul.tabs-list
-        li.active: a(href='#') = t 'navi.active'
     .tab-content
       .tab
         = render @university

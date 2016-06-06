@@ -7,7 +7,7 @@ class Organization
   has_many  :organs, dependent: :delete
   has_many  :eligibility_rule_sets
   has_many  :users, inverse_of: :university
-  has_many  :contacts, inverse_of: :university
+  has_many  :contacts, inverse_of: :university, dependent: :delete
 
   before_validation :downcase_key
   validate :validate_key_uniqueness_for_root_organizations
