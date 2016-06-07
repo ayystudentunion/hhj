@@ -39,6 +39,14 @@ box-shadows-inset(x,y,w,c)
 
 
 /* Reusable elements. Buttons, graphics etc. */
+.content-box
+  width: 100%
+  padding: 12px 14px 12px 14px
+  border: 1px solid #cacaca
+  text-shadow: 0 1px 0 #FFF
+  gradient(color-2-light, color-2-dark)
+
+
 .btn-new
   border: 1px solid #cacaca
   color: #505050
@@ -66,19 +74,6 @@ box-shadows-inset(x,y,w,c)
   background url('../img/edit-icon.png') no-repeat left top
 .edit-icon:hover
   background url('../img/edit-icon.png') no-repeat left bottom
-
-a.edit-btn
-  display inline-block
-  width 85px
-  height 25px
-  background url('../img/edit-btn.png') no-repeat left top
-  text-shadow 0 1px 0 #000
-  line-height 23px
-  text-align center
-  color #FFF
-  float right
-a.edit-btn:hover
-  background url('../img/edit-btn.png') no-repeat left bottom
 
 a.login-btn
   display inline-block
@@ -128,16 +123,6 @@ a.remove-member:hover
   margin -2px -2px 0 0
   cursor pointer
 
-
-a.sidebar-button
-  display block
-  width 208px
-  height 28px
-  line-height 27px
-  position relative
-  padding 0 0 0 30px
-  margin-bottom 3px
-  text-align left
 span.plus-icon
   display inline-block
   width 10px

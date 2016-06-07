@@ -6,7 +6,6 @@ div#sidebar
         span.tab-middle = t '.user_info'
         span.tab-right
       .info-content
-        div.avatar
         p
           span.name = @user.full_name.force_encoding('UTF-8')
           br
@@ -14,10 +13,9 @@ div#sidebar
           br
           span.phone = @user.phone
       = render "shared/alliances"
-      div.clear
 
       - if can_admin_organs?
-        a.btn-new.create-new-organ.js-modal(href=new_organ_path)
+        a.btn-new.js-modal(href=new_organ_path)
           = t '.create_organ'
           span.plus-icon
         a.btn-new.js-modal(href=new_organization_path)

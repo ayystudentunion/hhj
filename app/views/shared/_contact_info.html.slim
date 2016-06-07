@@ -1,18 +1,19 @@
 -if @university
     -contacts = @university.contacts
     -unless contacts.empty?
-      .contact-info
+      .content-box
         h2 = t("shared.contacts_title")
+        br
         ul
           - contacts.each do |contact|
             li
-              span
-                strong
-                  = contact.name
-              span
-                = contact.email
-              span
-                = contact.phone_number if !contact.phone_number.blank? && Call.ongoing_calls_exist? 
+              strong
+                = contact.name
+              br
+              = contact.email
+              br
+              = contact.phone_number if !contact.phone_number.blank? && Call.ongoing_calls_exist?
+              br
               - if can_admin_organs?
                 = link_to 'Delete', contact_path(id: contact._id, university: @university.key), method: :delete 
     - if can_admin_organs?

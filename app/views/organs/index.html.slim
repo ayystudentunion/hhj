@@ -1,15 +1,12 @@
-div#organs
-  .breadcrumb
-    ul.breadcrumb-list
-      li
-        a(href=index_path)
-          = t :front_page
-          span.arrow ›
-      li
-        a(href=organs_path)
-          = t 'navi.organs'
-          span.arrow ›
-  .tabs-container
-    .tab-content
-      .tab
-        = render "organs"
+.breadcrumb
+  ul.breadcrumb-list
+    li
+      a(href=index_path)
+        = t :front_page
+        span.arrow ›
+    li
+      a(href=organs_path)
+        = t 'navi.organs'
+        span.arrow ›
+.content-box
+  = render "organs"
