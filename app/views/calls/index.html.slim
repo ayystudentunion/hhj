@@ -1,20 +1,16 @@
-div#open-calls
-  .breadcrumb
-    ul.breadcrumb-list
-      li
-        a(href=index_path)
-          = t :front_page
-          span.arrow ›
-      li
-        a(href=calls_path)
-          = t "navi.open_calls"
-          span.arrow ›
-  .tabs-container
-    .tab-content
-      .tab
-        .open-calls
-          = render @calls
-          -if student_union_employee?
-            .hr
-            .button-row
-              a.print.popup(href='#' onClick='window.print(); return false;') = t :print
+.breadcrumb
+  ul.breadcrumb-list
+    li
+      a(href=index_path)
+        = t :front_page
+        span.arrow ›
+    li
+      a(href=calls_path)
+        = t "navi.open_calls"
+        span.arrow ›
+.content-box
+  = render @calls
+  -if student_union_employee?
+    .hr
+      .button-row
+        a.print.popup(href='#' onClick='window.print(); return false;') = t :print

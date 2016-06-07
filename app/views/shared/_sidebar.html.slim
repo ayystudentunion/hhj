@@ -1,25 +1,24 @@
-div#sidebar
-  .sidebar-content
-    .profile-info(href='#' style="#{'display:none;' if @user.nil?}")
-      .info-tab
-        span.tab-left
-        span.tab-middle = t '.user_info'
-        span.tab-right
-      .content-box
-        p
-          span.name = @user.full_name.force_encoding('UTF-8')
-          br
-          span.email = @user.email
-          br
-          span.phone = @user.phone
-      = render "shared/alliances"
+.sidebar-content
+  .profile-info(href='#' style="#{'display:none;' if @user.nil?}")
+    .info-tab
+      span.tab-left
+      span.tab-middle = t '.user_info'
+      span.tab-right
+    .content-box
+      p
+        span.name = @user.full_name.force_encoding('UTF-8')
+        br
+        span.email = @user.email
+        br
+        span.phone = @user.phone
+    = render "shared/alliances"
 
-      - if can_admin_organs?
-        a.btn-new.js-modal(href=new_organ_path)
-          = t '.create_organ'
-          span.plus-icon
-        a.btn-new.js-modal(href=new_organization_path)
-          = t '.create_organization'
-          span.plus-icon
+  - if can_admin_organs?
+    a.btn-new.js-modal(href=new_organ_path)
+      = t '.create_organ'
+      span.plus-icon
+    a.btn-new.js-modal(href=new_organization_path)
+      = t '.create_organization'
+      span.plus-icon
 
-    = render('shared/contact_info')
+  = render('shared/contact_info')
