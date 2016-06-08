@@ -80,11 +80,6 @@ Rails.application.configure do
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 
-  # wkhtmltopdf binary gem does not work in Redhat production environment
-  #  Comment this if you need to run locally using production env
-  WickedPdf.config = { exe_path: '/usr/local/bin/wkhtmltopdf' }
-
-
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 end
