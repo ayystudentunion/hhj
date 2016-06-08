@@ -17,8 +17,6 @@ gem 'slim'
 gem 'factory_girl_rails', require: false
 
 gem 'faker', require: false
-# Convert html to pdf. Used to provide printable output.
-gem 'wicked_pdf', '~>0.11.0'
 # /admin interface
 gem 'rails_admin', '> 0.4.3'
 # authentication support for rails_admin
