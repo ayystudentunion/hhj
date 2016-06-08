@@ -39,8 +39,6 @@ Halloped::Application.routes.draw do
     resources :contacts
 
     resources :organizations
-
-    get '/global_status' => 'pages#global_status'
   end
 
   # The priority is based upon order of creation:

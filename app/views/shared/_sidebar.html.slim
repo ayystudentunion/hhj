@@ -1,5 +1,5 @@
-.sidebar-content
-  .profile-info(href='#' style="#{'display:none;' if @user.nil?}")
+-unless @user.nil?
+  .sidebar-content
     .info-tab
       span.tab-left
       span.tab-middle = t '.user_info'
@@ -13,7 +13,8 @@
         span.phone = @user.phone
     = render "shared/alliances"
 
-  - if can_admin_organs?
+- if can_admin_organs?
+  .sidebar-content
     a.btn-new.js-modal(href=new_organ_path)
       = t '.create_organ'
       span.plus-icon
@@ -21,4 +22,5 @@
       = t '.create_organization'
       span.plus-icon
 
+.sidebar-content
   = render('shared/contact_info')

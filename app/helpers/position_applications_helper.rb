@@ -32,6 +32,6 @@ module PositionApplicationsHelper
   end
 
   def modal_link_to(application)
-    link_to(application.user.full_name, call_position_application_path(call_id: application.call._id, id: application._id), class: 'name js-modal show-application')
+    link_to(application.user.full_name, call_position_application_path(call_id: application.call._id, id: application._id), class: 'js-modal')
   end
 end

@@ -124,51 +124,16 @@ body:before
 
 /* CONTENT STYLES */
 
-
-.tabs-container
-  margin-bottom 40px
-.tab-content
-  width: 100%
-  padding 12px 14px 0 14px
-  border 1px solid #cacaca
-  vertical-align top
-  float right
-  text-shadow 0 1px 0 #FFF
-  gradient(color-2-light, color-2-dark)
-
-.article, .open-calls, .organ-details, .call-details, .organ-members, .profile-details, .call
+.organ-details, .organ-members, .call
   margin-bottom 30px
   .item-row
     margin 14px 0 10px 0
-    span.label
-      font-weight bold
-      margin-right 6px
     ul
       list-style disc
     li
       margin-left 20px
   .item-block
     margin 6px 0
-.profile-details
-  .item-row
-    position relative
-    margin 14px 0 16px 0
-    clear both
-    height auto
-    span.label
-      display inline-block
-      width 160px
-      font-weight bold
-      margin-right 6px
-      vertical-align top
-    p.address
-      display inline-block
-      margin 0
-    label.publicity-check
-      float right
-      margin 0 0 0 16px
-      span
-        margin-top -2px
 #recommendations
   ul
     margin-left 20px
@@ -241,17 +206,6 @@ body:before
     cursor pointer
     z-index 1
     text-align left
-    a.name
-      font-weight bold
-    p
-      display inline-block
-      width: 170px;
-      margin -2px 0 0 0
-      vertical-align top
-      line-height 15px
-    p.term, p.selected-as, p.email
-      margin-top 6px
-      min-width 100px
   .no-margin
     margin-right 0
   .highlight-drop-area
@@ -265,20 +219,11 @@ body:before
     background #e9e9e9
     border 1px solid #dcdcdc
     text-align left
-    .avatar, a.show-application
-      opacity 0.5
-    a.name, p
-      color #666
-      text-shadow none
-    a.name:hover
-      color #333
   .member-card:active
     border 1px solid #cacaca
     -webkit-box-shadow 0px 0px 6px 0px #cacaca
     -moz-box-shadow 0px 0px 6px 0px #cacaca
     box-shadow 0px 0px 6px 0px #cacaca
-  p.definition
-    margin-top 10px
   .member-list-item
     width 258px
     height 20px
@@ -312,18 +257,6 @@ body:before
         margin-top 38px
 
 .call-for-application, .edit-members, .organ-members.staff-members
-  .member-card
-    vertical-align top
-    min-height 54px
-  .column
-    width 33%
-    display inline-block
-    vertical-align top
-    ul.list-of-names
-      margin 4px 0 13px 0
-      li
-        line-height 18px
-        margin-top 4px
   .applicants, .members, .edit-members, .selected
     min-height 100px
     margin 11px 0 0 0
@@ -338,31 +271,16 @@ body:before
     span.not_eligible:hover
       color #000
 
-.edit-members
-  .member-card
-    top -12px
-    left -1px
-
-.selected
-  .member-card
-    top -1px
-    left -1px
-
 .proposed-to-be-selected, .edit-members
   .arrow
     height 82px
 
 .organ
   margin-bottom 30px
-  h2
-    font-size 16px
-    margin 6px 0 4px 0
-    .date
-      font-size 14px
-      float right
-      margin-right 8px
-  p.description
-    width 420px
+  .date
+    font-size 14px
+    float right
+    margin-right 8px
 
 /* MODAL STYLES */
 #modal-wrap
@@ -521,9 +439,6 @@ form.send_application
     margin-left 80px
   .item-row
     margin 14px 0 10px 0
-    span.label
-      display inline-block
-      width 40px
     span.buttons
       display inline-block
       padding-left 41px
@@ -567,9 +482,6 @@ form.new_member
 
 .item-row
   margin 14px 0 10px 0
-  span.label
-    font-weight bold
-    margin-right 6px
 
 /* TOOLTIP STYLES */
 

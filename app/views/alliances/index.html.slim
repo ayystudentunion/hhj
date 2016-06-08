@@ -1,23 +1,17 @@
 -if @user
-  div
-    .breadcrumb
-      ul.breadcrumb-list
-        li
-          a(href=index_path)
-            = t :front_page
-            span.arrow ›
-        li
-          a(href=alliances_path)
-            = t "mongoid.models.plurals.alliance"
-            span.arrow ›
-    .tabs-container
-      .tabs
-        ul.tabs-list
-          li.active: a(href='#') = t 'navi.all'
-      .tab-content
-        .tab
-          = render @alliances
-          .hr
-          .button-row
-            a.btn.js-modal(href=new_alliance_path)
-              = t('alliances.create_alliance')
+  .breadcrumb
+    ul.breadcrumb-list
+      li
+        a(href=index_path)
+          = t :front_page
+          span.arrow ›
+      li
+        a(href=alliances_path)
+          = t "mongoid.models.plurals.alliance"
+          span.arrow ›
+  .content-box
+    = render @alliances
+    .hr
+    .button-row
+      a.btn.js-modal(href=new_alliance_path)
+        = t('alliances.create_alliance')

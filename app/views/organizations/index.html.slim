@@ -1,15 +1,12 @@
-div#organs
-  .breadcrumb
-    ul.breadcrumb-list
-      li
-        a(href=index_path)
-          = t :front_page
-          span.arrow ›
-      li
-        a(href=organizations_path)
-          = t 'navi.organizations'
-          span.arrow ›
-  .tabs-container
-    .tab-content
-      .tab
-        = render @university
+.breadcrumb
+  ul.breadcrumb-list
+    li
+      a(href=index_path)
+        = t :front_page
+        span.arrow ›
+    li
+      a(href=organizations_path)
+        = t 'navi.organizations'
+        span.arrow ›
+.content-box
+  = render @university
