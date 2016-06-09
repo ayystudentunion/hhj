@@ -1,8 +1,3 @@
-/* FONT FAMILIES */
-
-basic-fonts = 'Helvetica Neue', Helvetica, Arial, sans-serif
-
-
 /* COLORS */
 
 color-1-dark = #dcdcdc
@@ -23,24 +18,12 @@ gradient(color-1, color-2)
   background-image -ms-linear-gradient(bottom, color-2 0%, color-1 100%)
   background-image -webkit-gradient(linear, left bottom, left top, color-stop(0.0, color-2), color-stop(1.0, color-1))
 
-box-shadows(x,y,w,c)
-  -moz-box-shadow x y w c
-  -webkit-box-shadow x y w c
-  -o-box-shadow x y w c
-  -ms-box-shadow x y w c
-  box-shadow x y w c
-
-box-shadows-inset(x,y,w,c)
-  -moz-box-shadow inset x y w c
-  -webkit-box-shadow inset x y w c
-  -o-box-shadow inset x y w c
-  -ms-box-shadow inset x y w c
-  box-shadow inset x y w c
-
-
 /* Main layout classes */
+html, body
+  height: 100%
 
-// NEW
+#wrapper
+  min-height: 100%
 
 #wrapper,
 .footer
@@ -62,12 +45,13 @@ box-shadows-inset(x,y,w,c)
   float: left
   max-width: 700px
   margin-bottom: 40px
-  width: 100%
+  // width: 75%
 
 .sidebar-content
   float: right
-  margin-top: 20px
-  width: 240px
+  margin: 20px 5px
+  min-width: 200px
+  width: 25%
 
 .footer
   margin-top: -40px
@@ -76,18 +60,3 @@ box-shadows-inset(x,y,w,c)
   gradient(color-1-light, color-1-dark)
   text-align: center
   text-shadow: 0 1px 0 #FFF
-
-// begin olde
-html, body, #wrapper
-  height 100%
-
-body > #wrapper
-  height auto
-  min-height 800px
-
-@media (min-height: 800px)
-  body > #wrapper
-    min-height 100%
-#index
-  padding-top 15px
-
