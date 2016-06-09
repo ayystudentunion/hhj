@@ -15,7 +15,7 @@ loadFragment = (locale, university, controller, param, modal) ->
   if getParams
     url += "?#{getParams}"
 
-  contentWrap = $('#page-content')
+  contentWrap = $('.page-content')
   cached.getDOM url, (error, dom) ->
     initDom dom.clone().appendTo(contentWrap.empty())
   return true
