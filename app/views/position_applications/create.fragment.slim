@@ -29,9 +29,8 @@
         h3
           = PositionApplication.human_attribute_name(:personal_statement)
         textarea.wide-text(readonly="readonly") = @position_application.personal_statement
-    .button-row-bottom
-      .button-row
-        a.ok.close-modal.btn(href='#') = t 'modals.ok'
+    .button-row
+      a.close-modal.btn-new(href='#') = t 'modals.ok'
 
 -if show_recommendations?(@call)
   javascript:

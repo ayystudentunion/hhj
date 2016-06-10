@@ -16,6 +16,5 @@
       ul.members
         = @alliance.members.map{|user|content_tag :li, user.full_name}.join.html_safe
 
-    .button-row-bottom
-      .button-row
-        a.ok.close-modal.btn(href='#{alliances_path}') = t 'modals.ok'
+    .button-row
+      a.close-modal.btn-new(href='#{alliances_path}') = t 'modals.ok'
