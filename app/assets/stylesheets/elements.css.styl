@@ -63,11 +63,9 @@ box-shadows-inset(x,y,w,c)
   gradient(color-2-dark, color-2-light)
   color #333
 .btn-new:active
-  background #f0f0f0
-  
+  background #f0f0f0 
 
 .edit-icon
-  display inline-block
   width 14px
   height 14px
   float right
@@ -105,23 +103,14 @@ a.btn:active, input.btn:active
 a.remove-member
   width 8px
   height 8px
-  background url('../img/remove-icon-small.png') no-repeat 0 0
-  display inline-block
+  background url('../img/remove-icon-small.png') no-repeat left top
   position absolute
   padding 0
   border none
   top 13px
   right 13px
 a.remove-member:hover
-  padding 1px
-  border-radius 2px
-  -moz-border-radius 2px
-  -webkit-border-radius 2px
-  -khtml-border-radius 2px
-  border 1px solid #cacaca
-  background url('../img/remove-icon-small.png') no-repeat center -9px
-  margin -2px -2px 0 0
-  cursor pointer
+  background url('../img/remove-icon-small.png') no-repeat left bottom
 
 span.plus-icon
   display inline-block
@@ -144,13 +133,10 @@ a.add-row
     background url('../img/plus-icon.png') no-repeat center center
 
 ul.navi-links
-  position absolute
-  left 0
   li
-    float left
     border-left 1px solid #CCC
     border-right 1px solid #CCC
-    padding 0
+    display: inline-block
     margin 0 0 0 -1px
     a
       font-size 16px
@@ -158,8 +144,6 @@ ul.navi-links
       line-height 40px
       color #333
     a.home
-      display block
-      padding 0
       width 60px
       height 40px
       background url('../img/navi-home.png') no-repeat center center
