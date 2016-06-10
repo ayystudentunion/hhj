@@ -271,8 +271,8 @@ class ApplicationController < ActionController::Base
         request.env['A_SURNAME'] = 'Huttunen'
         request.env['A_MOBILE'] = ''
         request.env['A_MAIL'] = 'salla.huttunen@helsinki.fi'
-        request.env['A_HOME_ORGANIZATION'] = 'helsinki.fi'
-        role = :role_student
+        request.env['A_HOME_ORGANIZATION'] = 'laureamko.fi'
+        role = :role_union_employee
       elsif test_user == 'josi'
         request.env['A_PRINCIPAL_NAME'] = 'josi.seilonen@helsinki.fi'
         request.env['A_GIVEN_NAME'] = 'Josi'

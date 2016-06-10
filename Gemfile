@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.4'
 
-# The main web framework
+# The main web framework 
 gem 'rails', '~>4.2.0'
 
 # The data store for the app is MongoDB
