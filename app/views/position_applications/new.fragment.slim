@@ -38,5 +38,5 @@
       - if !@call.administrational?
         = f.text_area :personal_statement, placeholder: PositionApplication.human_attribute_name(:personal_statement), class: 'wide'
       .button-row
-        a.cancel.close-modal.btn(href='#') = t 'modals.cancel'
-        input.submit.js-submit.btn(type='submit' value="#{t 'modals.send'}")
+        a.close-modal.btn-new(href='#') = t 'modals.cancel'
+        input.js-submit.btn-new(type='submit' value="#{t 'modals.send'}")
