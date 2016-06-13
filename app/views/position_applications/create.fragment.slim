@@ -34,6 +34,6 @@
 
 -if show_recommendations?(@call)
   javascript:
-    $('#application-sent a.ok').click(function(){
+    $('#application-sent a.close-modal').click(function(){
       $('#recommendations ul').replaceWith("#{escape_javascript(render :file => "/calls/_applications_list", handlers: [:slim], formats: [:html])}");
     });

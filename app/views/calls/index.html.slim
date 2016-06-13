@@ -3,11 +3,11 @@
     li
       a(href=index_path)
         = t :front_page
-        span.arrow ›
+        |  ›
     li
       a(href=calls_path)
         = t "navi.open_calls"
-        span.arrow ›
+        |  ›
 .content-box
   = render @calls
   -if student_union_employee?

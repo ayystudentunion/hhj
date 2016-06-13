@@ -3,15 +3,15 @@
     li
       a(href=index_path)
         = t :front_page
-        span.arrow ›
+        |  ›
     li
       a(href=calls_path)
         = t "navi.open_calls"
-        span.arrow ›
+        |  ›
     li
       a(href=call_path(id:@call._id))
         = @call.title
-        span.arrow ›
+        |  ›
 .content-box   
   h2
     a(href=call_path(id:@call._id)) = @call.title

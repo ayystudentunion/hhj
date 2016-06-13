@@ -3,15 +3,15 @@
     li
       a(href=index_path)
         = t :front_page
-        span.arrow ›
+        |  ›
     li
       a(href=organs_path)
         = t "navi.organs"
-        span.arrow ›
+        |  ›
     li
       a(href=organ_path(id:@organ._id))
         = @organ.name
-        span.arrow ›
+        |  ›
 
 .content-box
   .organ-details
