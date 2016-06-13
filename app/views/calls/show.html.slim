@@ -18,26 +18,19 @@
     span.date = t(:modified) + " " + l(@call.updated_at)
     - if student_union_employee?
       a.edit-icon.js-modal(href=edit_call_path(id: @call.id))
-  .item-row
-    span.label #{Organ.model_name.human}:
-    a(href=organ_path(id:@call.organ._id)) = @call.organ.name
-  .item-row
-    span.label #{t ".looking_for"}:
-    span.text = formatted_looking_for(@call)
-  .item-row
-    span.label #{t "mongoid.attributes.call.date_open"}:
-    span.text = formatted_date @call.date_open
-  .item-row
-    span.label #{t ".submission_dates"}:
-    span.text = formatted_date @call.date_start, end_date: @call.date_end
-  .item-row
-    span.label #{t ".term"}:
-    span.text = formatted_date @call.term_start, end_date: @call.term_end
-  .item-row
-    span.label #{t "mongoid.attributes.call.appointment_place_and_date"}:
-    span.text = @call.appointment_place_and_date
-  p.description
-    == rendered_markdown @call.description
+  h4 = Organ.model_name.human
+  a(href=organ_path(id:@call.organ._id)) = @call.organ.name
+  h4 = t ".looking_for"
+  = formatted_looking_for(@call)
+  h4 = t "mongoid.attributes.call.date_open"
+  = formatted_date @call.date_open
+  h4 = t ".submission_dates"
+  = formatted_date @call.date_start, end_date: @call.date_end
+  h4 = t ".term"
+  = formatted_date @call.term_start, end_date: @call.term_end
+  h4 = t "mongoid.attributes.call.appointment_place_and_date"
+  = @call.appointment_place_and_date
+  == rendered_markdown @call.description
   .hr
   .button-row
     a.print.popup(href='#' onClick='window.print(); return false;') = t :print
