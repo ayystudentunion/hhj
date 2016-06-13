@@ -1,10 +1,8 @@
 - content_for :header do
   .logo-index H
   a.headline.js-reload(href=root_path)
-    | Halloped.fi
-    br
-    span.service
-      = t :header_title
+    h1 Halloped.fi
+    h2 = t :header_title
     = old_browser_warning
 - content_for :navi do
   =

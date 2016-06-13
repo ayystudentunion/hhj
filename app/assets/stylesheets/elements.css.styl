@@ -194,12 +194,9 @@ a.print
   padding-left 24px
   background url('../img/print-icon.png') no-repeat center left
 
-
-ul.universities
-  li
-    background url('../img/bullet.png') no-repeat left 0
-    padding-left 17px
-    margin 10px 0 12px 0
+ul.bullet-point
+  list-style: square inside none
+  line-height: 18px
 
 ul.breadcrumb-list
   height 40px
@@ -209,9 +206,11 @@ ul.breadcrumb-list
     display: inline-block
     a
       color #666
-      margin-right: 6px
     a:hover
       color #333
+  li:after
+    content: " › "
+    margin-right: 6px
 
 
 .logo-index

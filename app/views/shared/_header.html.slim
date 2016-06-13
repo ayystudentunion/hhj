@@ -9,6 +9,7 @@
       = render "shared/not_supported_user"
     - else
       = render "shared/logged_in_user"
-    a.logout-btn.js-reload(href=logout_link) Kirjaudu ulos ›
+    br
+    a.js-reload(href=logout_link) Kirjaudu ulos ›
 - else
   = render "shared/login"

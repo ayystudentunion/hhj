@@ -1,6 +1,6 @@
 div#index
   h2 = t '.choose_university'
-  ul.universities
+  ul.bullet-point
     - @universities.each do |university|
       li
         a.js-reload(href=university_path(university: university.key))

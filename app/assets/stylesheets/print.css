@@ -15,15 +15,15 @@
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
   a { all: inherit; }
-  #navi,
+  .navi,
   .button-row,
-  #sidebar,
+  .sidebar,
   .sidebar-content,
   .breadcrumb,
   .login-request,
   .login-info,
   .language-sel,
-  .tabs-list { 
+  .footer { 
     display: none !important;
   }
   #content, #page-content, .tabs-content, .tab {
