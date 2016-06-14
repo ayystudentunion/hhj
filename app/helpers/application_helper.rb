@@ -63,12 +63,9 @@ module ApplicationHelper
     custom_file(custom_css_file_plain_name)
   end
 
-  def custom_pdf_image_tag(filename)
+  def custom_image_tag(filename)
     if custom_file_exists?(filename)
-      case params[:format]
-      when 'pdf' then wicked_pdf_image_tag("#{@university.key}/#{filename}")
-      when 'print' then image_tag("#{@university.key}/#{filename}")
-      end
+      image_tag("#{@university.key}/#{filename}")
     else
       ''
     end

@@ -1,4 +1,16 @@
-= yield(:header)
+- if @university
+  img(src="/universities/helsinki/logo.png")
+  a.headline.js-reload(href=university_path)
+    h1 = @university.name
+    h2 = t :header_title
+- else
+  .logo-index H
+  a.headline.js-reload(href=root_path)
+    h1 Halloped.fi
+    h2 = t :header_title
+= old_browser_warning
+  
+
 .language-sel
   - languages.reject{|l| l == I18n.locale}.each do |locale|
     a(href='#' hreflang=locale) = t("languages.to_#{locale}") + ' • '
