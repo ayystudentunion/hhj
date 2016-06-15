@@ -32,7 +32,7 @@ Given /^I navigate to home page of organ '([^']*)'$/ do |organ_name|
 end
 
 Given /^I navigate to home page of call '([^']*)'$/ do |call_name|
-  within '#navi-content' do
+  within '.navi-links' do
     click_link 'Avoimet haut'
   end
   click_link call_name

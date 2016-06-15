@@ -1,11 +1,11 @@
 # -*- encoding : utf-8 -*-
 
 Then /^I should see call for application '([^']*)'$/ do |name|
-  check_details '.call-details', name, nil, nil
+  check_details '#call-details', name, nil, nil
 end
 
 Then /^I should see call for application '([^']*)' with description '([^']*)':$/ do |name, description, table|
-  check_details '.call-details', name, description, table
+  check_details '#call-details', name, description, table
 end
 
 def check_personal_details(container_selector, person_attributes)
@@ -43,7 +43,7 @@ Then /^I set applicant '([^']*)' as '([^']*)'$/ do |name, position|
 end
 
 When /^I press the edit icon within call details$/ do
-  within '.call-details' do
+  within '#call-details' do
     find('.edit-icon').click
   end
 end

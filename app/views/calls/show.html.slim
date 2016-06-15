@@ -12,7 +12,7 @@
       a(href=call_path(id:@call._id))
         = @call.title
         |  ›
-.content-box   
+.content-box#call-details
   h2
     a(href=call_path(id:@call._id)) = @call.title
     span.date = t(:modified) + " " + l(@call.updated_at)

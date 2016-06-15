@@ -8,11 +8,11 @@ Given /^there is a contact for an organization$/ do
 end
 
 Then /^I should see "([^"]*)" as contact info$/ do |text|
-  page.find('.contact-info').should have_content(text)
+  page.find('#contact-info').should have_content(text)
 end
 
 Then /^I should not see "([^"]*)" as contact info$/ do |text|
-  page.find('.contact-info').should_not have_content(text)
+  page.find('#contact-info').should_not have_content(text)
 end
 
 When /^somebody creates an ongoing call$/ do
@@ -29,16 +29,16 @@ Then /^I fill in name, email and phone number fields with "([^"]*)", "([^"]*)" a
 end
 
 When /^I press the "Add contact" button$/ do
-  page.find('a.sidebar-button.btn.create-new-contact.js-modal').click
+  click_link('Add contact')
 end
 
 When /^I delete the first contact$/ do
-  within '.contact-info' do
+  within '#contact-info' do
     click_link('Delete', match: :first)
   end
 end
 
 When /^I press the save button$/ do
-  page.find('.submit.close-modal.btn').click
+  click_button('Tallenna')
 end
 
