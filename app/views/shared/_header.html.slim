@@ -1,5 +1,5 @@
 - if @university
-  img(src="/universities/helsinki/logo.png")
+  img.logo(src=custom_file_path('logo.png'))
   a.headline.js-reload(href=university_path)
     h1 = @university.name
     h2 = t :header_title

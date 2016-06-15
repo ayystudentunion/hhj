@@ -63,9 +63,9 @@ module ApplicationHelper
     custom_file(custom_css_file_plain_name)
   end
 
-  def custom_image_tag(filename)
+  def custom_file_path(filename)
     if custom_file_exists?(filename)
-      image_tag("#{@university.key}/#{filename}")
+      "/universities/#{@university.key}/#{filename}"
     else
       ''
     end
