@@ -17,7 +17,7 @@
       p.label
         = Call.model_name.human
         | :
-      p.text = @alliance.call.title
+      p.text = @alliance.call.title if @alliance.call
     .item-block
       p.label
         = t('alliances.unconfirmed_members')
