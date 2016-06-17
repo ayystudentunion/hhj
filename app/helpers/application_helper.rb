@@ -64,7 +64,7 @@ module ApplicationHelper
   end
 
   def custom_file_path(filename)
-    if custom_file_exists?(filename)
+    if @university && custom_file_exists?(filename)
       "/universities/#{@university.key}/#{filename}"
     else
       ''
