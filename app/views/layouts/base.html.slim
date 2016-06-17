@@ -2,7 +2,6 @@ doctype html
 html
   head
     title Halloped
-    = stylesheet_link_tag 'print', media: 'print'
     = stylesheet_link_tag "application", media: 'all'
     - if custom_css_exists?
       = stylesheet_link_tag custom_css_href, media: 'all'
