@@ -1,10 +1,14 @@
+- logo_path = custom_file_path('logo.png')
+- if logo_path.blank?
+  .logo-index H
+-else
+  img.logo(src=logo_path)
+
 - if @university
-  img.logo(src=custom_file_path('logo.png'))
   a.headline.js-reload(href=university_path)
     h1 = @university.name
     h2 = t :header_title
 - else
-  .logo-index H
   a.headline.js-reload(href=root_path)
     h1 Halloped.fi
     h2 = t :header_title
