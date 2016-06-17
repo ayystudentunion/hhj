@@ -26,8 +26,8 @@ html
         div.page-content
           = yield
 
-        = yield(:sidebar)
-        .clear
+        .sidebar
+          = yield(:sidebar)
 
     div.footer
       = render "shared/footer" 

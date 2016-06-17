@@ -39,19 +39,18 @@ html, body
   gradient(color-1-light, color-1-dark)
 
 .content-container
-  margin-bottom: 40px
+  padding-bottom: 40px
 
 .page-content
-  float: left
-  max-width: 700px
+  display: inline-block
   margin-bottom: 40px
-  // width: 75%
+  width: 75%
 
-.sidebar-content
-  float: right
-  margin: 20px 5px
-  min-width: 200px
-  width: 25%
+.sidebar
+  display: inline-block
+  margin: 40px 0 40px 1%
+  vertical-align: top
+  width: 24%
 
 .footer
   margin-top: -40px
@@ -60,3 +59,14 @@ html, body
   gradient(color-1-light, color-1-dark)
   text-align: center
   text-shadow: 0 1px 0 #FFF
+
+// move sidebar to bottom for smaller screens
+@media screen and (max-width: 750px)
+  .page-content, .sidebar
+    margin: 0
+    width: 100%
+
+  .sidebar-content
+    display: inline-block
+    width: 48%
+    margin: 5px 1%
