@@ -1,13 +1,13 @@
 .modal
   .content
     h2
-      span=t("shared.sidebar.user_info")
+      span=t('shared.sidebar.user_info')
       a.close-modal(href='#')
     .item-block
       .applicant-details
         p.name = @user.full_name.force_encoding('UTF-8')
         p.email = @user.email
-    = form_for @user, url: user_path(user_id: @user._id, format: :js, call_id: @call._id ), method: :put, class: 'send-application' do |f|
+    = form_for @user, url: user_path(user_id: @user._id, format: :js, call_id: @call._id), method: :put, class: 'send-application' do |f|
       .item-row
         label
           | Puhelinnumero:
@@ -15,4 +15,4 @@
 
       .button-row
         a.close-modal.btn-new(href='#') = t 'modals.cancel'
-        input.js-submit.btn-new(type='submit' value="Jatka")
+        input.js-submit.btn-new(type='submit' value='Jatka')
