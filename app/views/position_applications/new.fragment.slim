@@ -1,10 +1,10 @@
--id =  @call.administrational? ? "send-application-for-administrational-call" : "send-application"
-.modal{id=id}
+-id = @call.administrational? ? 'send-application-for-administrational-call' : 'send-application'
+.modal { id = id }
   .content
     h2
       = t '.title'
       a.close-modal(href='#')
-    = render file: "/shared/_error_messages", locals: { object: @position_application }, :handlers => [:slim], formats: [:html]
+    = render file: '/shared/_error_messages', locals: { object: @position_application }, handlers: [:slim], formats: [:html]
     -if @call.position_applications.where(user_id: @user).exists?
       .item-block
         .item-row
@@ -35,7 +35,7 @@
           = f.text_field :deputy_of, placeholder:  PositionApplication.human_attribute_name(:deputy_of), class: 'field half', style: 'display:none;'
       - if custom_template_exists?('fields')
         = render partial: custom_file('fields'), formats: :html, locals: { f: f }, rescue: nil
-      - if !@call.administrational?
+      - unless @call.administrational?
         = f.text_area :personal_statement, placeholder: PositionApplication.human_attribute_name(:personal_statement), class: 'wide'
       .button-row
         a.close-modal.btn-new(href='#') = t 'modals.cancel'
