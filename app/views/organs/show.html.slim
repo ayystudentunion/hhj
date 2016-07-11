@@ -5,9 +5,9 @@
         = t :front_page
     li
       a(href=organs_path)
-        = t "navi.organs"
+        = t 'navi.organs'
     li
-      a(href=organ_path(id:@organ._id))
+      a(href=organ_path(id: @organ._id))
         = @organ.name
 
 .content-box
@@ -37,9 +37,9 @@
       - if @organ.members.current_hallopeds.empty?
         = t '.has_open_positions'
     br
-    a.btn-new.js-modal(href=new_organ_call_path(organ_id:@organ._id))
+    a.btn-new.js-modal(href=new_organ_call_path(organ_id: @organ._id))
       = t '.new_call_for_applications'
-    a.btn-new.js-modal(href=organ_default_call_edit_path(organ_id:@organ._id))
+    a.btn-new.js-modal(href=organ_default_call_edit_path(organ_id: @organ._id))
       = t '.edit_default_call_for_applications'
 
   .hr
@@ -55,9 +55,9 @@
 
   .organ-members.staff-members
     .professors
-      = render partial: 'current_staff', locals: {group: :group_professors, collection: @organ.members.current_professors, placeholder: t('.add_professor_by_email'), title: t('.professors')}
+      = render partial: 'current_staff', locals: { group: :group_professors, collection: @organ.members.current_professors, placeholder: t('.add_professor_by_email'), title: t('.professors') }
     .staff
-      = render partial: 'current_staff', locals: {group: :group_staff, collection: @organ.members.current_staff, placeholder: t('.add_staff_by_email'), title: t('.staff')}
+      = render partial: 'current_staff', locals: { group: :group_staff, collection: @organ.members.current_staff, placeholder: t('.add_staff_by_email'), title: t('.staff') }
   .hr
 
   - if student_union_employee?
