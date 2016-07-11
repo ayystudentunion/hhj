@@ -8,11 +8,11 @@
     - PositionApplication::POSITION_VALUES.each do |selected_as|
       div(class=selected_as)
         h3 = t(".#{selected_as}") + ':'
-        = render partial: 'handled_applicant', collection: call.position_applications.where(selected_as: selected_as), as: :applicant, locals:{ call: call }
+        = render partial: 'handled_applicant', collection: call.position_applications.where(selected_as: selected_as), as: :applicant, locals: { call: call }
     .not_selected
       h3 = t('.not_selected') + ':'
-      = render partial: 'handled_applicant', collection: call.position_applications.where(selected_as: nil), as: :applicant, locals:{ call: call }
+      = render partial: 'handled_applicant', collection: call.position_applications.where(selected_as: nil), as: :applicant, locals: { call: call }
     .button-row
       - if call.status == :handled
-        = f.submit "#{t '.archive_call'}", class: 'submit btn', name: 'status[archived]'
+        = f.submit t('.archive_call'), class: 'submit btn', name: 'status[archived]'
   .hr

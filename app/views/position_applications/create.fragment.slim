@@ -28,12 +28,12 @@
       .item-row
         h3
           = PositionApplication.human_attribute_name(:personal_statement)
-        textarea.wide-text(readonly="readonly") = @position_application.personal_statement
+        textarea.wide-text(readonly='readonly') = @position_application.personal_statement
     .button-row
       a.close-modal.btn-new(href='#') = t 'modals.ok'
 
 -if show_recommendations?(@call)
   javascript:
     $('#application-sent a.close-modal').click(function(){
-      $('#recommendations ul').replaceWith("#{escape_javascript(render :file => "/calls/_applications_list", handlers: [:slim], formats: [:html])}");
+      $('#recommendations ul').replaceWith("#{escape_javascript(render(file: '/calls/_applications_list', handlers: [:slim], formats: [:html]))}");
     });

@@ -2,26 +2,26 @@ doctype html
 html
   head
     title Halloped
-    = stylesheet_link_tag "application", media: 'all'
+    = stylesheet_link_tag 'application', media: 'all'
     - if custom_css_exists?
       = stylesheet_link_tag custom_css_href, media: 'all'
-    = javascript_include_tag "application"
+    = javascript_include_tag 'application'
     = csrf_meta_tags
     meta(http-equiv='Content-Type' content='text/html; charset=UTF-8')
-    script(src="/i18n/jquery.ui.datepicker-#{locale}.js" type="text/javascript")
+    script(src="/i18n/jquery.ui.datepicker-#{locale}.js" type='text/javascript')
   body(data-env=Rails.env)
     #wrapper
       .header
-        = render "shared/header"
+        = render 'shared/header'
       .navi
-        = render "shared/navi"
+        = render 'shared/navi'
       .content-container
         javascript:
-          #{ add_gritter(flash[:success], title: t("gritter.title"), class_name: "success", time: 8000, fadeout_speed: :slow)}
+          #{ add_gritter(flash[:success], title: t('gritter.title'), class_name: 'success', time: 8000, fadeout_speed: :slow)}
         -if flash[:errors]
           -flash[:errors].each do |msg|
             javascript:
-              #{ add_gritter(msg, title: flash[:errors_title], class_name: "error", time: 8000, fadeout_speed: :slow) }
+              #{ add_gritter(msg, title: flash[:errors_title], class_name: 'error', time: 8000, fadeout_speed: :slow) }
         .page-content
           = yield
 
@@ -29,6 +29,6 @@ html
           = yield(:sidebar)
 
     .footer
-      = render "shared/footer" 
+       render 'shared/footer'
 
     #modal-wrap

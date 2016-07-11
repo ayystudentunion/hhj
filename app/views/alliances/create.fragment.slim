@@ -8,13 +8,13 @@
       p= @alliance.name
 
     .item-row
-      h3= Call.model_name.human
-      p=@alliance.call.title
+      h3 = Call.model_name.human
+      p = @alliance.call.title
 
     .item-row
-      h3 =  t "alliances.members"
+      h3 =  t 'alliances.members'
       ul.members
-        = @alliance.members.map{|user|content_tag :li, user.full_name}.join.html_safe
+        = @alliance.members.map { |user| content_tag :li, user.full_name }.join.html_safe
 
     .button-row
-      a.close-modal.btn-new(href='#{alliances_path}') = t 'modals.ok'
+      a.close-modal.btn-new(href=alliances_path) = t 'modals.ok'

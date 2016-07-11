@@ -6,7 +6,7 @@
         a.close-modal(href='#')
         .language-buttons
           - languages.each do |locale|
-            a.lang.btn(href='#' hreflang="#{locale}" class="#{'active' if locale == I18n.locale}") = t "languages.#{locale}"
+            a.lang.btn(href='#' hreflang=locale.to_s class="#{'active' if locale == I18n.locale}") = t "languages.#{locale}"
       = form_for @organ, url: @form_path, class: 'new-organ' do |f|
         - languages.each do |locale|
           = f.text_field :name, placeholder: Organ.human_attribute_name(:name, locale: locale), class: "wide field localized #{locale}", name: "organ[name[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}", value: localized(@organ.name_translations, locale.to_s)
@@ -24,7 +24,7 @@
           = f.text_field :manager_email, placeholder: Organ.human_attribute_name(:manager_email), class: 'field'
         = f.text_field :appointer, placeholder:  Organ.human_attribute_name(:appointer), class: 'field half'
         .inline-block
-          = select("organ[organization]", "", @university.children.map { |p| [p.name, p.id] }, { prompt: t('.select_organization') }, { class: 'organizations' })
+          = select('organ[organization]', '', @university.children.map { |p| [p.name, p.id] }, { prompt: t('.select_organization') }, { class: 'organizations' })
           span#organization-path.js-data
             = @organ.organization_ids.join('|')
         .inline-block.no-margin
@@ -38,7 +38,7 @@
           = f.text_area :description, placeholder: Organ.human_attribute_name(:description, locale: locale), class: "wide localized #{locale}", name: "organ[description[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}", value: localized(@organ.description_translations, locale.to_s)
         .button-row
           a.btn-new.close-modal(href='#') = t 'modals.cancel'
-          input.btn-new.close-modal(type='submit' value="#{t 'modals.save'}")
+          input.btn-new.close-modal(type='submit' value= t('modals.save'))
 
 script#organization-select-template(type='text/html')
   select.organizations(name='organ[organization][]')

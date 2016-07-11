@@ -10,9 +10,9 @@
 
 - content_for :sidebar do
   - if @user.nil?
-    = render "shared/not_logged_in_side_bar"
+    = render 'shared/not_logged_in_side_bar'
   - else
-    = render "shared/sidebar"
+    = render 'shared/sidebar'
 
 
-= render :template => 'layouts/base'
+= render template: 'layouts/base'

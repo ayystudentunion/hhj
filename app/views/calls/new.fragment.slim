@@ -8,34 +8,34 @@
           a.lang.btn(href='#' hreflang="#{locale}" class="#{'active' if locale == I18n.locale}") = t "languages.#{locale}"
     = form_for @call, url: @form_path, class: 'new-application' do |f|
       = f.select(:workflow, workflow_values_with_names)
-      = f.select(:eligibility_rule_set, eligibility_rule_sets_with_names, {prompt: t('.no_eligibility_rules')})
+      = f.select(:eligibility_rule_set, eligibility_rule_sets_with_names, prompt: t('.no_eligibility_rules'))
       .hr
       - languages.each do |locale|
         = f.text_field :title, placeholder: Call.human_attribute_name(:title, locale: locale), class: "wide field localized #{locale}", name: "call[title[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}", value: localized(@call.title_translations, locale.to_s)
-      = f.label :member_amount, Call.human_attribute_name(:member_amount) + ':', class: "inline-label"
+      = f.label :member_amount, Call.human_attribute_name(:member_amount) + ':', class: 'inline-label'
       = f.text_field :member_amount, class: 'field small'
-      = f.label :deputy_amount, Call.human_attribute_name(:deputy_amount) + ':', class: "inline-label"
+      = f.label :deputy_amount, Call.human_attribute_name(:deputy_amount) + ':', class: 'inline-label'
       = f.text_field :deputy_amount, class: 'field small'
       - languages.each do |locale|
         = f.text_field :quota_information, placeholder: Call.human_attribute_name(:quota_information, locale: locale), class: "wide field localized #{locale}", name: "call[quota_information[#{locale}]]", style: "#{'display:none;' unless locale == I18n.locale}", value: localized(@call.quota_information_translations, locale.to_s)
       .inline-block
-        = f.label :date_open, Call.human_attribute_name(:date_open) + ':', class: "field-label"
+        = f.label :date_open, Call.human_attribute_name(:date_open) + ':', class: 'field-label'
         = f.text_field :date_open, placeholder: t('modals.time_placeholder'), class: 'field date'
         span.datepicker
       .inline-block
-        = f.label :date_start, Call.human_attribute_name(:date_start) + ':', class: "field-label"
+        = f.label :date_start, Call.human_attribute_name(:date_start) + ':', class: 'field-label'
         = f.text_field :date_start, placeholder: t('modals.time_placeholder'), class: 'field date'
         span.datepicker
       .inline-block.no-margin
-        = f.label :date_end, Call.human_attribute_name(:date_end) + ':', class: "field-label"
+        = f.label :date_end, Call.human_attribute_name(:date_end) + ':', class: 'field-label'
         = f.text_field :date_end, placeholder: t('modals.time_placeholder'), class: 'field date'
         span.datepicker
       .inline-block
-        = f.label :term_start, Call.human_attribute_name(:term_start) + ':', class: "field-label"
+        = f.label :term_start, Call.human_attribute_name(:term_start) + ':', class: 'field-label'
         = f.text_field :term_start, placeholder: t('modals.time_placeholder'), class: 'field date'
         span.datepicker
       .inline-block.no-margin
-        = f.label :term_end, Call.human_attribute_name(:term_end) + ':', class: "field-label"
+        = f.label :term_end, Call.human_attribute_name(:term_end) + ':', class: 'field-label'
         = f.text_field :term_end, placeholder: t('modals.time_placeholder'), class: 'field date'
         span.datepicker
       - languages.each do |locale|

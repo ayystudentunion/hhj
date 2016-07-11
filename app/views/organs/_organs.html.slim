@@ -1,8 +1,8 @@
 / partial for the organs list
 
 .organs
-  - @organs.group_by { |organ| organ.organization_full_name[1]||'' }.sort.each do |group_name, group_organs|
+  - @organs.group_by { |organ| organ.organization_full_name[1] || '' }.sort.each do |group_name, group_organs|
     h2 = group_name
     - group_organs.sort_by { |organ| organ.name.downcase }.each do |organ|
-      = render organ 
+      = render organ
 

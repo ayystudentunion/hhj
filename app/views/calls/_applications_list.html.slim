@@ -1,7 +1,7 @@
 ul
   //show all applications except deputies with a selected member (they're shown alongside the member's application)
-  -applications = PositionApplication.where(call_id: @call.id).select{|a| a.applying_for_member? || a.pair == nil }
+  -applications = PositionApplication.where(call_id: @call.id).select { |a| a.applying_for_member? || a.pair.nil? }
   -applications.each do |application|
     li
       span = applicant_name_with_coapplicant_for(application)
-      = render "position_applications/recommend_link", application: application if  recommendation_allowed_for?(application)
+      = render 'position_applications/recommend_link', application: application if recommendation_allowed_for?(application)

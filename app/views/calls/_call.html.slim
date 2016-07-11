@@ -1,14 +1,14 @@
 .call
-  a(href=call_path(id:call._id))
+  a(href=call_path(id: call._id))
     h3 = call.title
     - if student_union_employee?
       a.edit-icon.js-modal(href=edit_call_path(id: call.id))
-  h4 #{t "calls.show.found"}:
+  h4 #{t 'calls.show.found'}:
   call.position_applications.length
 	- if @user && show_recommendations?(call)
-    h4 #{t "position_applications.admissible_plural"}:
+    h4 #{t 'position_applications.admissible_plural'}:
     = call.admissible_applications.count.to_s
-  h4 #{t "calls.show.submission_dates"}:
+  h4 #{t 'calls.show.submission_dates'}:
   = formatted_date(call.date_start, end_date: call.date_end)
-  h4 #{t "calls.show.description"}:
+  h4 #{t 'calls.show.description'}:
   == rendered_markdown call.description

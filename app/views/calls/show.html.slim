@@ -5,27 +5,27 @@
         = t :front_page
     li
       a(href=calls_path)
-        = t "navi.open_calls"
+        = t 'navi.open_calls'
     li
-      a(href=call_path(id:@call._id))
+      a(href=call_path(id: @call._id))
         = @call.title
 .content-box#call-details
   h2
-    a(href=call_path(id:@call._id)) = @call.title
-    span.date = t(:modified) + " " + l(@call.updated_at)
+    a(href=call_path(id: @call._id)) = @call.title
+    span.date = t(:modified) + ' ' + l(@call.updated_at)
     - if student_union_employee?
       a.edit-icon.js-modal(href=edit_call_path(id: @call.id))
   h4 = Organ.model_name.human
-  a(href=organ_path(id:@call.organ._id)) = @call.organ.name
-  h4 = t ".looking_for"
+  a(href=organ_path(id: @call.organ._id)) = @call.organ.name
+  h4 = t '.looking_for'
   = formatted_looking_for(@call)
-  h4 = t "mongoid.attributes.call.date_open"
+  h4 = t 'mongoid.attributes.call.date_open'
   = formatted_date @call.date_open
-  h4 = t ".submission_dates"
+  h4 = t '.submission_dates'
   = formatted_date @call.date_start, end_date: @call.date_end
-  h4 = t ".term"
+  h4 = t '.term'
   = formatted_date @call.term_start, end_date: @call.term_end
-  h4 = t "mongoid.attributes.call.appointment_place_and_date"
+  h4 = t 'mongoid.attributes.call.appointment_place_and_date'
   = @call.appointment_place_and_date
   == rendered_markdown @call.description
   .hr
@@ -33,15 +33,15 @@
     a.print.popup(href='#' onClick='window.print(); return false;') = t :print
     - if can_apply?
       - if custom_template_exists?('new_application_link')
-        = render partial: custom_file('new_application_link'), formats: :html, locals: { user: @user, call: @call}, rescue: nil
+        = render partial: custom_file('new_application_link'), formats: :html, locals: { user: @user, call: @call }, rescue: nil
       -else
-        a.btn-new.js-modal(href=new_call_position_application_path(call_id:@call._id))
-          = t(".send_application")
+        a.btn-new.js-modal(href=new_call_position_application_path(call_id: @call._id))
+          = t('.send_application')
     .clear
   -if show_recommendations?(@call)
     .hr
     .item-row
       #recommendations
-        h2.label #{t "position_applications.plural"}
-        p= t "recommendations.description", count: @university.recommendations_threshold
-        = render("calls/applications_list")
+        h2.label #{t 'position_applications.plural'}
+        p= t 'recommendations.description', count: @university.recommendations_threshold
+        = render('calls/applications_list')

@@ -1,11 +1,11 @@
 h2
-  | #{t '.hallopeds'}
-  - if student_union_employee? and not @edit_hallopeds
+  = t '.hallopeds'
+  - if student_union_employee? && !@edit_hallopeds
     a.edit-icon(href=organ_path(id: @organ._id, edit_hallopeds: true))
 - if @edit_hallopeds
   .edit-members
     = render partial: 'edit_members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair
-    div.empty-row
+    .empty-row
       .member-card-empty.member(data-name=:position_member)
         .placeholder
           h2 = t 'organs.call_results.dragndrop_member_placeholder'
