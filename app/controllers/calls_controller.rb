@@ -9,11 +9,6 @@ class CallsController < ApplicationController
     respond_to do |format|
       format.html
       format.fragment { render 'index', formats: ['html'], layout: false }
-      format.pdf do
-        # quickfix before different scopes are properly supported in this action:
-        @calls = Call.open_by_university @university
-        render pdf: 'calls', encoding: 'utf-8', layout: true
-      end
     end
   end
 
@@ -49,8 +44,6 @@ class CallsController < ApplicationController
       format.html
       format.json { render json: @call }
       format.fragment { render 'show', formats: ['html'], layout: false }
-      format.pdf { render pdf: @call.file_name, encoding: 'utf-8', layout: true }
-      format.print { render 'show', formats: ['pdf'], encoding: 'utf-8' }
     end
   end
 

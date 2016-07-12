@@ -71,13 +71,6 @@ module ApplicationHelper
     end
   end
 
-  def custom_path_in_pdf(filename)
-    case params[:format]
-    when 'pdf' then "file://#{@custom_path.join(filename)}"
-    when 'print' then "/assets/#{@university.key}/#{filename}"
-    end
-  end
-
   def user_university_not_supported?
     not_supported_user && !not_supported_user[:university_domain].blank?
   end
