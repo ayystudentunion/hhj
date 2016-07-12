@@ -16,7 +16,11 @@
                          style: ('display:none;' unless locale == I18n.locale),
                          value: localized(@organization.name_translations, locale.to_s))
         .inline-block
-          = select('organization[parent]', '', @university.children.map { |p| [p.name, p.id] }, { prompt: t('.select_organization') }, { class: 'organizations' })
+          = select('organization[parent]',
+                   '',
+                   @university.children.map { |p| [p.name, p.id] },
+                   { prompt: t('.select_organization') },
+                   class: 'organizations')
           span#organization-path.js-data
             = @organization.parent_ids.drop(1).join('|')
         .button-row
