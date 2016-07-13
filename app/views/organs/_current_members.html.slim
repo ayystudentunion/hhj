@@ -3,7 +3,7 @@ h2
   - if student_union_employee? && !@edit_hallopeds
     a.edit-icon(href=organ_path(id: @organ._id, edit_hallopeds: true))
 - if @edit_hallopeds
-  .edit-members
+  .edit-members.centered-narrow
     = render partial: 'edit_members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair
     .empty-row
       .member-card-empty.member(data-name=:position_member)

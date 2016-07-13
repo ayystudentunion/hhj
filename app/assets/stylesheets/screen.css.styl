@@ -149,12 +149,6 @@ body:before
   .no-deputy, .no-member, .current-member, .current-deputy
     border none
     background none
-  .arrow
-    width 11px
-    height 82px
-    display inline-block
-    background url('../img/arrow-right.png') no-repeat center center
-    margin-top 11px
   .member-card
     gradient(color-1-light, color-1-dark)
     border-radius 2px
@@ -194,8 +188,6 @@ body:before
     height 20px
     margin 6px 11px 8px 0
     display inline-block
-  .no-margin
-    margin-right 0
 
 .organ-members, .proposed-to-be-selected
   .member-card
@@ -203,7 +195,7 @@ body:before
     vertical-align top
     cursor default
     min-height 65px
-  .arrow, .current-deputy, .current-member
+  .current-deputy, .current-member
     height 92px
     .placeholder
       h2
@@ -223,10 +215,6 @@ body:before
       display inline-block
     span.not_eligible:hover
       color #000
-
-.proposed-to-be-selected, .edit-members
-  .arrow
-    height 82px
 
 .organ
   margin-bottom 30px
@@ -274,164 +262,6 @@ body:before
       .text, ul
         display inline-block
         width 370px
-
-/* FORM ELEMENT STYLES */
-
-select
-  height 24px
-  margin-left 0
-
-input.field
-  height 22px
-
-label.field-label
-  display block
-  font-size 13px
-  text-shadow 0 1px 0 #FFF
-  margin-bottom 6px
-
-label.inline-label
-  margin-right 20px
-
-label.btn.checked
-  gradient(color-1-dark, color-1-light)
-  color #333
-
-input.wide, textarea.wide
-  width 99%
-
-textarea.wide
-  height 120px
-  resize none
-
-input.half
-  width 254px
-  margin-bottom 14px
-  display block
-
-input.small
-  width 40px
-  margin 0 8px 14px 0
-
-img.ui-datepicker-trigger
-  display inline-block
-  width 16px
-  height 16px
-  background url('../img/calendar-icon.png') no-repeat
-  float right
-  margin 5px 1px 0 0
-  z-index 1000
-
-form.application-workflow
-  display block
-  position relative
-  width 100%
-  height 26px
-  .selector
-    position absolute
-    top 8px
-    left -2px
-
-#application-sent,
-#received-application
-  textarea.wide-text
-    height 120px
-    width  99%
-    overflow-y scroll
-    display block
-    resize none
-    background none
-    border none
-    box-shadow none
-    padding 0
-    line-height 18px
-
-form.new_application
-  textarea.wide
-    margin 14px 0 10px 0
-select
-  border: 1px solid #cacaca
-form.new_organ, form.edit_organ
-  input.wide
-    margin 14px 0 10px 0
-  select.organizations
-    margin-top 12px
-  select#organ_organization_
-    margin-top 0
-
-form.send_message
-  textarea.wide
-    margin 0 0 10px 0
-
-form.organ_search, form.new_call
-  input.wide
-    margin 0 0 10px 0
-  textarea.wide
-    margin 0 0 10px 0
-  select
-    margin 12px 12px 0 0
-
-form.add_applicants
-  margin-bottom 14px
-form.add_applicants, form.select_recipients, form.add_recipients
-  margin-top 10px
-  input.wide
-    width 491px
-    margin 14px 6px 0 0
-
-form.add_recipients
-  margin-top 0
-  input.wide
-    margin-top 0
-
-form.send_application
-  input.half
-    margin-left 80px
-  .item-row
-    margin 14px 0 10px 0
-    span.buttons
-      display inline-block
-      padding-left 41px
-      margin-bottom 14px
-      a.btn, input.btn
-        margin-left -1px
-
-form.new_position_application, .member-card, form.edit_call
-  .radio
-    position absolute
-    top -9999px
-    left -9999px
-  label.btn
-    margin-right -1px
-  input#position_application_deputy_of
-    margin 12px 0 0 41px
-  input.wide
-    margin-bottom 12px
-  .pair-select
-    select
-      min-width: 120px
-#new-alliance
-  select
-    max-width: 260px
-form.new_member
-  input.field
-    width 492px
-    margin 12px 5px 0 0
-
-.inline-block
-  display inline-block
-  width 260px
-  margin 0 10px 14px 0
-  vertical-align top
-  input
-    width 98%
-  input.date
-    width 235px
-.no-margin
-  margin-right 0
-
-.item-row
-  margin 14px 0 10px 0
 
 /* TOOLTIP STYLES */
 
