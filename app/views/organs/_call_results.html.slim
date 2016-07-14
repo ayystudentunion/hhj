@@ -43,4 +43,3 @@
         = f.submit t('.propose_applicants'), class: 'submit btn', name: 'status[proposed]'
       - elsif call.status == :closed || call.status == :proposed
         = f.submit t(call.status == :proposed ? '.accept_proposal' : '.save_applicants'), class: 'submit btn', name: 'status[handled]'
-.hr

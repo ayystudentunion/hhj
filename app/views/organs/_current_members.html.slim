@@ -1,25 +1,26 @@
-h2
-  = t '.hallopeds'
-  - if student_union_employee? && !@edit_hallopeds
-    a.edit-icon(href=organ_path(id: @organ._id, edit_hallopeds: true))
-- if @edit_hallopeds
-  .edit-members.centered-narrow
-    = render partial: 'edit_members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair
-    .empty-row
-      .member-card-empty.member(data-name=:position_member)
-        .placeholder
-          h2 = t 'organs.call_results.dragndrop_member_placeholder'
-      .arrow
-      .member-card-empty.deputy(data-name=:position_deputy)
-        .placeholder
-          h2 = t 'organs.call_results.dragndrop_deputy_placeholder'
-    .add-member
-      = form_for [@organ, @new_member], url: organ_members_path(organ_id: @organ.id) do |f|
-        input.field(type='text' placeholder=t('.add_member_by_email') name='member[email]')
-        = f.hidden_field :position, value: :position_member
-        a.btn.add-row(href='#')
-          span.plus-icon
-    .button-row
-      a.btn(href=organ_path) #{t 'buttons.done_edit'}
-- else
-  = render partial: 'members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair
+.organ-members.hallopeds
+  h2
+    = t '.hallopeds'
+    - if student_union_employee? && !@edit_hallopeds
+      a.edit-icon(href=organ_path(id: @organ._id, edit_hallopeds: true))
+  - if @edit_hallopeds
+    .edit-members.centered-narrow
+      = render partial: 'edit_members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair
+      .empty-row
+        .member-card-empty.member(data-name=:position_member)
+          .placeholder
+            h2 = t 'organs.call_results.dragndrop_member_placeholder'
+        .arrow
+        .member-card-empty.deputy(data-name=:position_deputy)
+          .placeholder
+            h2 = t 'organs.call_results.dragndrop_deputy_placeholder'
+      .add-member
+        = form_for [@organ, @new_member], url: organ_members_path(organ_id: @organ.id) do |f|
+          input.field(type='text' placeholder=t('.add_member_by_email') name='member[email]')
+          = f.hidden_field :position, value: :position_member
+          a.btn.add-row(href='#')
+            span.plus-icon
+      .button-row
+        a.btn(href=organ_path) #{t 'buttons.done_edit'}
+  - else
+    = render partial: 'members', collection: @organ.member_deputy_pairs, as: :member_deputy_pair
