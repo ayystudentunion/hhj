@@ -3,7 +3,7 @@
   .content
     h2
       = t '.title'
-      a.close-modal(href='#')
+      a.close-modal.close-button(href='#')
     = render file: '/shared/_error_messages', locals: { object: @position_application }, handlers: [:slim], formats: [:html]
     -if @call.position_applications.where(user_id: @user).exists?
       .item-block

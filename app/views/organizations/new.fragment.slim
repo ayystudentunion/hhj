@@ -3,7 +3,7 @@
     div(id='organization-form-container')
       h2
         = @form_title
-        a.close-modal(href='#')
+        a.close-modal.close-button(href='#')
         .language-buttons
           - languages.each do |locale|
             a.lang.btn(href='#' hreflang=locale.to_s class="#{'active' if locale == I18n.locale}") = t "languages.#{locale}"

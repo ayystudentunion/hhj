@@ -3,7 +3,7 @@
     div(id='contact-form-container')
       h2
         = @form_title
-        a.close-modal(href='#')
+        a.close-modal.close-button(href='#')
       = form_for @contact, url: @form_path, class: 'new-contact' do |f|
         .inline-block
           = f.label 'Name'
