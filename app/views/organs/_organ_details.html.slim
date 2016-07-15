@@ -1,0 +1,33 @@
+.organ-details
+  h2
+    a(href='#') = @organ.name
+    span.date
+      = t(:modified) + ' ' + l(@organ.updated_at)
+    - if can_admin_organs?
+      a.edit-icon.js-modal(href=edit_organ_path(id: @organ._id))
+  h4 = t '.organization'
+    | :
+  p = @organ.organization_full_name.join(' - ')
+  h4
+    = t '.term'
+    | :
+  p
+    = formatted_date @organ.term_start, end_date: @organ.term_end
+  h4
+    = t '.manager'
+    | :
+  p
+    = manager
+  == rendered_markdown @organ.description
+
+  - if student_union_employee?
+    em
+      - if @organ.members.current_hallopeds.empty?
+        = t '.has_open_positions'
+    br
+    a.btn-new.js-modal(href=new_organ_call_path(organ_id: @organ._id))
+      = t '.new_call_for_applications'
+    a.btn-new.js-modal(href=organ_default_call_edit_path(organ_id: @organ._id))
+      = t '.edit_default_call_for_applications'
+
+

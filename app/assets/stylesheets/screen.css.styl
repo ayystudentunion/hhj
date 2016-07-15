@@ -59,7 +59,6 @@ box-shadows-inset(x,y,w,c)
     div
       margin-left: 10px
 
-//.organ-members, .call-for-application, .proposed-to-be-selected, .edit-members
 .member-card.invalid
   text-shadow: none
   border 1px solid darken(#EB9D9E, 15%)
@@ -70,7 +69,7 @@ box-shadows-inset(x,y,w,c)
   gradient(darken(#B4EEB4, 7%), #B4EEB4)
 .member-card-empty
   position relative
-  width 257px
+  width 280px
   height 80px
   display inline-block
   margin 11px 0 0 0
@@ -98,12 +97,12 @@ box-shadows-inset(x,y,w,c)
   -webkit-border-radius 2px
   -khtml-border-radius 2px
   border 1px solid #cacaca
-  width 231px
-  min-height 54px
-  padding 13px
+  width: 280px
+  min-height: 80px
+  padding 10px
   display inline-block
   position relative
-  margin 0 0 11px 0
+  margin: -1px 0 11px -1px
   cursor pointer
   z-index 1
   text-align left
@@ -128,17 +127,11 @@ box-shadows-inset(x,y,w,c)
   width 529px
   margin 10px 0 0 -1px
 
-.organ-members, .proposed-to-be-selected
-  .member-card
-    margin 11px 0 0 0
-    vertical-align top
-    cursor default
-    min-height 65px
-  .current-deputy, .current-member
-    height 92px
-    .placeholder
-      h2
-        margin-top 38px
+.current-deputy, .current-member
+  height 92px
+  .placeholder
+    h2
+      margin-top 38px
 
 .call-for-application, .edit-members, .organ-members.staff-members
   .applicants, .members, .edit-members, .selected
