@@ -3,7 +3,7 @@
     a(href='#') = @organ.name
     - if can_admin_organs?
       a.edit-icon.js-modal(href=edit_organ_path(id: @organ._id))
-    span.date
+    span.date-label
       = t(:modified) + ' ' + l(@organ.updated_at)
 
   h4 = t '.organization'

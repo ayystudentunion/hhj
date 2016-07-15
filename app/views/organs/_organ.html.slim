@@ -4,6 +4,6 @@
     h3 = organ.name
     - if can_admin_organs?
       a.edit-icon.js-modal(href=edit_organ_path(id: organ.id))
-    span.date = formatted_date(organ.updated_at, format: :date)
+    span.date-label = formatted_date(organ.updated_at, format: :date)
   == rendered_markdown organ.description
 
