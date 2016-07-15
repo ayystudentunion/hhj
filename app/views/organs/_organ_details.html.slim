@@ -1,10 +1,11 @@
 .organ-details
   h2
     a(href='#') = @organ.name
-    span.date
-      = t(:modified) + ' ' + l(@organ.updated_at)
     - if can_admin_organs?
       a.edit-icon.js-modal(href=edit_organ_path(id: @organ._id))
+    span.date
+      = t(:modified) + ' ' + l(@organ.updated_at)
+
   h4 = t '.organization'
     | :
   p = @organ.organization_full_name.join(' - ')
