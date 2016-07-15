@@ -15,20 +15,20 @@ color-3-light = #ffffff
 /* FUNCTIONS */
 
 gradient(color-1, color-2)
-  background-color color-1
-  background-image linear-gradient(bottom, color-2 0%, color-1 100%)
-  background-image -o-linear-gradient(bottom, color-2 0%, color-1 100%)
-  background-image -moz-linear-gradient(bottom, color-2 0%, color-1 100%)
-  background-image -webkit-linear-gradient(bottom, color-2 0%, color-1 100%)
-  background-image -ms-linear-gradient(bottom, color-2 0%, color-1 100%)
-  background-image -webkit-gradient(linear, left bottom, left top, color-stop(0.0, color-2), color-stop(1.0, color-1))
+  background-color: color-1
+  background-image: linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image: -o-linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image: -moz-linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image: -webkit-linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image: -ms-linear-gradient(bottom, color-2 0%, color-1 100%)
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.0, color-2), color-stop(1.0, color-1))
 
 box-shadows(x,y,w,c)
-  -moz-box-shadow x y w c
-  -webkit-box-shadow x y w c
-  -o-box-shadow x y w c
-  -ms-box-shadow x y w c
-  box-shadow x y w c
+  -moz-box-shadow: x y w c
+  -webkit-box-shadow: x y w c
+  -o-box-shadow: x y w c
+  -ms-box-shadow: x y w c
+  box-shadow: x y w c
 
 box-shadows-inset(x,y,w,c)
   -moz-box-shadow inset x y w c
@@ -61,182 +61,183 @@ box-shadows-inset(x,y,w,c)
   text-align: center
 .btn-new:hover
   gradient(color-2-dark, color-2-light)
-  color #333
+  color: #333
 .btn-new:active
-  background #f0f0f0 
+  background: #f0f0f0 
 
 .edit-icon
-  width 14px
-  height 14px
-  float right
-  background url('../img/edit-icon.png') no-repeat left top
+  width: 14px
+  height: 14px
+  float: right
+  background: url('../img/edit-icon.png') no-repeat left top
 .edit-icon:hover
-  background url('../img/edit-icon.png') no-repeat left bottom
+  background: url('../img/edit-icon.png') no-repeat left bottom
 
 a.login-btn
-  display inline-block
-  width 80px
-  height 25px
-  margin-top 8px
-  background url('../img/haka-login.png') no-repeat left top
+  display: inline-block
+  width: 80px
+  height: 25px
+  margin-top: 8px
+  background: url('../img/haka-login.png') no-repeat left top
 a.logout-btn
-  display inline-block
-  margin-top 8px
+  display: inline-block
+  margin-top: 8px
 
-/* GENERAL BUTTON STYLES */
+//FIXME: delete these
 a.btn, input.btn, label.btn
-  display inline-block
+  display: inline-block
   gradient(color-3-light, color-3-dark)
-  padding 0 16px
-  border 1px solid #cacaca
-  text-align center
-  line-height 23px
-  color #505050
-  cursor pointer
-  position relative
+  padding: 0 16px
+  border: 1px solid #cacaca
+  text-align: center
+  line-height: 23px
+  color: #505050
+  cursor: pointer
+  position: relative
 a.btn:hover, input.btn:hover, label.btn:hover
   gradient(color-2-dark, color-2-light)
-  color #333
+  color: #333
 a.btn:active, input.btn:active
-  background #f0f0f0
+  background: #f0f0f0
 
 a.remove-member
-  width 8px
-  height 8px
-  background url('../img/remove-icon-small.png') no-repeat left top
-  position absolute
-  padding 0
-  border none
-  top 13px
-  right 13px
+  width: 8px
+  height: 8px
+  background: url('../img/remove-icon-small.png') no-repeat left top
+  position: absolute
+  padding: 0
+  border: none
+  top: 13px
+  right: 13px
 a.remove-member:hover
-  background url('../img/remove-icon-small.png') no-repeat left bottom
+  background: url('../img/remove-icon-small.png') no-repeat left bottom
 
 span.plus-icon
-  display inline-block
-  width 10px
-  height 11px
-  background url('../img/plus-icon.png') no-repeat
-  position absolute
-  top 9px
-  left 10px
+  display: inline-block
+  width: 10px
+  height: 11px
+  background: url('../img/plus-icon.png') no-repeat
+  position: absolute
+  top: 9px
+  left: 10px
 
 a.add-row
-  padding 0
-  width 25px
-  height 23px
-  padding-top 2px
+  padding: 0
+  width: 25px
+  height: 23px
+  padding-top: 2px
+  //FIXME: combine with other plus-icon
   span.plus-icon
-    display inline-block
-    width 10px
-    height 11px
-    background url('../img/plus-icon.png') no-repeat center center
+    display: inline-block
+    width: 10px
+    height: 11px
+    background: url('../img/plus-icon.png') no-repeat center center
 
 ul.navi-links
   li
-    border-left 1px solid #CCC
-    border-right 1px solid #CCC
+    border-left: 1px solid #CCC
+    border-right: 1px solid #CCC
     display: inline-block
-    margin 0 0 0 -1px
+    margin: 0 0 0 -1px
     a
-      font-size 16px
-      padding 10px 20px
-      line-height 40px
-      color #333
+      font-size: 16px
+      padding: 10px 20px
+      line-height: 40px
+      color: #333
     a.home
-      width 60px
-      height 40px
-      background url('../img/navi-home.png') no-repeat center center
+      width: 60px
+      height: 40px
+      background: url('../img/navi-home.png') no-repeat center center
   li:hover
-    background #CCC
+    background: #CCC
 
 .close-button
-  display inline-block
-  width 14px
-  height 14px
-  background url('../img/remove-icon.png') no-repeat left top
-  float right
-  margin-top 1px
+  display: inline-block
+  width: 14px
+  height: 14px
+  background: url('../img/remove-icon.png') no-repeat left top
+  float: right
+  margin-top: 1px
 .close-button:hover
-  background url('../img/remove-icon.png') no-repeat left bottom
-  padding 2px
-  border-radius 2px
-  -moz-border-radius 2px
-  -webkit-border-radius 2px
-  -khtml-border-radius 2px
-  border 1px solid #cacaca
-  background url('../img/remove-icon.png') no-repeat center -14px
-  margin -2px -3px 0 0
+  background: url('../img/remove-icon.png') no-repeat left bottom
+  padding: 2px
+  border-radius: 2px
+  -moz-border-radius: 2px
+  -webkit-border-radius: 2px
+  -khtml-border-radius: 2px
+  border: 1px solid #cacaca
+  background: url('../img/remove-icon.png') no-repeat center -14px
+  margin: -2px -3px 0 0
 
 .language-buttons
-  display inline-block
-  margin-left 1px
-  vertical-align top
-  position absolute
-  right 40px
-  margin -2px 14px 0 0
+  display: inline-block
+  margin-left: 1px
+  vertical-align: top
+  position: absolute
+  right: 40px
+  margin: -2px 14px 0 0
   a.lang
-    padding 0 6px
-    font-size 12px
-    height 17px
-    line-height 17px
-    margin-left -1px
+    padding: 0 6px
+    font-size: 12px
+    height: 17px
+    line-height: 17px
+    margin-left: -1px
   a.active
     gradient(color-1-dark, color-1-light)
-    color #333
+    color: #333
 
 .button-row
-  text-align right
+  text-align: right
 a.print
-  margin 6px 0 0 0
-  float left
-  display inline-block
-  height 15px
-  padding-left 24px
+  margin: 6px 0 0 0
+  float: left
+  display: inline-block
+  height: 15px
+  padding-left: 24px
   background url('../img/print-icon.png') no-repeat center left
 
 a.show-application
-  width 16px
-  height 16px
-  background url('../img/application-icon.png') no-repeat left top
-  display inline-block
-  position relative
-  top 4px
-  left 10px
+  width: 16px
+  height: 16px
+  background: url('../img/application-icon.png') no-repeat left top
+  display: inline-block
+  position: relative
+  top: 4px
+  left: 10px
 a.show-application:hover
-  background-position left bottom
+  background-position: left bottom
 
 ul.bullet-point
   list-style: square inside none
   line-height: 18px
 
 ul.breadcrumb-list
-  height 40px
-  padding-left 14px
-  line-height 40px
+  height: 40px
+  padding-left: 14px
+  line-height: 40px
   li
     display: inline-block
     a
-      color #666
+      color: #666
     a:hover
-      color #333
+      color: #333
   li:after
     content: " › "
     margin-right: 6px
 
 .logo-index
   display: inline-block
-  width 94px
+  width: 94px
   height: 90px
   line-height: 90px
-  font-size 72px
-  font-weight bold
-  text-shadow 4px 4px 0px #f0f0f0
-  color #dadada
-  text-align center
+  font-size: 72px
+  font-weight: bold
+  text-shadow: 4px 4px 0px #f0f0f0
+  color: #dadada
+  text-align: center
 .logo
   display: inline-block
-  height 90px
+  height: 90px
 
 .headline
   bottom: 36px
@@ -244,44 +245,44 @@ ul.breadcrumb-list
   position: relative
 
 #old-ie
-  font-size 16px
-  color red
+  font-size: 16px
+  color: red
 
 .language-sel
-  height 20px
-  padding 3px 10px 0px 10px
-  border-radius 0 0 4px 4px
-  -moz-border-radius 0 0 4px 4px
-  -webkit-border-radius 0 0 4px 4px
-  -khtml-border-radius 0 0 4px 4px
-  position absolute
-  top 0
-  right 0
-  text-align right
-  text-shadow 0 1px 0 #FFF
-  background #dcdcdc
+  height: 20px
+  padding: 3px 10px 0px 10px
+  border-radius: 0 0 4px 4px
+  -moz-border-radius: 0 0 4px 4px
+  -webkit-border-radius: 0 0 4px 4px
+  -khtml-border-radius: 0 0 4px 4px
+  position: absolute
+  top: 0
+  right: 0
+  text-align: right
+  text-shadow: 0 1px 0 #FFF
+  background: #dcdcdc
   a
-    color #333
+    color: #333
   .fi
-    display none
+    display: none
 
 .login-info, .login-request
-  width 240px
-  height 70px
-  position absolute
-  top 34px
-  right 0
-  text-align right
+  width: 240px
+  height: 70px
+  position: absolute
+  top: 34px
+  right: 0
+  text-align: right
   .login-name
-    width 210px
-    display inline-block
-    text-shadow 0 1px 0 #FFF
-    line-height 17px
+    width: 210px
+    display: inline-block
+    text-shadow: 0 1px 0 #FFF
+    line-height: 17px
     .name, .link
-      font-weight bold
+      font-weight: bold
   .university.not_supported
-    font-weight bold
-    margin-top 4px
+    font-weight: bold
+    margin-top: 4px
 
 .info-tab
   height: 26px
@@ -308,16 +309,16 @@ span.tab-right
 
 .arrow
   width: 11px
-  height 82px
-  display inline-block
-  background url('../img/arrow-right.png') no-repeat center center
-  margin-top 11px
+  height: 82px
+  display: inline-block
+  background: url('../img/arrow-right.png') no-repeat center center
+  margin-top: 11px
 
 #confirmed_alliances
-  border 1px solid #cacaca
+  border: 1px solid #cacaca
 
 #confirmed_alliances, #unconfirmed_alliances
-  background #f2f2f2
+  background: #f2f2f2
   padding: 5px 8px 8px 8px
   h3
     text-align: center
@@ -328,7 +329,7 @@ span.tab-right
     margin-bottom: 12px
 
 #unconfirmed_alliances
-  border 1px solid #EB9D9E
+  border: 1px solid #EB9D9E
   h3
-    color:red
+    color: red
 
