@@ -4,7 +4,11 @@
     border: none !important
     color: black !important
     text-shadow: none !important
-    filter: none !important; -ms-filter: none !important
+    filter: none !important
+    -ms-filter: none !important
+    float: none !important
+  body
+    overflow: visible
   abbr[title]:after
     content: " (" attr(title) ")"
   a:after,
@@ -18,10 +22,11 @@
   p, h2, h3
     orphans: 3
     widows: 3
-  h1, h2, h3
+  h1, h2, h3, .header
     page-break-after: avoid
   a
     all: inherit
+  // Elements hidden from print
   .navi,
   .button-row,
   .sidebar,
@@ -32,9 +37,22 @@
   .language-sel,
   .footer
     display: none !important
-  .page-content
+
+  .content-container,
+  .page-content,
+  .content-box
+    display: block !important
+    page-break-before: avoid
+    page-break-inside: auto
+    visibility: hidden
     width: 100% !important
     margin: 0
     padding: 0
-  .content-box
     padding: 0
+    border: none
+
+  .call, .organ
+    display: block
+    visibility: visible
+    page-break-after: auto !important
+    page-break-inside: avoid
