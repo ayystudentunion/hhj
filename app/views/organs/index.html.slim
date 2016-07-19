@@ -7,4 +7,10 @@
       a(href=organs_path)
         = t 'navi.organs'
 .content-box
-  = render 'organs'
+  = render partial: 'organs', locals: { organs: @grouped_organs[:visible] }
+  - if can_admin_organs? && @grouped_organs.key?(:hidden)
+    .hr
+    h2
+      | Hidden organs
+    = render partial: 'organs', locals: { organs: @grouped_organs[:hidden] }
+

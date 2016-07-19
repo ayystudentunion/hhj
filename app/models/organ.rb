@@ -22,10 +22,16 @@ class Organ
   field :status, type: Symbol, default: :visible
 
   scope :visible, -> { where(status: :visible) }
+  scope :hidden, -> { where(status: :hidden) }
 
   def self.visible_by_university(university)
     visible.select { |o| o.belongs_to?(university) }
   end
+
+  def self.hidden_by_university(university)
+    hidden.select { |o| o.belongs_to?(university) }
+  end
+
 
   def self.by_university(university)
     all.select { |o| o.belongs_to?(university) }

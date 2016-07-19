@@ -51,6 +51,10 @@
                         name: "organ[description[#{locale}]]",
                         style: ('display:none;' unless locale == I18n.locale),
                         value: localized(@organ.description_translations, locale.to_s))
+        = f.radio_button :status, 'visible', checked: true
+        | Visible
+        = f.radio_button :status, 'hidden'
+        | Hidden
         .button-row
           a.btn-new.close-modal(href='#') = t 'modals.cancel'
           input.btn-new.close-modal(type='submit' value= t('modals.save'))
