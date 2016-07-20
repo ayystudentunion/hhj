@@ -12,9 +12,9 @@
 .content-box#call-details
   h2
     a(href=call_path(id: @call._id)) = @call.title
-    span.date = t(:modified) + ' ' + l(@call.updated_at)
     - if student_union_employee?
       a.edit-icon.js-modal(href=edit_call_path(id: @call.id))
+    span.date-label = t(:modified) + ' ' + l(@call.updated_at)
   h4 = Organ.model_name.human
   a(href=organ_path(id: @call.organ._id)) = @call.organ.name
   h4 = t '.looking_for'
