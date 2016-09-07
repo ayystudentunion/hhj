@@ -23,13 +23,13 @@
     = render partial: 'proposal_call_results', collection: @proposals, as: :call
   .hr
 
-  .section
+  .section.organ-members.professors
     = render(partial: 'current_staff',
              locals: { group: :group_professors,
                        collection: @organ.members.current_professors,
                        placeholder: t('.add_professor_by_email'),
                        title: t('.professors') })
-  .section
+  .section.organ-members.staff
     = render(partial: 'current_staff',
              locals: { group: :group_staff,
                        collection: @organ.members.current_staff,
