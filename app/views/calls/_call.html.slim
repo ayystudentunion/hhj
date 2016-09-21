@@ -3,9 +3,9 @@
     h3 = call.title
     - if student_union_employee?
       a.edit-icon.js-modal(href=edit_call_path(id: call.id))
-  h4 #{t 'calls.show.found'}:
-  call.position_applications.length
   - if @user && show_recommendations?(call)
+    h4 #{t 'calls.show.found'}:
+    = call.position_applications.length
     h4 #{t 'position_applications.admissible_plural'}:
     = call.admissible_applications.count.to_s
   h4 #{t 'calls.show.submission_dates'}:
