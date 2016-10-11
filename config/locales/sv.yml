@@ -2,7 +2,7 @@ sv:
   old_ie: Din webbläsare stöds inte (gamla Internet Explorer)
   header_title: "Halloped-ansökningssystem"
   logged_in_as: "Du är inloggad som"
-  login_with_haka: "Logga in med universitetets användarnamn"
+  login_with_haka: "Logga in med högskolans användarnamn"
   front_page: "Framsida"
   introduction: "Presentation"
   modified: "redigerad"
@@ -37,8 +37,8 @@ sv:
     contacts_title: "Om problem uppstår, kontakta:"
     not_logged_in_side_bar:
       title: "Vad är studentrepresentantverksamhet?"
-      description_paragraph_1: "Enligt universitetslagen ska en tredjedel av medlemmarna i de beslutsfattande förvaltningsorganen vid de finländska universiteten bestå av studeranden. Alla närvaroanmälda examensstuderanden kan söka för att bli studentrepresentanter i dessa organ. Studentrepresentanterna (på finska: halloped, hallinnon opiskelijaedustaja) utses av studentkårerna."
-      description_paragraph_2: "De förtroendevalda studentrepresentanterna är fullvärdiga medlemmar i universitetsförvaltningen, och deltar i beslut om bl.a. undervisningen, anställningar, ekonomiärenden och strategier. Att vara en studentrepresentant innebär att man deltar i beslutsfattandet på möten och fungerar som språkrör mellan universitetets förvaltning och de studerande. Den viktigaste uppgiften är att göra studenternas röst hörd i de frågor som rör universitetet."
+      description_paragraph_1: "Hallopeder, eller studeranderepresentanter i förvaltningen, är student- eller studerandekårernas valda representanter till högskolornas organ. De representerar förutom sig själva även hela student-/studerandekåren. Alla studerande vid högskolan kan söka till studeranderepresentant via öppen ansökan."
+      description_paragraph_2: "Studeraderepresentanter är fullständiga medlemmar i sina respektive organ och påverkar hurdana studierna och forskningen är i framtiden vid högskolan. Du stöder dom bäst genom att ge feedback eller själv bli en frivillig!"
     sidebar:
       user_info: "Egna uppgifter"
       edit: "Redigera"

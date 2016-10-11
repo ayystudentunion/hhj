@@ -1,7 +1,7 @@
 en:
   old_ie: Your browser is not supported (old Internet Explorer)
   logged_in_as: "You are logged in as"
-  login_with_haka: "Login with your university credentials"
+  login_with_haka: "Login with your institution credentials"
   front_page: "Front page"
   introduction: "Introduction"
   modified: "Modified"
@@ -36,8 +36,8 @@ en:
     contacts_title: "Problems? Please contact:"
     not_logged_in_side_bar:
       title: "What are Student Representatives?"
-      description_paragraph_1: "Hallopeds, student representatives in administration, are representatives elected for administrative organs from among the members by the Student Union Representative Council. In their position, they represent themselves and the whole student community. Student representatives are full members of administration – they only cannot have direct effect on the evaluation of thesis. All student union members can apply for the position of a halloped through the open call for applications."
-      description_paragraph_2: "Hallopeds and the Student Union Board together aim at preserving and improving students' services and equity in the academic community. All students are encouraged to provide them with feedback to guide their influencing work. "
+      description_paragraph_1: "Hallopeds, student representatives in administration, are representatives elected for administrative organs from among the members by the Student Union Representative Council or the Board. In their position, they represent themselves and the whole student community. Student representatives are full members of administration. All students can apply for the position of a halloped through the open call for applications."
+      description_paragraph_2: "Hallopeds and the Student Union Board together aim at preserving and improving students' services and equity in the  community. All students are encouraged to provide them with feedback to guide their influencing work."
     sidebar:
       user_info: "User info"
       edit: "Edit"
