@@ -7,7 +7,7 @@ Feature: Editing an existing organ
     And I navigate to home page of organ 'Tasa-arvotyöryhmä'
 
   Scenario: Staff member fails to edit en existing organ
-    When I press the edit icon within organ details
+    When I press the edit icon for 'Tasa-arvotyöryhmä'
     And I fill in form 'Muokkaa toimielintä':
       |  label                           | value                                                            |
       |  Toimielimen nimi                |                                                                  |
@@ -15,7 +15,7 @@ Feature: Editing an existing organ
     Then I should see "Puutteellinen toimielin"
 
   Scenario: Staff member edits an existing organ
-    When I press the edit icon within organ details
+    When I press the edit icon for 'Tasa-arvotyöryhmä'
     And I fill in form 'Muokkaa toimielintä':
       |  label                           | value                                                            |
       |  Toimielimen nimi                | Tasa-arvon työryhmä                                              |

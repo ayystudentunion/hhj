@@ -10,7 +10,7 @@ Feature: Login
 
   Scenario: Logging out
     And I logout
-    Then I should see "Kirjaudu yliopistosi käyttäjätunnuksilla"
+    Then I should see "Kirjaudu korkeakoulusi käyttäjätunnuksilla"
     And I should not see "Omat tiedot"
 
 

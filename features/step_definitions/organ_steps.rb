@@ -5,15 +5,16 @@ Then /^I should see a list of organs$/ do
 end
 
 Then /^I should see the organ page for '([^']*)'$/ do |organ_name|
-  page.find('.organ-details h2').should have_content organ_name
+  section(organ_name).should have_content organ_name
 end
 
 Then /^I should see introduction of organ '([^']*)' with description '([^']*)':$/ do |organ_name, description, table|
-  check_details '.organ-details', organ_name, description, table
+  details = section(organ_name)
+  details.should have_content description
 end
 
-When /^I press the edit icon within organ details$/ do
-  within '.organ-details' do
+When /^I press the edit icon for '([^']*)'$/ do |organ_name|
+  within section(organ_name) do
     find('.edit-icon').click
   end
 end
