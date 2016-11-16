@@ -59,5 +59,5 @@ When /^I choose to send an email reminder to "([^"]*)"$/ do |value|
 end
 
 Then /^I follow "([^"]*)" in the sidebar$/ do |link|
-  page.find('#sidebar').click_link(link)
+  page.find('.sidebar').click_link(link)
 end

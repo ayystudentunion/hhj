@@ -1,26 +1,27 @@
--unless @user.nil?
-  .sidebar-content#profile-info
-    .info-tab
-      span.tab-left
-      span.tab-middle = t '.user_info'
-      span.tab-right
-    .content-box
-      p
-        span.name = @user.full_name.force_encoding('UTF-8')
-        br
-        span.email = @user.email
-        br
-        span.phone = @user.phone
-    = render 'shared/alliances'
-
-- if can_admin_organs?
+.sidebar
+  -unless @user.nil?
+    .sidebar-content#profile-info
+      .info-tab
+        span.tab-left
+        span.tab-middle = t '.user_info'
+        span.tab-right
+      .content-box
+        p
+          span.name = @user.full_name.force_encoding('UTF-8')
+          br
+          span.email = @user.email
+          br
+          span.phone = @user.phone
+      = render 'shared/alliances'
+  
+  - if can_admin_organs?
+    .sidebar-content
+      a.btn-new.js-modal(href=new_organ_path)
+        = t '.create_organ'
+        span.plus-icon
+      a.btn-new.js-modal(href=new_organization_path)
+        = t '.create_organization'
+        span.plus-icon
+  
   .sidebar-content
-    a.btn-new.js-modal(href=new_organ_path)
-      = t '.create_organ'
-      span.plus-icon
-    a.btn-new.js-modal(href=new_organization_path)
-      = t '.create_organization'
-      span.plus-icon
-
-.sidebar-content
-  = render('shared/contact_info')
+    = render('shared/contact_info')

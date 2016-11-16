@@ -11,7 +11,7 @@ Given /^someone has added my application to an electoral alliance called "([^"]*
 end
 
 Then /^I should not see "([^"]*)" in the sidebar$/ do |text|
-  sidebar = page.find('#sidebar')
+  sidebar = page.find('.sidebar')
   sidebar.should have_no_content(text)
 end
 
