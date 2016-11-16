@@ -142,9 +142,10 @@ fi:
       position_deputy: Valitut varajäsenet
       not_selected: Valitsematta jääneet
       archive_call: Arkistoi haku
-    show:
+    organ_details:
       has_open_positions: Toimielimen edustajapaikat ovat vielä täyttämättä. Avaa uusi paikkahaku nyt?
       new_call_for_applications: Avaa uusi paikkahaku
+      edit_default_call_for_applications: Muokka oletushakua
       organization: Organisaatioyksikkö
       show_archived_calls: Näytä arkistoidut haut
       hide_archived_calls: Piilota arkistoidut haut

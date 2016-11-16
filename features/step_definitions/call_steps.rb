@@ -5,7 +5,11 @@ Then /^I should see call for application '([^']*)'$/ do |name|
 end
 
 Then /^I should see call for application '([^']*)' with description '([^']*)':$/ do |name, description, table|
-  check_details '#call-details', name, description, table
+  within section(name) do
+    table.hashes.each do |row|
+      find('h4', text: row[:label]).find(:xpath, './following-sibling::p[1]').should have_content row[:value]
+    end
+  end
 end
 
 def check_personal_details(container_selector, person_attributes)
