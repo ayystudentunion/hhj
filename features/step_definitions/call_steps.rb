@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 
 Then /^I should see call for application '([^']*)'$/ do |name|
-  check_details '#call-details', name, nil, nil
+  section(name).should have_content name
 end
 
 Then /^I should see call for application '([^']*)' with description '([^']*)':$/ do |name, description, table|
