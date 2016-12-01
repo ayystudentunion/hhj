@@ -1,0 +1,10 @@
+.breadcrumb
+  ul.breadcrumb-list
+    li
+      a(href=index_path)
+        = t :front_page
+    li
+      a(href=calls_path)
+        = t 'navi.calls'
+.content-box
+  = render @call.position_applications

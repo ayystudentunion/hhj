@@ -3,7 +3,7 @@
     h2
       = t '.title'
       a.close-modal.close-button(href='#')
-    = render file: '/position_applications/_position_application_details', locals: { position_application: @position_application }, handlers: [:slim], formats: [:html]
+    = render file: '/position_applications/_position_application', locals: { position_application: @position_application }, handlers: [:slim], formats: [:html]
     .button-row
       a.close-modal.btn(href='#') = t 'modals.close'
 

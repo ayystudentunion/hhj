@@ -35,6 +35,7 @@ class OrganizationsController < ApplicationController
   end
 
   def edit
+    # TODO: if org is root, different edit.
     @organization = Organization.find(params[:id])
 
     @form_path = organization_path

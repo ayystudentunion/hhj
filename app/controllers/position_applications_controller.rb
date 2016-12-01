@@ -5,11 +5,13 @@ class PositionApplicationsController < ApplicationController
   before_action :find_application_from_call, except: [:index, :new, :create]
 
   def index
+    # TODO: readily printable list for a given call
   end
 
   def show
     respond_to do |format|
       format.fragment
+      format.html
     end
   end
 
