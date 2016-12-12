@@ -1,5 +1,5 @@
 .applicant-details
-  strong.name = position_application.user.full_name.force_encoding('UTF-8')
+  h2 = position_application.user.full_name.force_encoding('UTF-8')
   p.email = position_application.user.email
   p.phone = position_application.user.phone
 - if position_application.call.administrational?
