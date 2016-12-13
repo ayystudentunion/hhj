@@ -2,7 +2,7 @@
   .content
     div(id='organization-form-container')
       h2
-        = @form_title
+        = t 'organizations.edit'
         a.close-modal.close-button(href='#')
         .language-buttons
           - languages.each do |locale|
@@ -15,14 +15,15 @@
                          name: "organization[name[#{locale}]]",
                          style: ('display:none;' unless locale == I18n.locale),
                          value: localized(@organization.name_translations, locale.to_s))
-        .inline-block
-          = select('organization[parent]',
-                   '',
-                   @university.children.map { |p| [p.name, p.id] },
-                   { prompt: t('.select_organization') },
-                   class: 'organizations')
-          span#organization-path.js-data
-            = @organization.parent_ids.drop(1).join('|')
+        - unless @organization == @university
+          .inline-block
+            = select('organization[parent]',
+                     '',
+                     @university.children.map { |p| [p.name, p.id] },
+                     { prompt: t('.select_organization') },
+                     class: 'organizations')
+            span#organization-path.js-data
+              = @organization.parent_ids.drop(1).join('|')
         .button-row
           a.btn-new.close-modal(href='#') = t 'modals.cancel'
           input.btn-new.close-modal(type='submit' value= t('modals.save'))

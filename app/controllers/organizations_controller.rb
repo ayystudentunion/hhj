@@ -39,15 +39,16 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
 
     @form_path = organization_path
-    @form_title = t 'organizations.edit.title'
     respond_to do |format|
       format.fragment { render 'new' }
     end
   end
 
   def update
-    org_params = params[:organization].merge(parent: selected_organization)
     @organization = Organization.find(params[:id])
+
+    org_params = params[:organization]
+    org_params.merge!(parent: selected_organization) unless @organization == @university
 
     @organization.update_attributes(org_params)
     redirect_to request.referer
