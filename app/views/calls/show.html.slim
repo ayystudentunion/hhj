@@ -32,6 +32,9 @@
   .hr
   - if student_union_employee?
     a.js-reload(href=call_position_applications_path(call_id: @call._id)) = t 'applications'
+    br
+    br
+    a.js-reload(href=call_position_applications_path(call_id: @call._id, format: :csv)) = 'Download applications for call'
     .hr
   .button-row
     a.print.popup(href='#' onClick='window.print(); return false;') = t :print

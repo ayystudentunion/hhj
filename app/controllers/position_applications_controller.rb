@@ -5,7 +5,13 @@ class PositionApplicationsController < ApplicationController
   before_action :find_application_from_call, except: [:index, :new, :create]
 
   def index
-    # TODO: readily printable list for a given call
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"user-list\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
   end
 
   def show

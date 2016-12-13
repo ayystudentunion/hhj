@@ -1,0 +1,5 @@
+- headers = ['Name',  'Email', 'Time']
+= CSV.generate_line headers
+- @call.position_applications.each do |app|
+  = CSV.generate_line [app.user.full_name.force_encoding('UTF-8'), app.user.email, app.created_at]
+
