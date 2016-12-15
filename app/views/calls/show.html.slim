@@ -10,25 +10,26 @@
       a(href=call_path(id: @call._id))
         = @call.title
 .content-box#call-details
-  h2
-    a(href=call_path(id: @call._id)) = @call.title
-    - if student_union_employee?
-      a.edit-icon.js-modal(href=edit_call_path(id: @call.id))
-    span.date-label = t(:modified) + ' ' + l(@call.updated_at)
-  h4 = Organ.model_name.human
-  p
-    a(href=organ_path(id: @call.organ._id)) = @call.organ.name
-  h4 = t '.looking_for'
-  p = formatted_looking_for(@call)
-  h4 = t 'mongoid.attributes.call.date_open'
-  p = formatted_date @call.date_open
-  h4 = t '.submission_dates'
-  p = formatted_date @call.date_start, end_date: @call.date_end
-  h4 = t '.term'
-  p = formatted_date @call.term_start, end_date: @call.term_end
-  h4 = t 'mongoid.attributes.call.appointment_place_and_date'
-  p = @call.appointment_place_and_date
-  == rendered_markdown @call.description
+  .section
+    h2
+      a(href=call_path(id: @call._id)) = @call.title
+      - if student_union_employee?
+        a.edit-icon.js-modal(href=edit_call_path(id: @call.id))
+      span.date-label = t(:modified) + ' ' + l(@call.updated_at)
+    h4 = Organ.model_name.human
+    p
+      a(href=organ_path(id: @call.organ._id)) = @call.organ.name
+    h4 = t '.looking_for'
+    p = formatted_looking_for(@call)
+    h4 = t 'mongoid.attributes.call.date_open'
+    p = formatted_date @call.date_open
+    h4 = t '.submission_dates'
+    p = formatted_date @call.date_start, end_date: @call.date_end
+    h4 = t '.term'
+    p = formatted_date @call.term_start, end_date: @call.term_end
+    h4 = t 'mongoid.attributes.call.appointment_place_and_date'
+    p = @call.appointment_place_and_date
+    == rendered_markdown @call.description
   .hr
   - if student_union_employee?
     a.js-reload(href=call_position_applications_path(call_id: @call._id)) = t 'applications'
@@ -37,7 +38,7 @@
     a.js-reload(href=call_position_applications_path(call_id: @call._id, format: :csv)) = 'Download applications for call'
     .hr
   .button-row
-    a.print.popup(href='#' onClick='window.print(); return false;') = t :print
+    button.print.popup(href='#' onClick='window.print(); return false;') = t :print
     - if can_apply?
       - if custom_template_exists?('new_application_link')
         = render partial: custom_file('new_application_link'), formats: :html, locals: { user: @user, call: @call }, rescue: nil
@@ -49,6 +50,6 @@
     .hr
     .item-row
       #recommendations
-        h2.label #{t 'position_applications.plural'}
+        h2.label = t 'position_applications.plural'
         p= t 'recommendations.description', count: @university.recommendations_threshold
         = render('calls/applications_list')
