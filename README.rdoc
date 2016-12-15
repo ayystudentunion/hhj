@@ -2,67 +2,7 @@
 
 === Development Environment Setup
 
-Install RVM and Ruby
-
-  bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
-  source ~/.bash_profile
-
-  rvm install ruby-2.0.0-p645
-  rvm use ruby-2.0.0-p645
-
-Install node.js
-
-  sudo apt-get install node
-  brew install node
-
-Clone the Halloped Project Repository
-
-  git clone git@github.com:ayystudentunion/hhj.git
-
-Install Gem Dependencies
-
-  cd hhj
-
-  rvm pkg install zlib openssl libxml2 libxslt
-  rvm reinstall ruby-2.0.0-p645
-
-  sudo apt-get install libqt4-dev # For qmake on Linux
-  brew install Qt # For qmake on OS X
-
-If you're getting trouble from nokogiri, do
-  rm -rf $rvm_path/usr
-  rvm requirements # Copy the apt-get [...] part and sudo it
-  rvm reinstall ruby-2.0.0-p645
-
-Then install bundled dependencies
-
-  gem install bundler
-  bundle install
-
-Initialize development database
-
-  rake db:seed
-
-Run tests
-
-  rake test
-
-Run application
-
-  rails server
-
-Run only unit tests
-
-  rake spec
-
-Run only system tests
-
-  rake cucumber
-
-Re-initialize development database later when needed
-
-  rake db:drop db:seed
-
+See the vagrant set up for the development VM.
 
 === Universities
 
@@ -85,11 +25,11 @@ Re-initialize development database later when needed
 
   Custom stylesheet for university is public/universities/myuniversity/stylesheet/myuniversity.css.styl
 
-==== Custom prints
+==== Prints
 
-  Custom pdf prints are e.g. for calls in public/universities/myuniversity/calls/show.pdf.slim
+  Most pages should print reasonably well as is. Anything that is wanted visible when printed should be in a .section div.
 
-  See template overriding below for more info
+
 
 ==== Custom fields for position applications
 
@@ -157,6 +97,15 @@ Install Qt (PDF printing has qt dependency)
 You might also need to install wkhtmltopdf binary manually. At least Redhat could not use the wkhtmltopdf binary that comes with the gems.
 Install working wkhtmltopdf binary to ~/bin folder (app is configured to use it from there)
 
+
+=== Deployment
+
+You need to have ssh keys for the hhj user on the server you wish to deploy to. Then you can use git to deploy:
+
+  git push production master
+
+The necessary remotes etc are setup in the development VM.
+
 === Technology stack and documentation
 
 Application is built with the Rails conventions and using lot of existing gems. If you need documentation of application, then this is good place to start http://guides.rubyonrails.org/
@@ -164,7 +113,7 @@ Application is built with the Rails conventions and using lot of existing gems. 
 Same applies also to many other parts of applicaiton that uses existing gems. Check the gem, google for its documentation and read it.
 
 Just to mention some technologies used:
-Rails 3
+Rails 4
 MongoDB using mongoid and mongoid-tree
 CoffeeScript
 Cucumber
