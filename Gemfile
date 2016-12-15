@@ -70,4 +70,5 @@ group :test do
   gem 'byebug', platforms: [:mri_20]
   # Code coverage
   gem 'simplecov', '~>0.10.0', require: false
+  gem 'headless', require: false
 end

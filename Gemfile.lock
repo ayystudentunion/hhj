@@ -122,6 +122,7 @@ GEM
     gritter (1.2.0)
     haml (4.0.7)
       tilt
+    headless (2.3.1)
     hitimes (1.2.4)
     htmlentities (4.3.4)
     i18n (0.7.0)
@@ -317,6 +318,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   gritter (>= 1.2.0)
+  headless
   jquery-rails (>= 2.1)
   meta_request
   mongoid
@@ -340,4 +342,4 @@ RUBY VERSION
    ruby 2.2.4p230
 
 BUNDLED WITH
-   1.12.1
+   1.13.6

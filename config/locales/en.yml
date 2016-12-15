@@ -7,6 +7,7 @@ en:
   modified: "Modified"
   print: "Print"
   possessive_prefix: "My"
+  header_title: "Halloped information system"
 
   time:
     formats:
