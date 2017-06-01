@@ -11,12 +11,12 @@ sv:
 
   time:
     formats:
-      default: "%d.%m.%Y kl. %H:%M"
-      date: "%d.%m.%Y"
+      default: "%%Y-%m-%d kl. %H:%M"
+      date: "%Y-%m-%d"
       file: "%Y_%m_%d"
   date:
     formats:
-      default: "%d.%m.%Y"
+      default: "%Y-%m-%d"
   languages:
     fi: FI
     to_fi: Suomeksi
@@ -288,8 +288,10 @@ sv:
   send: "Skicka"
   email:
     application_received: Din ansökan till förvaltningens studentrepresentant har mottagits.
+    position_application_received: Vi har mottagit din ansökan.
     thanks_for_application: Tack. Du får svaren genast.
     your_application: Din ansökan
+    submit_time: Ansökan inlämnad den
   gritter:
     title: "Observera"
     errors_title: "Det saknas uppgifter i %{class}, kan inte spara"

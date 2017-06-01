@@ -5,7 +5,8 @@ class ApplicationMailer < ActionMailer::Base
 
   def sent_email(application)
     @application = application
-    mail(to: application.user.email, subject: "Hakemuksesi on vastaanotettu. Vi har mottagit din ansökan. Your application has been received.")
+    apl_received = I18n.t 'email.position_application_received'
+    mail(to: application.user.email, subject: apl_received)
   end
 
   def pair_notification(submitted_application, university, email)

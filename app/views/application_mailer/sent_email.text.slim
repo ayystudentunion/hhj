@@ -17,6 +17,10 @@
 = t 'mongoid.attributes.position_application.personal_statement'
 
 = @application.personal_statement
+
+= t 'email.submit_time'
+
+= l @application.created_at
     /- @application.custom.each do |k,v|
     /  td = k
     /  td = v

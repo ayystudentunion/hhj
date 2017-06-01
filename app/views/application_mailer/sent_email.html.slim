@@ -23,6 +23,9 @@ html
         tr
           td = t 'mongoid.attributes.position_application.personal_statement'
           td = @application.personal_statement
+        tr
+          td = t 'email.submit_time'
+          td = l @application.created_at
           /- @application.custom.each do |k,v|
           /  tr =
           /    td = k

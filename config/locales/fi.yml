@@ -14,13 +14,13 @@ fi:
 
   time:
     formats:
-      default: "%d.%m.%Y klo %H:%M"
-      date: "%d.%m.%Y"
+      default: "%-d.%-m.%Y klo %H.%M"
+      date: "%-d.%-m.%Y"
       file: "%Y_%m_%d"
 
   date:
     formats:
-      default: "%d.%m.%Y"
+      default: "%-d.%-m.%Y"
 
   languages:
     fi: FI
@@ -306,9 +306,10 @@ fi:
 
   email:
     application_received: Hakemuksesi hallinnon opiskelijaedustajaksi on vastaanotettu.
+    position_application_received: Hakemuksesi on vastaanotettu.
     thanks_for_application: Kiitos. Sinulle vastataan pian.
     your_application: Hakemuksesi
-
+    submit_time: Hakemus jätetty
   gritter:
       title: "Huomio"
       errors_title: "Puuttellinen %{class}, ei voitu tallentaa"

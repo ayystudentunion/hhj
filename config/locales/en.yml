@@ -290,8 +290,10 @@ en:
   send: "Send"
   email:
     application_received: Your application to a student representative position has been received.
+    position_application_received: Your application has been received.
     thanks_for_application: Thank you. We will be in touch shortly.
     your_application: Your application
+    submit_time: Application submitted on
   gritter:
     title: "Please note"
   particles:
