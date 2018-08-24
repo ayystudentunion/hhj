@@ -16,6 +16,11 @@
       h3
         = t '.experience_in_student_associations'
       textarea.wide-text(readonly="readonly") = @position_application.custom['experience_in_student_associations']
+    - if @position_application.custom.include? 'personal_statement'
+      h3
+        = t '.personal_statement'
+      textarea.wide-text(readonly="readonly") = @position_application.custom['personal_statement']
+
   - else
     .item-row
       span.label = t('.available') + ':'
@@ -34,3 +39,6 @@
     - else
       .item-row
         = text_area_tag 'position_application[custom[experience_in_student_associations]]', @position_application.custom['experience_in_student_associations'].to_s, placeholder: t('.experience_in_student_associations'), class: 'wide'
+      .item-row
+        = text_area_tag 'position_application[custom[personal_statement]]', @position_application.custom['personal_statement'].to_s, placeholder: t('.personal_statement'), class: 'wide'
+

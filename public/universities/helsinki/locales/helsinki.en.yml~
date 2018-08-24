@@ -6,10 +6,8 @@ en:
       available_false: No
       degree_programme: Degree (e.g. B.Soc.Sc or MA)
       degree: Academic degree
-      experience_in_student_associations: Your major or degree programme and study track
+      experience_in_student_associations: Previous experience
       send_email_reminder: "Send an email reminder of the call to your fellow applicant."
-      personal_statement: Tell us, why you should be selected.
-
 
     fields_show:
       available: Throughout the whole term
@@ -17,5 +15,4 @@ en:
       available_false: No
       degree_programme: Degree programme
       degree: Academic degree
-      experience_in_student_associations: Your major or degree programme and study track
-      personal_statement: Tell us, why you should be selected.
+      experience_in_student_associations: Previous experience in student organizations

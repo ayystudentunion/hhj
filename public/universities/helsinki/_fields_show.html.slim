@@ -16,3 +16,8 @@
         | :
       p = position_application.custom['experience_in_student_associations']
 
+    - if position_application.custom.include? 'personal_statement'
+      h4
+        = t 'helsinki.fields.personal_statement'
+        | :
+      p = position_application.custom['personal_statement']

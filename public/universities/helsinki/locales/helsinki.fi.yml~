@@ -6,7 +6,7 @@ fi:
       available_false: Ei
       degree_programme: Tutkinto-ohjelma (esim. Automaatiotekniikka)
       degree: Oppiarvo (esim. VTK tai fil. yo)
-      experience_in_student_associations: Pääaine / Koulutusohjelma ja opintosuunta
+      experience_in_student_associations: Aiempi kokemus järjestötoiminnoista
       personal_statement: Kerro, miksi sinut tulisi valita tehtävään
     member_fields:
       send_email_reminder: "Lähetä muistutus hakukumppanillesi hausta"
@@ -16,5 +16,5 @@ fi:
       available_false: Ei
       degree_programme: Tutkinto-ohjelma
       degree: Oppiarvo
-      experience_in_student_associations: Pääaine / Koulutusohjelma ja opintosuunta
+      experience_in_student_associations: Aiempi kokemus järjestötoiminnasta
       personal_statement: Kerro, miksi sinut tulisi valita tehtävään
