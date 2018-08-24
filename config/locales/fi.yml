@@ -89,7 +89,7 @@ fi:
         one: "Jäsen tai varajäsen jäsenelle %{name}"
         other: "Jäsen tai varajäsen jäsenelle %{name}"
       deputy_of: Varajäseneksi jäsenelle
-      personal_statement: Perustelut
+      personal_statement: Perustelusi
   alliances:
     unconfirmed: "Vahvistamattomat vaaliliitot"
     confirm: "Vahvista"
@@ -238,7 +238,7 @@ fi:
         position_deputy: Varajäseneksi
         position_both: Molempiin
         deputy_of: Kenen varajäseneksi haluat
-        personal_statement: Perustelut
+        personal_statement: Perustelusi
 
     errors:
       models:
